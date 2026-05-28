@@ -1,0 +1,32 @@
+aid: censys
+name: Censys
+description: "Search engine for Internet connected host and devices"
+url: https://search.censys.io/api
+specificationVersion: '0.20'
+created: '2026-05-28'
+modified: '2026-05-28'
+x-source: public-apis/public-apis
+x-category: "Security"
+x-tier: 3
+x-tier-reason: bulk-registered-from-public-apis
+tags:
+  - Security
+  - Public APIs
+apis:
+  - name: Censys
+    description: "Search engine for Internet connected host and devices"
+    humanURL: https://search.censys.io/api
+    baseURL: https://search.censys.io/api
+    tags:
+      - Security
+    properties:
+      - type: Documentation
+        url: https://search.censys.io/api
+common:
+  - type: Website
+    url: https://search.censys.io/api
+  - type: PublicAPIsListing
+    url: https://github.com/public-apis/public-apis
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
