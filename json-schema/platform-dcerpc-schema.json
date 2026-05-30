@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-dcerpc-schema.json",
+  "title": "Dcerpc",
+  "description": "Dcerpc schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "could_bind": {
+      "type": "boolean"
+    },
+    "could_query_epm": {
+      "type": "boolean"
+    },
+    "endpoints": {
+      "items": {
+        "$ref": "#/components/schemas/Dcerpc_Endpoint"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

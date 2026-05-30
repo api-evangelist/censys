@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-redis-structure.json",
+  "name": "Redis",
+  "description": "Redis schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "arch_bits": {
+      "type": "string",
+      "description": "The architecture bits (32 or 64) the Redis server used to build."
+    },
+    "auth_response": {
+      "type": "string",
+      "description": "The response from the AUTH command, if sent."
+    },
+    "build_id": {
+      "type": "string",
+      "description": "The Build ID of the Redis server."
+    },
+    "commands": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The list of commands actually sent to the server, serialized in inline format, like 'PING' or 'AUTH somePassword'.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "commands_processed": {
+      "type": "int32",
+      "description": "The total number of commands processed by the server.",
+      "minimum": 0
+    },
+    "connections_received": {
+      "type": "int32",
+      "description": "The total number of connections accepted by the server.",
+      "minimum": 0
+    },
+    "gcc_version": {
+      "type": "string",
+      "description": "The version of the GCC compiler used to compile the Redis server."
+    },
+    "git_sha1": {
+      "type": "string",
+      "description": "The Sha-1 Git commit hash the Redis server used."
+    },
+    "info_response": {
+      "type": "object",
+      "description": "The response from the INFO command. Should be a series of key:value pairs separated by CRLFs.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "major": {
+      "type": "int32",
+      "description": "Major is the version's major number.",
+      "minimum": 0
+    },
+    "mem_allocator": {
+      "type": "string",
+      "description": "The memory allocator."
+    },
+    "minor": {
+      "type": "int32",
+      "description": "Minor is the version's major number.",
+      "minimum": 0
+    },
+    "mode": {
+      "type": "string",
+      "description": "The mode the Redis server is running (standalone or cluster), read from the the info_response (if available)."
+    },
+    "nonexistent_response": {
+      "type": "string",
+      "description": "The response from the NONEXISTENT command."
+    },
+    "os": {
+      "type": "string",
+      "description": "The OS the Redis server is running, read from the the info_response (if available)."
+    },
+    "patch_level": {
+      "type": "int32",
+      "description": "Patchlevel is the version's patchlevel number.",
+      "minimum": 0
+    },
+    "ping_response": {
+      "type": "string",
+      "description": "The response from the PING command; should either be \"PONG\" or an authentication error."
+    },
+    "quit_response": {
+      "type": "string",
+      "description": "The response to the QUIT command."
+    },
+    "raw_command_output": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The raw output returned by the server for each command sent; the indices match those of commands.",
+      "items": {
+        "$ref": "#/components/schemas/Redis_RawOutput"
+      }
+    },
+    "uptime": {
+      "type": "int32",
+      "description": "The number of seconds since Redis server start.",
+      "minimum": 0
+    },
+    "used_memory": {
+      "type": "int32",
+      "description": "The total number of bytes allocated by Redis using its allocator.",
+      "minimum": 0
+    }
+  }
+}

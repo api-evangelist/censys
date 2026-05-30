@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-dnsipresolutionrangeresponse-structure.json",
+  "name": "DnsIpResolutionRangeResponse",
+  "description": "DnsIpResolutionRangeResponse schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "ip",
+    "next_page_token",
+    "records",
+    "total_records"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "ip": {
+      "type": "string",
+      "description": "The IP address that was queried."
+    },
+    "next_page_token": {
+      "type": "string",
+      "description": "A token that can be used to retrieve the next page of records."
+    },
+    "records": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The list of domain names that resolved to this IP.",
+      "items": {
+        "$ref": "#/components/schemas/DnsIpResolutionRangeRecord"
+      }
+    },
+    "total_records": {
+      "type": "int64",
+      "description": "The number of records that exist in total across all pages."
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-kubernetes-role-structure.json",
+  "name": "Kubernetes_Role",
+  "description": "Kubernetes_Role schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "rules": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Rules set for this role.",
+      "items": {
+        "$ref": "#/components/schemas/Kubernetes_Role_Rule"
+      }
+    }
+  }
+}

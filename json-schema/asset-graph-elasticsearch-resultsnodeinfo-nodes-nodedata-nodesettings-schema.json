@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-elasticsearch-resultsnodeinfo-nodes-nodedata-nodesettings-schema.json",
+  "title": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_NodeSettings",
+  "description": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_NodeSettings schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "cluster_name": {
+      "type": "string"
+    },
+    "node": {
+      "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo_Nodes_NodeData_NodeSettings_Node"
+    }
+  },
+  "additionalProperties": false
+}

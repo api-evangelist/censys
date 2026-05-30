@@ -1,0 +1,6 @@
+{
+  "description": "Active production asset under observation.",
+  "last_build": null,
+  "name": "Production Internet Asset Inventory",
+  "url": "https://search.censys.io/hosts/8.8.8.8"
+}

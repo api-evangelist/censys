@@ -1,0 +1,10 @@
+{
+  "domain_protocol_version": 869,
+  "max_channel_ids": 205,
+  "max_mcspdu_size": 467,
+  "max_provider_height": 357,
+  "max_token_ids": 833,
+  "max_user_id_channels": 65,
+  "min_throughput": 925,
+  "num_priorities": 256
+}

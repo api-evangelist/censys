@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-threat-structure.json",
+  "name": "Threat",
+  "description": "Threat schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "actors": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Threat_Actor"
+      }
+    },
+    "confidence": {
+      "type": "double"
+    },
+    "details": {
+      "$ref": "#/components/schemas/Threat_Details"
+    },
+    "evidence": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Evidence"
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "malware": {
+      "$ref": "#/components/schemas/Threat_Malware"
+    },
+    "name": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "",
+        "censys",
+        "recog",
+        "wappalyzer",
+        "third_party",
+        "html_meta_extractor"
+      ]
+    },
+    "tactic": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "type": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

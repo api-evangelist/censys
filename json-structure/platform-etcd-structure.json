@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-etcd-structure.json",
+  "name": "Etcd",
+  "description": "Etcd schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "v2": {
+      "$ref": "#/components/schemas/Etcd_V2"
+    },
+    "v3": {
+      "$ref": "#/components/schemas/Etcd_V3"
+    },
+    "version": {
+      "$ref": "#/components/schemas/Etcd_Version"
+    }
+  }
+}

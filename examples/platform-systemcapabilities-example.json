@@ -1,0 +1,13 @@
+{
+  "discovery_bye": true,
+  "discovery_resolve": true,
+  "firmware_upgrade": false,
+  "http_firmware_upgrade": true,
+  "http_support_information": false,
+  "http_system_backup": false,
+  "http_system_logging": false,
+  "remote_discovery": true,
+  "storage_configuration": true,
+  "system_backup": true,
+  "system_logging": false
+}

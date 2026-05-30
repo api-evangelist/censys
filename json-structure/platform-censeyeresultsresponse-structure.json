@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-censeyeresultsresponse-structure.json",
+  "name": "CenseyeResultsResponse",
+  "description": "CenseyeResultsResponse schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "results"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "next_page_token": {
+      "type": "string",
+      "description": "Token to retrieve the next page of results."
+    },
+    "results": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of count results.",
+      "items": {
+        "$ref": "#/components/schemas/CenseyeResult"
+      }
+    }
+  }
+}

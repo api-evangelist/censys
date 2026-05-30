@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ldap-schema.json",
+  "title": "Ldap",
+  "description": "Ldap schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "allows_anonymous_bind": {
+      "description": "Ability to connect with anonymous bind (empty username and password)",
+      "type": "boolean"
+    },
+    "attributes": {
+      "description": "All root DN attributes available via anonymous bind",
+      "items": {
+        "$ref": "#/components/schemas/Ldap_Attribute"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "result_code": {
+      "description": "Result or error code returned by LDAP instance upon bind",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-creditexpiration-structure.json",
+  "name": "CreditExpiration",
+  "description": "CreditExpiration schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "balance",
+    "initial_balance"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "balance": {
+      "type": "int64",
+      "description": "The current balance of the credit expiration."
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "The date and time the credit expiration was created."
+    },
+    "expires_at": {
+      "type": "datetime",
+      "description": "The date and time the credit expiration will expire."
+    },
+    "initial_balance": {
+      "type": "int64",
+      "description": "The initial balance of the credit expiration (i.e. how much was purchased)."
+    }
+  }
+}

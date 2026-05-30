@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-reference-structure.json",
+  "name": "Reference",
+  "description": "Reference schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "link"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "link": {
+      "type": "string"
+    }
+  }
+}

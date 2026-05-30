@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-minecraft-structure.json",
+  "name": "Minecraft",
+  "description": "Minecraft schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "motd": {
+      "type": "string"
+    },
+    "players_max": {
+      "type": "int64"
+    },
+    "players_online": {
+      "type": "int64"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "server_version": {
+      "type": "string"
+    }
+  }
+}

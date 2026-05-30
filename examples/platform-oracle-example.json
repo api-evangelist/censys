@@ -1,0 +1,16 @@
+{
+  "accept_version": 479,
+  "connect_flags0": {},
+  "connect_flags1": {},
+  "did_resend": true,
+  "global_service_options": {},
+  "nsn_service_versions": {},
+  "nsn_version": "example",
+  "refuse_error": [
+    null
+  ],
+  "refuse_error_raw": "example",
+  "refuse_reason_app": "Active production asset under observation.",
+  "refuse_reason_sys": "Active production asset under observation.",
+  "refuse_version": "example"
+}

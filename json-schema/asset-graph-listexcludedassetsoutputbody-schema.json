@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-listexcludedassetsoutputbody-schema.json",
+  "title": "ListExcludedAssetsOutputBody",
+  "description": "ListExcludedAssetsOutputBody schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "description": "A URL to the JSON Schema for this object.",
+      "examples": [
+        "https://graph.data.censys.io/schemas/ListExcludedAssetsOutputBody.json"
+      ],
+      "format": "uri",
+      "readOnly": true,
+      "type": "string"
+    },
+    "excluded_assets": {
+      "description": "List of excluded assets",
+      "items": {
+        "$ref": "#/components/schemas/ExcludedAsset"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "next_page_token": {
+      "description": "Token for the next page of results",
+      "type": "string"
+    }
+  },
+  "required": [
+    "excluded_assets"
+  ],
+  "additionalProperties": false
+}

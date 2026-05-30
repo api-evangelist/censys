@@ -1,0 +1,21 @@
+{
+  "alarm_input_channels": 512,
+  "alarm_output_channels": 896,
+  "device_class": "example",
+  "device_id": "cns_974bdb419bf7edd5",
+  "device_type": "example",
+  "http_port": 324,
+  "ipv4_address": null,
+  "ipv6_address": null,
+  "machine_group": "aa:bb:cc:dd:ee:ff",
+  "machine_name": "aa:bb:cc:dd:ee:ff",
+  "manufacturer": "example",
+  "port": 571,
+  "remote_video_input_channels": 847,
+  "serial_number": "example",
+  "unlogin_func_mask": 674,
+  "vendor": "example",
+  "version": "example",
+  "video_input_channels": 341,
+  "video_output_channels": 259
+}

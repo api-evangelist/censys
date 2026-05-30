@@ -1,0 +1,691 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Censys Platform — Account Management
+  description: 'Censys Platform — Account Management. 11 operation(s). Lead operation: Censys Get Organization Details. Self-contained Naftiko capability covering one Censys business surface.'
+  tags:
+    - Censys
+    - Platform
+    - Account Management
+  created: '2026-05-29'
+  modified: '2026-05-29'
+binds:
+  - namespace: env
+    keys:
+      CENSYS_PERSONAL_ACCESS_TOKEN: CENSYS_PERSONAL_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: platform-account-management
+      baseUri: https://api.platform.censys.io
+      description: Censys Platform — Account Management business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.CENSYS_PERSONAL_ACCESS_TOKEN}}'
+      resources:
+        - name: v3-accounts-organizations-organization-id
+          path: /v3/accounts/organizations/{organization_id}
+          operations:
+            - name: v3-accountmanagement-org-details
+              method: GET
+              description: Censys Get Organization Details
+              inputParameters:
+                - name: organization_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+                - name: include_member_counts
+                  in: query
+                  type: boolean
+                  required: false
+                  description: Whether to include how many members are in this organization, split by role.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v3-accounts-organizations-organization-id-audit-log-events
+          path: /v3/accounts/organizations/{organization_id}/audit-log-events
+          operations:
+            - name: v3-accountmanagement-org-audit-log-events
+              method: GET
+              description: Censys List Audit Log Events
+              inputParameters:
+                - name: organization_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+                - name: page_size
+                  in: query
+                  type: integer
+                  required: false
+                  description: Amount of events to return per page.
+                - name: page_token
+                  in: query
+                  type: string
+                  required: false
+                  description: Page token for the requested page of audit log events.
+                - name: start_time
+                  in: query
+                  type: string
+                  required: false
+                  description: Only return events that occurred after this time. This value must be on or after 2026-01-01T00:00:00Z. If not provided, will default to the earliest possible date.
+                - name: end_time
+                  in: query
+                  type: string
+                  required: false
+                  description: Only return events that occurred before this time. This value must not be in the future. If not provided, it defaults to the current time.
+                - name: event_type
+                  in: query
+                  type: string
+                  required: false
+                  description: Only return events of this type. This field is deprecated and will be removed in a future version. Use event_types instead.
+                - name: event_types
+                  in: query
+                  type:
+                    - array
+                    - "null"
+                  required: false
+                  description: Only return events of these types.
+                - name: exclude_event_types
+                  in: query
+                  type:
+                    - array
+                    - "null"
+                  required: false
+                  description: Exclude events of these types.
+                - name: user_email
+                  in: query
+                  type: string
+                  required: false
+                  description: Only return events performed by this user.
+                - name: order_by
+                  in: query
+                  type: string
+                  required: false
+                  description: Order events by this field.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v3-accounts-organizations-organization-id-credits
+          path: /v3/accounts/organizations/{organization_id}/credits
+          operations:
+            - name: v3-accountmanagement-org-credits
+              method: GET
+              description: Censys Get Organization Credit Balance
+              inputParameters:
+                - name: organization_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v3-accounts-organizations-organization-id-credits-usage
+          path: /v3/accounts/organizations/{organization_id}/credits/usage
+          operations:
+            - name: v3-accountmanagement-org-credits-usage
+              method: GET
+              description: Censys Get Organization Credit Usage
+              inputParameters:
+                - name: organization_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+                - name: date
+                  in: query
+                  type: string
+                  required: false
+                  description: The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+                - name: start_date
+                  in: query
+                  type: string
+                  required: false
+                  description: The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+                - name: end_date
+                  in: query
+                  type: string
+                  required: false
+                  description: The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year).
+                - name: granularity
+                  in: query
+                  type: string
+                  required: true
+                  description: Whether to break down credit usage on a daily or monthly basis.
+                - name: include_consumer_breakdown
+                  in: query
+                  type: boolean
+                  required: false
+                  description: Whether to include a breakdown of individual users' consumption in the credit usage report.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v3-accounts-organizations-organization-id-invitations
+          path: /v3/accounts/organizations/{organization_id}/invitations
+          operations:
+            - name: v3-accountmanagement-invite-user-to-org
+              method: POST
+              description: Censys Invite User to Organization
+              inputParameters:
+                - name: organization_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v3-accounts-organizations-organization-id-members
+          path: /v3/accounts/organizations/{organization_id}/members
+          operations:
+            - name: v3-accountmanagement-list-org-members
+              method: GET
+              description: Censys List Organization Members
+              inputParameters:
+                - name: organization_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+                - name: page_size
+                  in: query
+                  type: integer
+                  required: false
+                  description: Number of members to return per page
+                - name: page_token
+                  in: query
+                  type: string
+                  required: false
+                  description: Pagination token for retrieving the next page of results
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v3-accounts-organizations-organization-id-members-user-id
+          path: /v3/accounts/organizations/{organization_id}/members/{user_id}
+          operations:
+            - name: v3-accountmanagement-remove-org-member
+              method: DELETE
+              description: Censys Remove Member from Organization
+              inputParameters:
+                - name: organization_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+                - name: user_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys user. You can obtain a user's ID by listing members of an organization.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: v3-accountmanagement-update-org-member
+              method: PATCH
+              description: Censys Update a Member's Roles in an Organization
+              inputParameters:
+                - name: organization_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+                - name: user_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys user. You can obtain a user's ID by listing members of an organization.
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v3-accounts-organizations-organization-id-members-user-id-credits-usage
+          path: /v3/accounts/organizations/{organization_id}/members/{user_id}/credits/usage
+          operations:
+            - name: v3-accountmanagement-member-credits-usage
+              method: GET
+              description: Censys Get Organization Member Credit Usage
+              inputParameters:
+                - name: organization_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+                - name: user_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys user. You can obtain a user's ID by listing members of an organization.
+                - name: date
+                  in: query
+                  type: string
+                  required: false
+                  description: The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+                - name: start_date
+                  in: query
+                  type: string
+                  required: false
+                  description: The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+                - name: end_date
+                  in: query
+                  type: string
+                  required: false
+                  description: The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year).
+                - name: granularity
+                  in: query
+                  type: string
+                  required: true
+                  description: Whether to break down credit usage on a daily or monthly basis.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v3-accounts-users-credits
+          path: /v3/accounts/users/credits
+          operations:
+            - name: v3-accountmanagement-user-credits
+              method: GET
+              description: Censys Get Free User Credit Balance
+              inputParameters: []
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v3-accounts-users-credits-usage
+          path: /v3/accounts/users/credits/usage
+          operations:
+            - name: v3-accountmanagement-user-credits-usage
+              method: GET
+              description: Censys Get Free User Credit Usage
+              inputParameters:
+                - name: date
+                  in: query
+                  type: string
+                  required: false
+                  description: The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+                - name: start_date
+                  in: query
+                  type: string
+                  required: false
+                  description: The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+                - name: end_date
+                  in: query
+                  type: string
+                  required: false
+                  description: The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year).
+                - name: granularity
+                  in: query
+                  type: string
+                  required: true
+                  description: Whether to break down credit usage on a daily or monthly basis.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: platform-account-management-rest
+      port: 8080
+      description: REST adapter for Censys Platform — Account Management. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/accounts/organizations/{organization_id}
+          name: accounts-organizations-organization-id
+          description: REST surface for accounts-organizations-organization-id.
+          operations:
+            - method: GET
+              name: v3-accountmanagement-org-details
+              description: Censys Get Organization Details
+              call: platform-account-management.v3-accountmanagement-org-details
+              with:
+                organization_id: rest.organization_id
+                include_member_counts: rest.include_member_counts
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/accounts/organizations/{organization_id}/audit-log-events
+          name: accounts-organizations-organization-id-audit-log-events
+          description: REST surface for accounts-organizations-organization-id-audit-log-events.
+          operations:
+            - method: GET
+              name: v3-accountmanagement-org-audit-log-events
+              description: Censys List Audit Log Events
+              call: platform-account-management.v3-accountmanagement-org-audit-log-events
+              with:
+                organization_id: rest.organization_id
+                page_size: rest.page_size
+                page_token: rest.page_token
+                start_time: rest.start_time
+                end_time: rest.end_time
+                event_type: rest.event_type
+                event_types: rest.event_types
+                exclude_event_types: rest.exclude_event_types
+                user_email: rest.user_email
+                order_by: rest.order_by
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/accounts/organizations/{organization_id}/credits
+          name: accounts-organizations-organization-id-credits
+          description: REST surface for accounts-organizations-organization-id-credits.
+          operations:
+            - method: GET
+              name: v3-accountmanagement-org-credits
+              description: Censys Get Organization Credit Balance
+              call: platform-account-management.v3-accountmanagement-org-credits
+              with:
+                organization_id: rest.organization_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/accounts/organizations/{organization_id}/credits/usage
+          name: accounts-organizations-organization-id-credits-usage
+          description: REST surface for accounts-organizations-organization-id-credits-usage.
+          operations:
+            - method: GET
+              name: v3-accountmanagement-org-credits-usage
+              description: Censys Get Organization Credit Usage
+              call: platform-account-management.v3-accountmanagement-org-credits-usage
+              with:
+                organization_id: rest.organization_id
+                date: rest.date
+                start_date: rest.start_date
+                end_date: rest.end_date
+                granularity: rest.granularity
+                include_consumer_breakdown: rest.include_consumer_breakdown
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/accounts/organizations/{organization_id}/invitations
+          name: accounts-organizations-organization-id-invitations
+          description: REST surface for accounts-organizations-organization-id-invitations.
+          operations:
+            - method: POST
+              name: v3-accountmanagement-invite-user-to-org
+              description: Censys Invite User to Organization
+              call: platform-account-management.v3-accountmanagement-invite-user-to-org
+              with:
+                organization_id: rest.organization_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/accounts/organizations/{organization_id}/members
+          name: accounts-organizations-organization-id-members
+          description: REST surface for accounts-organizations-organization-id-members.
+          operations:
+            - method: GET
+              name: v3-accountmanagement-list-org-members
+              description: Censys List Organization Members
+              call: platform-account-management.v3-accountmanagement-list-org-members
+              with:
+                organization_id: rest.organization_id
+                page_size: rest.page_size
+                page_token: rest.page_token
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/accounts/organizations/{organization_id}/members/{user_id}
+          name: accounts-organizations-organization-id-members-user-id
+          description: REST surface for accounts-organizations-organization-id-members-user-id.
+          operations:
+            - method: DELETE
+              name: v3-accountmanagement-remove-org-member
+              description: Censys Remove Member from Organization
+              call: platform-account-management.v3-accountmanagement-remove-org-member
+              with:
+                organization_id: rest.organization_id
+                user_id: rest.user_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: PATCH
+              name: v3-accountmanagement-update-org-member
+              description: Censys Update a Member's Roles in an Organization
+              call: platform-account-management.v3-accountmanagement-update-org-member
+              with:
+                organization_id: rest.organization_id
+                user_id: rest.user_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/accounts/organizations/{organization_id}/members/{user_id}/credits/usage
+          name: accounts-organizations-organization-id-members-user-id-credits-usage
+          description: REST surface for accounts-organizations-organization-id-members-user-id-credits-usage.
+          operations:
+            - method: GET
+              name: v3-accountmanagement-member-credits-usage
+              description: Censys Get Organization Member Credit Usage
+              call: platform-account-management.v3-accountmanagement-member-credits-usage
+              with:
+                organization_id: rest.organization_id
+                user_id: rest.user_id
+                date: rest.date
+                start_date: rest.start_date
+                end_date: rest.end_date
+                granularity: rest.granularity
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/accounts/users/credits
+          name: accounts-users-credits
+          description: REST surface for accounts-users-credits.
+          operations:
+            - method: GET
+              name: v3-accountmanagement-user-credits
+              description: Censys Get Free User Credit Balance
+              call: platform-account-management.v3-accountmanagement-user-credits
+              with: {}
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/accounts/users/credits/usage
+          name: accounts-users-credits-usage
+          description: REST surface for accounts-users-credits-usage.
+          operations:
+            - method: GET
+              name: v3-accountmanagement-user-credits-usage
+              description: Censys Get Free User Credit Usage
+              call: platform-account-management.v3-accountmanagement-user-credits-usage
+              with:
+                date: rest.date
+                start_date: rest.start_date
+                end_date: rest.end_date
+                granularity: rest.granularity
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: platform-account-management-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Censys Platform — Account Management. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: censys-get-organization-details
+          description: Censys Get Organization Details
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: platform-account-management.v3-accountmanagement-org-details
+          with:
+            organization_id: tools.organization_id
+            include_member_counts: tools.include_member_counts
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-list-audit-log-events
+          description: Censys List Audit Log Events
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: platform-account-management.v3-accountmanagement-org-audit-log-events
+          with:
+            organization_id: tools.organization_id
+            page_size: tools.page_size
+            page_token: tools.page_token
+            start_time: tools.start_time
+            end_time: tools.end_time
+            event_type: tools.event_type
+            event_types: tools.event_types
+            exclude_event_types: tools.exclude_event_types
+            user_email: tools.user_email
+            order_by: tools.order_by
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-get-organization-credit-balance
+          description: Censys Get Organization Credit Balance
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: platform-account-management.v3-accountmanagement-org-credits
+          with:
+            organization_id: tools.organization_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-get-organization-credit-usage
+          description: Censys Get Organization Credit Usage
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: platform-account-management.v3-accountmanagement-org-credits-usage
+          with:
+            organization_id: tools.organization_id
+            date: tools.date
+            start_date: tools.start_date
+            end_date: tools.end_date
+            granularity: tools.granularity
+            include_consumer_breakdown: tools.include_consumer_breakdown
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-invite-user-organization
+          description: Censys Invite User to Organization
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: platform-account-management.v3-accountmanagement-invite-user-to-org
+          with:
+            organization_id: tools.organization_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-list-organization-members
+          description: Censys List Organization Members
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: platform-account-management.v3-accountmanagement-list-org-members
+          with:
+            organization_id: tools.organization_id
+            page_size: tools.page_size
+            page_token: tools.page_token
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-remove-member-organization
+          description: Censys Remove Member from Organization
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: platform-account-management.v3-accountmanagement-remove-org-member
+          with:
+            organization_id: tools.organization_id
+            user_id: tools.user_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-update-member-s-roles
+          description: Censys Update a Member's Roles in an Organization
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: platform-account-management.v3-accountmanagement-update-org-member
+          with:
+            organization_id: tools.organization_id
+            user_id: tools.user_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-get-organization-member-credit
+          description: Censys Get Organization Member Credit Usage
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: platform-account-management.v3-accountmanagement-member-credits-usage
+          with:
+            organization_id: tools.organization_id
+            user_id: tools.user_id
+            date: tools.date
+            start_date: tools.start_date
+            end_date: tools.end_date
+            granularity: tools.granularity
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-get-free-user-credit
+          description: Censys Get Free User Credit Balance
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: platform-account-management.v3-accountmanagement-user-credits
+          with: {}
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-get-free-user-credit-2
+          description: Censys Get Free User Credit Usage
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: platform-account-management.v3-accountmanagement-user-credits-usage
+          with:
+            date: tools.date
+            start_date: tools.start_date
+            end_date: tools.end_date
+            granularity: tools.granularity
+          outputParameters:
+            - type: object
+              mapping: $.

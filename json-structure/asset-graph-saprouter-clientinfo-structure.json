@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-saprouter-clientinfo-structure.json",
+  "name": "SapRouter_ClientInfo",
+  "description": "SapRouter_ClientInfo schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "connected": {
+      "type": "boolean"
+    },
+    "connected_on": {
+      "type": "string"
+    },
+    "id": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "routed": {
+      "type": "boolean"
+    },
+    "service": {
+      "type": "string"
+    },
+    "traced": {
+      "type": "boolean"
+    }
+  }
+}

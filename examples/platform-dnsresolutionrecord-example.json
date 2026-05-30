@@ -1,0 +1,12 @@
+{
+  "first_seen": "2026-05-29T12:34:56Z",
+  "ip": "8.8.8.8",
+  "last_seen": "2026-05-29T12:34:56Z",
+  "mail_server": "analyst@example.com",
+  "mname": "Production Internet Asset Inventory",
+  "name_server": "Production Internet Asset Inventory",
+  "priority": 539,
+  "record_type": "A",
+  "rname": "Production Internet Asset Inventory",
+  "value": "example"
+}

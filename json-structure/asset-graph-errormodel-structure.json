@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-errormodel-structure.json",
+  "name": "ErrorModel",
+  "description": "ErrorModel schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "uri",
+      "description": "A URL to the JSON Schema for this object."
+    },
+    "detail": {
+      "type": "string",
+      "description": "A human-readable explanation specific to this occurrence of the problem."
+    },
+    "errors": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Optional list of individual error details",
+      "items": {
+        "$ref": "#/components/schemas/ErrorDetail"
+      }
+    },
+    "instance": {
+      "type": "uri",
+      "description": "A URI reference that identifies the specific occurrence of the problem."
+    },
+    "status": {
+      "type": "int64",
+      "description": "HTTP status code"
+    },
+    "title": {
+      "type": "string",
+      "description": "A short, human-readable summary of the problem type. This value should not change between occurrences of the error."
+    },
+    "type": {
+      "type": "uri",
+      "description": "A URI reference to human-readable documentation for the error.",
+      "default": "about:blank"
+    }
+  }
+}

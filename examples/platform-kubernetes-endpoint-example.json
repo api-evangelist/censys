@@ -1,0 +1,8 @@
+{
+  "name": "Production Internet Asset Inventory",
+  "self_link": "https://search.censys.io/hosts/8.8.8.8",
+  "subsets": [
+    null,
+    null
+  ]
+}

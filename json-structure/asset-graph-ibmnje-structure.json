@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ibmnje-structure.json",
+  "name": "Ibmnje",
+  "description": "Ibmnje schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ohost": {
+      "type": "string"
+    },
+    "oip": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "rhost": {
+      "type": "string"
+    },
+    "rip": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

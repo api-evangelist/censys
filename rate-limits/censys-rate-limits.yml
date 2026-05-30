@@ -1,0 +1,88 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Censys
+providerId: censys
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: false
+tags:
+  - Rate Limiting
+  - Security
+  - Internet Intelligence
+  - Attack Surface Management
+description: >-
+  Censys enforces per-account / per-Personal-Access-Token quotas measured primarily in
+  results-per-query and credits / Collections per tier rather than as hard requests-per-second
+  caps. Free Community and Individual tiers have stricter caps (e.g., 500 results/query,
+  2 Collections); Security Operations and Threat Hunting raise or remove caps. The legacy
+  Search v1/v2 APIs published per-second rates that varied by plan. Hard throttling returns
+  HTTP 429 with Retry-After. Exact per-tier RPS/RPM numbers are not publicly enumerated for
+  the Platform API and should be confirmed with Censys support for production planning.
+sources:
+  - https://docs.censys.com
+  - https://docs.censys.com/reference
+  - https://censys.com/pricing/
+  - https://censys-python.readthedocs.io/en/stable/
+headers:
+  retryAfter: Retry-After
+  requestId: X-Request-Id
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  unauthorized: 401
+  forbidden: 403
+limits:
+  - name: Censys Platform API — request throttling
+    scope: account
+    metric: requests_per_second
+    limit: 'see plan; published numbers not in public docs — confirm with Censys support'
+    notes: Throttling is enforced per Personal Access Token; bursts trigger HTTP 429 with Retry-After.
+  - name: Censys Platform API — results per query
+    scope: account
+    metric: requests_per_query
+    limit: '500 (Individual) / unlimited (Security Operations and Threat Hunting)'
+    notes: Per-query result cap is a plan quota rather than a request-rate limit.
+  - name: Censys Platform API — Collections per account
+    scope: account
+    metric: collections
+    limit: '2 (Individual) / 15 (Security Operations) / negotiated (Threat Hunting)'
+    notes: Collection count is plan-bound.
+  - name: Censys Platform API — host data history window
+    scope: account
+    metric: history_window
+    limit: '1 week (Individual) / 1 month (Security Operations) / longer (Threat Hunting)'
+    notes: History window is plan-bound.
+  - name: Censys Legacy Search v1 API
+    scope: key
+    metric: requests_per_second
+    limit: 'historically 0.2–5 RPS depending on plan (deprecated; migrate to Platform)'
+    notes: Search v1 is deprecated as of 2026; use the Platform API.
+  - name: Censys Legacy Search v2 API
+    scope: key
+    metric: requests_per_second
+    limit: 'historically 0.4 RPS (free) to higher tiers (deprecated)'
+    notes: Search v2 is deprecated; existing keys remain functional during migration.
+  - name: On-demand scans (Threat Hunting tier)
+    scope: account
+    metric: scans_per_month
+    limit: 'fair-use — confirm with Censys'
+    notes: Live discovery / rescan endpoints are usage-tracked.
+  - name: CensEye threat-hunting jobs
+    scope: account
+    metric: jobs_per_month
+    limit: 'tier-bound; confirm with Censys'
+    notes: Each CensEye job consumes credits.
+policies:
+  - name: Personal Access Token scoping
+    description: All Platform API requests are authenticated with a Personal Access Token (HTTP bearer). Tokens are user-scoped and revocable from the Censys account settings.
+  - name: Backoff on 429
+    description: On HTTP 429, honor the Retry-After header (seconds). Censys recommends exponential backoff with jitter for high-volume integrations.
+  - name: Credit-based metering
+    description: Many Platform operations (search, view, aggregate, scan, CensEye) consume tenant credits visible via /v3/accounts/.../credits endpoints. Monitor credits to avoid quota exhaustion.
+  - name: Legacy vs Platform separation
+    description: Search v1 (search.censys.io/api/v1) and v2 (search.censys.io/api/v2) keys are separate from Platform Personal Access Tokens. Migrate to Platform tokens for new integrations.
+  - name: Raise limits via support
+    description: Higher TPS, larger Collections, or extended history windows are negotiated via Censys Sales / Support per plan.
+  - name: Audit-log visibility
+    description: Account-level actions are observable via /v3/accounts/{org_id}/audit-log-events to detect quota-impacting changes.

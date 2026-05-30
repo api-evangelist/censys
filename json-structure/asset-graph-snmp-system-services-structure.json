@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-snmp-system-services-structure.json",
+  "name": "Snmp_System_Services",
+  "description": "Snmp_System_Services schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "layer_1": {
+      "type": "boolean",
+      "description": "Physical (e.g. repeaters)"
+    },
+    "layer_2": {
+      "type": "boolean",
+      "description": "Datalink/subnetwork (e.g. bridges)"
+    },
+    "layer_3": {
+      "type": "boolean",
+      "description": "Internet (e.g. IP gateways)"
+    },
+    "layer_4": {
+      "type": "boolean",
+      "description": "End-to-end (e.g. IP hosts)"
+    },
+    "layer_5": {
+      "type": "boolean",
+      "description": "OSI layer 5"
+    },
+    "layer_6": {
+      "type": "boolean",
+      "description": "OSI layer 6"
+    },
+    "layer_7": {
+      "type": "boolean",
+      "description": "Applications (e.g. mail relays)"
+    }
+  }
+}

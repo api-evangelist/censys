@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-cursorontarget-event-schema.json",
+  "title": "CursorOnTarget_Event",
+  "description": "CursorOnTarget_Event schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "callsign": {
+      "type": "string"
+    },
+    "endpoint": {
+      "type": "string"
+    },
+    "how": {
+      "type": "string"
+    },
+    "point": {
+      "$ref": "#/components/schemas/CursorOnTarget_Point"
+    },
+    "stale": {
+      "type": "string"
+    },
+    "start": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/components/schemas/CursorOnTarget_Status"
+    },
+    "takv": {
+      "$ref": "#/components/schemas/CursorOnTarget_Takv"
+    },
+    "time": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "uid": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "video_url": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,11 @@
+{
+  "allocs": 448,
+  "block": 728,
+  "cmdline": "example",
+  "goroutine": 528,
+  "heap": 736,
+  "mutex": 654,
+  "profile": 979,
+  "threadcreate": 146,
+  "trace": 404
+}

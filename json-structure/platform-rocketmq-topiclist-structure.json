@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-rocketmq-topiclist-structure.json",
+  "name": "Rocketmq_TopicList",
+  "description": "Rocketmq_TopicList schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "header": {
+      "$ref": "#/components/schemas/Rocketmq_ResponseHeader"
+    },
+    "topic_list": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

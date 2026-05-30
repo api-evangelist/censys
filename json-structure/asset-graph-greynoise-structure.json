@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-greynoise-structure.json",
+  "name": "Greynoise",
+  "description": "Greynoise schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "type": "string",
+      "description": "The actor that was observed."
+    },
+    "classification": {
+      "type": "string",
+      "description": "The classification of the IP address."
+    },
+    "tags": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The tags associated with the IP address.",
+      "items": {
+        "$ref": "#/components/schemas/Greynoise_Tag"
+      }
+    }
+  }
+}

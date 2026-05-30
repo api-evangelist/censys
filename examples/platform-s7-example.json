@@ -1,0 +1,16 @@
+{
+  "copyright": "example",
+  "cpu_profile": "example",
+  "firmware": "example",
+  "hardware": "example",
+  "location": "example",
+  "memory_serial_number": "example",
+  "module": "example",
+  "module_id": "cns_d70005814c0f4443",
+  "module_type": "example",
+  "oem_id": "cns_6a0c6f3f24049a39",
+  "plant_id": "cns_f9b1749931239ccc",
+  "reserved_for_os": "example",
+  "serial_number": "example",
+  "system": "example"
+}

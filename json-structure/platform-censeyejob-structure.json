@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-censeyejob-structure.json",
+  "name": "CenseyeJob",
+  "description": "CenseyeJob schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "job_id",
+    "target",
+    "state"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "at_time": {
+      "type": "datetime",
+      "description": "The point-in-time the asset data was evaluated at."
+    },
+    "create_time": {
+      "type": "datetime",
+      "description": "When the job was created."
+    },
+    "delete_time": {
+      "type": "datetime",
+      "description": "When the job and results will be deleted."
+    },
+    "error": {
+      "type": "string",
+      "description": "Error message if the job failed."
+    },
+    "job_id": {
+      "type": "string",
+      "description": "Unique identifier of the job."
+    },
+    "result_count": {
+      "type": "int32",
+      "description": "Total number of result field-value pairs.",
+      "minimum": 0
+    },
+    "state": {
+      "type": "string",
+      "description": "Current state of the job.",
+      "enum": [
+        "started",
+        "completed",
+        "failed",
+        "unknown"
+      ]
+    },
+    "target": {
+      "description": "The asset that was analyzed.",
+      "$ref": "#/components/schemas/CenseyeTarget"
+    },
+    "update_time": {
+      "type": "datetime",
+      "description": "When the job was last updated."
+    }
+  }
+}

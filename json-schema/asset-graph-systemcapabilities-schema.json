@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-systemcapabilities-schema.json",
+  "title": "SystemCapabilities",
+  "description": "SystemCapabilities schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "discovery_bye": {
+      "type": "boolean"
+    },
+    "discovery_resolve": {
+      "type": "boolean"
+    },
+    "firmware_upgrade": {
+      "type": "boolean"
+    },
+    "http_firmware_upgrade": {
+      "type": "boolean"
+    },
+    "http_support_information": {
+      "type": "boolean"
+    },
+    "http_system_backup": {
+      "type": "boolean"
+    },
+    "http_system_logging": {
+      "type": "boolean"
+    },
+    "remote_discovery": {
+      "type": "boolean"
+    },
+    "storage_configuration": {
+      "type": "boolean"
+    },
+    "system_backup": {
+      "type": "boolean"
+    },
+    "system_logging": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

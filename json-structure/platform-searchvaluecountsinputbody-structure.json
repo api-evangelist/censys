@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-searchvaluecountsinputbody-structure.json",
+  "name": "SearchValueCountsInputBody",
+  "description": "SearchValueCountsInputBody schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "and_count_conditions"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "and_count_conditions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Groups of field-value pairs to count matches for. Each group may contain up to 5 field-value pairs.",
+      "items": {
+        "$ref": "#/components/schemas/CountCondition"
+      }
+    },
+    "query": {
+      "type": "string",
+      "description": "CenQL query string to filter documents"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "no_authentication_required": false,
+  "preferred_authentication": "example",
+  "preferred_authentication_value": 936,
+  "socks_version": 491,
+  "supported_versions": [
+    829
+  ]
+}

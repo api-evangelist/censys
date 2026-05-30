@@ -1,0 +1,11 @@
+{
+  "bearer_message": null,
+  "error_message": null,
+  "firmware": null,
+  "framing_message": null,
+  "hostname": "example.com",
+  "maximum_channels": 916,
+  "protocol": null,
+  "result_message": null,
+  "vendor": "example"
+}

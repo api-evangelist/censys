@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rippleclioresults-schema.json",
+  "title": "RippleClioResults",
+  "description": "RippleClioResults schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "clio_version": {
+      "type": "string"
+    },
+    "rippled_version": {
+      "type": "string"
+    },
+    "validated": {
+      "type": "boolean"
+    },
+    "validation_quorum": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

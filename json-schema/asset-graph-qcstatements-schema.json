@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-qcstatements-schema.json",
+  "title": "QcStatements",
+  "description": "QcStatements schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "parsed": {
+      "$ref": "#/components/schemas/QcStatements_ParsedStatements"
+    }
+  },
+  "additionalProperties": false
+}

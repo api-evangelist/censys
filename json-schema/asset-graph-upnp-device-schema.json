@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-upnp-device-schema.json",
+  "title": "Upnp_Device",
+  "description": "Upnp_Device schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "device_type": {
+      "type": "string"
+    },
+    "friendly_name": {
+      "type": "string"
+    },
+    "id": {
+      "description": "Censys-generated IDs representing a device tree",
+      "format": "int32",
+      "type": "integer"
+    },
+    "manufacturer": {
+      "type": "string"
+    },
+    "manufacturer_url": {
+      "type": "string"
+    },
+    "model_description": {
+      "type": "string"
+    },
+    "model_name": {
+      "type": "string"
+    },
+    "model_number": {
+      "type": "string"
+    },
+    "model_url": {
+      "type": "string"
+    },
+    "parent_id": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "presentation_url": {
+      "type": "string"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "service_list": {
+      "items": {
+        "$ref": "#/components/schemas/Upnp_Service"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "udn": {
+      "type": "string"
+    },
+    "upc": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

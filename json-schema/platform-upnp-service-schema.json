@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-upnp-service-schema.json",
+  "title": "Upnp_Service",
+  "description": "Upnp_Service schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "control_url": {
+      "type": "string"
+    },
+    "event_sub_url": {
+      "type": "string"
+    },
+    "scpd_url": {
+      "type": "string"
+    },
+    "service_id": {
+      "type": "string"
+    },
+    "service_type": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

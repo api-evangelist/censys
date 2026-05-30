@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-http-repeatedheaders-structure.json",
+  "name": "Http_RepeatedHeaders",
+  "description": "Http_RepeatedHeaders schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "headers": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The values provided in the corresponding header.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

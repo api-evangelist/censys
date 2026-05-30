@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-cursorontarget-schema.json",
+  "title": "CursorOnTarget",
+  "description": "CursorOnTarget schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "events": {
+      "items": {
+        "$ref": "#/components/schemas/CursorOnTarget_Event"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

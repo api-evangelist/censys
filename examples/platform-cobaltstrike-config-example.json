@@ -1,0 +1,18 @@
+{
+  "cookie_beacon": 514,
+  "crypto_scheme": 686,
+  "dns": false,
+  "host_header": "example",
+  "http_get": null,
+  "http_post": null,
+  "jitter": 848,
+  "killdate": 98,
+  "post_ex": null,
+  "public_key": "8cec3eed0fe50b5f82e294f78775d30d",
+  "sleep_time": 1748520000000,
+  "ssl": false,
+  "unknown_bytes": {},
+  "unknown_int": {},
+  "user_agent": "example",
+  "watermark": 484
+}

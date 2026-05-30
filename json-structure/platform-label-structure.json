@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-label-structure.json",
+  "name": "Label",
+  "description": "Label schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "confidence": {
+      "type": "double"
+    },
+    "evidence": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Evidence"
+      }
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "",
+        "censys",
+        "recog",
+        "wappalyzer",
+        "third_party",
+        "html_meta_extractor"
+      ]
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

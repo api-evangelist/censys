@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-creditusagereportperiod-structure.json",
+  "name": "CreditUsageReportPeriod",
+  "description": "CreditUsageReportPeriod schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "start_date",
+    "end_date",
+    "credits_consumed",
+    "credits_added",
+    "credits_expired",
+    "transaction_count"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "credits_added": {
+      "type": "int64",
+      "description": "The total amount of credits added during the report period."
+    },
+    "credits_consumed": {
+      "type": "int64",
+      "description": "The total amount of credits consumed during the report period."
+    },
+    "credits_expired": {
+      "type": "int64",
+      "description": "The total amount of credits expired during the report period."
+    },
+    "end_date": {
+      "type": "datetime",
+      "description": "The end date of the window for this report period."
+    },
+    "start_date": {
+      "type": "datetime",
+      "description": "The start date of the window for this report period."
+    },
+    "transaction_count": {
+      "type": "int64",
+      "description": "The total number of transactions during the report period."
+    }
+  }
+}

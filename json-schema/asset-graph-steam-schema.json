@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-steam-schema.json",
+  "title": "Steam",
+  "description": "Steam schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "broadcasting_active": {
+      "type": "boolean"
+    },
+    "connect_port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "content_cache_port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "download_lan_peer_group": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "enabled_services": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "euniverse": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "games_running": {
+      "type": "boolean"
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "ip_addresses": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "is64bit": {
+      "type": "boolean"
+    },
+    "mac_addresses": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "min_version": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "ostype": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "public_ip_address": {
+      "type": "string"
+    },
+    "remoteplay_active": {
+      "type": "boolean"
+    },
+    "screen_locked": {
+      "type": "boolean"
+    },
+    "steam_deck": {
+      "type": "boolean"
+    },
+    "steam_version": {
+      "type": "string"
+    },
+    "supported_services": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "users": {
+      "items": {
+        "$ref": "#/components/schemas/User"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "version": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "vr_active": {
+      "type": "boolean"
+    },
+    "vr_link_caps": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

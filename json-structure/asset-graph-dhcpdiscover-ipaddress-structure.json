@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-dhcpdiscover-ipaddress-structure.json",
+  "name": "Dhcpdiscover_IpAddress",
+  "description": "Dhcpdiscover_IpAddress schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "default_gateway": {
+      "type": "string"
+    },
+    "dhcp_enable": {
+      "type": "boolean"
+    },
+    "ip_address": {
+      "type": "string"
+    },
+    "link_local_address": {
+      "type": "string"
+    },
+    "subnetmask": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-host-structure.json",
+  "name": "Host",
+  "description": "Host schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "autonomous_system": {
+      "$ref": "#/components/schemas/Routing"
+    },
+    "dns": {
+      "$ref": "#/components/schemas/HostDns"
+    },
+    "greynoise": {
+      "$ref": "#/components/schemas/Greynoise"
+    },
+    "hardware": {
+      "$ref": "#/components/schemas/Attribute"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "labels": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Label"
+      }
+    },
+    "location": {
+      "$ref": "#/components/schemas/Location"
+    },
+    "network": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Information about what type of network the host belongs to.",
+      "items": {
+        "$ref": "#/components/schemas/NetworkClassification"
+      }
+    },
+    "operating_system": {
+      "$ref": "#/components/schemas/Attribute"
+    },
+    "privacy": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Information about privacy services used by the IP, such as VPNs, Proxies, or Tor.",
+      "items": {
+        "$ref": "#/components/schemas/Privacy"
+      }
+    },
+    "reputation": {
+      "$ref": "#/components/schemas/Reputation"
+    },
+    "service_count": {
+      "type": "int32"
+    },
+    "services": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Service"
+      }
+    },
+    "whois": {
+      "$ref": "#/components/schemas/Whois"
+    }
+  }
+}

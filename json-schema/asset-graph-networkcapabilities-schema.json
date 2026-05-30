@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-networkcapabilities-schema.json",
+  "title": "NetworkCapabilities",
+  "description": "NetworkCapabilities schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "dhcp_v6": {
+      "type": "boolean"
+    },
+    "dot11_configuration": {
+      "type": "boolean"
+    },
+    "dot1x_configurations": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "dynamic_dns": {
+      "type": "boolean"
+    },
+    "hostname_from_dhcp": {
+      "type": "boolean"
+    },
+    "ip_filter": {
+      "type": "boolean"
+    },
+    "ipv6": {
+      "type": "boolean"
+    },
+    "ntp": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "zero_configuration": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-kubernetes-versioninfo-structure.json",
+  "name": "Kubernetes_VersionInfo",
+  "description": "Kubernetes_VersionInfo schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "build_date": {
+      "type": "string",
+      "description": "Date version was built."
+    },
+    "compiler": {
+      "type": "string",
+      "description": "Go Compiler used"
+    },
+    "git_commit": {
+      "type": "string",
+      "description": "Git commit version built from."
+    },
+    "git_tree_state": {
+      "type": "string",
+      "description": "State of the tree when built."
+    },
+    "git_version": {
+      "type": "string"
+    },
+    "go_version": {
+      "type": "string",
+      "description": "Version of GO used to build version."
+    },
+    "major": {
+      "type": "string",
+      "description": "Kubernetes major version"
+    },
+    "minor": {
+      "type": "string",
+      "description": "Kubernetes minor version"
+    },
+    "platform": {
+      "type": "string",
+      "description": "Platform compiled for"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-lpdmessage-structure.json",
+  "name": "LpdMessage",
+  "description": "LpdMessage schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "body": {
+      "type": "string"
+    },
+    "status": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

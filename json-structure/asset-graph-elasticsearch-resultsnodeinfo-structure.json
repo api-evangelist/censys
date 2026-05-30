@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-elasticsearch-resultsnodeinfo-structure.json",
+  "name": "ElasticSearch_ResultsNodeInfo",
+  "description": "ElasticSearch_ResultsNodeInfo schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cluster_combined_info": {
+      "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo"
+    },
+    "node_info": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo_Nodes"
+      }
+    }
+  }
+}

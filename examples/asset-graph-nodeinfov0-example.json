@@ -1,0 +1,12 @@
+{
+  "features": [
+    "example"
+  ],
+  "is_healthy": true,
+  "latest_milestone": 443,
+  "latest_uncommitted_milestone": 118,
+  "name": "Production Internet Asset Inventory",
+  "neighbors": 830,
+  "tips": 905,
+  "version": "example"
+}

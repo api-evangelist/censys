@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-opcua-usertokenpolicy-schema.json",
+  "title": "OpcUa_UserTokenPolicy",
+  "description": "OpcUa_UserTokenPolicy schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "issued_token_type": {
+      "type": "string"
+    },
+    "issuer_endpoint_url": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "security_policy_uri": {
+      "type": "string"
+    },
+    "token_type": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-mcp-schema.json",
+  "title": "Mcp",
+  "description": "Mcp schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "prompts": {
+      "items": {
+        "$ref": "#/components/schemas/McpPrompt"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "resources": {
+      "items": {
+        "$ref": "#/components/schemas/McpResource"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "server_name": {
+      "type": "string"
+    },
+    "server_version": {
+      "type": "string"
+    },
+    "tools": {
+      "items": {
+        "$ref": "#/components/schemas/McpTool"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

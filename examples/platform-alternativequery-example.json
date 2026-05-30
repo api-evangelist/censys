@@ -1,0 +1,6 @@
+{
+  "query": "services.service_name: HTTP",
+  "targets": [
+    "host"
+  ]
+}

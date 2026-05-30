@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-hidvertx-schema.json",
+  "title": "HidVertx",
+  "description": "HidVertx schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "firmware_date": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "mac_address": {
+      "type": "string"
+    },
+    "make_model": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

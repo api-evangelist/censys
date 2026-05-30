@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-snmp-system-services-schema.json",
+  "title": "Snmp_System_Services",
+  "description": "Snmp_System_Services schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "layer_1": {
+      "description": "Physical (e.g. repeaters)",
+      "type": "boolean"
+    },
+    "layer_2": {
+      "description": "Datalink/subnetwork (e.g. bridges)",
+      "type": "boolean"
+    },
+    "layer_3": {
+      "description": "Internet (e.g. IP gateways)",
+      "type": "boolean"
+    },
+    "layer_4": {
+      "description": "End-to-end (e.g. IP hosts)",
+      "type": "boolean"
+    },
+    "layer_5": {
+      "description": "OSI layer 5",
+      "type": "boolean"
+    },
+    "layer_6": {
+      "description": "OSI layer 6",
+      "type": "boolean"
+    },
+    "layer_7": {
+      "description": "Applications (e.g. mail relays)",
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

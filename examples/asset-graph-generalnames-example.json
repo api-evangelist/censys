@@ -1,0 +1,28 @@
+{
+  "directory_names": [
+    null,
+    null
+  ],
+  "dns_names": [
+    "Production Internet Asset Inventory"
+  ],
+  "edi_party_names": [
+    null,
+    null
+  ],
+  "email_addresses": [
+    "analyst@example.com"
+  ],
+  "ip_addresses": [
+    "example"
+  ],
+  "other_names": [
+    null
+  ],
+  "registered_ids": [
+    "example"
+  ],
+  "uniform_resource_identifiers": [
+    "example"
+  ]
+}

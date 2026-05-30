@@ -1,0 +1,14 @@
+{
+  "device_type": "example",
+  "device_type_code": 384,
+  "product_code": 409,
+  "product_name": "Production Internet Asset Inventory",
+  "revision": "example",
+  "serial_number": 944,
+  "socket_addr": "example",
+  "socket_port": 728,
+  "state": 201,
+  "status": 498,
+  "vendor_id": "cns_4370d8bfc930c513",
+  "vendor_name": "Production Internet Asset Inventory"
+}

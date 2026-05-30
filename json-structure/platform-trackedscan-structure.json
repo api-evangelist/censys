@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-trackedscan-structure.json",
+  "name": "TrackedScan",
+  "description": "TrackedScan schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "completed": {
+      "type": "boolean"
+    },
+    "create_time": {
+      "type": "string"
+    },
+    "target": {
+      "$ref": "#/components/schemas/TrackedScan_ScanTarget"
+    },
+    "tasks": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/TrackedScan_Task"
+      }
+    },
+    "tracked_scan_id": {
+      "type": "string"
+    }
+  }
+}

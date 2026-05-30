@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-hostdns-reverseresolution-structure.json",
+  "name": "HostDns_ReverseResolution",
+  "description": "HostDns_ReverseResolution schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "names": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "resolve_time": {
+      "type": "string"
+    },
+    "server": {
+      "type": "string"
+    }
+  }
+}

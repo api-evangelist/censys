@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-zeromq-handshake-structure.json",
+  "name": "Zeromq_Handshake",
+  "description": "Zeromq_Handshake schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "raw": {
+      "type": "string"
+    },
+    "ready": {
+      "type": "boolean"
+    },
+    "socket_type": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-gearman-schema.json",
+  "title": "Gearman",
+  "description": "Gearman schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "status": {
+      "items": {
+        "$ref": "#/components/schemas/Status"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "version": {
+      "type": "string"
+    },
+    "workers": {
+      "items": {
+        "$ref": "#/components/schemas/Worker"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

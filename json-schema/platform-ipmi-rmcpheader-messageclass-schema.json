@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ipmi-rmcpheader-messageclass-schema.json",
+  "title": "Ipmi_RMCPHeader_MessageClass",
+  "description": "Ipmi_RMCPHeader_MessageClass schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "class": {
+      "description": "Just the class part of the byte (lower 5 bits of raw)",
+      "format": "int32",
+      "type": "integer"
+    },
+    "is_ack": {
+      "description": "True if the message is an acknowledgment to a previous message.",
+      "type": "boolean"
+    },
+    "name": {
+      "description": "The human-readable name of the message class",
+      "type": "string"
+    },
+    "raw": {
+      "description": "The raw message class byte.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

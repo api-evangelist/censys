@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-extractedendpointdata-schema.json",
+  "title": "ExtractedEndpointData",
+  "description": "ExtractedEndpointData schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "analytics_services": {
+      "items": {
+        "$ref": "#/components/schemas/ExtractedEndpointData_AnalyticsService"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "copyrights": {
+      "items": {
+        "$ref": "#/components/schemas/ExtractedEndpointData_Copyright"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "ip_addresses": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "languages": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "links": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "mac_addresses": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

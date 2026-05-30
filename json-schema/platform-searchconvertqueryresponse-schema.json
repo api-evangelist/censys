@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-searchconvertqueryresponse-schema.json",
+  "title": "SearchConvertQueryResponse",
+  "description": "SearchConvertQueryResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "alternative_queries": {
+      "description": "Alternative queries that may be used. For example, a query that includes web results in addition to host results.",
+      "items": {
+        "$ref": "#/components/schemas/AlternativeQuery"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "comments": {
+      "description": "Comments about the query conversion.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "converted_query": {
+      "description": "The original query, converted to CenQL syntax. This may be empty if unable to translate the query.",
+      "type": "string"
+    },
+    "errors": {
+      "description": "The error messages if the query could not be converted.",
+      "items": {
+        "$ref": "#/components/schemas/ConvertQueryError"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "original_query": {
+      "description": "The original Censys Search Language query.",
+      "type": "string"
+    },
+    "targets": {
+      "description": "The types of Platform data records (host, cert, and web) that can be targeted by the converted query. Note: Does not include targets that could be returned due to full-document search. This may be empty if the query is a match-all for full-document search query.",
+      "items": {
+        "enum": [
+          "host",
+          "web",
+          "cert",
+          "unknown"
+        ],
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "original_query",
+    "errors",
+    "targets"
+  ],
+  "additionalProperties": false
+}

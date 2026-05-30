@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-certificatepolicy-schema.json",
+  "title": "CertificatePolicy",
+  "description": "CertificatePolicy schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "cps": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "user_notice": {
+      "items": {
+        "$ref": "#/components/schemas/UserNotice"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

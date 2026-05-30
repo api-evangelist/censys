@@ -1,0 +1,11 @@
+{
+  "aggregate_auth_version": 670,
+  "auth_methods": [
+    "example"
+  ],
+  "groups": [
+    "example"
+  ],
+  "raw": "example",
+  "response_type": "example"
+}

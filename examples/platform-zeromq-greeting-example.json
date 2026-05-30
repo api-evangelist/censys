@@ -1,0 +1,7 @@
+{
+  "as_server": true,
+  "mechanism": "example",
+  "signature": "example",
+  "version_major": 650,
+  "version_minor": 9
+}

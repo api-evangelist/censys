@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ldap-structure.json",
+  "name": "Ldap",
+  "description": "Ldap schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "allows_anonymous_bind": {
+      "type": "boolean",
+      "description": "Ability to connect with anonymous bind (empty username and password)"
+    },
+    "attributes": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "All root DN attributes available via anonymous bind",
+      "items": {
+        "$ref": "#/components/schemas/Ldap_Attribute"
+      }
+    },
+    "result_code": {
+      "type": "int32",
+      "description": "Result or error code returned by LDAP instance upon bind",
+      "minimum": 0
+    }
+  }
+}

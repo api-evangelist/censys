@@ -1,0 +1,6 @@
+{
+  "baud_rate": "example",
+  "data_bits": "example",
+  "parity": "example",
+  "stop_bits": "example"
+}

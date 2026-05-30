@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-threatonhostrange-schema.json",
+  "title": "ThreatOnHostRange",
+  "description": "ThreatOnHostRange schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "end_time": {
+      "description": "When the threat was last observed",
+      "format": "date-time",
+      "type": "string"
+    },
+    "ip": {
+      "description": "IP address where the threat was observed",
+      "type": "string"
+    },
+    "port": {
+      "description": "Port number where the threat was observed",
+      "type": "string"
+    },
+    "protocol": {
+      "description": "Application protocol (e.g., HTTP, HTTPS)",
+      "type": "string"
+    },
+    "start_time": {
+      "description": "When the threat was first observed",
+      "format": "date-time",
+      "type": "string"
+    },
+    "threat_name": {
+      "description": "Name of the detected threat",
+      "type": "string"
+    },
+    "transport_protocol": {
+      "description": "Transport protocol (TCP or UDP)",
+      "type": "string"
+    }
+  },
+  "required": [
+    "threat_name",
+    "ip",
+    "port",
+    "protocol",
+    "transport_protocol",
+    "start_time",
+    "end_time"
+  ],
+  "additionalProperties": false
+}

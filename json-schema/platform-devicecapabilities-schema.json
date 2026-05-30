@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-devicecapabilities-schema.json",
+  "title": "DeviceCapabilities",
+  "description": "DeviceCapabilities schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "network": {
+      "$ref": "#/components/schemas/NetworkCapabilities"
+    },
+    "security": {
+      "$ref": "#/components/schemas/SecurityCapabilities"
+    },
+    "system": {
+      "$ref": "#/components/schemas/SystemCapabilities"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ipmi-rmcpheader-schema.json",
+  "title": "Ipmi_RMCPHeader",
+  "description": "Ipmi_RMCPHeader schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "message_class": {
+      "$ref": "#/components/schemas/Ipmi_RMCPHeader_MessageClass",
+      "description": "The class of the message."
+    },
+    "sequence_number": {
+      "description": "Sequence number of this packet in the session.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "version": {
+      "description": "The version. This scanner supports version 6.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

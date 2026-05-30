@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-tagassignment-structure.json",
+  "name": "TagAssignment",
+  "description": "TagAssignment schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "id",
+    "tag_id",
+    "asset_id",
+    "asset_type",
+    "platform_ref",
+    "created_at",
+    "created_by"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "description": "The identifier of the tagged asset (host IP, certificate SHA-256 fingerprint, or web property domain/IP:port)."
+    },
+    "asset_type": {
+      "type": "string",
+      "description": "The inferred type of the asset.",
+      "enum": [
+        "host",
+        "certificate",
+        "web_property",
+        "unknown"
+      ]
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "RFC3339 timestamp when the assignment was created."
+    },
+    "created_by": {
+      "type": "uuid",
+      "description": "The user ID of the user who created the assignment."
+    },
+    "id": {
+      "type": "uuid",
+      "description": "The unique ID of the assignment."
+    },
+    "platform_ref": {
+      "type": "string",
+      "description": "A direct URL to the asset in the Censys platform."
+    },
+    "tag_id": {
+      "type": "uuid",
+      "description": "The ID of the tag."
+    }
+  }
+}

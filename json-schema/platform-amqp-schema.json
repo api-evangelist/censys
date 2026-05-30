@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-amqp-schema.json",
+  "title": "Amqp",
+  "description": "Amqp schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "explicit_tls": {
+      "description": "Connected via a TLS connection after initial handshake",
+      "type": "boolean"
+    },
+    "implicit_tls": {
+      "description": "Connected via a TLS wrapped connection (AMQPS)",
+      "type": "boolean"
+    },
+    "protocol_id": {
+      "$ref": "#/components/schemas/Amqp_Protocol"
+    },
+    "version": {
+      "$ref": "#/components/schemas/Amqp_Version"
+    }
+  },
+  "additionalProperties": false
+}

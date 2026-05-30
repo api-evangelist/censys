@@ -1,0 +1,11 @@
+{
+  "endpoint_scanned": null,
+  "event_time": "example",
+  "forward_dns_resolved": null,
+  "jarm_scanned": null,
+  "location_updated": null,
+  "reverse_dns_resolved": null,
+  "route_updated": null,
+  "service_scanned": null,
+  "whois_updated": null
+}

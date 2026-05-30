@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-searchcapabilities-schema.json",
+  "title": "SearchCapabilities",
+  "description": "SearchCapabilities schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "general_start_events": {
+      "type": "boolean"
+    },
+    "metadata_search": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

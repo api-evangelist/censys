@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-certificaterevocation-schema.json",
+  "title": "CertificateRevocation",
+  "description": "CertificateRevocation schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "crl": {
+      "$ref": "#/components/schemas/CertificateRevocation_RevocationInfo"
+    },
+    "ocsp": {
+      "$ref": "#/components/schemas/CertificateRevocation_RevocationInfo"
+    }
+  },
+  "additionalProperties": false
+}

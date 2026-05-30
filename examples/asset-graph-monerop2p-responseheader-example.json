@@ -1,0 +1,9 @@
+{
+  "command": 12,
+  "expects_response": true,
+  "flags": 260,
+  "length": 946,
+  "return_code": 221,
+  "signature": 922,
+  "version": 13
+}

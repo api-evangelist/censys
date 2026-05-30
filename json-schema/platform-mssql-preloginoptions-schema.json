@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-mssql-preloginoptions-schema.json",
+  "title": "Mssql_PreloginOptions",
+  "description": "Mssql_PreloginOptions schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "encrypt_mode": {
+      "type": "string"
+    },
+    "fed_auth_required": {
+      "type": "boolean"
+    },
+    "instance": {
+      "type": "string"
+    },
+    "mars": {
+      "type": "boolean"
+    },
+    "nonce": {
+      "format": "hex",
+      "type": "string"
+    },
+    "server_version": {
+      "$ref": "#/components/schemas/Mssql_PreloginOptions_ServerVersion"
+    },
+    "thread_id": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "trace_id": {
+      "format": "hex",
+      "type": "string"
+    },
+    "unknown": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "format": "hex",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

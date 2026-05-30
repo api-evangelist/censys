@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-crudupdateinputbody-structure.json",
+  "name": "CrudUpdateInputBody",
+  "description": "CrudUpdateInputBody schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "name",
+    "query"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "description of the collection"
+    },
+    "name": {
+      "type": "string",
+      "description": "name of the collection"
+    },
+    "query": {
+      "type": "string",
+      "description": "query string to search upon to build the collection"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-darkgate-file-schema.json",
+  "title": "Darkgate_File",
+  "description": "Darkgate_File schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "length": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

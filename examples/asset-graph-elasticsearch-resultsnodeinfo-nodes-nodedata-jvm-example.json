@@ -1,0 +1,17 @@
+{
+  "gc": [
+    "example"
+  ],
+  "input_args": [
+    "example"
+  ],
+  "memory_pools": [
+    "example"
+  ],
+  "start_time": "example",
+  "start_time_ms": 1748520000000,
+  "version": "example",
+  "vm_name": "Production Internet Asset Inventory",
+  "vm_vendor": "example",
+  "vm_version": "example"
+}

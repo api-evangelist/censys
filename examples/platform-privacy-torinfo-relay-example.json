@@ -1,0 +1,56 @@
+{
+  "advertised_bandwidth": 943,
+  "alleged_family": [
+    "example"
+  ],
+  "bandwidth_burst": 893,
+  "bandwidth_rate": 722,
+  "blocklist": [
+    "example"
+  ],
+  "bridge": true,
+  "bridgedb_distributor": "example",
+  "consensus_weight": 149,
+  "consensus_weight_fraction": 63.34,
+  "contact": "example",
+  "dir_address": "example",
+  "effective_family": [
+    "example"
+  ],
+  "exit_addresses": [
+    "example"
+  ],
+  "exit_policy": [
+    "example"
+  ],
+  "exit_policy_summary": null,
+  "exit_policy_v6_summary": null,
+  "exit_probability": 64.44,
+  "fingerprint": "example",
+  "flags": [
+    "example"
+  ],
+  "guard_probability": 20.57,
+  "hashed_fingerprint": "example",
+  "indirect_family": [
+    "example"
+  ],
+  "measured": false,
+  "middle_probability": 49.69,
+  "nickname": "Production Internet Asset Inventory",
+  "observed_bandwidth": 173,
+  "or_addresses": [
+    "example"
+  ],
+  "overload_general_timestamp": 1748520000000,
+  "platform": "example",
+  "recommended_version": true,
+  "transports": [
+    "example"
+  ],
+  "unreachable_or_addresses": [
+    "example"
+  ],
+  "version": "example",
+  "version_status": "enabled"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-keyalgorithm-structure.json",
+  "name": "KeyAlgorithm",
+  "description": "KeyAlgorithm schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of public key type, such as RSA or ECDSA. Information specific to the key type is available in the named sub-record."
+    },
+    "oid": {
+      "type": "string"
+    }
+  }
+}

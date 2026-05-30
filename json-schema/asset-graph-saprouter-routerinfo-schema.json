@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-saprouter-routerinfo-schema.json",
+  "title": "SapRouter_RouterInfo",
+  "description": "SapRouter_RouterInfo schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "connected_client_info": {
+      "items": {
+        "$ref": "#/components/schemas/SapRouter_ClientInfo"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "num_clients": {
+      "format": "int64",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "parent_pid": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "parent_port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "pid": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "routtab_relative_directory": {
+      "type": "string"
+    },
+    "sap_router_absolute_directory": {
+      "type": "string"
+    },
+    "started_on": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

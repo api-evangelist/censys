@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-commentslist-structure.json",
+  "name": "CommentsList",
+  "description": "CommentsList schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "comments",
+    "total_size"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "comments": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The list of comments.",
+      "items": {
+        "$ref": "#/components/schemas/Comment"
+      }
+    },
+    "next_page_token": {
+      "type": "string",
+      "description": "Token to retrieve the next page of results. Omitted when there are no more results."
+    },
+    "total_size": {
+      "type": "int64",
+      "description": "Total number of comments matching the filters."
+    }
+  }
+}

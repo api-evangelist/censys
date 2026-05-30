@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ripple-structure.json",
+  "name": "Ripple",
+  "description": "Ripple schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ripple_clio": {
+      "$ref": "#/components/schemas/RippleClioResults"
+    },
+    "rippled_peer": {
+      "$ref": "#/components/schemas/RipplePeerResults"
+    },
+    "rippled_public": {
+      "$ref": "#/components/schemas/RippledPublicResults"
+    }
+  }
+}

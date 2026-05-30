@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-discoverypath-structure.json",
+  "name": "DiscoveryPath",
+  "description": "DiscoveryPath schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "segments"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "segments": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Ordered segments forming the path",
+      "items": {
+        "$ref": "#/components/schemas/PathSegment"
+      }
+    }
+  }
+}

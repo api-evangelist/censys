@@ -1,0 +1,27 @@
+{
+  "authority_info_access": null,
+  "authority_key_id": "cns_2c89db6878290e5a",
+  "basic_constraints": null,
+  "cabf_organization_id": null,
+  "certificate_policies": [
+    null,
+    null
+  ],
+  "crl_distribution_points": [
+    "example"
+  ],
+  "ct_poison": false,
+  "extended_key_usage": null,
+  "issuer_alt_name": null,
+  "key_usage": null,
+  "name_constraints": null,
+  "qc_statements": null,
+  "signed_certificate_timestamps": [
+    null
+  ],
+  "subject_alt_name": null,
+  "subject_key_id": "cns_afadfeac1da80925",
+  "tor_service_descriptors": [
+    null
+  ]
+}

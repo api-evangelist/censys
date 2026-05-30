@@ -1,0 +1,20 @@
+{
+  "device_type": "example",
+  "friendly_name": "Production Internet Asset Inventory",
+  "id": 659,
+  "manufacturer": "example",
+  "manufacturer_url": "https://search.censys.io/hosts/8.8.8.8",
+  "model_description": "Active production asset under observation.",
+  "model_name": "Production Internet Asset Inventory",
+  "model_number": "example",
+  "model_url": "https://search.censys.io/hosts/8.8.8.8",
+  "parent_id": 785,
+  "presentation_url": "https://search.censys.io/hosts/8.8.8.8",
+  "serial_number": "example",
+  "service_list": [
+    null,
+    null
+  ],
+  "udn": "example",
+  "upc": "example"
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-modbus-structure.json",
+  "name": "Modbus",
+  "description": "Modbus schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "exception_response": {
+      "$ref": "#/components/schemas/Modbus_ExceptionResponse"
+    },
+    "function": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "mei_response": {
+      "$ref": "#/components/schemas/Modbus_MEIResponse"
+    },
+    "unit_id": {
+      "type": "int64"
+    }
+  }
+}

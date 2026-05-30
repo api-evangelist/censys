@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ntrip-datastream-schema.json",
+  "title": "Ntrip_DataStream",
+  "description": "Ntrip_DataStream schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "authentication": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "bitrate": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "carrier_info": {
+      "type": "string"
+    },
+    "caster_mount_point": {
+      "type": "string"
+    },
+    "compression_or_encryption": {
+      "type": "string"
+    },
+    "country_code": {
+      "type": "string"
+    },
+    "data_format": {
+      "type": "string"
+    },
+    "fee": {
+      "type": "boolean"
+    },
+    "format_details": {
+      "type": "string"
+    },
+    "generator": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "string"
+    },
+    "longitude": {
+      "type": "string"
+    },
+    "misc": {
+      "type": "string"
+    },
+    "nav_system": {
+      "type": "string"
+    },
+    "network": {
+      "type": "string"
+    },
+    "nmea": {
+      "type": "boolean"
+    },
+    "solution": {
+      "type": "string"
+    },
+    "source_identifier": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

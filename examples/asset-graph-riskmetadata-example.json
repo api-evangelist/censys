@@ -1,0 +1,10 @@
+{
+  "$schema": "https://search.censys.io",
+  "added_at": "2026-05-29T12:34:56Z",
+  "description": "Active production asset under observation.",
+  "name": "Production Internet Asset Inventory",
+  "references": [
+    null,
+    null
+  ]
+}

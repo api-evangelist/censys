@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-tplinkkasa-structure.json",
+  "name": "TplinkKasa",
+  "description": "TplinkKasa schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "active_mode": {
+      "type": "string"
+    },
+    "brightness": {
+      "type": "int64"
+    },
+    "dev_name": {
+      "type": "string"
+    },
+    "err_code": {
+      "type": "int64"
+    },
+    "feature": {
+      "type": "string"
+    },
+    "hw_ver": {
+      "type": "string"
+    },
+    "icon_hash": {
+      "type": "string"
+    },
+    "led_off": {
+      "type": "int64"
+    },
+    "mic_type": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "on_time": {
+      "type": "int64"
+    },
+    "relay_state": {
+      "type": "int64"
+    },
+    "rssi": {
+      "type": "int64"
+    },
+    "sw_ver": {
+      "type": "string"
+    },
+    "updating": {
+      "type": "int64"
+    }
+  }
+}

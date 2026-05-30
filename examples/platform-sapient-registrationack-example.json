@@ -1,0 +1,6 @@
+{
+  "acceptance": false,
+  "ack_response_reason": [
+    "Active production asset under observation."
+  ]
+}

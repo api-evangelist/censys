@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-elasticsearch-resultsnodeinfo-nodes-nodedata-nodesettings-node-attr-ml-schema.json",
+  "title": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_NodeSettings_Node_Attr_ML",
+  "description": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_NodeSettings_Node_Attr_ML schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "string"
+    },
+    "machine_memory": {
+      "type": "string"
+    },
+    "max_open_jobs": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

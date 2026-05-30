@@ -1,0 +1,6 @@
+{
+  "non_aggregate_control": true,
+  "rtp_multicast": false,
+  "rtp_rtsp_tcp": true,
+  "rtp_tcp": false
+}

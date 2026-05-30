@@ -1,0 +1,48 @@
+{
+  "critical": false,
+  "excluded_directory_names": [
+    null,
+    null
+  ],
+  "excluded_edi_party_names": [
+    null
+  ],
+  "excluded_email_addresses": [
+    "analyst@example.com"
+  ],
+  "excluded_ip_addresses": [
+    null,
+    null
+  ],
+  "excluded_names": [
+    "Production Internet Asset Inventory"
+  ],
+  "excluded_registered_ids": [
+    "example"
+  ],
+  "excluded_uris": [
+    "https://search.censys.io/hosts/8.8.8.8"
+  ],
+  "permitted_directory_names": [
+    null,
+    null
+  ],
+  "permitted_edi_party_names": [
+    null
+  ],
+  "permitted_email_addresses": [
+    "analyst@example.com"
+  ],
+  "permitted_ip_addresses": [
+    null
+  ],
+  "permitted_names": [
+    "Production Internet Asset Inventory"
+  ],
+  "permitted_registered_ids": [
+    "example"
+  ],
+  "permitted_uris": [
+    "https://search.censys.io/hosts/8.8.8.8"
+  ]
+}

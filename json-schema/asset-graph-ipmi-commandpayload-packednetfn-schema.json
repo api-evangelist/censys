@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ipmi-commandpayload-packednetfn-schema.json",
+  "title": "Ipmi_CommandPayload_PackedNetFn",
+  "description": "Ipmi_CommandPayload_PackedNetFn schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "logical_unit_number": {
+      "$ref": "#/components/schemas/Ipmi_CommandPayload_PackedNetFn_LogicalUnitNumber",
+      "description": "The parsed LUN (logical unit number -- the lower 2 bits of raw)"
+    },
+    "net_fn": {
+      "$ref": "#/components/schemas/Ipmi_CommandPayload_PackedNetFn_NetFn",
+      "description": "The parsed NetFn value (the upper 6 bits of raw)"
+    },
+    "raw": {
+      "description": "The raw value of the (NetFn << 2) | LUN",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

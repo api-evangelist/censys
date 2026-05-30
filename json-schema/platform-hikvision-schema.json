@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-hikvision-schema.json",
+  "title": "Hikvision",
+  "description": "Hikvision schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "custom_version": {
+      "type": "string"
+    },
+    "platforms": {
+      "items": {
+        "$ref": "#/components/schemas/Hikvision_Platform"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "plugin_version": {
+      "type": "string"
+    },
+    "web_version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

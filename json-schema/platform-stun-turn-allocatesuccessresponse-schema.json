@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-stun-turn-allocatesuccessresponse-schema.json",
+  "title": "Stun_Turn_AllocateSuccessResponse",
+  "description": "Stun_Turn_AllocateSuccessResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "has_fingerprint": {
+      "type": "boolean"
+    },
+    "relay_address": {
+      "$ref": "#/components/schemas/Stun_MappedAddress"
+    },
+    "software": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-supplychainsupplier-structure.json",
+  "name": "SupplyChainSupplier",
+  "description": "SupplyChainSupplier schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "id",
+    "display_name",
+    "legal_name",
+    "description",
+    "city",
+    "region",
+    "country",
+    "continent",
+    "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "city": {
+      "type": "string",
+      "description": "Supplier headquarters city."
+    },
+    "continent": {
+      "type": "string",
+      "description": "Supplier headquarters continent."
+    },
+    "country": {
+      "type": "string",
+      "description": "Supplier headquarters country."
+    },
+    "description": {
+      "type": "string",
+      "description": "Supplier description."
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Supplier display name."
+    },
+    "id": {
+      "type": "uuid",
+      "description": "Supplier ID."
+    },
+    "legal_name": {
+      "type": "string",
+      "description": "Supplier legal name."
+    },
+    "region": {
+      "type": "string",
+      "description": "Supplier headquarters region or state."
+    },
+    "status": {
+      "type": "string",
+      "description": "Supplier status."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rocketmq-responseheader-schema.json",
+  "title": "Rocketmq_ResponseHeader",
+  "description": "Rocketmq_ResponseHeader schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "code": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "flag": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "language": {
+      "type": "string"
+    },
+    "opaque": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "serialize_type_current_rpc": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

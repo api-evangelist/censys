@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-deviceiocapabilities-structure.json",
+  "name": "DeviceIOCapabilities",
+  "description": "DeviceIOCapabilities schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "audio_outputs": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "audio_sources": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "digital_inputs": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "relay_outputs": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "serial_ports": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "video_outputs": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "video_source": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

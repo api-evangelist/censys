@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-nodeinfov1-schema.json",
+  "title": "NodeInfoV1",
+  "description": "NodeInfoV1 schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "confirmed_milestone_index": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "features": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "is_healthy": {
+      "type": "boolean"
+    },
+    "latest_milestone_index": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "network_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

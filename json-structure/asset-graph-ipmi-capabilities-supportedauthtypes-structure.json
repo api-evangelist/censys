@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ipmi-capabilities-supportedauthtypes-structure.json",
+  "name": "Ipmi_Capabilities_SupportedAuthTypes",
+  "description": "Ipmi_Capabilities_SupportedAuthTypes schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "extended": {
+      "type": "boolean",
+      "description": "If true, the extended capabilities are present."
+    },
+    "md2": {
+      "type": "boolean",
+      "description": "True if the MD2 AuthType is supported."
+    },
+    "md5": {
+      "type": "boolean",
+      "description": "True if the MD5 AuthType is supported."
+    },
+    "none": {
+      "type": "boolean",
+      "description": "True if the None AuthType is supported."
+    },
+    "oem_proprietary": {
+      "type": "boolean",
+      "description": "True if the OEM Proprietary AuthType is supported"
+    },
+    "password": {
+      "type": "boolean",
+      "description": "True if the Password AuthType is supported."
+    },
+    "raw": {
+      "type": "int32",
+      "description": "The raw byte, with the bit mask etc"
+    }
+  }
+}

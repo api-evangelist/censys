@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-worker-schema.json",
+  "title": "Worker",
+  "description": "Worker schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string"
+    },
+    "fd": {
+      "type": "string"
+    },
+    "functions": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

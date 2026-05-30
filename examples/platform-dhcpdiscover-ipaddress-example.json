@@ -1,0 +1,7 @@
+{
+  "default_gateway": "example",
+  "dhcp_enable": false,
+  "ip_address": "example",
+  "link_local_address": "https://search.censys.io/hosts/8.8.8.8",
+  "subnetmask": "example"
+}

@@ -1,0 +1,14 @@
+{
+  "credits_consumed_by_consumer": "example",
+  "credits_consumed_by_source": null,
+  "end_time": "2026-05-29T12:34:56Z",
+  "granularity": "daily",
+  "periods": [
+    null
+  ],
+  "start_time": "2026-05-29T12:34:56Z",
+  "total_added": 922,
+  "total_consumed": 910,
+  "total_expired": 595,
+  "transaction_count": 95
+}

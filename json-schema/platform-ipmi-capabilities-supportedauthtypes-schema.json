@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ipmi-capabilities-supportedauthtypes-schema.json",
+  "title": "Ipmi_Capabilities_SupportedAuthTypes",
+  "description": "Ipmi_Capabilities_SupportedAuthTypes schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "extended": {
+      "description": "If true, the extended capabilities are present.",
+      "type": "boolean"
+    },
+    "md2": {
+      "description": "True if the MD2 AuthType is supported.",
+      "type": "boolean"
+    },
+    "md5": {
+      "description": "True if the MD5 AuthType is supported.",
+      "type": "boolean"
+    },
+    "none": {
+      "description": "True if the None AuthType is supported.",
+      "type": "boolean"
+    },
+    "oem_proprietary": {
+      "description": "True if the OEM Proprietary AuthType is supported",
+      "type": "boolean"
+    },
+    "password": {
+      "description": "True if the Password AuthType is supported.",
+      "type": "boolean"
+    },
+    "raw": {
+      "description": "The raw byte, with the bit mask etc",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

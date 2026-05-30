@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-threatslistresponse-schema.json",
+  "title": "ThreatsListResponse",
+  "description": "ThreatsListResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "threats": {
+      "description": "List of active threats observed on the platform.",
+      "items": {
+        "$ref": "#/components/schemas/ThreatListItem"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "threats"
+  ],
+  "additionalProperties": false
+}

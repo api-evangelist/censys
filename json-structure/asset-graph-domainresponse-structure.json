@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-domainresponse-structure.json",
+  "name": "DomainResponse",
+  "description": "DomainResponse schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "fqdn"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "fqdn": {
+      "type": "string",
+      "description": "Fully qualified domain name"
+    }
+  }
+}

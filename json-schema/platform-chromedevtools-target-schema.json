@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-chromedevtools-target-schema.json",
+  "title": "ChromeDevtools_Target",
+  "description": "ChromeDevtools_Target schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

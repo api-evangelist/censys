@@ -1,0 +1,11 @@
+{
+  "city": "example",
+  "continent": "example",
+  "country": "US",
+  "description": "Active production asset under observation.",
+  "display_name": "Production Internet Asset Inventory",
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "legal_name": "Production Internet Asset Inventory",
+  "region": "us-east-1",
+  "status": "running"
+}

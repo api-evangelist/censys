@@ -1,0 +1,12 @@
+{
+  "created_at": "2026-05-29T12:34:56Z",
+  "email": "analyst@example.com",
+  "first_login_time": "2026-05-29T12:34:56Z",
+  "first_name": "Production Internet Asset Inventory",
+  "last_name": "Production Internet Asset Inventory",
+  "latest_login_time": "2026-05-29T12:34:56Z",
+  "roles": [
+    "example"
+  ],
+  "uid": "cns_fd3c9b668234ca8c"
+}

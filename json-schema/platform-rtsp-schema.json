@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rtsp-schema.json",
+  "title": "Rtsp",
+  "description": "Rtsp schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "auth": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "commands": {
+      "format": "utf8",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "server": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "www_auth": {
+      "format": "utf8",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

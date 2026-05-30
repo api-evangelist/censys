@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-amqp-structure.json",
+  "name": "Amqp",
+  "description": "Amqp schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "explicit_tls": {
+      "type": "boolean",
+      "description": "Connected via a TLS connection after initial handshake"
+    },
+    "implicit_tls": {
+      "type": "boolean",
+      "description": "Connected via a TLS wrapped connection (AMQPS)"
+    },
+    "protocol_id": {
+      "$ref": "#/components/schemas/Amqp_Protocol"
+    },
+    "version": {
+      "$ref": "#/components/schemas/Amqp_Version"
+    }
+  }
+}

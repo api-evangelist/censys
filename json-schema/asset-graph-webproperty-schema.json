@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-webproperty-schema.json",
+  "title": "WebProperty",
+  "description": "WebProperty schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "cert": {
+      "$ref": "#/components/schemas/Certificate"
+    },
+    "endpoints": {
+      "items": {
+        "$ref": "#/components/schemas/EndpointScanState"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "exposures": {
+      "items": {
+        "$ref": "#/components/schemas/Risk"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "hardware": {
+      "items": {
+        "$ref": "#/components/schemas/Attribute"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "jarm": {
+      "$ref": "#/components/schemas/JarmScan"
+    },
+    "labels": {
+      "items": {
+        "$ref": "#/components/schemas/Label"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "misconfigs": {
+      "items": {
+        "$ref": "#/components/schemas/Risk"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "operating_systems": {
+      "items": {
+        "$ref": "#/components/schemas/Attribute"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scan_time": {
+      "type": "string"
+    },
+    "software": {
+      "items": {
+        "$ref": "#/components/schemas/Attribute"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "threats": {
+      "items": {
+        "$ref": "#/components/schemas/Threat"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "tls": {
+      "$ref": "#/components/schemas/Tls"
+    },
+    "vulns": {
+      "items": {
+        "$ref": "#/components/schemas/Vuln"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

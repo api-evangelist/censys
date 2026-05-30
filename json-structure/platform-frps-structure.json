@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-frps-structure.json",
+  "name": "Frps",
+  "description": "Frps schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "error": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

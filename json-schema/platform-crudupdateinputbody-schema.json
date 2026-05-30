@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-crudupdateinputbody-schema.json",
+  "title": "CrudUpdateInputBody",
+  "description": "CrudUpdateInputBody schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "description of the collection",
+      "examples": [
+        "Hosts with services with AsyncRAT indicator in cert subject DN"
+      ],
+      "type": "string"
+    },
+    "name": {
+      "description": "name of the collection",
+      "examples": [
+        "Hosts services with AsyncRAT indicator"
+      ],
+      "type": "string"
+    },
+    "query": {
+      "description": "query string to search upon to build the collection",
+      "examples": [
+        "host.services.cert.parsed.subject_dn: \"asyncrat\""
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "query"
+  ],
+  "additionalProperties": false
+}

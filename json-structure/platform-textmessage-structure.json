@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-textmessage-structure.json",
+  "name": "TextMessage",
+  "description": "TextMessage schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "channel_id": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "int32",
+        "minimum": 0
+      }
+    },
+    "message": {
+      "type": "string"
+    },
+    "session": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "int32",
+        "minimum": 0
+      }
+    },
+    "tree_id": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "int32",
+        "minimum": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-representativeinfo-structure.json",
+  "name": "RepresentativeInfo",
+  "description": "RepresentativeInfo schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "excluded_ports": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "int32",
+        "minimum": 0
+      }
+    },
+    "reason": {
+      "type": "string",
+      "enum": [
+        "",
+        "protocol_port_count",
+        "incapsula",
+        "zscaler"
+      ]
+    },
+    "represented_ports": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "int32",
+        "minimum": 0
+      }
+    },
+    "sampled_port": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-stun-turn-structure.json",
+  "name": "Stun_Turn",
+  "description": "Stun_Turn schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "allocate_error_response": {
+      "$ref": "#/components/schemas/Stun_Turn_AllocateErrorResponse"
+    },
+    "allocate_success_response": {
+      "$ref": "#/components/schemas/Stun_Turn_AllocateSuccessResponse"
+    },
+    "response_type": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "response_type_name": {
+      "type": "string"
+    }
+  }
+}

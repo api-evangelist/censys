@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-serversync-structure.json",
+  "name": "ServerSync",
+  "description": "ServerSync schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "max_bandwidth": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "permissions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "welcome_text": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-cursorontarget-point-structure.json",
+  "name": "CursorOnTarget_Point",
+  "description": "CursorOnTarget_Point schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ce": {
+      "type": "double"
+    },
+    "hae": {
+      "type": "double"
+    },
+    "lat": {
+      "type": "double"
+    },
+    "le": {
+      "type": "double"
+    },
+    "lon": {
+      "type": "double"
+    }
+  }
+}

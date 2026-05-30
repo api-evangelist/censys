@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-mssql-schema.json",
+  "title": "Mssql",
+  "description": "Mssql schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "encrypt_mode": {
+      "description": "The negotiated ENCRYPT_MODE with the server",
+      "type": "string"
+    },
+    "instance_name": {
+      "type": "string"
+    },
+    "prelogin_options": {
+      "$ref": "#/components/schemas/Mssql_PreloginOptions"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

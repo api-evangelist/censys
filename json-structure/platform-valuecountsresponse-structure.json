@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-valuecountsresponse-structure.json",
+  "name": "ValueCountsResponse",
+  "description": "ValueCountsResponse schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "and_count_results"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "and_count_results": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "double"
+      }
+    }
+  }
+}

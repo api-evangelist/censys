@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-ssh-endpointid-structure.json",
+  "name": "Ssh_EndpointId",
+  "description": "Ssh_EndpointId schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "comment": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "raw": {
+      "type": "string"
+    },
+    "software_version": {
+      "type": "string"
+    }
+  }
+}

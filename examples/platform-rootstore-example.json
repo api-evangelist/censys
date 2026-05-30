@@ -1,0 +1,14 @@
+{
+  "chains": [
+    null
+  ],
+  "ever_valid": true,
+  "had_trusted_path": false,
+  "has_trusted_path": true,
+  "in_revocation_set": true,
+  "is_valid": false,
+  "parents": [
+    "example"
+  ],
+  "type": "intermediate"
+}

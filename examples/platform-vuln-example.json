@@ -1,0 +1,21 @@
+{
+  "confidence": 13.8,
+  "cwes": [
+    null
+  ],
+  "evidence": [
+    null,
+    null
+  ],
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "kev": [
+    null,
+    null
+  ],
+  "metrics": null,
+  "name": "Production Internet Asset Inventory",
+  "risk_source": "cve",
+  "severity": "critical",
+  "source": "third_party",
+  "year": 567
+}

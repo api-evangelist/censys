@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-certificateasset-schema.json",
+  "title": "CertificateAsset",
+  "description": "CertificateAsset schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "extensions": {
+      "additionalProperties": {},
+      "type": "object"
+    },
+    "resource": {
+      "$ref": "#/components/schemas/Certificate"
+    }
+  },
+  "required": [
+    "resource",
+    "extensions"
+  ],
+  "additionalProperties": false
+}

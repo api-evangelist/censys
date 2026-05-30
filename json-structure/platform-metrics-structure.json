@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-metrics-structure.json",
+  "name": "Metrics",
+  "description": "Metrics schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cvss_v30": {
+      "$ref": "#/components/schemas/CVSS"
+    },
+    "cvss_v31": {
+      "$ref": "#/components/schemas/CVSS"
+    },
+    "cvss_v40": {
+      "$ref": "#/components/schemas/CVSSv4"
+    },
+    "epss": {
+      "$ref": "#/components/schemas/EPSS"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "build_date": "example",
+  "compiler": "example",
+  "git_commit": "example",
+  "git_tree_state": "active",
+  "git_version": "example",
+  "go_version": "example",
+  "major": "example",
+  "minor": "example",
+  "platform": "example"
+}

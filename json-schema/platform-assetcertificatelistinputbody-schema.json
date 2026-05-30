@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-assetcertificatelistinputbody-schema.json",
+  "title": "AssetCertificateListInputBody",
+  "description": "AssetCertificateListInputBody schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "certificate_ids": {
+      "description": "A list of SHA-256 certificate fingerprints.",
+      "examples": [
+        "3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 1000,
+      "minItems": 1,
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "certificate_ids"
+  ],
+  "additionalProperties": false
+}

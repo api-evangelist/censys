@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-monerop2p-responseheader-schema.json",
+  "title": "MoneroP2P_ResponseHeader",
+  "description": "MoneroP2P_ResponseHeader schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "command": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "expects_response": {
+      "type": "boolean"
+    },
+    "flags": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "length": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "return_code": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "signature": {
+      "format": "int64",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "version": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

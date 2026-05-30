@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-vnc-keyvalue-structure.json",
+  "name": "Vnc_KeyValue",
+  "description": "Vnc_KeyValue schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "int32"
+    }
+  }
+}

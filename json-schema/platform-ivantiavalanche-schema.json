@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ivantiavalanche-schema.json",
+  "title": "IvantiAvalanche",
+  "description": "IvantiAvalanche schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "body": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "status_code": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

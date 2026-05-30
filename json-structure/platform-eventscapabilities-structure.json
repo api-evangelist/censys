@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-eventscapabilities-structure.json",
+  "name": "EventsCapabilities",
+  "description": "EventsCapabilities schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "max_notification_producers": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "max_pull_points": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "ws_pausable_subscription_manager_interface_support": {
+      "type": "boolean"
+    },
+    "ws_pull_point_support": {
+      "type": "boolean"
+    },
+    "ws_subscription_policy_support": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-kev-schema.json",
+  "title": "KEV",
+  "description": "KEV schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "date_added": {
+      "description": "The date the vulnerability was added to the KEV catalog.",
+      "type": "string"
+    },
+    "date_due": {
+      "description": "Per CISA\u2019s Binding Operation Directive 22-01, the date all federal civilian executive branch (FCEB) agencies are required to remediate vulnerabilities in the KEV catalog.",
+      "type": "string"
+    },
+    "source": {
+      "description": "The source checked to determine whether the CVE is in the KEV catalog.",
+      "enum": [
+        "",
+        "cisa",
+        "third_party"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

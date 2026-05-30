@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-assetgraph-structure.json",
+  "name": "AssetGraph",
+  "description": "AssetGraph schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "status",
+    "create_time",
+    "update_time"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "uri",
+      "description": "A URL to the JSON Schema for this object."
+    },
+    "active_execution": {
+      "description": "The currently active graph execution",
+      "$ref": "#/components/schemas/GraphExecution"
+    },
+    "create_time": {
+      "type": "string",
+      "description": "RFC3339 creation timestamp"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the asset graph"
+    },
+    "name": {
+      "type": "string",
+      "description": "User-defined name"
+    },
+    "status": {
+      "type": "string",
+      "description": "Lifecycle status of the asset graph",
+      "enum": [
+        "ACTIVE",
+        "DELETING"
+      ]
+    },
+    "update_time": {
+      "type": "string",
+      "description": "RFC3339 last-update timestamp"
+    }
+  }
+}

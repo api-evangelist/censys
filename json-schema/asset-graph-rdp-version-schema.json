@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-rdp-version-schema.json",
+  "title": "Rdp_Version",
+  "description": "Rdp_Version schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "major": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "minor": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "raw": {
+      "description": "Raw Version Response, Major version is stored in upper 2 bytes, minor in lower 2 bytes.",
+      "format": "hex",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

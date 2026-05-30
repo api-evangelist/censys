@@ -1,0 +1,14 @@
+{
+  "$schema": "https://search.censys.io",
+  "autonomous_system": 765,
+  "business_organization": "example",
+  "certificate": "example",
+  "create_time": "example",
+  "domain": "example.com",
+  "host": "example",
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "netblock": "example",
+  "registrant_email": "analyst@example.com",
+  "registrant_organization": "example",
+  "web_property": null
+}

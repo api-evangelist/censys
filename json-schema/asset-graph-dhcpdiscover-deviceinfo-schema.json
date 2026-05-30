@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-dhcpdiscover-deviceinfo-schema.json",
+  "title": "Dhcpdiscover_DeviceInfo",
+  "description": "Dhcpdiscover_DeviceInfo schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "alarm_input_channels": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "alarm_output_channels": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "device_class": {
+      "type": "string"
+    },
+    "device_id": {
+      "type": "string"
+    },
+    "device_type": {
+      "type": "string"
+    },
+    "http_port": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "ipv4_address": {
+      "$ref": "#/components/schemas/Dhcpdiscover_IpAddress"
+    },
+    "ipv6_address": {
+      "$ref": "#/components/schemas/Dhcpdiscover_IpAddress"
+    },
+    "machine_group": {
+      "type": "string"
+    },
+    "machine_name": {
+      "type": "string"
+    },
+    "manufacturer": {
+      "type": "string"
+    },
+    "port": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "remote_video_input_channels": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "unlogin_func_mask": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "vendor": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "video_input_channels": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "video_output_channels": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

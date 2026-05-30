@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-jarmscan-schema.json",
+  "title": "JarmScan",
+  "description": "JarmScan schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "cipher_and_version_fingerprint": {
+      "description": "The first 30 character portion of the Jarm fingerprint.",
+      "format": "hex",
+      "type": "string"
+    },
+    "fingerprint": {
+      "description": "The 62 character Jarm fingerprint of the service.",
+      "format": "hex",
+      "type": "string"
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "is_success": {
+      "type": "boolean"
+    },
+    "port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scan_time": {
+      "description": "The time the service was fingerprinted",
+      "type": "string"
+    },
+    "tls_extensions_sha256": {
+      "description": "The second 32 character portion of the Jarm fingerprint",
+      "format": "hex",
+      "type": "string"
+    },
+    "transport_protocol": {
+      "enum": [
+        "",
+        "tcp",
+        "udp",
+        "icmp",
+        "quic"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

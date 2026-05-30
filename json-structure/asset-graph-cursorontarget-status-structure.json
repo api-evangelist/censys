@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-cursorontarget-status-structure.json",
+  "name": "CursorOnTarget_Status",
+  "description": "CursorOnTarget_Status schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "battery": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "endpoints": [
+    null,
+    null
+  ],
+  "max_chunk_size": 75,
+  "max_message_size": 497,
+  "protocol_version": 443,
+  "receive_buffer_size": 291,
+  "send_buffer_size": 323
+}

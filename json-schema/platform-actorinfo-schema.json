@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-actorinfo-schema.json",
+  "title": "ActorInfo",
+  "description": "ActorInfo schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "email": {
+      "description": "The email of the entity that performed the action.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The ID of the entity that performed the action. This will depend on the type of entity, as it could either be a Censys user ID or an ASM workspace ID.",
+      "type": "string"
+    },
+    "type": {
+      "description": "The type of entity that performed the action.",
+      "enum": [
+        "unknown",
+        "user",
+        "system",
+        "customer_support",
+        "asm_workspace"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "additionalProperties": false
+}

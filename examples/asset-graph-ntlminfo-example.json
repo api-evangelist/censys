@@ -1,0 +1,16 @@
+{
+  "always_sign_supported": false,
+  "challenge_type": 178,
+  "dns_domain_name": "example.com",
+  "dns_server_name": "Production Internet Asset Inventory",
+  "dns_tree_name": "Production Internet Asset Inventory",
+  "encryption_128bit_supported": false,
+  "encryption_56bit_supported": false,
+  "netbios_computer_name": "Production Internet Asset Inventory",
+  "netbios_domain_name": "example.com",
+  "ntlm1_supported": true,
+  "ntlm2_supported": true,
+  "ntlm_version": 59,
+  "os_version": "example",
+  "target_name": "Production Internet Asset Inventory"
+}

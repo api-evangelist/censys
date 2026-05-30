@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-mdnsresult-schema.json",
+  "title": "MdnsResult",
+  "description": "MdnsResult schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "addresses": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "full_name": {
+      "type": "string"
+    },
+    "port": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "priority": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "target": {
+      "type": "string"
+    },
+    "texts": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "weight": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

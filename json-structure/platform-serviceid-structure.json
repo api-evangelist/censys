@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-serviceid-structure.json",
+  "name": "ServiceId",
+  "description": "ServiceId schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ip": {
+      "type": "string"
+    },
+    "port": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "transport_protocol": {
+      "type": "string",
+      "enum": [
+        "",
+        "tcp",
+        "udp",
+        "icmp",
+        "quic"
+      ]
+    }
+  }
+}

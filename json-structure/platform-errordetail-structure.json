@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-errordetail-structure.json",
+  "name": "ErrorDetail",
+  "description": "ErrorDetail schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "location": {
+      "type": "string",
+      "description": "Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'"
+    },
+    "message": {
+      "type": "string",
+      "description": "Error message text"
+    },
+    "value": {
+      "description": "The value at the given location"
+    }
+  }
+}

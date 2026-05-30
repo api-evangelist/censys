@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-tls-structure.json",
+  "name": "Tls",
+  "description": "Tls schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cipher_selected": {
+      "type": "string",
+      "description": "Cipher suite chosen for the exchange."
+    },
+    "fingerprint_sha256": {
+      "type": "string",
+      "description": "The SHA-256 digest of the entire raw certificate. Its unique identifier, which Censys uses to index certificates records."
+    },
+    "ja3s": {
+      "type": "string",
+      "description": "The JA3S fingerprint for this service."
+    },
+    "ja4s": {
+      "type": "string"
+    },
+    "presented_chain": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Certificate chain information.",
+      "items": {
+        "$ref": "#/components/schemas/Tls_Chain"
+      }
+    },
+    "version_selected": {
+      "type": "string",
+      "description": "Certificate version v1(0), v2(1), v3(2).",
+      "enum": [
+        "",
+        "ss_lv_2",
+        "ss_lv_3",
+        "tlsv1_0",
+        "tlsv1_1",
+        "tlsv1_2",
+        "tlsv1_3",
+        "dtlsv1_0",
+        "dtlsv1_2",
+        "dtlsv1_3"
+      ]
+    },
+    "versions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Tls_VersionData"
+      }
+    }
+  }
+}

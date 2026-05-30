@@ -1,0 +1,7 @@
+{
+  "max_notification_producers": 96,
+  "max_pull_points": 597,
+  "ws_pausable_subscription_manager_interface_support": true,
+  "ws_pull_point_support": true,
+  "ws_subscription_policy_support": true
+}

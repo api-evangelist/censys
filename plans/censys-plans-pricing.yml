@@ -1,0 +1,201 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Censys
+providerId: censys
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - Security
+  - Internet Intelligence
+  - Attack Surface Management
+  - Threat Hunting
+  - Tiered Subscription
+description: >-
+  Censys uses a tiered subscription model spanning a Free Community account, a self-serve
+  Individual tier (from $100), and two custom-priced enterprise tiers (Security Operations,
+  Threat Hunting). Quotas surface as per-query result caps, Collections limits, and host-data
+  history windows. Higher tiers add Censys-Threat-Dataset, on-demand scanning, CensEye, RBAC,
+  and SSO/SAML. Volume and multi-year contracts are negotiated through sales.
+sources:
+  - https://censys.com/pricing/
+  - https://docs.censys.com
+  - https://docs.censys.com/reference
+plans:
+  - id: censys-free-community
+    name: Free Community
+    type: freemium
+    description: Free Censys account providing basic visibility into standard ports and services for individual researchers and learners.
+    entries:
+      - label: Search queries (basic ports/services)
+        name: search_queries_basic
+        type: quota
+        metric: query
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$0'
+        userMultiplied: false
+      - label: Community support
+        name: community_support
+        type: flat
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$0'
+        userMultiplied: false
+    elements:
+      - name: Basic port/service visibility
+      - name: Community support
+      - name: Web UI access (search.censys.io)
+  - id: censys-individual
+    name: Individual
+    type: subscription
+    description: Self-serve subscription for individual researchers and security professionals needing visibility to Internet-connected assets.
+    entries:
+      - label: Subscription (starting price)
+        name: individual_subscription
+        type: subscription
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$100/month (starting)'
+        userMultiplied: false
+      - label: Results per query
+        name: results_per_query
+        type: quota
+        metric: result
+        limit: 500
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false
+      - label: Collections
+        name: collections
+        type: quota
+        metric: collection
+        limit: 2
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false
+      - label: Host data history
+        name: host_data_history
+        type: quota
+        metric: week
+        limit: 1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false
+    elements:
+      - name: Entity, Standard, and Advanced search queries
+      - name: API access (Personal Access Token)
+      - name: Up to 500 results per query
+      - name: 2 Collections
+      - name: 1-week host data history
+  - id: censys-security-operations
+    name: Security Operations
+    type: enterprise
+    description: SOC-team tier for triage and investigation across IPs, hosts, services, and certificates with unlimited results, RBAC, and SSO/SAML.
+    entries:
+      - label: Subscription
+        name: security_operations_subscription
+        type: subscription
+        metric: year
+        limit: 1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: 'contact sales'
+        userMultiplied: true
+      - label: Results per query
+        name: results_per_query
+        type: quota
+        metric: result
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false
+      - label: Collections
+        name: collections
+        type: quota
+        metric: collection
+        limit: 15
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false
+      - label: Host data history
+        name: host_data_history
+        type: quota
+        metric: month
+        limit: 1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false
+    elements:
+      - name: Unlimited results per query
+      - name: 15 Collections
+      - name: 1-month host data history
+      - name: Vulnerability insights
+      - name: RBAC support
+      - name: SSO/SAML
+      - name: Splunk / SOAR / SecOps / Sentinel integrations
+      - name: Priority support
+  - id: censys-threat-hunting
+    name: Threat Hunting
+    type: enterprise
+    description: Top tier for threat-hunting teams; adds CensEye, Censys Threat Dataset, advanced pivoting, and on-demand scanning to all Security Operations features.
+    entries:
+      - label: Subscription
+        name: threat_hunting_subscription
+        type: subscription
+        metric: year
+        limit: 1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: 'contact sales'
+        userMultiplied: true
+      - label: On-demand scans
+        name: on_demand_scans
+        type: metered
+        metric: scan
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'included (subject to fair use)'
+        userMultiplied: false
+      - label: CensEye automated pivots
+        name: censeye_jobs
+        type: quota
+        metric: job
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false
+    elements:
+      - name: Advanced pivoting (cert→host, host→endpoint, fingerprint)
+      - name: CensEye automated infrastructure-hunting
+      - name: Censys Threat Dataset access
+      - name: On-demand scanning (live discovery)
+      - name: All Security Operations features
+      - name: Adversary investigation tooling

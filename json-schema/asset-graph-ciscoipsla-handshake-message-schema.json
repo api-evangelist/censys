@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ciscoipsla-handshake-message-schema.json",
+  "title": "CiscoIpsla_Handshake_Message",
+  "description": "CiscoIpsla_Handshake_Message schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "ip": {
+      "type": "string"
+    },
+    "length": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "type": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-hostassetwithmatchedservices-schema.json",
+  "title": "HostAssetWithMatchedServices",
+  "description": "HostAssetWithMatchedServices schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "extensions": {
+      "additionalProperties": {},
+      "type": "object"
+    },
+    "matched_services": {
+      "description": "The host services that match the query.",
+      "items": {
+        "$ref": "#/components/schemas/MatchedService"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "resource": {
+      "$ref": "#/components/schemas/Host"
+    }
+  },
+  "required": [
+    "resource",
+    "extensions"
+  ],
+  "additionalProperties": false
+}

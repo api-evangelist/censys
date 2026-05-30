@@ -1,0 +1,10 @@
+{
+  "connection_failed_reason": "Active production asset under observation.",
+  "desktop_name": "Production Internet Asset Inventory",
+  "pixel_encoding": null,
+  "screen_info": null,
+  "security_types": [
+    null
+  ],
+  "version": "example"
+}

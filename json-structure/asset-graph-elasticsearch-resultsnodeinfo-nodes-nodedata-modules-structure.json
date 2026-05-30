@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-elasticsearch-resultsnodeinfo-nodes-nodedata-modules-structure.json",
+  "name": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_Modules",
+  "description": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_Modules schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "class_name": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    },
+    "elastic_version": {
+      "type": "string"
+    },
+    "ext_plugins": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "has_native_ctrl": {
+      "type": "boolean"
+    },
+    "java_version": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

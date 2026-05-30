@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ipmi-structure.json",
+  "name": "Ipmi",
+  "description": "Ipmi schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "capabilities": {
+      "description": "The Get Channel Authentication Capabilities response (section 22.13)",
+      "$ref": "#/components/schemas/Ipmi_Capabilities"
+    },
+    "command_payload": {
+      "description": "The IPMI command payload",
+      "$ref": "#/components/schemas/Ipmi_CommandPayload"
+    },
+    "raw": {
+      "type": "string",
+      "description": "The raw data returned by the server"
+    },
+    "rmcp_header": {
+      "description": "The RMCP header of the response, (section 13.1.3)",
+      "$ref": "#/components/schemas/Ipmi_RMCPHeader"
+    },
+    "session_header": {
+      "description": "The IPMI sesssion header of the response",
+      "$ref": "#/components/schemas/Ipmi_SessionHeader"
+    }
+  }
+}

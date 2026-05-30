@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-riskmetadata-structure.json",
+  "name": "RiskMetadata",
+  "description": "RiskMetadata schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "description",
+    "references",
+    "name",
+    "added_at"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "uri",
+      "description": "A URL to the JSON Schema for this object."
+    },
+    "added_at": {
+      "type": "datetime",
+      "description": "Time data was ingested"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the risk"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the risk"
+    },
+    "references": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Reference information for data returned",
+      "items": {
+        "$ref": "#/components/schemas/Reference"
+      }
+    }
+  }
+}

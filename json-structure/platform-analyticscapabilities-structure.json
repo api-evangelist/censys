@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-analyticscapabilities-structure.json",
+  "name": "AnalyticsCapabilities",
+  "description": "AnalyticsCapabilities schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "analytics_module_support": {
+      "type": "boolean"
+    },
+    "cell_based_scene_description_supported": {
+      "type": "boolean"
+    },
+    "rule_options_supported": {
+      "type": "boolean"
+    },
+    "rule_support": {
+      "type": "boolean"
+    }
+  }
+}

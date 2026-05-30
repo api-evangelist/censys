@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-pgbouncer-structure.json",
+  "name": "Pgbouncer",
+  "description": "Pgbouncer schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "startup_capabilities": {
+      "$ref": "#/components/schemas/Pgbouncer_StartupCapabilities"
+    }
+  }
+}

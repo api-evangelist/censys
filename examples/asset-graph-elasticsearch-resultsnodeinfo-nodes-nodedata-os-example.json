@@ -1,0 +1,9 @@
+{
+  "allocated_proc": 31,
+  "arch": "example",
+  "available_proc": 444,
+  "name": "Production Internet Asset Inventory",
+  "pretty_name": "Production Internet Asset Inventory",
+  "refresh_interval_ms": 276,
+  "version": "example"
+}

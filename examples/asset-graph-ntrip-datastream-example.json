@@ -1,0 +1,22 @@
+{
+  "authentication": [
+    "example"
+  ],
+  "bitrate": 975,
+  "carrier_info": "example",
+  "caster_mount_point": "example",
+  "compression_or_encryption": "example",
+  "country_code": "US",
+  "data_format": "example",
+  "fee": false,
+  "format_details": "example",
+  "generator": "example",
+  "latitude": "example",
+  "longitude": "example",
+  "misc": "example",
+  "nav_system": "example",
+  "network": "example",
+  "nmea": true,
+  "solution": "example",
+  "source_identifier": "example"
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-redlioncrimson-structure.json",
+  "name": "RedlionCrimson",
+  "description": "RedlionCrimson schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "configs_exposed": {
+      "type": "boolean"
+    },
+    "control_engine_status": {
+      "type": "string"
+    },
+    "current_software_level": {
+      "type": "string"
+    },
+    "execution_status": {
+      "type": "string"
+    },
+    "manufacturer": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    }
+  }
+}

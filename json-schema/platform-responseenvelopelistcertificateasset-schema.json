@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-responseenvelopelistcertificateasset-schema.json",
+  "title": "ResponseEnvelopeListCertificateAsset",
+  "description": "ResponseEnvelopeListCertificateAsset schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "result": {
+      "items": {
+        "$ref": "#/components/schemas/CertificateAsset"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

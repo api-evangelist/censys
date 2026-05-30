@@ -1,0 +1,9 @@
+{
+  "key_length": 134,
+  "magic": 361,
+  "max_bytes_datalen": 756,
+  "modulus": "example",
+  "modulus_bitlen": 485,
+  "public_exponent": 169,
+  "signature": "example"
+}

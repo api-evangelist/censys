@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-elasticsearch-systeminfo-structure.json",
+  "name": "ElasticSearch_SystemInfo",
+  "description": "ElasticSearch_SystemInfo schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cluster_uuid": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "version": {
+      "$ref": "#/components/schemas/ElasticSearch_SystemInfo_Ver"
+    }
+  }
+}

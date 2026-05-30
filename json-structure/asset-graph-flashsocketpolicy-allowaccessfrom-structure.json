@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-flashsocketpolicy-allowaccessfrom-structure.json",
+  "name": "FlashSocketPolicy_AllowAccessFrom",
+  "description": "FlashSocketPolicy_AllowAccessFrom schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "domain": {
+      "type": "string"
+    },
+    "secure": {
+      "type": "boolean"
+    },
+    "to_ports": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-creditusagereport-structure.json",
+  "name": "CreditUsageReport",
+  "description": "CreditUsageReport schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "start_time",
+    "end_time",
+    "granularity",
+    "total_consumed",
+    "total_added",
+    "total_expired",
+    "transaction_count",
+    "periods",
+    "credits_consumed_by_source"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "credits_consumed_by_consumer": {
+      "type": "string",
+      "description": "The breakdown of credits consumed by consumer. This may not be present if the report is generated for a specific user."
+    },
+    "credits_consumed_by_source": {
+      "description": "The breakdown of credits consumed by source.",
+      "$ref": "#/components/schemas/SourceUsageBreakdown"
+    },
+    "end_time": {
+      "type": "datetime",
+      "description": "The end time of the window for this report."
+    },
+    "granularity": {
+      "type": "string",
+      "description": "The granularity of the report.",
+      "enum": [
+        "daily",
+        "monthly"
+      ],
+      "default": "daily"
+    },
+    "periods": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The periods of the report (i.e. time buckets).",
+      "items": {
+        "$ref": "#/components/schemas/CreditUsageReportPeriod"
+      }
+    },
+    "start_time": {
+      "type": "datetime",
+      "description": "The start time of the window for this report."
+    },
+    "total_added": {
+      "type": "int64",
+      "description": "The total amount of credits added during the report period."
+    },
+    "total_consumed": {
+      "type": "int64",
+      "description": "The total amount of credits consumed during the report period."
+    },
+    "total_expired": {
+      "type": "int64",
+      "description": "The total amount of credits expired during the report period."
+    },
+    "transaction_count": {
+      "type": "int64",
+      "description": "The total number of transactions during the report period."
+    }
+  }
+}

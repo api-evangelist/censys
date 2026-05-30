@@ -1,0 +1,7 @@
+{
+  "code": 296,
+  "message": "Active production asset under observation.",
+  "reason": "Active production asset under observation.",
+  "request": "example",
+  "status": "enabled"
+}

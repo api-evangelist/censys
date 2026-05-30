@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ipmi-commandpayload-commandnumber-schema.json",
+  "title": "Ipmi_CommandPayload_CommandNumber",
+  "description": "Ipmi_CommandPayload_CommandNumber schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The human-readable name of the cmd + NetFn",
+      "type": "string"
+    },
+    "raw": {
+      "description": "The raw value of the cmd value",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

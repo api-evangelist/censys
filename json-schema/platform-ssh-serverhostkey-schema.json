@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ssh-serverhostkey-schema.json",
+  "title": "Ssh_ServerHostKey",
+  "description": "Ssh_ServerHostKey schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "certkey_public_key": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "dsa_public_key": {
+      "$ref": "#/components/schemas/DSACryptographicKey"
+    },
+    "ecdsa_public_key": {
+      "$ref": "#/components/schemas/ECDSACryptographicKey"
+    },
+    "ed25519_public_key": {
+      "$ref": "#/components/schemas/ED25519CryptographicKey"
+    },
+    "fingerprint_sha256": {
+      "format": "hex",
+      "type": "string"
+    },
+    "rsa_public_key": {
+      "$ref": "#/components/schemas/RSACryptographicKey"
+    }
+  },
+  "additionalProperties": false
+}

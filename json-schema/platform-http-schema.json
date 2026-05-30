@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-http-schema.json",
+  "title": "Http",
+  "description": "Http schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "body": {
+      "description": "The body of the HTTP response. For hosts without a name, the first 64KB are available. For hosts with a name, only 6KB are available.",
+      "format": "utf8",
+      "type": "string"
+    },
+    "body_hash_sha1": {
+      "format": "hex",
+      "type": "string"
+    },
+    "body_hash_sha256": {
+      "format": "hex",
+      "type": "string"
+    },
+    "body_hash_tlsh": {
+      "format": "hex",
+      "type": "string"
+    },
+    "body_size": {
+      "description": "The length, in bytes, of services.http.response.body; at most, 64KB.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "favicons": {
+      "items": {
+        "$ref": "#/components/schemas/Http_Favicon"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "headers": {
+      "additionalProperties": {
+        "$ref": "#/components/schemas/Http_RepeatedHeaders"
+      },
+      "description": "The key-value header pairs included in the response.",
+      "type": "object"
+    },
+    "html_tags": {
+      "description": "A list of the <title> and <meta> tags from services.http.response.body.",
+      "format": "utf8",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "html_title": {
+      "description": "The title of the HTML page: the inner contents of the <title> tag in the response body, if present.",
+      "format": "utf8",
+      "type": "string"
+    },
+    "network_log": {
+      "$ref": "#/components/schemas/NetworkLog",
+      "description": "List of all resources fetched when visiting this page as browser"
+    },
+    "protocol": {
+      "description": "The protocol field of the response, which includes the claimed HTTP version number.",
+      "type": "string"
+    },
+    "redirect_chain": {
+      "description": "If the scan redirects, the list of followup scans performed",
+      "items": {
+        "$ref": "#/components/schemas/Http_RedirectChainLink"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "status_code": {
+      "description": "A 3-digit integer result code indicating the result of the services.http.request.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "status_reason": {
+      "description": "A human-readable phrase describing the status code.",
+      "type": "string"
+    },
+    "supported_versions": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "uri": {
+      "description": "The full path used to make the request, which includes the scheme, host, port (when non-standard), and endpoint.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

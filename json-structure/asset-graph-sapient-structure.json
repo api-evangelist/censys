@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-sapient-structure.json",
+  "name": "Sapient",
+  "description": "Sapient schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "error": {
+      "$ref": "#/components/schemas/Sapient_Error"
+    },
+    "payload": {
+      "type": "string"
+    },
+    "registration_ack": {
+      "$ref": "#/components/schemas/Sapient_RegistrationAck"
+    },
+    "unknown": {
+      "type": "string"
+    }
+  }
+}

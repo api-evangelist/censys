@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-greynoise-schema.json",
+  "title": "Greynoise",
+  "description": "Greynoise schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "actor": {
+      "description": "The actor that was observed.",
+      "type": "string"
+    },
+    "classification": {
+      "description": "The classification of the IP address.",
+      "type": "string"
+    },
+    "tags": {
+      "description": "The tags associated with the IP address.",
+      "items": {
+        "$ref": "#/components/schemas/Greynoise_Tag"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

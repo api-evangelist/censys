@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-valuecountsresponse-schema.json",
+  "title": "ValueCountsResponse",
+  "description": "ValueCountsResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "and_count_results": {
+      "items": {
+        "format": "double",
+        "type": "number"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "and_count_results"
+  ],
+  "additionalProperties": false
+}

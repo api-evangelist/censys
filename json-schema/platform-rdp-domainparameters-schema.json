@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rdp-domainparameters-schema.json",
+  "title": "Rdp_DomainParameters",
+  "description": "Rdp_DomainParameters schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "domain_protocol_version": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "max_channel_ids": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "max_mcspdu_size": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "max_provider_height": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "max_token_ids": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "max_user_id_channels": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "min_throughput": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "num_priorities": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

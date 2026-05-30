@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-censeyetarget-structure.json",
+  "name": "CenseyeTarget",
+  "description": "CenseyeTarget schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "certificate_id": {
+      "type": "string",
+      "description": "SHA-256 fingerprint of the certificate to analyze."
+    },
+    "host_id": {
+      "type": "string",
+      "description": "IP address of the host to analyze."
+    },
+    "webproperty_id": {
+      "type": "string",
+      "description": "Web property identifier (hostname:port) to analyze."
+    }
+  }
+}

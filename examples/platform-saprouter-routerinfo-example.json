@@ -1,0 +1,14 @@
+{
+  "connected_client_info": [
+    null,
+    null
+  ],
+  "num_clients": 883,
+  "parent_pid": 615,
+  "parent_port": 791,
+  "pid": 826,
+  "port": 391,
+  "routtab_relative_directory": "example",
+  "sap_router_absolute_directory": "example",
+  "started_on": "example"
+}

@@ -1,0 +1,13 @@
+{
+  "added_assets_24_hours": 592,
+  "create_time": "2026-05-29T12:34:56Z",
+  "created_by": "550e8400-e29b-41d4-a716-446655440000",
+  "description": "Active production asset under observation.",
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "name": "Production Internet Asset Inventory",
+  "query": "services.service_name: HTTP",
+  "removed_assets_24_hours": 481,
+  "status": "archived",
+  "status_reason": "initial",
+  "total_assets": 218
+}

@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "censys": "https://censys.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Provider": "schema:Organization",
+    "Host": "censys:Host",
+    "Service": "censys:Service",
+    "Certificate": "censys:Certificate",
+    "WebProperty": "censys:WebProperty",
+    "Collection": "censys:Collection",
+    "AssetGraph": "censys:AssetGraph",
+    "Threat": "censys:Threat",
+    "Risk": "censys:Risk",
+    "Account": "schema:Organization",
+    "Tag": "censys:Tag",
+    "Comment": "schema:Comment",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "created": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "modified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

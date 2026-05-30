@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-assetresponse-schema.json",
+  "title": "AssetResponse",
+  "description": "AssetResponse schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "description": "A URL to the JSON Schema for this object.",
+      "examples": [
+        "https://graph.data.censys.io/schemas/AssetResponse.json"
+      ],
+      "format": "uri",
+      "readOnly": true,
+      "type": "string"
+    },
+    "certificate": {
+      "$ref": "#/components/schemas/Certificate",
+      "description": "Certificate data"
+    },
+    "discovery_paths": {
+      "description": "Discovery paths to this asset",
+      "items": {
+        "$ref": "#/components/schemas/DiscoveryPath"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "domain": {
+      "$ref": "#/components/schemas/DomainResponse",
+      "description": "Domain data"
+    },
+    "host": {
+      "$ref": "#/components/schemas/Host",
+      "description": "Host data"
+    },
+    "id": {
+      "description": "Unique identifier of the asset",
+      "type": "string"
+    },
+    "web_property": {
+      "$ref": "#/components/schemas/WebProperty",
+      "description": "Web property data"
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,20 @@
+{
+  "actors": [
+    null
+  ],
+  "confidence": 62.96,
+  "details": null,
+  "evidence": [
+    null
+  ],
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "malware": null,
+  "name": "Production Internet Asset Inventory",
+  "source": "html_meta_extractor",
+  "tactic": [
+    "example"
+  ],
+  "type": [
+    "example"
+  ]
+}

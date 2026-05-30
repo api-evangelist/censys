@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-scansdiscoveryinputbody-structure.json",
+  "name": "ScansDiscoveryInputBody",
+  "description": "ScansDiscoveryInputBody schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "target"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "target": {
+      "type": "object",
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "Discovery scan against IP:PORT",
+          "required": [
+            "host_port"
+          ],
+          "properties": {
+            "host_port": {
+              "type": "object",
+              "required": [
+                "ip",
+                "port"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "ip": {
+                  "type": "string",
+                  "description": "IP address to scan"
+                },
+                "port": {
+                  "type": "int32",
+                  "description": "Port number to scan",
+                  "minimum": 1,
+                  "maximum": 65535
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "description": "Discovery scan against hostname:PORT",
+          "required": [
+            "hostname_port"
+          ],
+          "properties": {
+            "hostname_port": {
+              "type": "object",
+              "required": [
+                "hostname",
+                "port"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "hostname": {
+                  "type": "string",
+                  "description": "Hostname to scan"
+                },
+                "port": {
+                  "type": "int32",
+                  "description": "Port number to scan",
+                  "minimum": 1,
+                  "maximum": 65535
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

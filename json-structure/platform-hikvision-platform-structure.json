@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-hikvision-platform-structure.json",
+  "name": "Hikvision_Platform",
+  "description": "Hikvision_Platform schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "libraries": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Hikvision_Platform_Library"
+      }
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

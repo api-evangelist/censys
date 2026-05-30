@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-imap-schema.json",
+  "title": "Imap",
+  "description": "Imap schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "start_tls": {
+      "description": "The server's response to the STARTTLS command.",
+      "format": "utf8",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

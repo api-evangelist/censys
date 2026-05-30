@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-contact-schema.json",
+  "title": "Contact",
+  "description": "Contact schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "handle": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

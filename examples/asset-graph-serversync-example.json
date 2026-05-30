@@ -1,0 +1,7 @@
+{
+  "max_bandwidth": 635,
+  "permissions": [
+    "example"
+  ],
+  "welcome_text": "example"
+}

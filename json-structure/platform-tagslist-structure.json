@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-tagslist-structure.json",
+  "name": "TagsList",
+  "description": "TagsList schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "tags",
+    "total_size"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "next_page_token": {
+      "type": "string",
+      "description": "Token to retrieve the next page of results. Omitted when there are no more results."
+    },
+    "tags": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The list of tags.",
+      "items": {
+        "$ref": "#/components/schemas/Tag"
+      }
+    },
+    "total_size": {
+      "type": "int64",
+      "description": "Total number of tags visible to the caller in this organization."
+    }
+  }
+}

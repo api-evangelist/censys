@@ -1,0 +1,15 @@
+{
+  "build_version": "example",
+  "peer_crawler_response_version": 119,
+  "peers": [
+    null
+  ],
+  "pubkey_node": "example",
+  "publisher_list": [
+    "example"
+  ],
+  "server_state": "active",
+  "validator_sites": [
+    "example"
+  ]
+}

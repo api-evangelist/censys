@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-cwe-schema.json",
+  "title": "CWE",
+  "description": "CWE schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "entry": {
+      "description": "A unique identifier associated with a class of a software or hardware weakness.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

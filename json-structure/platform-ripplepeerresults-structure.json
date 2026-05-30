@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-ripplepeerresults-structure.json",
+  "name": "RipplePeerResults",
+  "description": "RipplePeerResults schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "build_version": {
+      "type": "string"
+    },
+    "peer_crawler_response_version": {
+      "type": "int64"
+    },
+    "peers": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Peer"
+      }
+    },
+    "pubkey_node": {
+      "type": "string"
+    },
+    "publisher_list": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "server_state": {
+      "type": "string"
+    },
+    "validator_sites": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

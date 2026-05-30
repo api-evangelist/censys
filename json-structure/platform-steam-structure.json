@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-steam-structure.json",
+  "name": "Steam",
+  "description": "Steam schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "broadcasting_active": {
+      "type": "boolean"
+    },
+    "connect_port": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "content_cache_port": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "download_lan_peer_group": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "enabled_services": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "euniverse": {
+      "type": "int32"
+    },
+    "games_running": {
+      "type": "boolean"
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "ip_addresses": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "is64bit": {
+      "type": "boolean"
+    },
+    "mac_addresses": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "min_version": {
+      "type": "int32"
+    },
+    "ostype": {
+      "type": "int32"
+    },
+    "public_ip_address": {
+      "type": "string"
+    },
+    "remoteplay_active": {
+      "type": "boolean"
+    },
+    "screen_locked": {
+      "type": "boolean"
+    },
+    "steam_deck": {
+      "type": "boolean"
+    },
+    "steam_version": {
+      "type": "string"
+    },
+    "supported_services": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "users": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/User"
+      }
+    },
+    "version": {
+      "type": "int32"
+    },
+    "vr_active": {
+      "type": "boolean"
+    },
+    "vr_link_caps": {
+      "type": "string"
+    }
+  }
+}

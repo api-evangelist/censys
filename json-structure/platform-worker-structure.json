@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-worker-structure.json",
+  "name": "Worker",
+  "description": "Worker schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "client_id": {
+      "type": "string"
+    },
+    "fd": {
+      "type": "string"
+    },
+    "functions": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string"
+    }
+  }
+}

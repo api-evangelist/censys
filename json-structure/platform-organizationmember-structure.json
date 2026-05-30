@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-organizationmember-structure.json",
+  "name": "OrganizationMember",
+  "description": "OrganizationMember schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "roles",
+    "email",
+    "first_name",
+    "last_name",
+    "uid"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "created_at": {
+      "type": "datetime",
+      "description": "The date and time the user was created."
+    },
+    "email": {
+      "type": "string",
+      "description": "The email of the user."
+    },
+    "first_login_time": {
+      "type": "datetime",
+      "description": "The date and time the user first logged in."
+    },
+    "first_name": {
+      "type": "string",
+      "description": "The first name of the user."
+    },
+    "last_name": {
+      "type": "string",
+      "description": "The last name of the user."
+    },
+    "latest_login_time": {
+      "type": "datetime",
+      "description": "The date and time the user last logged in."
+    },
+    "roles": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The roles this member has in the organization.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "uid": {
+      "type": "uuid",
+      "description": "The ID of a Censys user."
+    }
+  }
+}

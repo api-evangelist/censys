@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-pcanywhere-status-schema.json",
+  "title": "PcAnywhere_Status",
+  "description": "PcAnywhere_Status schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "in_use": {
+      "description": "Workstation is In Use if true, Available if false",
+      "type": "boolean"
+    },
+    "raw": {
+      "description": "Full 'ST' query response",
+      "format": "hex",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,12 @@
+{
+  "authentication_types": [
+    "example"
+  ],
+  "capabilities": 479,
+  "dialect_revision": 559,
+  "header_log": null,
+  "security_mode": 971,
+  "server_guid": "cns_f62f21e515c57d3e",
+  "server_start_time": 1748520000000,
+  "system_time": 1748520000000
+}

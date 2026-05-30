@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-membercounts-structure.json",
+  "name": "MemberCounts",
+  "description": "MemberCounts schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "total",
+    "by_role"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "by_role": {
+      "type": "object",
+      "description": "The number of members users in the organization, split by role.",
+      "properties": {
+        "admin": {
+          "type": "int64",
+          "description": "The number of users with the admin role."
+        },
+        "api_access": {
+          "type": "int64",
+          "description": "The number of users with the API access role."
+        }
+      }
+    },
+    "total": {
+      "type": "int64",
+      "description": "The total number of members users in the organization."
+    }
+  }
+}

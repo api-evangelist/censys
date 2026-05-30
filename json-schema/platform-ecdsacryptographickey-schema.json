@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ecdsacryptographickey-schema.json",
+  "title": "ECDSACryptographicKey",
+  "description": "ECDSACryptographicKey schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "b": {
+      "format": "base64",
+      "type": "string"
+    },
+    "curve": {
+      "type": "string"
+    },
+    "gx": {
+      "format": "base64",
+      "type": "string"
+    },
+    "gy": {
+      "format": "base64",
+      "type": "string"
+    },
+    "length": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "n": {
+      "format": "base64",
+      "type": "string"
+    },
+    "p": {
+      "format": "base64",
+      "type": "string"
+    },
+    "pub": {
+      "format": "base64",
+      "type": "string"
+    },
+    "x": {
+      "format": "base64",
+      "type": "string"
+    },
+    "y": {
+      "format": "base64",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

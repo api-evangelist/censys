@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ntrip-schema.json",
+  "title": "Ntrip",
+  "description": "Ntrip schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "data_streams": {
+      "items": {
+        "$ref": "#/components/schemas/Ntrip_DataStream"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "server": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

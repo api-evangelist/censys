@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-jenkins-job-structure.json",
+  "name": "Jenkins_Job",
+  "description": "Jenkins_Job schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "last_build": {
+      "$ref": "#/components/schemas/Jenkins_Build"
+    },
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

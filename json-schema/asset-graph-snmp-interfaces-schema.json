@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-snmp-interfaces-schema.json",
+  "title": "Snmp_Interfaces",
+  "description": "Snmp_Interfaces schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "num_ifaces": {
+      "description": "1.3.6.1.2.1.2.1 - Number of network interfaces",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-sapient-error-schema.json",
+  "title": "Sapient_Error",
+  "description": "Sapient_Error schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "error_message": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "packet": {
+      "format": "hex",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

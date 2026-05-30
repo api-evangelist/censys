@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-threatlistitem-structure.json",
+  "name": "ThreatListItem",
+  "description": "ThreatListItem schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "id",
+    "count",
+    "host_count",
+    "web_count"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "added_at": {
+      "type": "datetime",
+      "description": "The date and time when the threat was added."
+    },
+    "count": {
+      "type": "int64",
+      "description": "Total count of assets affected by this threat."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the threat."
+    },
+    "host_count": {
+      "type": "int64",
+      "description": "Number of hosts affected by this threat."
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the threat."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the threat."
+    },
+    "references": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "External reference links for the threat.",
+      "items": {
+        "$ref": "#/components/schemas/ThreatReference"
+      }
+    },
+    "web_count": {
+      "type": "int64",
+      "description": "Number of web properties affected by this threat."
+    }
+  }
+}

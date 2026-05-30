@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-elasticsearch-resultsnodeinfo-clustercombinedinfo-filesystem-structure.json",
+  "name": "ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo_Filesystem",
+  "description": "ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo_Filesystem schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "available": {
+      "type": "string"
+    },
+    "available_in_bytes": {
+      "type": "int64"
+    },
+    "free": {
+      "type": "string"
+    },
+    "free_in_bytes": {
+      "type": "int64"
+    },
+    "total": {
+      "type": "string"
+    },
+    "total_in_bytes": {
+      "type": "int64"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-l2tp-attributevalues-structure.json",
+  "name": "L2Tp_AttributeValues",
+  "description": "L2Tp_AttributeValues schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "error_code": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "error_meaning": {
+      "type": "string"
+    },
+    "error_message": {
+      "type": "string"
+    },
+    "firmware_revision": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "protocol_revision": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "protocol_version": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "result_code": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "result_meaning": {
+      "type": "string"
+    },
+    "vendor_name": {
+      "type": "string"
+    },
+    "window_size": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

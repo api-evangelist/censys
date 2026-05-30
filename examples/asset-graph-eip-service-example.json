@@ -1,0 +1,6 @@
+{
+  "capabilities": 997,
+  "service_name": "Production Internet Asset Inventory",
+  "supports_tcp": false,
+  "supports_udp": true
+}

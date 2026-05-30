@@ -1,0 +1,12 @@
+{
+  "excluded_ports": [
+    821,
+    356
+  ],
+  "reason": "protocol_port_count",
+  "represented_ports": [
+    276,
+    260
+  ],
+  "sampled_port": 450
+}

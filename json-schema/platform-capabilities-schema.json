@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-capabilities-schema.json",
+  "title": "Capabilities",
+  "description": "Capabilities schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "analytics": {
+      "$ref": "#/components/schemas/AnalyticsCapabilities"
+    },
+    "device": {
+      "$ref": "#/components/schemas/DeviceCapabilities"
+    },
+    "device_io": {
+      "$ref": "#/components/schemas/DeviceIOCapabilities"
+    },
+    "events": {
+      "$ref": "#/components/schemas/EventsCapabilities"
+    },
+    "image": {
+      "$ref": "#/components/schemas/ImageCapabilities"
+    },
+    "media": {
+      "$ref": "#/components/schemas/MediaCapabilities"
+    },
+    "pan_tilt_zoom": {
+      "$ref": "#/components/schemas/PanTiltZoomCapabilities"
+    },
+    "recording": {
+      "$ref": "#/components/schemas/RecordingCapabilities"
+    },
+    "replay": {
+      "$ref": "#/components/schemas/ReplayCapabilities"
+    },
+    "search": {
+      "$ref": "#/components/schemas/SearchCapabilities"
+    }
+  },
+  "additionalProperties": false
+}

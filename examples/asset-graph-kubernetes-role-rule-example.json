@@ -1,0 +1,11 @@
+{
+  "api_groups": [
+    "example"
+  ],
+  "resources": [
+    "example"
+  ],
+  "verbs": [
+    "example"
+  ]
+}

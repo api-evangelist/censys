@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-elasticsearch-systeminfo-schema.json",
+  "title": "ElasticSearch_SystemInfo",
+  "description": "ElasticSearch_SystemInfo schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "cluster_uuid": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "version": {
+      "$ref": "#/components/schemas/ElasticSearch_SystemInfo_Ver"
+    }
+  },
+  "additionalProperties": false
+}

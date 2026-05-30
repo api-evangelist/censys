@@ -1,0 +1,27 @@
+{
+  "added_at": "example",
+  "ct": null,
+  "ever_seen_in_scan": false,
+  "fingerprint_md5": "acfe514e776dab55246b737b763cd710",
+  "fingerprint_sha1": "example",
+  "fingerprint_sha256": "9494cf0d5494f25266c734bef43e71ec7a8fdaf405b4f7ce61544d8dee6adb64",
+  "modified_at": "example",
+  "names": [
+    "Production Internet Asset Inventory"
+  ],
+  "parent_spki_fingerprint_sha256": "9b42e7afa0b740b88e35f46a851516759644b0d6bb171f75b6f075fcf298344a",
+  "parent_spki_subject_fingerprint_sha256": "c36a2062d4a74353dcc691fcd2a17e97afe9bd704567916d297c6e6eeef1c4df",
+  "parse_status": "",
+  "parsed": null,
+  "precert": false,
+  "revocation": null,
+  "revoked": false,
+  "spki_fingerprint_sha256": "d7b9aaf46b61bd5279d3a2c0b8ac9c81fccc199cf05d06b8cb16e24dea6ae3dd",
+  "spki_subject_fingerprint_sha256": "e0d045dbbebb4f27443fb17016f7c1992ffc79371424b123b485264554f03c2a",
+  "tbs_fingerprint_sha256": "b8b07240ea3ede4546147de67207bd10cdc83cb2437910b732d3d3b39832eb93",
+  "tbs_no_ct_fingerprint_sha256": "c9ac8cd9dd07bb4ddfd10f01ae831e29ef2731c50df1a3dc9daccc1b292a16fb",
+  "validated_at": "example",
+  "validation": null,
+  "validation_level": "ov",
+  "zlint": null
+}

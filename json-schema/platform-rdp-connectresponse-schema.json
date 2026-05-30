@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rdp-connectresponse-schema.json",
+  "title": "Rdp_ConnectResponse",
+  "description": "Rdp_ConnectResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "connect_id": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "domain_parameters": {
+      "$ref": "#/components/schemas/Rdp_DomainParameters"
+    }
+  },
+  "additionalProperties": false
+}

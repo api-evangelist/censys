@@ -1,0 +1,10 @@
+{
+  "attack_complexity": "low",
+  "attack_vector": "network",
+  "availability": "none",
+  "confidentiality": "low",
+  "integrity": "none",
+  "privileges_required": "high",
+  "scope": "unchanged",
+  "user_interaction": "none"
+}

@@ -1,0 +1,11 @@
+{
+  "errors_present": true,
+  "failed_lints": [
+    "example"
+  ],
+  "fatals_present": true,
+  "notices_present": true,
+  "timestamp": "example",
+  "version": 868,
+  "warnings_present": true
+}

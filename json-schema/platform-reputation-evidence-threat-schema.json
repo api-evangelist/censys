@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-reputation-evidence-threat-schema.json",
+  "title": "Reputation_Evidence_Threat",
+  "description": "Reputation_Evidence_Threat schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "last_observed_time": {
+      "type": "string"
+    },
+    "threat_id": {
+      "type": "string"
+    },
+    "threat_types": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

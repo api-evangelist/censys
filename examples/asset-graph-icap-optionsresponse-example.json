@@ -1,0 +1,16 @@
+{
+  "allow_204": false,
+  "icap_version": "example",
+  "istag": "example",
+  "max_connections": 46,
+  "methods": [
+    "example"
+  ],
+  "options_ttl": 556,
+  "preview": 623,
+  "server_header": "example",
+  "service": "example",
+  "service_id": "cns_1418590b916df217",
+  "status_code": 612,
+  "status_text": "enabled"
+}

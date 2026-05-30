@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-ipp-attribute-structure.json",
+  "name": "Ipp_Attribute",
+  "description": "Ipp_Attribute schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "value_tag": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

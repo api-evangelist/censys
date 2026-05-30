@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-dcerpc-structure.json",
+  "name": "Dcerpc",
+  "description": "Dcerpc schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "could_bind": {
+      "type": "boolean"
+    },
+    "could_query_epm": {
+      "type": "boolean"
+    },
+    "endpoints": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Dcerpc_Endpoint"
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-generalnames-schema.json",
+  "title": "GeneralNames",
+  "description": "GeneralNames schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "directory_names": {
+      "description": "The parsed directoryName entries in the GeneralName.",
+      "items": {
+        "$ref": "#/components/schemas/DistinguishedName"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "dns_names": {
+      "description": "The parsed dNSName entries in the GeneralName.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "edi_party_names": {
+      "description": "The parsed eDIPartyName entries in the GeneralName.",
+      "items": {
+        "$ref": "#/components/schemas/EdiPartyName"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "email_addresses": {
+      "description": "The parsed rfc822Name entries in the GeneralName.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "ip_addresses": {
+      "description": "The parsed ipAddress entries in the GeneralName.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "other_names": {
+      "description": "The parsed otherName entries in the GeneralName. An arbitrary binary value identified by an OID.",
+      "items": {
+        "$ref": "#/components/schemas/OtherName"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "registered_ids": {
+      "description": "The parsed registeredID entries in the GeneralName. Stored in dotted-decimal format.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "uniform_resource_identifiers": {
+      "description": "The parsed uniformResourceIdentifier entries in the GeneralName.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-threat-details-structure.json",
+  "name": "Threat_Details",
+  "description": "Threat_Details schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "campaign_id": {
+      "type": "string"
+    },
+    "campaign_theme": {
+      "type": "string"
+    },
+    "control_servers": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

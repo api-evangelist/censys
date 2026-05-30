@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-kubernetes-node-structure.json",
+  "name": "Kubernetes_Node",
+  "description": "Kubernetes_Node schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "addresses": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Kubernetes_Node_NodeAddress"
+      }
+    },
+    "architecture": {
+      "type": "string",
+      "description": "The Architecture reported by the node."
+    },
+    "container_runtime_version": {
+      "type": "string",
+      "description": "ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0)."
+    },
+    "images": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of container images on this node",
+      "items": {
+        "type": "string"
+      }
+    },
+    "kernel_version": {
+      "type": "string",
+      "description": "Kernel Version reported by the node from 'uname -r' (e.g. 3.16.0-0.bpo.4-amd64)."
+    },
+    "kube_proxy_version": {
+      "type": "string",
+      "description": "KubeProxy Version reported by the node."
+    },
+    "kubelet_version": {
+      "type": "string",
+      "description": "Kubelet Version reported by the node."
+    },
+    "name": {
+      "type": "string"
+    },
+    "operating_system": {
+      "type": "string",
+      "description": "The Operating System reported by the node."
+    },
+    "os_image": {
+      "type": "string",
+      "description": "OS Image reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy))."
+    }
+  }
+}

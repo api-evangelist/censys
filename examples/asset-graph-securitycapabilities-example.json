@@ -1,0 +1,20 @@
+{
+  "access_policy_config": false,
+  "default_access_policy": false,
+  "dot1x": true,
+  "http_digest": true,
+  "kerberos_token": false,
+  "max_password_length": 674,
+  "max_username_length": 288,
+  "max_users": 982,
+  "onboard_key_generation": true,
+  "rel_token": true,
+  "remote_user_handling": true,
+  "saml_token": true,
+  "supported_eap_methods": 463,
+  "tls_1_0": true,
+  "tls_1_1": false,
+  "tls_1_2": false,
+  "username_token": true,
+  "x509_token": true
+}

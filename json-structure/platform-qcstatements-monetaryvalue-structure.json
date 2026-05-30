@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-qcstatements-monetaryvalue-structure.json",
+  "name": "QcStatements_MonetaryValue",
+  "description": "QcStatements_MonetaryValue schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "amount": {
+      "type": "int64"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "currency_number": {
+      "type": "int64"
+    },
+    "exponent": {
+      "type": "int64"
+    }
+  }
+}

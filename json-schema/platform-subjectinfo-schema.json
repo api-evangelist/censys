@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-subjectinfo-schema.json",
+  "title": "SubjectInfo",
+  "description": "SubjectInfo schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "display_name": {
+      "description": "A human-readable name for the subject resource, if available. The value and format depend on the subject type and may be omitted if not applicable.",
+      "type": "string"
+    },
+    "id": {
+      "description": "The unique identifier of the subject resource. The identifier format depends on the subject type (for example, a Censys user ID or ASM workspace ID). Not all events will have a subject ID.",
+      "type": "string"
+    },
+    "type": {
+      "description": "The type of resource that was affected by the audited action.",
+      "enum": [
+        "organization",
+        "user",
+        "saml_config",
+        "pat",
+        "collection",
+        "organization_membership",
+        "organization_invitation",
+        "asm_workspace",
+        "asm_seed",
+        "asm_exclude",
+        "asm_risk_type",
+        "asm_risk_instance",
+        "global_data"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "additionalProperties": false
+}

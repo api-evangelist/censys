@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-recordingcapabilities-structure.json",
+  "name": "RecordingCapabilities",
+  "description": "RecordingCapabilities schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "dynamic_recordings": {
+      "type": "boolean"
+    },
+    "dynamic_tracks": {
+      "type": "boolean"
+    },
+    "encoding": {
+      "type": "string"
+    },
+    "max_rate": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "max_recordings": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "max_recordings_job": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "max_total_rate": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "options": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "abuse_contacts": [
+    null,
+    null
+  ],
+  "address": "example",
+  "admin_contacts": [
+    null
+  ],
+  "city": "example",
+  "country": "US",
+  "handle": "example",
+  "name": "Production Internet Asset Inventory",
+  "postal_code": "example",
+  "state": "active",
+  "street": "example",
+  "tech_contacts": [
+    null,
+    null
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "actor": null,
+  "authentication_method": "example",
+  "event_type": "invitation_accepted",
+  "metadata": {},
+  "source": "example",
+  "source_ip": "8.8.8.8",
+  "subject": null,
+  "timestamp": "2026-05-29T12:34:56Z",
+  "user_agent": "example"
+}

@@ -1,0 +1,10 @@
+{
+  "attack_complexity": "low",
+  "attack_vector": "",
+  "availability": "low",
+  "confidentiality": "low",
+  "integrity": "high",
+  "privileges_required": "low",
+  "scope": "",
+  "user_interaction": "none"
+}

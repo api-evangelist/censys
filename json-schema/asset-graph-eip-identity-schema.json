@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-eip-identity-schema.json",
+  "title": "Eip_Identity",
+  "description": "Eip_Identity schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "device_type": {
+      "type": "string"
+    },
+    "device_type_code": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "product_code": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "product_name": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "serial_number": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "socket_addr": {
+      "type": "string"
+    },
+    "socket_port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "state": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "status": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "vendor_id": {
+      "type": "string"
+    },
+    "vendor_name": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-user-structure.json",
+  "name": "User",
+  "description": "User schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "auth_key_id": {
+      "type": "string"
+    },
+    "steamid": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-stun-bindingsuccessresponse-structure.json",
+  "name": "Stun_BindingSuccessResponse",
+  "description": "Stun_BindingSuccessResponse schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "has_fingerprint": {
+      "type": "boolean"
+    },
+    "other_address": {
+      "$ref": "#/components/schemas/Stun_MappedAddress"
+    },
+    "software": {
+      "type": "string"
+    }
+  }
+}

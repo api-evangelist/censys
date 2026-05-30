@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-stun-mappedaddress-structure.json",
+  "name": "Stun_MappedAddress",
+  "description": "Stun_MappedAddress schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ip": {
+      "type": "string"
+    },
+    "port": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

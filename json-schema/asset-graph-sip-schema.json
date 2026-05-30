@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-sip-schema.json",
+  "title": "Sip",
+  "description": "Sip schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "code": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "server": {
+      "description": "Server software reported by service",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "version": {
+      "description": "SIP version",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

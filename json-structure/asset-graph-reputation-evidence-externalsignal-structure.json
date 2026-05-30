@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-reputation-evidence-externalsignal-structure.json",
+  "name": "Reputation_Evidence_ExternalSignal",
+  "description": "Reputation_Evidence_ExternalSignal schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "tlp": {
+      "type": "string",
+      "enum": [
+        "",
+        "green",
+        "amber",
+        "red",
+        "white"
+      ]
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "$schema": "https://search.censys.io",
+  "description": "Active production asset under observation.",
+  "name": "Production Internet Asset Inventory"
+}

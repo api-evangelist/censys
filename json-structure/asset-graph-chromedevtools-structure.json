@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-chromedevtools-structure.json",
+  "name": "ChromeDevtools",
+  "description": "ChromeDevtools schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "browser": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "targets": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/ChromeDevtools_Target"
+      }
+    },
+    "user_agent": {
+      "type": "string"
+    },
+    "v8_version": {
+      "type": "string"
+    },
+    "webkit_version": {
+      "type": "string"
+    }
+  }
+}

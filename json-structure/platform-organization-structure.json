@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-organization-structure.json",
+  "name": "Organization",
+  "description": "Organization schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "abuse_contacts": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Contact"
+      }
+    },
+    "address": {
+      "type": "string"
+    },
+    "admin_contacts": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Contact"
+      }
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "handle": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "postal_code": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "tech_contacts": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Contact"
+      }
+    }
+  }
+}

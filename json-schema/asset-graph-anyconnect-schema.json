@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-anyconnect-schema.json",
+  "title": "AnyConnect",
+  "description": "AnyConnect schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "aggregate_auth_version": {
+      "description": "Version number indicated by the response for config-auth exchange",
+      "format": "int32",
+      "type": "integer"
+    },
+    "auth_methods": {
+      "description": "Supported methods for users to enter credentials for this VPN",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "groups": {
+      "description": "List of groups a user can authenticate with to use this VPN",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "raw": {
+      "description": "XML content of the config-auth response",
+      "type": "string"
+    },
+    "response_type": {
+      "description": "Type of the response packet received after initializing the config-auth exchange",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-rippledpublicresults-schema.json",
+  "title": "RippledPublicResults",
+  "description": "RippledPublicResults schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "build_version": {
+      "type": "string"
+    },
+    "hostid": {
+      "type": "string"
+    },
+    "network_id": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "peers": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "ports": {
+      "items": {
+        "$ref": "#/components/schemas/Port"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "pubkey_node": {
+      "type": "string"
+    },
+    "server_state": {
+      "type": "string"
+    },
+    "validation_quorum": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

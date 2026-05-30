@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-sevendaystodie-structure.json",
+  "name": "SevenDaysToDie",
+  "description": "SevenDaysToDie schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "game_name": {
+      "type": "string"
+    },
+    "game_type": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "server_url": {
+      "type": "string"
+    },
+    "server_version": {
+      "type": "string"
+    },
+    "steam_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

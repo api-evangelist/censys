@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-risk-schema.json",
+  "title": "Risk",
+  "description": "Risk schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "confidence": {
+      "format": "double",
+      "type": "number"
+    },
+    "cvss": {
+      "$ref": "#/components/schemas/CVSS"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/components/schemas/Evidence"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "metrics": {
+      "$ref": "#/components/schemas/Metrics"
+    },
+    "name": {
+      "type": "string"
+    },
+    "risk_source": {
+      "enum": [
+        "",
+        "censys",
+        "cve"
+      ],
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "type": "string"
+    },
+    "source": {
+      "enum": [
+        "",
+        "censys",
+        "recog",
+        "wappalyzer",
+        "third_party",
+        "html_meta_extractor"
+      ],
+      "type": "string"
+    },
+    "year": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

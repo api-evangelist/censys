@@ -1,0 +1,11 @@
+{
+  "description": "Active production asset under observation.",
+  "engine_boots": 330,
+  "engine_time": 1748520000000,
+  "format": "example",
+  "format_data": "example",
+  "organization": "example",
+  "pen": 721,
+  "raw_id": "cns_8fb5c7d214765b37",
+  "rfc3411": true
+}

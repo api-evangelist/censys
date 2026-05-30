@@ -1,0 +1,12 @@
+{
+  "$schema": "https://search.censys.io",
+  "detail": "example",
+  "errors": [
+    null,
+    null
+  ],
+  "instance": "https://search.censys.io",
+  "status": 11,
+  "title": "example",
+  "type": "about:blank"
+}

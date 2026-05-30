@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-rdp-domainparameters-structure.json",
+  "name": "Rdp_DomainParameters",
+  "description": "Rdp_DomainParameters schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "domain_protocol_version": {
+      "type": "int64"
+    },
+    "max_channel_ids": {
+      "type": "int64"
+    },
+    "max_mcspdu_size": {
+      "type": "int64"
+    },
+    "max_provider_height": {
+      "type": "int64"
+    },
+    "max_token_ids": {
+      "type": "int64"
+    },
+    "max_user_id_channels": {
+      "type": "int64"
+    },
+    "min_throughput": {
+      "type": "int64"
+    },
+    "num_priorities": {
+      "type": "int64"
+    }
+  }
+}

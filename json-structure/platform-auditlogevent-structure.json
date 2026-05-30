@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-auditlogevent-structure.json",
+  "name": "AuditLogEvent",
+  "description": "AuditLogEvent schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "event_type",
+    "actor",
+    "subject"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "description": "Information about the entity that performed the action.",
+      "$ref": "#/components/schemas/ActorInfo"
+    },
+    "authentication_method": {
+      "type": "string",
+      "description": "The method used by the actor to authenticate before performing the action."
+    },
+    "event_type": {
+      "type": "string",
+      "description": "The type of action that was audited.",
+      "enum": [
+        "user_created",
+        "user_login",
+        "user_login_failed",
+        "user_password_changed",
+        "user_password_reset",
+        "user_mfa_changed",
+        "user_settings_changed",
+        "user_enabled",
+        "user_disabled",
+        "invitation_created",
+        "invitation_resent",
+        "invitation_accepted",
+        "invitation_deleted",
+        "membership_created",
+        "membership_updated",
+        "membership_removed",
+        "org_created",
+        "org_updated",
+        "org_deleted",
+        "saml_config_created",
+        "saml_config_updated",
+        "saml_config_deleted",
+        "saml_config_domain_verified",
+        "pat_created",
+        "pat_deleted",
+        "global_data_search_executed",
+        "global_data_lookup_executed",
+        "global_data_aggregation_executed",
+        "asm_seed_created",
+        "asm_seed_deleted",
+        "asm_exclude_created",
+        "asm_exclude_deleted",
+        "asm_risk_instance_severity_changed",
+        "asm_risk_instance_accepted",
+        "asm_risk_instance_unaccepted",
+        "asm_risk_type_severity_changed",
+        "asm_risk_type_enabled",
+        "asm_risk_type_disabled",
+        "asm_risk_type_default_enabled",
+        "tag_created",
+        "tag_updated",
+        "tag_deleted",
+        "tag_assigned",
+        "tag_unassigned",
+        "tag_bulk_operation_started",
+        "tag_bulk_operation_completed",
+        "tag_bulk_operation_cancelled",
+        "comment_created",
+        "comment_updated",
+        "comment_deleted"
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Event-specific metadata. Contents vary by event type.",
+      "additionalProperties": {}
+    },
+    "source": {
+      "type": "string",
+      "description": "Where the audited action originated from."
+    },
+    "source_ip": {
+      "type": "string",
+      "description": "The IP address of the source of the audited action."
+    },
+    "subject": {
+      "description": "Information about the resource that was affected by the audited action.",
+      "$ref": "#/components/schemas/SubjectInfo"
+    },
+    "timestamp": {
+      "type": "datetime",
+      "description": "The timestamp of the audit log event."
+    },
+    "user_agent": {
+      "type": "string",
+      "description": "The user agent of the source of the audited action."
+    }
+  }
+}

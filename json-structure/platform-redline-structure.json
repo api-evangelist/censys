@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-redline-structure.json",
+  "name": "Redline",
+  "description": "Redline schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "action_response": {
+      "type": "string"
+    },
+    "settings_response": {
+      "type": "string"
+    },
+    "transport": {
+      "type": "string"
+    }
+  }
+}

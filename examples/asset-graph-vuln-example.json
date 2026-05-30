@@ -1,0 +1,22 @@
+{
+  "confidence": 63.64,
+  "cwes": [
+    null,
+    null
+  ],
+  "evidence": [
+    null,
+    null
+  ],
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "kev": [
+    null,
+    null
+  ],
+  "metrics": null,
+  "name": "Production Internet Asset Inventory",
+  "risk_source": "censys",
+  "severity": "high",
+  "source": "html_meta_extractor",
+  "year": 436
+}

@@ -1,0 +1,9 @@
+{
+  "exports": [
+    null
+  ],
+  "handshake_style": "example",
+  "policies": [
+    "example"
+  ]
+}

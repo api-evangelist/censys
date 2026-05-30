@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ct-record-schema.json",
+  "title": "Ct_Record",
+  "description": "Ct_Record schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "added_to_ct_at": {
+      "description": "An RFC-3339-formatted timestamp indicating when the certificate was entered into the CT log.",
+      "type": "string"
+    },
+    "ct_to_censys_at": {
+      "description": "An RFC-3339-formated timestamp indicating when the certificate was ingested from the CT log into the Censys dataset.",
+      "type": "string"
+    },
+    "index": {
+      "description": "Numerical marker of the certificate's place in the CT log.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

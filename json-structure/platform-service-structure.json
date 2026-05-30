@@ -1,0 +1,534 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-service-structure.json",
+  "name": "Service",
+  "description": "Service schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "activemq": {
+      "$ref": "#/components/schemas/Activemq"
+    },
+    "amqp": {
+      "$ref": "#/components/schemas/Amqp"
+    },
+    "anerma_cf_forth": {
+      "$ref": "#/components/schemas/AnermaCfForth"
+    },
+    "any_connect": {
+      "$ref": "#/components/schemas/AnyConnect"
+    },
+    "asterisk_manager_interface": {
+      "$ref": "#/components/schemas/AsteriskManagerInterface"
+    },
+    "bacnet": {
+      "$ref": "#/components/schemas/Bacnet"
+    },
+    "banner": {
+      "type": "string"
+    },
+    "banner_hash_sha256": {
+      "type": "string"
+    },
+    "banner_hex": {
+      "type": "string"
+    },
+    "cert": {
+      "$ref": "#/components/schemas/Certificate"
+    },
+    "checkpoint_topology": {
+      "$ref": "#/components/schemas/CheckpointTopology"
+    },
+    "chromecast": {
+      "$ref": "#/components/schemas/Chromecast"
+    },
+    "cisco_ipsla": {
+      "$ref": "#/components/schemas/CiscoIpsla"
+    },
+    "cmore": {
+      "$ref": "#/components/schemas/Cmore"
+    },
+    "coap": {
+      "$ref": "#/components/schemas/Coap"
+    },
+    "crestron_cp3": {
+      "$ref": "#/components/schemas/CrestronCp3"
+    },
+    "crestron_din_ap2": {
+      "$ref": "#/components/schemas/CrestronDinAp2"
+    },
+    "cursor_on_target": {
+      "$ref": "#/components/schemas/CursorOnTarget"
+    },
+    "cwmp": {
+      "$ref": "#/components/schemas/Cwmp"
+    },
+    "darkcomet": {
+      "$ref": "#/components/schemas/Darkcomet"
+    },
+    "darkgate": {
+      "$ref": "#/components/schemas/Darkgate"
+    },
+    "dcerpc": {
+      "$ref": "#/components/schemas/Dcerpc"
+    },
+    "dhcpdiscover": {
+      "$ref": "#/components/schemas/Dhcpdiscover"
+    },
+    "dnp3": {
+      "$ref": "#/components/schemas/Dnp3"
+    },
+    "dns": {
+      "$ref": "#/components/schemas/Dns"
+    },
+    "dtls": {
+      "$ref": "#/components/schemas/Dtls"
+    },
+    "dvr_ip": {
+      "$ref": "#/components/schemas/DvrIp"
+    },
+    "eip": {
+      "$ref": "#/components/schemas/Eip"
+    },
+    "elf_file": {
+      "$ref": "#/components/schemas/ElfFile"
+    },
+    "endpoints": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/EndpointScanState"
+      }
+    },
+    "epmd": {
+      "$ref": "#/components/schemas/Epmd"
+    },
+    "etcd": {
+      "$ref": "#/components/schemas/Etcd"
+    },
+    "ethereum": {
+      "$ref": "#/components/schemas/Ethereum"
+    },
+    "exposures": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Risk"
+      }
+    },
+    "flash_socket_policy": {
+      "$ref": "#/components/schemas/FlashSocketPolicy"
+    },
+    "fox": {
+      "$ref": "#/components/schemas/Fox"
+    },
+    "frps": {
+      "$ref": "#/components/schemas/Frps"
+    },
+    "ftp": {
+      "$ref": "#/components/schemas/Ftp"
+    },
+    "gearman": {
+      "$ref": "#/components/schemas/Gearman"
+    },
+    "gemini": {
+      "$ref": "#/components/schemas/Gemini"
+    },
+    "hajime": {
+      "$ref": "#/components/schemas/Hajime"
+    },
+    "hardware": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Attribute"
+      }
+    },
+    "hid_vertx": {
+      "$ref": "#/components/schemas/HidVertx"
+    },
+    "hikvision": {
+      "$ref": "#/components/schemas/Hikvision"
+    },
+    "ibmnje": {
+      "$ref": "#/components/schemas/Ibmnje"
+    },
+    "icap": {
+      "$ref": "#/components/schemas/Icap"
+    },
+    "ike": {
+      "$ref": "#/components/schemas/Ike"
+    },
+    "imap": {
+      "$ref": "#/components/schemas/Imap"
+    },
+    "iota": {
+      "$ref": "#/components/schemas/Iota"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "ipmi": {
+      "$ref": "#/components/schemas/Ipmi"
+    },
+    "ipp": {
+      "$ref": "#/components/schemas/Ipp"
+    },
+    "iscsi": {
+      "$ref": "#/components/schemas/Iscsi"
+    },
+    "ja4tscan": {
+      "$ref": "#/components/schemas/JA4TScanScan"
+    },
+    "jarm": {
+      "$ref": "#/components/schemas/JarmScan"
+    },
+    "krpc": {
+      "$ref": "#/components/schemas/Krpc"
+    },
+    "l2tp": {
+      "$ref": "#/components/schemas/L2Tp"
+    },
+    "labels": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Label"
+      }
+    },
+    "ldap": {
+      "$ref": "#/components/schemas/Ldap"
+    },
+    "lpd": {
+      "$ref": "#/components/schemas/Lpd"
+    },
+    "mavlink": {
+      "$ref": "#/components/schemas/Mavlink"
+    },
+    "mdns": {
+      "$ref": "#/components/schemas/Mdns"
+    },
+    "melsec": {
+      "$ref": "#/components/schemas/Melsec"
+    },
+    "memberlist": {
+      "$ref": "#/components/schemas/Memberlist"
+    },
+    "memcached": {
+      "$ref": "#/components/schemas/Memcached"
+    },
+    "mikrotik_winbox": {
+      "$ref": "#/components/schemas/MikrotikWinbox"
+    },
+    "minecraft": {
+      "$ref": "#/components/schemas/Minecraft"
+    },
+    "misconfigs": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Risk"
+      }
+    },
+    "mms": {
+      "$ref": "#/components/schemas/Mms"
+    },
+    "modbus": {
+      "$ref": "#/components/schemas/Modbus"
+    },
+    "monero_p2p": {
+      "$ref": "#/components/schemas/MoneroP2P"
+    },
+    "mongodb": {
+      "$ref": "#/components/schemas/Mongodb"
+    },
+    "mqtt": {
+      "$ref": "#/components/schemas/Mqtt"
+    },
+    "mssql": {
+      "$ref": "#/components/schemas/Mssql"
+    },
+    "murmur": {
+      "$ref": "#/components/schemas/Murmur"
+    },
+    "mysql": {
+      "$ref": "#/components/schemas/Mysql"
+    },
+    "nats_io": {
+      "$ref": "#/components/schemas/NatsIo"
+    },
+    "nbd": {
+      "$ref": "#/components/schemas/Nbd"
+    },
+    "nfs_mountd": {
+      "$ref": "#/components/schemas/NfsMountd"
+    },
+    "nmea": {
+      "$ref": "#/components/schemas/Nmea"
+    },
+    "ntp": {
+      "$ref": "#/components/schemas/Ntp"
+    },
+    "ntrip": {
+      "$ref": "#/components/schemas/Ntrip"
+    },
+    "onc": {
+      "$ref": "#/components/schemas/Onc"
+    },
+    "onvif": {
+      "$ref": "#/components/schemas/Onvif"
+    },
+    "opc_ua": {
+      "$ref": "#/components/schemas/OpcUa"
+    },
+    "openvpn": {
+      "$ref": "#/components/schemas/Openvpn"
+    },
+    "openvpn_mgmt": {
+      "$ref": "#/components/schemas/OpenvpnMgmt"
+    },
+    "operating_systems": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Attribute"
+      }
+    },
+    "oracle": {
+      "$ref": "#/components/schemas/Oracle"
+    },
+    "pc_anywhere": {
+      "$ref": "#/components/schemas/PcAnywhere"
+    },
+    "pgbouncer": {
+      "$ref": "#/components/schemas/Pgbouncer"
+    },
+    "pop3": {
+      "$ref": "#/components/schemas/Pop3"
+    },
+    "port": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "portmap": {
+      "$ref": "#/components/schemas/Portmap"
+    },
+    "postgres": {
+      "$ref": "#/components/schemas/Postgres"
+    },
+    "pptp": {
+      "$ref": "#/components/schemas/Pptp"
+    },
+    "profinet_cm": {
+      "$ref": "#/components/schemas/ProfinetCm"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "rdate": {
+      "$ref": "#/components/schemas/Rdate"
+    },
+    "rdp": {
+      "$ref": "#/components/schemas/Rdp"
+    },
+    "realport": {
+      "$ref": "#/components/schemas/Realport"
+    },
+    "redis": {
+      "$ref": "#/components/schemas/Redis"
+    },
+    "redline": {
+      "$ref": "#/components/schemas/Redline"
+    },
+    "redlion_crimson": {
+      "$ref": "#/components/schemas/RedlionCrimson"
+    },
+    "representative_info": {
+      "$ref": "#/components/schemas/RepresentativeInfo"
+    },
+    "rifatron": {
+      "$ref": "#/components/schemas/Rifatron"
+    },
+    "ripple": {
+      "$ref": "#/components/schemas/Ripple"
+    },
+    "rlogin": {
+      "$ref": "#/components/schemas/Rlogin"
+    },
+    "rocketmq": {
+      "$ref": "#/components/schemas/Rocketmq"
+    },
+    "routeros_api": {
+      "$ref": "#/components/schemas/RouterosApi"
+    },
+    "rtsp": {
+      "$ref": "#/components/schemas/Rtsp"
+    },
+    "rustdesk_heartbeat": {
+      "$ref": "#/components/schemas/RustdeskHeartbeat"
+    },
+    "rustdesk_relay": {
+      "$ref": "#/components/schemas/RustdeskRelay"
+    },
+    "rustdesk_rendezvous": {
+      "$ref": "#/components/schemas/RustdeskRendezvous"
+    },
+    "s7": {
+      "$ref": "#/components/schemas/S7"
+    },
+    "sap_router": {
+      "$ref": "#/components/schemas/SapRouter"
+    },
+    "sapient": {
+      "$ref": "#/components/schemas/Sapient"
+    },
+    "scan_time": {
+      "type": "string"
+    },
+    "scpi": {
+      "$ref": "#/components/schemas/Scpi"
+    },
+    "screenshots": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Screenshot"
+      }
+    },
+    "ser2net": {
+      "$ref": "#/components/schemas/Ser2Net"
+    },
+    "seven_days_to_die": {
+      "$ref": "#/components/schemas/SevenDaysToDie"
+    },
+    "sip": {
+      "$ref": "#/components/schemas/Sip"
+    },
+    "skinny": {
+      "$ref": "#/components/schemas/Skinny"
+    },
+    "smb": {
+      "$ref": "#/components/schemas/Smb"
+    },
+    "smtp": {
+      "$ref": "#/components/schemas/Smtp"
+    },
+    "snmp": {
+      "$ref": "#/components/schemas/Snmp"
+    },
+    "socks": {
+      "$ref": "#/components/schemas/Socks"
+    },
+    "software": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Attribute"
+      }
+    },
+    "spice": {
+      "$ref": "#/components/schemas/Spice"
+    },
+    "ssdp": {
+      "$ref": "#/components/schemas/Ssdp"
+    },
+    "ssh": {
+      "$ref": "#/components/schemas/Ssh"
+    },
+    "steam": {
+      "$ref": "#/components/schemas/Steam"
+    },
+    "stun": {
+      "$ref": "#/components/schemas/Stun"
+    },
+    "tacacs_plus": {
+      "$ref": "#/components/schemas/TacacsPlus"
+    },
+    "team_viewer": {
+      "$ref": "#/components/schemas/TeamViewer"
+    },
+    "telnet": {
+      "$ref": "#/components/schemas/Telnet"
+    },
+    "threats": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Threat"
+      }
+    },
+    "tibia": {
+      "$ref": "#/components/schemas/Tibia"
+    },
+    "tls": {
+      "$ref": "#/components/schemas/Tls"
+    },
+    "tplink_kasa": {
+      "$ref": "#/components/schemas/TplinkKasa"
+    },
+    "transport_protocol": {
+      "type": "string",
+      "enum": [
+        "",
+        "tcp",
+        "udp",
+        "icmp",
+        "quic"
+      ]
+    },
+    "unitronics_pcom": {
+      "$ref": "#/components/schemas/UnitronicsPcom"
+    },
+    "upnp": {
+      "$ref": "#/components/schemas/Upnp"
+    },
+    "ventrilo": {
+      "$ref": "#/components/schemas/Ventrilo"
+    },
+    "vnc": {
+      "$ref": "#/components/schemas/Vnc"
+    },
+    "vulns": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Vuln"
+      }
+    },
+    "weblogic_t3": {
+      "$ref": "#/components/schemas/WeblogicT3"
+    },
+    "winrm": {
+      "$ref": "#/components/schemas/Winrm"
+    },
+    "ws_discovery": {
+      "$ref": "#/components/schemas/WsDiscovery"
+    },
+    "x11": {
+      "$ref": "#/components/schemas/X11"
+    },
+    "zeromq": {
+      "$ref": "#/components/schemas/Zeromq"
+    }
+  }
+}

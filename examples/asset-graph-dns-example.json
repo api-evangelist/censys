@@ -1,0 +1,22 @@
+{
+  "additionals": [
+    null,
+    null
+  ],
+  "answers": [
+    null,
+    null
+  ],
+  "authorities": [
+    null
+  ],
+  "edns": null,
+  "questions": [
+    null,
+    null
+  ],
+  "r_code": "bad_trunc",
+  "resolves_correctly": true,
+  "server_type": "recursive_resolver",
+  "version": "example"
+}

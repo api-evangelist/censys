@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-gemini-structure.json",
+  "name": "Gemini",
+  "description": "Gemini schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "body": {
+      "type": "string"
+    },
+    "client_cert_required": {
+      "type": "boolean"
+    },
+    "meta": {
+      "type": "string"
+    },
+    "status_code": {
+      "type": "int32"
+    }
+  }
+}

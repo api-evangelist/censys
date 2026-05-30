@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-smb-smbversions-structure.json",
+  "name": "Smb_SmbVersions",
+  "description": "Smb_SmbVersions schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "major": {
+      "type": "int32",
+      "description": "Major version",
+      "minimum": 0
+    },
+    "minor": {
+      "type": "int32",
+      "description": "Minor version",
+      "minimum": 0
+    },
+    "revision": {
+      "type": "int32",
+      "description": "Protocol Revision",
+      "minimum": 0
+    },
+    "version_string": {
+      "type": "string",
+      "description": "Full SMB Version String"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-modbus-meiresponse-structure.json",
+  "name": "Modbus_MEIResponse",
+  "description": "Modbus_MEIResponse schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "conformity_level": {
+      "type": "int64"
+    },
+    "more_follows": {
+      "type": "boolean"
+    },
+    "objects": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-murmur-structure.json",
+  "name": "Murmur",
+  "description": "Murmur schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "crypt_setup": {
+      "$ref": "#/components/schemas/CryptSetup"
+    },
+    "murmur_messages": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/MurmurMessage"
+      }
+    },
+    "reject": {
+      "$ref": "#/components/schemas/Reject"
+    },
+    "server_config": {
+      "$ref": "#/components/schemas/ServerConfig"
+    },
+    "server_sync": {
+      "$ref": "#/components/schemas/ServerSync"
+    },
+    "text_messages": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/TextMessage"
+      }
+    },
+    "version": {
+      "$ref": "#/components/schemas/Murmur_MurmurVersion"
+    }
+  }
+}

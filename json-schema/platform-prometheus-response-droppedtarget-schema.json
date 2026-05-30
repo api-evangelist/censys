@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-prometheus-response-droppedtarget-schema.json",
+  "title": "Prometheus_Response_DroppedTarget",
+  "description": "Prometheus_Response_DroppedTarget schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "address": {
+      "description": "Address of target.",
+      "type": "string"
+    },
+    "job": {
+      "description": "Job of target.",
+      "type": "string"
+    },
+    "metrics_path": {
+      "description": "Path to metrics of target.",
+      "type": "string"
+    },
+    "scheme": {
+      "description": "URL scheme.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

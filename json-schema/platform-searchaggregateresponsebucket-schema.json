@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-searchaggregateresponsebucket-schema.json",
+  "title": "SearchAggregateResponseBucket",
+  "description": "SearchAggregateResponseBucket schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "count": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "key": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "key",
+    "count"
+  ],
+  "additionalProperties": false
+}

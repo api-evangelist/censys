@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ipmi-capabilities-completioncode-schema.json",
+  "title": "Ipmi_Capabilities_CompletionCode",
+  "description": "Ipmi_Capabilities_CompletionCode schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The human-readable name of the code",
+      "type": "string"
+    },
+    "raw": {
+      "description": "The raw completion code",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

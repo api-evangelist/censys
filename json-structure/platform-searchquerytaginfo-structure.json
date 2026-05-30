@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-searchquerytaginfo-structure.json",
+  "name": "SearchQueryTagInfo",
+  "description": "SearchQueryTagInfo schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "display_name"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "display_name": {
+      "type": "string",
+      "description": "Name of the tag."
+    },
+    "id": {
+      "type": "uuid",
+      "description": "ID of the tag."
+    }
+  }
+}

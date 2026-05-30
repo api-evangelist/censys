@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-zeromq-greeting-schema.json",
+  "title": "Zeromq_Greeting",
+  "description": "Zeromq_Greeting schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "as_server": {
+      "type": "boolean"
+    },
+    "mechanism": {
+      "format": "hex",
+      "type": "string"
+    },
+    "signature": {
+      "format": "hex",
+      "type": "string"
+    },
+    "version_major": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "version_minor": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ntlminfo-schema.json",
+  "title": "NtlmInfo",
+  "description": "NtlmInfo schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "always_sign_supported": {
+      "type": "boolean"
+    },
+    "challenge_type": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "dns_domain_name": {
+      "type": "string"
+    },
+    "dns_server_name": {
+      "type": "string"
+    },
+    "dns_tree_name": {
+      "type": "string"
+    },
+    "encryption_128bit_supported": {
+      "type": "boolean"
+    },
+    "encryption_56bit_supported": {
+      "type": "boolean"
+    },
+    "netbios_computer_name": {
+      "type": "string"
+    },
+    "netbios_domain_name": {
+      "type": "string"
+    },
+    "ntlm1_supported": {
+      "type": "boolean"
+    },
+    "ntlm2_supported": {
+      "type": "boolean"
+    },
+    "ntlm_version": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "os_version": {
+      "type": "string"
+    },
+    "target_name": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

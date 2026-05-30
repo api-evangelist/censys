@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-saprouter-routerversioninfo-schema.json",
+  "title": "SapRouter_RouterVersionInfo",
+  "description": "SapRouter_RouterVersionInfo schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "release": {
+      "format": "int64",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "version": {
+      "format": "int64",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

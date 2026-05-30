@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-amqp-protocol-structure.json",
+  "name": "Amqp_Protocol",
+  "description": "Amqp_Protocol schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

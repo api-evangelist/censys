@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-ethereum-version-structure.json",
+  "name": "Ethereum_Version",
+  "description": "Ethereum_Version schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "client": {
+      "type": "string"
+    },
+    "compiler": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "string"
+    },
+    "trailing": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

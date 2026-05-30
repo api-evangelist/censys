@@ -1,0 +1,11 @@
+{
+  "group_name": "Production Internet Asset Inventory",
+  "has_ntlm": false,
+  "native_os": "example",
+  "negotiation_log": null,
+  "ntlm": "example",
+  "session_setup_log": null,
+  "smb_capabilities": null,
+  "smb_version": null,
+  "smbv1_support": false
+}

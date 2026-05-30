@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-kubernetes-endpoint-subset-structure.json",
+  "name": "Kubernetes_Endpoint_Subset",
+  "description": "Kubernetes_Endpoint_Subset schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "addresses": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Kubernetes_Endpoint_Subset_EndpointAddress"
+      }
+    },
+    "ports": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Kubernetes_Endpoint_Subset_Port"
+      }
+    }
+  }
+}

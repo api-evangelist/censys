@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ed25519cryptographickey-structure.json",
+  "name": "ED25519CryptographicKey",
+  "description": "ED25519CryptographicKey schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "public_bytes": {
+      "type": "string"
+    }
+  }
+}

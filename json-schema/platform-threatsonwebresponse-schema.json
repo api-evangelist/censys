@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-threatsonwebresponse-schema.json",
+  "title": "ThreatsOnWebResponse",
+  "description": "ThreatsOnWebResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "NextPageToken": {
+      "type": "string"
+    },
+    "Ranges": {
+      "items": {
+        "$ref": "#/components/schemas/ThreatOnWebRange"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "Ranges",
+    "NextPageToken"
+  ],
+  "additionalProperties": false
+}

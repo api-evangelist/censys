@@ -1,0 +1,11 @@
+{
+  "application_name": null,
+  "application_type": 285,
+  "application_uri": "https://search.censys.io/hosts/8.8.8.8",
+  "discovery_profile_uri": "https://search.censys.io/hosts/8.8.8.8",
+  "discovery_urls": [
+    "https://search.censys.io/hosts/8.8.8.8"
+  ],
+  "gateway_server_uri": "https://search.censys.io/hosts/8.8.8.8",
+  "product_uri": "https://search.censys.io/hosts/8.8.8.8"
+}

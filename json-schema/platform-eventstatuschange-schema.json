@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-eventstatuschange-schema.json",
+  "title": "EventStatusChange",
+  "description": "EventStatusChange schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "event_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "new_status": {
+      "enum": [
+        "active",
+        "populating",
+        "paused",
+        "archived"
+      ],
+      "type": "string"
+    },
+    "old_status": {
+      "enum": [
+        "active",
+        "populating",
+        "paused",
+        "archived"
+      ],
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_time",
+    "new_status"
+  ],
+  "additionalProperties": false
+}

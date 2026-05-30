@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-saprouter-schema.json",
+  "title": "SapRouter",
+  "description": "SapRouter schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "router_info": {
+      "$ref": "#/components/schemas/SapRouter_RouterInfo"
+    },
+    "router_version_info": {
+      "$ref": "#/components/schemas/SapRouter_RouterVersionInfo"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,22 @@
+{
+  "components": [
+    null,
+    null
+  ],
+  "confidence": 59.66,
+  "cpe": "example",
+  "edition": "example",
+  "evidence": [
+    null
+  ],
+  "life_cycle": null,
+  "part": "example",
+  "product": "example",
+  "source": "wappalyzer",
+  "type": [
+    "example"
+  ],
+  "update": "example",
+  "vendor": "example",
+  "version": "example"
+}

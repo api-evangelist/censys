@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-threat-actor-structure.json",
+  "name": "Threat_Actor",
+  "description": "Threat_Actor schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "all_names": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "malpedia_group_id": {
+      "type": "string"
+    },
+    "mitre_group_id": {
+      "type": "string"
+    },
+    "primary_name": {
+      "type": "string"
+    }
+  }
+}

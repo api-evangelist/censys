@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-evidence-structure.json",
+  "name": "Evidence",
+  "description": "Evidence schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "data_path": {
+      "type": "string"
+    },
+    "exists": {
+      "type": "boolean"
+    },
+    "found_value": {
+      "type": "string"
+    },
+    "literal_match": {
+      "type": "string"
+    },
+    "negative": {
+      "type": "boolean"
+    },
+    "proprietary": {
+      "type": "boolean"
+    },
+    "regex": {
+      "type": "string"
+    },
+    "semver_expression": {
+      "type": "string"
+    }
+  }
+}

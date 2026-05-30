@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-asteriskmanagerinterface-structure.json",
+  "name": "AsteriskManagerInterface",
+  "description": "AsteriskManagerInterface schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string"
+    }
+  }
+}

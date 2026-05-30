@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-othername-schema.json",
+  "title": "OtherName",
+  "description": "OtherName schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The OID identifying the syntax of the otherName value.",
+      "type": "string"
+    },
+    "value": {
+      "description": "The raw otherName value.",
+      "format": "base64",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

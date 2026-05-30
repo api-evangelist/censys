@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-anyconnect-structure.json",
+  "name": "AnyConnect",
+  "description": "AnyConnect schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "aggregate_auth_version": {
+      "type": "int32",
+      "description": "Version number indicated by the response for config-auth exchange"
+    },
+    "auth_methods": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Supported methods for users to enter credentials for this VPN",
+      "items": {
+        "type": "string"
+      }
+    },
+    "groups": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of groups a user can authenticate with to use this VPN",
+      "items": {
+        "type": "string"
+      }
+    },
+    "raw": {
+      "type": "string",
+      "description": "XML content of the config-auth response"
+    },
+    "response_type": {
+      "type": "string",
+      "description": "Type of the response packet received after initializing the config-auth exchange"
+    }
+  }
+}

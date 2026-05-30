@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-upnp-schema.json",
+  "title": "Upnp",
+  "description": "Upnp schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "devices": {
+      "items": {
+        "$ref": "#/components/schemas/Upnp_Device"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "endpoint": {
+      "type": "string"
+    },
+    "headers": {
+      "additionalProperties": {
+        "$ref": "#/components/schemas/Http_RepeatedHeaders"
+      },
+      "type": "object"
+    },
+    "spec": {
+      "$ref": "#/components/schemas/Upnp_SpecVersion"
+    }
+  },
+  "additionalProperties": false
+}

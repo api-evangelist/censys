@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-autonomoussystem-structure.json",
+  "name": "AutonomousSystem",
+  "description": "AutonomousSystem schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "asn": {
+      "type": "int32",
+      "description": "The ASN (autonomous system number) of the host's autonomous system.",
+      "minimum": 0
+    },
+    "bgp_prefix": {
+      "type": "string",
+      "description": "The autonomous system's CIDR."
+    },
+    "country_code": {
+      "type": "string",
+      "description": "The autonomous system's two-letter ISO 3166-1 alpha-2 country code (US, CN, GB, RU, ...)."
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of the autonomous system."
+    },
+    "name": {
+      "type": "string",
+      "description": "The friendly name of the autonomous system."
+    },
+    "organization": {
+      "type": "string",
+      "description": "The name of the organization managning the autonomous system."
+    }
+  }
+}

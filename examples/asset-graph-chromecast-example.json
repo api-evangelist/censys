@@ -1,0 +1,11 @@
+{
+  "applications": [
+    null
+  ],
+  "icon_url": "https://search.censys.io/hosts/8.8.8.8",
+  "is_active_input": false,
+  "protocol_version": 747,
+  "status_text": "running",
+  "universal_app_id": "cns_a8f3cae1957ab0ea",
+  "volume": null
+}

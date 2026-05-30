@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-searchconvertqueryinputbody-structure.json",
+  "name": "SearchConvertQueryInputBody",
+  "description": "SearchConvertQueryInputBody schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "queries"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "queries": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "A list of Censys Search Language queries to convert. Limited to 100 queries.",
+      "maxItems": 100,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

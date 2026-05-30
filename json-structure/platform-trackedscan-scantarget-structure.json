@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-trackedscan-scantarget-structure.json",
+  "name": "TrackedScan_ScanTarget",
+  "description": "TrackedScan_ScanTarget schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "host_port": {
+      "$ref": "#/components/schemas/TrackedScan_ScanTarget_HostPort"
+    },
+    "hostname_port": {
+      "$ref": "#/components/schemas/TrackedScan_ScanTarget_HostnamePort"
+    },
+    "service_id": {
+      "$ref": "#/components/schemas/ServiceId"
+    },
+    "web_origin": {
+      "$ref": "#/components/schemas/WebOrigin"
+    }
+  }
+}

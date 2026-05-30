@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-sourceusagebreakdown-schema.json",
+  "title": "SourceUsageBreakdown",
+  "description": "SourceUsageBreakdown schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "api": {
+      "description": "The amount of credits consumed through the Platform API.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "auto_replenishment": {
+      "description": "The amount of credits consumed through auto-replenishment.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "other": {
+      "description": "The amount of credits consumed through other operations.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "ui": {
+      "description": "The amount of credits consumed through the Platform UI.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ui",
+    "api"
+  ],
+  "additionalProperties": false
+}

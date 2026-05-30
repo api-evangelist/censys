@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-comment-schema.json",
+  "title": "Comment",
+  "description": "Comment schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "asset_id": {
+      "description": "The identifier of the commented asset (host IP, certificate SHA-256 fingerprint, or web property domain/IP:port).",
+      "type": "string"
+    },
+    "asset_type": {
+      "description": "The inferred type of the asset.",
+      "enum": [
+        "host",
+        "certificate",
+        "web_property",
+        "unknown"
+      ],
+      "type": "string"
+    },
+    "body": {
+      "description": "The comment body text.",
+      "type": "string"
+    },
+    "created_at": {
+      "description": "RFC3339 timestamp when the comment was created.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "created_by": {
+      "description": "The user ID of the user who created the comment.",
+      "format": "uuid",
+      "type": "string"
+    },
+    "id": {
+      "description": "The unique ID of the comment.",
+      "format": "uuid",
+      "type": "string"
+    },
+    "platform_ref": {
+      "description": "A direct URL to the asset in the Censys platform.",
+      "type": "string"
+    },
+    "updated_at": {
+      "description": "RFC3339 timestamp when the comment was last updated.",
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "asset_id",
+    "asset_type",
+    "platform_ref",
+    "body",
+    "created_at",
+    "updated_at",
+    "created_by"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ldap-attribute-schema.json",
+  "title": "Ldap_Attribute",
+  "description": "Ldap_Attribute schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the LDAP attribute in the root DN",
+      "type": "string"
+    },
+    "values": {
+      "description": "Values for the respective LDAP attribute",
+      "format": "utf8",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

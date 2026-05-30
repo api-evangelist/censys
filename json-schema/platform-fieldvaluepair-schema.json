@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-fieldvaluepair-schema.json",
+  "title": "FieldValuePair",
+  "description": "FieldValuePair schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "field": {
+      "description": "The field to match",
+      "examples": [
+        "host.services.port"
+      ],
+      "type": "string"
+    },
+    "value": {
+      "description": "The value to match",
+      "examples": [
+        "80"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "field",
+    "value"
+  ],
+  "additionalProperties": false
+}

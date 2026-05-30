@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-graphexecution-structure.json",
+  "name": "GraphExecution",
+  "description": "GraphExecution schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "id",
+    "status",
+    "create_time",
+    "update_time"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "uri",
+      "description": "A URL to the JSON Schema for this object."
+    },
+    "create_time": {
+      "type": "string",
+      "description": "RFC3339 creation timestamp"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the execution"
+    },
+    "stats": {
+      "description": "Execution statistics",
+      "$ref": "#/components/schemas/ExecutionStats"
+    },
+    "status": {
+      "type": "string",
+      "description": "Execution status"
+    },
+    "update_time": {
+      "type": "string",
+      "description": "RFC3339 last-update timestamp"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-reputation-evidence-externalsignal-schema.json",
+  "title": "Reputation_Evidence_ExternalSignal",
+  "description": "Reputation_Evidence_ExternalSignal schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "tlp": {
+      "enum": [
+        "",
+        "green",
+        "amber",
+        "red",
+        "white"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

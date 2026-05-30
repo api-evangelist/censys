@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-serversync-schema.json",
+  "title": "ServerSync",
+  "description": "ServerSync schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "max_bandwidth": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "permissions": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "welcome_text": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

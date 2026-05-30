@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-iota-structure.json",
+  "name": "Iota",
+  "description": "Iota schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "v0_info": {
+      "$ref": "#/components/schemas/NodeInfoV0"
+    },
+    "v1_info": {
+      "$ref": "#/components/schemas/NodeInfoV1"
+    },
+    "v2_info": {
+      "$ref": "#/components/schemas/NodeInfoV2"
+    }
+  }
+}

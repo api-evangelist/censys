@@ -1,0 +1,15 @@
+{
+  "callsign": "example",
+  "endpoint": "example",
+  "how": "example",
+  "point": null,
+  "stale": "example",
+  "start": "example",
+  "status": null,
+  "takv": null,
+  "time": "example",
+  "type": "example",
+  "uid": "cns_5ca39270b939e8f8",
+  "version": "example",
+  "video_url": "https://search.censys.io/hosts/8.8.8.8"
+}

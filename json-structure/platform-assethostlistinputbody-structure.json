@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-assethostlistinputbody-structure.json",
+  "name": "AssetHostListInputBody",
+  "description": "AssetHostListInputBody schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "host_ids"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "at_time": {
+      "type": "datetime",
+      "description": "RFC3339 Timestamp to view all requested hosts at a specific point in time. Must be a valid RFC3339 string. Ensure that you suffix the date with T00:00:00Z or a specific time."
+    },
+    "host_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "A list of host IP addresses.",
+      "minItems": 1,
+      "maxItems": 100,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

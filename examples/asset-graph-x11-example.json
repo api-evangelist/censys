@@ -1,0 +1,6 @@
+{
+  "refusal_reason": "Active production asset under observation.",
+  "requires_authentication": true,
+  "vendor": "example",
+  "version": "example"
+}

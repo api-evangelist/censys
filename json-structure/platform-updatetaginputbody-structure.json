@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-updatetaginputbody-structure.json",
+  "name": "UpdateTagInputBody",
+  "description": "UpdateTagInputBody schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "New description.",
+      "maxLength": 1000
+    },
+    "name": {
+      "type": "string",
+      "description": "New display name. Must be unique within the organization.",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "privacy": {
+      "type": "string",
+      "description": "Tag visibility and management settings. `private` tags are only visible to and editable by organization admins. `shared` tags are visible to and editable by all organization members.",
+      "enum": [
+        "private",
+        "shared"
+      ]
+    }
+  }
+}

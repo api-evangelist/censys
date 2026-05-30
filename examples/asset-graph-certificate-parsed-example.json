@@ -1,0 +1,19 @@
+{
+  "extensions": null,
+  "issuer": null,
+  "issuer_dn": "example",
+  "ja4x": "example",
+  "redacted": false,
+  "serial_number": "example",
+  "serial_number_hex": "example",
+  "signature": null,
+  "subject": null,
+  "subject_dn": "example",
+  "subject_key_info": null,
+  "unknown_extensions": [
+    null,
+    null
+  ],
+  "validity_period": null,
+  "version": 485
+}

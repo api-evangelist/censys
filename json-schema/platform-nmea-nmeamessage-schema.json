@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-nmea-nmeamessage-schema.json",
+  "title": "Nmea_NmeaMessage",
+  "description": "Nmea_NmeaMessage schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "sentence_id": {
+      "type": "string"
+    },
+    "talker_id": {
+      "type": "string"
+    },
+    "talker_name": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

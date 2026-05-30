@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-dnsipresolutionrecord-structure.json",
+  "name": "DnsIpResolutionRecord",
+  "description": "DnsIpResolutionRecord schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "domain",
+    "first_seen",
+    "last_seen",
+    "record_type"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "domain": {
+      "type": "string",
+      "description": "The domain name that resolved to this IP."
+    },
+    "first_seen": {
+      "type": "datetime",
+      "description": "The time this record was first observed."
+    },
+    "last_seen": {
+      "type": "datetime",
+      "description": "The time this record was last observed."
+    },
+    "record_type": {
+      "type": "string",
+      "description": "Either A or AAAA.",
+      "enum": [
+        "A",
+        "AAAA"
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-connection-schema.json",
+  "title": "Connection",
+  "description": "Connection schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "ahs_length": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "cmd_seq": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "isid": {
+      "format": "int64",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "keyval_pairs": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "max_new_cmds": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "status_seq": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "tsih": {
+      "format": "int64",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "version_active": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "version_max": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

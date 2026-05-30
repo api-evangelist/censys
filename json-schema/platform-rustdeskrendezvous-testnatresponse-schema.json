@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rustdeskrendezvous-testnatresponse-schema.json",
+  "title": "RustdeskRendezvous_TestNatResponse",
+  "description": "RustdeskRendezvous_TestNatResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "config_update": {
+      "$ref": "#/components/schemas/RustdeskRendezvous_ConfigUpdate"
+    },
+    "port": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

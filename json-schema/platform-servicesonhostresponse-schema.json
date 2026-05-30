@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-servicesonhostresponse-schema.json",
+  "title": "ServicesOnHostResponse",
+  "description": "ServicesOnHostResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "next_page_token": {
+      "description": "A token that can be used to retrieve the next page of ranges.",
+      "type": "string"
+    },
+    "ranges": {
+      "description": "The list of requested services.",
+      "items": {
+        "$ref": "#/components/schemas/ServiceOnHostRange"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "ranges",
+    "next_page_token"
+  ],
+  "additionalProperties": false
+}

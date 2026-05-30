@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-jenkins-job-schema.json",
+  "title": "Jenkins_Job",
+  "description": "Jenkins_Job schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "last_build": {
+      "$ref": "#/components/schemas/Jenkins_Build"
+    },
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

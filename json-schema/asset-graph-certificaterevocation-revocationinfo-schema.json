@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-certificaterevocation-revocationinfo-schema.json",
+  "title": "CertificateRevocation_RevocationInfo",
+  "description": "CertificateRevocation_RevocationInfo schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "next_update": {
+      "type": "string"
+    },
+    "reason": {
+      "description": "An enumerated value indicating the issuer-supplied reason for the revocation.",
+      "enum": [
+        "",
+        "unspecified",
+        "key_compromise",
+        "ca_compromise",
+        "affiliation_changed",
+        "superseded",
+        "cessation_of_operation",
+        "certificate_hold",
+        "remove_from_crl",
+        "privilege_withdrawn",
+        "aa_compromise"
+      ],
+      "type": "string"
+    },
+    "revocation_time": {
+      "description": "The issuer-supplied timestamp indicating when the certificate was revoked.",
+      "type": "string"
+    },
+    "revoked": {
+      "description": "Whether the certificate has been revoked before its expiry date by the issuer.",
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

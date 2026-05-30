@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-eip-interface-structure.json",
+  "name": "Eip_Interface",
+  "description": "Eip_Interface schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "index": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "end_time": "2026-05-29T12:34:56Z",
+  "ip": "8.8.8.8",
+  "port": 524,
+  "protocols": [
+    "UDP",
+    "SSH"
+  ],
+  "start_time": "2026-05-29T12:34:56Z",
+  "transport_protocol": "UDP"
+}

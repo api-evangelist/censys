@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-authenticationerrordetail-schema.json",
+  "title": "AuthenticationErrorDetail",
+  "description": "AuthenticationErrorDetail schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "code": {
+      "description": "HTTP status code",
+      "examples": [
+        401
+      ],
+      "format": "int64",
+      "type": "integer"
+    },
+    "message": {
+      "description": "Human-readable message describing the error occurrence",
+      "examples": [
+        "Access credentials are invalid"
+      ],
+      "type": "string"
+    },
+    "reason": {
+      "description": "Human-readable explanation of the underlying cause of the error",
+      "examples": [
+        "Access token is not active"
+      ],
+      "type": "string"
+    },
+    "request": {
+      "type": "string"
+    },
+    "status": {
+      "description": "HTTP status message associated with the error",
+      "examples": [
+        "Unauthorized"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

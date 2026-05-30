@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-hostdns-forwardresolution-schema.json",
+  "title": "HostDns_ForwardResolution",
+  "description": "HostDns_ForwardResolution schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "record_type": {
+      "enum": [
+        "",
+        "a",
+        "aaaa"
+      ],
+      "type": "string"
+    },
+    "resolve_time": {
+      "type": "string"
+    },
+    "server": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

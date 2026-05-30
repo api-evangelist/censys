@@ -1,0 +1,42 @@
+{
+  "cert": null,
+  "endpoints": [
+    null,
+    null
+  ],
+  "exposures": [
+    null,
+    null
+  ],
+  "hardware": [
+    null,
+    null
+  ],
+  "hostname": "example.com",
+  "jarm": null,
+  "labels": [
+    null
+  ],
+  "misconfigs": [
+    null,
+    null
+  ],
+  "operating_systems": [
+    null,
+    null
+  ],
+  "port": 668,
+  "scan_time": "example",
+  "software": [
+    null,
+    null
+  ],
+  "threats": [
+    null
+  ],
+  "tls": null,
+  "vulns": [
+    null,
+    null
+  ]
+}

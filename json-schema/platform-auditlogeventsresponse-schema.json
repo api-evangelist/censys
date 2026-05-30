@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-auditlogeventsresponse-schema.json",
+  "title": "AuditLogEventsResponse",
+  "description": "AuditLogEventsResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "events": {
+      "description": "The page of audit log events for the requested filters and pagination parameters.",
+      "items": {
+        "$ref": "#/components/schemas/AuditLogEvent"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/PaginationInfo",
+      "description": "Pagination information for listing more events."
+    },
+    "total_results": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "events",
+    "pagination",
+    "total_results"
+  ],
+  "additionalProperties": false
+}

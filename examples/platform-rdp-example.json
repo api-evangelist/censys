@@ -1,0 +1,9 @@
+{
+  "certificate_info": null,
+  "connect_response": null,
+  "protocol_flags": null,
+  "selected_security_protocol": null,
+  "version": null,
+  "x224_cc_pdu_dstref": 500,
+  "x224_cc_pdu_srcref": 95
+}

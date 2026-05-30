@@ -1,0 +1,14 @@
+{
+  "assigned_labels": [
+    null,
+    null
+  ],
+  "jobs": [
+    null
+  ],
+  "mode": "example",
+  "node_description": "Active production asset under observation.",
+  "node_name": "Production Internet Asset Inventory",
+  "slave_agent_port": 279,
+  "use_security": true
+}

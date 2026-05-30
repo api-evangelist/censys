@@ -1,0 +1,5 @@
+{
+  "cipher": "example",
+  "compression": "example",
+  "mac": "aa:bb:cc:dd:ee:ff"
+}

@@ -1,0 +1,8 @@
+{
+  "connected": false,
+  "connected_on": "example",
+  "id": 200,
+  "routed": true,
+  "service": "example",
+  "traced": true
+}

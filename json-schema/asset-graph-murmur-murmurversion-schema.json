@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-murmur-murmurversion-schema.json",
+  "title": "Murmur_MurmurVersion",
+  "description": "Murmur_MurmurVersion schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "build": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "major": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "minor": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "os": {
+      "type": "string"
+    },
+    "os_version": {
+      "type": "string"
+    },
+    "version_string": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

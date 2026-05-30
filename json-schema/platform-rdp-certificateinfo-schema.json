@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rdp-certificateinfo-schema.json",
+  "title": "Rdp_CertificateInfo",
+  "description": "Rdp_CertificateInfo schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "internal_x509_chain_fps": {
+      "format": "hex",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "proprietary_rsa_key": {
+      "$ref": "#/components/schemas/Rdp_EmbeddedRSACert"
+    }
+  },
+  "additionalProperties": false
+}

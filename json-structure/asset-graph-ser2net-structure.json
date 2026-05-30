@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ser2net-structure.json",
+  "name": "Ser2Net",
+  "description": "Ser2Net schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "device": {
+      "type": "string"
+    },
+    "os": {
+      "type": "string"
+    },
+    "serial_parameters": {
+      "$ref": "#/components/schemas/Ser2Net_SerialParameters"
+    },
+    "software": {
+      "type": "string"
+    },
+    "software_version": {
+      "type": "string"
+    }
+  }
+}

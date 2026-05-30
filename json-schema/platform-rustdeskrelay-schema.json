@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rustdeskrelay-schema.json",
+  "title": "RustdeskRelay",
+  "description": "RustdeskRelay schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "open_relay": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

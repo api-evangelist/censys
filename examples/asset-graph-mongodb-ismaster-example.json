@@ -1,0 +1,10 @@
+{
+  "is_master": true,
+  "logical_session_timeout_minutes": 1748520000000,
+  "max_bson_object_size": 32,
+  "max_message_size_bytes": 17,
+  "max_wire_version": 298,
+  "max_write_batch_size": 747,
+  "min_wire_version": 632,
+  "read_only": true
+}

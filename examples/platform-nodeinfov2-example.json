@@ -1,0 +1,22 @@
+{
+  "decimals": 206,
+  "features": [
+    "example"
+  ],
+  "is_healthy": false,
+  "latest_milestone": 787,
+  "latest_uncommitted_milestone": 609,
+  "name": "Production Internet Asset Inventory",
+  "network_name": "Production Internet Asset Inventory",
+  "protocol_version": 666,
+  "subunit": "example",
+  "supported_protocol_versions": [
+    823,
+    735
+  ],
+  "ticker_symbol": "example",
+  "token_name": "0b470307f8d6c553ce88f52892643bc0",
+  "token_supply": "30949143169d941d2744c53bf3e0b727",
+  "unit": "example",
+  "version": "example"
+}

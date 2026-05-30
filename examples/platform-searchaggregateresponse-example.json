@@ -1,0 +1,10 @@
+{
+  "buckets": [
+    null,
+    null
+  ],
+  "is_more_than_total_hits": true,
+  "other_count": 162,
+  "query_duration_millis": 42,
+  "total_count": 758
+}

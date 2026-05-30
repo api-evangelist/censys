@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-assetgraph-schema.json",
+  "title": "AssetGraph",
+  "description": "AssetGraph schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "description": "A URL to the JSON Schema for this object.",
+      "examples": [
+        "https://graph.data.censys.io/schemas/AssetGraph.json"
+      ],
+      "format": "uri",
+      "readOnly": true,
+      "type": "string"
+    },
+    "active_execution": {
+      "$ref": "#/components/schemas/GraphExecution",
+      "description": "The currently active graph execution"
+    },
+    "create_time": {
+      "description": "RFC3339 creation timestamp",
+      "type": "string"
+    },
+    "description": {
+      "description": "Optional description",
+      "type": "string"
+    },
+    "id": {
+      "description": "Unique identifier for the asset graph",
+      "type": "string"
+    },
+    "name": {
+      "description": "User-defined name",
+      "type": "string"
+    },
+    "status": {
+      "description": "Lifecycle status of the asset graph",
+      "enum": [
+        "ACTIVE",
+        "DELETING"
+      ],
+      "type": "string"
+    },
+    "update_time": {
+      "description": "RFC3339 last-update timestamp",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "status",
+    "create_time",
+    "update_time"
+  ],
+  "additionalProperties": false
+}

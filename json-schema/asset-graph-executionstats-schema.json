@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-executionstats-schema.json",
+  "title": "ExecutionStats",
+  "description": "ExecutionStats schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "discovered_certificates": {
+      "description": "Number of discovered (non-seed) certificate assets",
+      "format": "int64",
+      "type": "integer"
+    },
+    "discovered_domains": {
+      "description": "Number of discovered (non-seed) domain assets",
+      "format": "int64",
+      "type": "integer"
+    },
+    "discovered_hosts": {
+      "description": "Number of discovered (non-seed) host assets",
+      "format": "int64",
+      "type": "integer"
+    },
+    "discovered_web_properties": {
+      "description": "Number of discovered (non-seed) web property assets",
+      "format": "int64",
+      "type": "integer"
+    },
+    "hosts_with_risks": {
+      "description": "Number of host assets with risks",
+      "format": "int64",
+      "type": "integer"
+    },
+    "total_certificates": {
+      "description": "Total number of certificate assets",
+      "format": "int64",
+      "type": "integer"
+    },
+    "total_domains": {
+      "description": "Total number of domain assets",
+      "format": "int64",
+      "type": "integer"
+    },
+    "total_hosts": {
+      "description": "Total number of host assets",
+      "format": "int64",
+      "type": "integer"
+    },
+    "total_web_properties": {
+      "description": "Total number of web property assets",
+      "format": "int64",
+      "type": "integer"
+    },
+    "web_properties_with_risks": {
+      "description": "Number of web property assets with risks",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "total_hosts",
+    "discovered_hosts",
+    "hosts_with_risks",
+    "total_certificates",
+    "discovered_certificates",
+    "total_domains",
+    "discovered_domains",
+    "total_web_properties",
+    "discovered_web_properties",
+    "web_properties_with_risks"
+  ],
+  "additionalProperties": false
+}

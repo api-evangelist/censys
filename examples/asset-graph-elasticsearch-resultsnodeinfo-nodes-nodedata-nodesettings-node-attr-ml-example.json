@@ -1,0 +1,5 @@
+{
+  "enabled": "example",
+  "machine_memory": "aa:bb:cc:dd:ee:ff",
+  "max_open_jobs": "example"
+}

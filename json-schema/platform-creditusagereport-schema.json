@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-creditusagereport-schema.json",
+  "title": "CreditUsageReport",
+  "description": "CreditUsageReport schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "credits_consumed_by_consumer": {
+      "description": "The breakdown of credits consumed by consumer. This may not be present if the report is generated for a specific user.",
+      "type": "string"
+    },
+    "credits_consumed_by_source": {
+      "$ref": "#/components/schemas/SourceUsageBreakdown",
+      "description": "The breakdown of credits consumed by source."
+    },
+    "end_time": {
+      "description": "The end time of the window for this report.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "granularity": {
+      "default": "daily",
+      "description": "The granularity of the report.",
+      "enum": [
+        "daily",
+        "monthly"
+      ],
+      "examples": [
+        "daily"
+      ],
+      "type": "string"
+    },
+    "periods": {
+      "description": "The periods of the report (i.e. time buckets).",
+      "items": {
+        "$ref": "#/components/schemas/CreditUsageReportPeriod"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "start_time": {
+      "description": "The start time of the window for this report.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "total_added": {
+      "description": "The total amount of credits added during the report period.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "total_consumed": {
+      "description": "The total amount of credits consumed during the report period.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "total_expired": {
+      "description": "The total amount of credits expired during the report period.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "transaction_count": {
+      "description": "The total number of transactions during the report period.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "start_time",
+    "end_time",
+    "granularity",
+    "total_consumed",
+    "total_added",
+    "total_expired",
+    "transaction_count",
+    "periods",
+    "credits_consumed_by_source"
+  ],
+  "additionalProperties": false
+}

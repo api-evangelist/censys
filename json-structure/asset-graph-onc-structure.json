@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-onc-structure.json",
+  "name": "Onc",
+  "description": "Onc schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false
+}

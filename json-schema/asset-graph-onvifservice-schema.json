@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-onvifservice-schema.json",
+  "title": "OnvifService",
+  "description": "OnvifService schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "capabilities": {
+      "$ref": "#/components/schemas/Capabilities"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "service_version_major": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "service_version_minor": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "xaddr": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

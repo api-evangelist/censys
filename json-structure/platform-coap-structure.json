@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-coap-structure.json",
+  "name": "Coap",
+  "description": "Coap schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "type": "string"
+    },
+    "message_id": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "message_type": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "string"
+    },
+    "token": {
+      "type": "string"
+    },
+    "version": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

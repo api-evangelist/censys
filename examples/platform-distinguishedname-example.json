@@ -1,0 +1,53 @@
+{
+  "common_name": [
+    "Production Internet Asset Inventory"
+  ],
+  "country": [
+    "US"
+  ],
+  "domain_component": [
+    "example.com"
+  ],
+  "email_address": [
+    "analyst@example.com"
+  ],
+  "given_name": [
+    "Production Internet Asset Inventory"
+  ],
+  "jurisdiction_country": [
+    "https://search.censys.io/hosts/8.8.8.8"
+  ],
+  "jurisdiction_locality": [
+    "https://search.censys.io/hosts/8.8.8.8"
+  ],
+  "jurisdiction_province": [
+    "https://search.censys.io/hosts/8.8.8.8"
+  ],
+  "locality": [
+    "example"
+  ],
+  "organization": [
+    "example"
+  ],
+  "organization_id": [
+    "01234567-89ab-cdef-0123-456789abcdef"
+  ],
+  "organizational_unit": [
+    "example"
+  ],
+  "postal_code": [
+    "example"
+  ],
+  "province": [
+    "example"
+  ],
+  "serial_number": [
+    "example"
+  ],
+  "street_address": [
+    "example"
+  ],
+  "surname": [
+    "Production Internet Asset Inventory"
+  ]
+}

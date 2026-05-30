@@ -1,0 +1,19 @@
+{
+  "active_targets": [
+    null,
+    null
+  ],
+  "all_versions": [
+    "example"
+  ],
+  "config_exposed": true,
+  "dropped_targets": [
+    null
+  ],
+  "go_versions": [
+    "example"
+  ],
+  "prometheus_versions": [
+    null
+  ]
+}

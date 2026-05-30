@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ssh-serverhostkey-structure.json",
+  "name": "Ssh_ServerHostKey",
+  "description": "Ssh_ServerHostKey schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "certkey_public_key": {
+      "type": "string"
+    },
+    "dsa_public_key": {
+      "$ref": "#/components/schemas/DSACryptographicKey"
+    },
+    "ecdsa_public_key": {
+      "$ref": "#/components/schemas/ECDSACryptographicKey"
+    },
+    "ed25519_public_key": {
+      "$ref": "#/components/schemas/ED25519CryptographicKey"
+    },
+    "fingerprint_sha256": {
+      "type": "string"
+    },
+    "rsa_public_key": {
+      "$ref": "#/components/schemas/RSACryptographicKey"
+    }
+  }
+}

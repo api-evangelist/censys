@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-stun-turn-allocatesuccessresponse-structure.json",
+  "name": "Stun_Turn_AllocateSuccessResponse",
+  "description": "Stun_Turn_AllocateSuccessResponse schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "has_fingerprint": {
+      "type": "boolean"
+    },
+    "relay_address": {
+      "$ref": "#/components/schemas/Stun_MappedAddress"
+    },
+    "software": {
+      "type": "string"
+    }
+  }
+}

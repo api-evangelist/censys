@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-smtp-structure.json",
+  "name": "Smtp",
+  "description": "Smtp schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ehlo": {
+      "type": "string",
+      "description": "The server's response to the EHLO command."
+    },
+    "start_tls": {
+      "type": "string",
+      "description": "The server's response to the STARTTLS command."
+    }
+  }
+}

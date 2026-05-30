@@ -1,0 +1,10 @@
+{
+  "client_version": "example",
+  "location": "example",
+  "login_ip": "8.8.8.8",
+  "login_port": "example",
+  "name": "Production Internet Asset Inventory",
+  "server": "example",
+  "url": "https://search.censys.io/hosts/8.8.8.8",
+  "version": "example"
+}

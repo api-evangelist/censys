@@ -1,0 +1,8 @@
+{
+  "allow_access_from": [
+    null,
+    null
+  ],
+  "policy": "example",
+  "site_control": "example"
+}

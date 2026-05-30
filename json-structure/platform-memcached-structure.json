@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-memcached-structure.json",
+  "name": "Memcached",
+  "description": "Memcached schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ascii_binding_protocol_enabled": {
+      "type": "boolean",
+      "description": "Whether server responds to a handshake using the ASCII wire format of the protocol."
+    },
+    "binary_binding_protocol_enabled": {
+      "type": "boolean",
+      "description": "Whether server responds to a handshake using the binary wire format of the protocol."
+    },
+    "responds_to_udp": {
+      "type": "boolean",
+      "description": "Whether the server on the UDP port with the same number responds to a handshake using the ASCII wire format of the protocol."
+    },
+    "stats": {
+      "type": "object",
+      "description": "Server information returned in response to the stats command, as a set of key:value pairs.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "version": {
+      "type": "string",
+      "description": "The Memcached version indicated in the server's response."
+    }
+  }
+}

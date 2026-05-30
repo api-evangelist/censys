@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-eip-service-schema.json",
+  "title": "Eip_Service",
+  "description": "Eip_Service schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "capabilities": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "service_name": {
+      "type": "string"
+    },
+    "supports_tcp": {
+      "type": "boolean"
+    },
+    "supports_udp": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

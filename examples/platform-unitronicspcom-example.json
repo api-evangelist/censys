@@ -1,0 +1,12 @@
+{
+  "buffer_size": "example",
+  "hardware_version": "example",
+  "model": "example",
+  "model_executor": "example",
+  "model_op_executor": "example",
+  "name": "Production Internet Asset Inventory",
+  "os_build": "example",
+  "os_version": "example",
+  "unique_id": 609,
+  "unit_id": "cns_fc68d3dd291923eb"
+}

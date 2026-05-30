@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-reputation-evidence-schema.json",
+  "title": "Reputation_Evidence",
+  "description": "Reputation_Evidence schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "additional_fields": {
+      "items": {
+        "$ref": "#/components/schemas/Reputation_Evidence_FieldValue"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "category": {
+      "type": "string"
+    },
+    "evidence_score": {
+      "format": "float",
+      "type": "number"
+    },
+    "external_signals": {
+      "items": {
+        "$ref": "#/components/schemas/Reputation_Evidence_ExternalSignal"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "threats": {
+      "items": {
+        "$ref": "#/components/schemas/Reputation_Evidence_Threat"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

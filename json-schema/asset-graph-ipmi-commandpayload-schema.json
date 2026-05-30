@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ipmi-commandpayload-schema.json",
+  "title": "Ipmi_CommandPayload",
+  "description": "Ipmi_CommandPayload schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "checksum_error": {
+      "description": "This is set to true if the values of chk1 / chk2 do not match the command data",
+      "type": "boolean"
+    },
+    "data": {
+      "description": "The raw data. On success, this should be the value of the GetAuthenticationCapabilities resopnse",
+      "format": "hex",
+      "type": "string"
+    },
+    "ipmi_command_number": {
+      "$ref": "#/components/schemas/Ipmi_CommandPayload_CommandNumber",
+      "description": "The parsed IPMI command number"
+    },
+    "network_function_code": {
+      "$ref": "#/components/schemas/Ipmi_CommandPayload_PackedNetFn",
+      "description": "The NetFn and LUN"
+    },
+    "requestor_sequence_number": {
+      "description": "The request sequence number.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

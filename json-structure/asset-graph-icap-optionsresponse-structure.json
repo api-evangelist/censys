@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-icap-optionsresponse-structure.json",
+  "name": "Icap_OptionsResponse",
+  "description": "Icap_OptionsResponse schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "allow_204": {
+      "type": "boolean"
+    },
+    "icap_version": {
+      "type": "string"
+    },
+    "istag": {
+      "type": "string"
+    },
+    "max_connections": {
+      "type": "int32"
+    },
+    "methods": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "options_ttl": {
+      "type": "int32"
+    },
+    "preview": {
+      "type": "int32"
+    },
+    "server_header": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "service_id": {
+      "type": "string"
+    },
+    "status_code": {
+      "type": "int32"
+    },
+    "status_text": {
+      "type": "string"
+    }
+  }
+}

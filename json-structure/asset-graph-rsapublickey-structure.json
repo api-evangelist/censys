@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-rsapublickey-structure.json",
+  "name": "RsaPublicKey",
+  "description": "RsaPublicKey schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "exponent": {
+      "type": "int64",
+      "description": "The RSA key's public exponent (e)."
+    },
+    "length": {
+      "type": "int64",
+      "description": "Bit-length of the RSA modulus."
+    },
+    "modulus": {
+      "type": "string",
+      "description": "The RSA key's modulus (n) in big-endian encoding."
+    }
+  }
+}

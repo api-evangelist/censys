@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-opcua-localizedtext-structure.json",
+  "name": "OpcUa_LocalizedText",
+  "description": "OpcUa_LocalizedText schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "flags": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "locale": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-cursorontarget-point-schema.json",
+  "title": "CursorOnTarget_Point",
+  "description": "CursorOnTarget_Point schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "ce": {
+      "format": "double",
+      "type": "number"
+    },
+    "hae": {
+      "format": "double",
+      "type": "number"
+    },
+    "lat": {
+      "format": "double",
+      "type": "number"
+    },
+    "le": {
+      "format": "double",
+      "type": "number"
+    },
+    "lon": {
+      "format": "double",
+      "type": "number"
+    }
+  },
+  "additionalProperties": false
+}

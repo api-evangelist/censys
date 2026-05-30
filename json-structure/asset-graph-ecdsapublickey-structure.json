@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ecdsapublickey-structure.json",
+  "name": "EcdsaPublicKey",
+  "description": "EcdsaPublicKey schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "b": {
+      "type": "string"
+    },
+    "curve": {
+      "type": "string"
+    },
+    "gx": {
+      "type": "string"
+    },
+    "gy": {
+      "type": "string"
+    },
+    "length": {
+      "type": "int64"
+    },
+    "n": {
+      "type": "string"
+    },
+    "p": {
+      "type": "string"
+    },
+    "pub": {
+      "type": "string"
+    },
+    "x": {
+      "type": "string"
+    },
+    "y": {
+      "type": "string"
+    }
+  }
+}

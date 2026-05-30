@@ -1,0 +1,12 @@
+{
+  "anonymous": true,
+  "proxy": true,
+  "relay": false,
+  "service_provider": [
+    "example"
+  ],
+  "source": "example",
+  "tor": true,
+  "tor_info": null,
+  "vpn": true
+}

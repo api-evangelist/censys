@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-stun-structure.json",
+  "name": "Stun",
+  "description": "Stun schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "binding_error_response": {
+      "$ref": "#/components/schemas/Stun_BindingErrorResponse"
+    },
+    "binding_success_response": {
+      "$ref": "#/components/schemas/Stun_BindingSuccessResponse"
+    },
+    "response_type": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "response_type_name": {
+      "type": "string"
+    },
+    "turn": {
+      "$ref": "#/components/schemas/Stun_Turn"
+    }
+  }
+}

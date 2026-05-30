@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-tag-structure.json",
+  "name": "Tag",
+  "description": "Tag schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "privacy",
+    "created_at",
+    "updated_at",
+    "created_by"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "created_at": {
+      "type": "datetime",
+      "description": "RFC3339 timestamp when the tag was created."
+    },
+    "created_by": {
+      "type": "uuid",
+      "description": "The user ID of the user who created the tag."
+    },
+    "description": {
+      "type": "string",
+      "description": "A human-readable description of the tag."
+    },
+    "id": {
+      "type": "uuid",
+      "description": "The unique ID of the tag."
+    },
+    "name": {
+      "type": "string",
+      "description": "The display name of the tag."
+    },
+    "privacy": {
+      "type": "string",
+      "description": "Tag visibility and management settings. `private` tags are only visible to and editable by organization admins. `shared` tags are visible to and editable by all organization members.",
+      "enum": [
+        "private",
+        "shared"
+      ]
+    },
+    "updated_at": {
+      "type": "datetime",
+      "description": "RFC3339 timestamp when the tag was last updated."
+    }
+  }
+}

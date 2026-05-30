@@ -1,0 +1,8 @@
+{
+  "asn": 297,
+  "bgp_prefix": "example",
+  "country_code": "US",
+  "description": "Active production asset under observation.",
+  "name": "Production Internet Asset Inventory",
+  "organization": "example"
+}

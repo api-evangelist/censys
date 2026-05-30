@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-tls-chain-schema.json",
+  "title": "Tls_Chain",
+  "description": "Tls_Chain schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "fingerprint_sha256": {
+      "description": "SHA 256 fingerprint of the certificate in the certificate chain.",
+      "format": "hex",
+      "type": "string"
+    },
+    "issuer_dn": {
+      "description": "Distinguished name of the entity that has signed and issued the certificate.",
+      "type": "string"
+    },
+    "subject_dn": {
+      "description": "Distinguished name of the entity that the certificate belongs to.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

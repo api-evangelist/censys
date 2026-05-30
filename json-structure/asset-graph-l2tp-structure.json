@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-l2tp-structure.json",
+  "name": "L2Tp",
+  "description": "L2Tp schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "hello_received": {
+      "type": "boolean"
+    },
+    "ordered_messages_raw": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "sccn_received": {
+      "type": "boolean"
+    },
+    "sccrp": {
+      "$ref": "#/components/schemas/L2Tp_Sccrp"
+    },
+    "sccrp_received": {
+      "type": "boolean"
+    },
+    "sccrq_received": {
+      "type": "boolean"
+    },
+    "stop_sccn": {
+      "$ref": "#/components/schemas/L2Tp_StopCcn"
+    },
+    "stop_sccn_received": {
+      "type": "boolean"
+    },
+    "zlb_received": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-snmp-engine-schema.json",
+  "title": "Snmp_Engine",
+  "description": "Snmp_Engine schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "engine_boots": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "engine_time": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "format": {
+      "type": "string"
+    },
+    "format_data": {
+      "format": "hex",
+      "type": "string"
+    },
+    "organization": {
+      "type": "string"
+    },
+    "pen": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "raw_id": {
+      "type": "string"
+    },
+    "rfc3411": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

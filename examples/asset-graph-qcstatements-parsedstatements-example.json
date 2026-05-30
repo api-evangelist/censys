@@ -1,0 +1,27 @@
+{
+  "etsi_compliance": [
+    true
+  ],
+  "legislation": [
+    null,
+    null
+  ],
+  "limit": [
+    null,
+    null
+  ],
+  "pds_locations": [
+    null,
+    null
+  ],
+  "retention_period": [
+    695
+  ],
+  "sscd": [
+    false,
+    true
+  ],
+  "types": [
+    null
+  ]
+}

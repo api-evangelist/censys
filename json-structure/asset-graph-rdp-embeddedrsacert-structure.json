@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-rdp-embeddedrsacert-structure.json",
+  "name": "Rdp_EmbeddedRSACert",
+  "description": "Rdp_EmbeddedRSACert schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "key_length": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "magic": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "max_bytes_datalen": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "modulus": {
+      "type": "string"
+    },
+    "modulus_bitlen": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "public_exponent": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "signature": {
+      "type": "string"
+    }
+  }
+}

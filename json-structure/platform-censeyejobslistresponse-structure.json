@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-censeyejobslistresponse-structure.json",
+  "name": "CenseyeJobsListResponse",
+  "description": "CenseyeJobsListResponse schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "jobs"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "jobs": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of CensEye jobs.",
+      "items": {
+        "$ref": "#/components/schemas/CenseyeJob"
+      }
+    },
+    "next_page_token": {
+      "type": "string",
+      "description": "Token to retrieve the next page of jobs."
+    }
+  }
+}

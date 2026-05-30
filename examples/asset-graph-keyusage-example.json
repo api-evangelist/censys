@@ -1,0 +1,12 @@
+{
+  "certificate_sign": false,
+  "content_commitment": false,
+  "crl_sign": true,
+  "data_encipherment": false,
+  "decipher_only": true,
+  "digital_signature": true,
+  "encipher_only": true,
+  "key_agreement": false,
+  "key_encipherment": true,
+  "value": 134
+}

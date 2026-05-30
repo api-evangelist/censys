@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-greynoise-structure.json",
+  "name": "Greynoise",
+  "description": "Greynoise schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "type": "string",
+      "description": "The actor that was observed."
+    },
+    "classification": {
+      "type": "string",
+      "description": "The classification of the IP address."
+    },
+    "last_observed_time": {
+      "type": "string",
+      "description": "The last time the IP address was observed."
+    },
+    "tags": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The tags associated with the IP address.",
+      "items": {
+        "$ref": "#/components/schemas/Greynoise_Tag"
+      }
+    }
+  }
+}

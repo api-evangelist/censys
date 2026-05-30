@@ -1,0 +1,8 @@
+{
+  "hostname": "example.com",
+  "path": "example",
+  "port": 5,
+  "reason": "Active production asset under observation.",
+  "scheme": "example",
+  "transport_protocol": ""
+}

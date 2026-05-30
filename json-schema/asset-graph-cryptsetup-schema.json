@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-cryptsetup-schema.json",
+  "title": "CryptSetup",
+  "description": "CryptSetup schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "client_nonce": {
+      "format": "base64",
+      "type": "string"
+    },
+    "key": {
+      "format": "base64",
+      "type": "string"
+    },
+    "server_nonce": {
+      "format": "base64",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

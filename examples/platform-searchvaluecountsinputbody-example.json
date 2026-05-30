@@ -1,0 +1,7 @@
+{
+  "and_count_conditions": [
+    null,
+    null
+  ],
+  "query": "services.service_name: HTTP"
+}

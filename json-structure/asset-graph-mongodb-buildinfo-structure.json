@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-mongodb-buildinfo-structure.json",
+  "name": "Mongodb_BuildInfo",
+  "description": "Mongodb_BuildInfo schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "build_environment": {
+      "$ref": "#/components/schemas/Mongodb_BuildInfo_BuildEnvironment"
+    },
+    "git_version": {
+      "type": "string",
+      "description": "Version of mongodb server"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of mongodb server"
+    }
+  }
+}

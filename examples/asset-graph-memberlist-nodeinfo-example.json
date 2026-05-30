@@ -1,0 +1,11 @@
+{
+  "delegate_versions": [
+    612
+  ],
+  "incarnation": 803,
+  "ip": "8.8.8.8",
+  "meta": "example",
+  "name": "Production Internet Asset Inventory",
+  "port": 214,
+  "protocol_version": 689
+}

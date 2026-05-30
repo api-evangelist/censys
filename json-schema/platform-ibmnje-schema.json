@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ibmnje-schema.json",
+  "title": "Ibmnje",
+  "description": "Ibmnje schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "ohost": {
+      "type": "string"
+    },
+    "oip": {
+      "type": "string"
+    },
+    "reason": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "rhost": {
+      "type": "string"
+    },
+    "rip": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

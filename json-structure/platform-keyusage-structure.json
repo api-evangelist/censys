@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-keyusage-structure.json",
+  "name": "KeyUsage",
+  "description": "KeyUsage schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "certificate_sign": {
+      "type": "boolean",
+      "description": "Whether the keyCertSign bit is set."
+    },
+    "content_commitment": {
+      "type": "boolean",
+      "description": "Whether the contentCommitment (formerly called nonRepudiation) bit is set."
+    },
+    "crl_sign": {
+      "type": "boolean",
+      "description": "Whether the cRLSign bit is set."
+    },
+    "data_encipherment": {
+      "type": "boolean",
+      "description": "Whether the dataEncipherment bit is set."
+    },
+    "decipher_only": {
+      "type": "boolean",
+      "description": "Whether the decipherOnly bit is set."
+    },
+    "digital_signature": {
+      "type": "boolean",
+      "description": "Whether the digitalSignature bit is set."
+    },
+    "encipher_only": {
+      "type": "boolean",
+      "description": "Whether the encipherOnly bit is set."
+    },
+    "key_agreement": {
+      "type": "boolean",
+      "description": "Whether the keyAgreement bit is set."
+    },
+    "key_encipherment": {
+      "type": "boolean",
+      "description": "Whether the keyEncipherment bit is set."
+    },
+    "value": {
+      "type": "int32",
+      "description": "The integer value of the bitmask in the extension.",
+      "minimum": 0
+    }
+  }
+}

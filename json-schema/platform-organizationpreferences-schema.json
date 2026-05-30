@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-organizationpreferences-schema.json",
+  "title": "OrganizationPreferences",
+  "description": "OrganizationPreferences schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "ai_opt_in": {
+      "description": "Whether the organization has opted into AI features.",
+      "type": "boolean"
+    },
+    "ai_training": {
+      "description": "Whether the organization has opted into AI training.",
+      "type": "boolean"
+    },
+    "mfa_required": {
+      "description": "Whether the organization has opted into multi-factor authentication.",
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

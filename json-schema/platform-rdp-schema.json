@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rdp-schema.json",
+  "title": "Rdp",
+  "description": "Rdp schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "certificate_info": {
+      "$ref": "#/components/schemas/Rdp_CertificateInfo"
+    },
+    "connect_response": {
+      "$ref": "#/components/schemas/Rdp_ConnectResponse"
+    },
+    "protocol_flags": {
+      "$ref": "#/components/schemas/Rdp_ProtocolFlags"
+    },
+    "selected_security_protocol": {
+      "$ref": "#/components/schemas/Rdp_SecurityProtocol"
+    },
+    "version": {
+      "$ref": "#/components/schemas/Rdp_Version"
+    },
+    "x224_cc_pdu_dstref": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "x224_cc_pdu_srcref": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

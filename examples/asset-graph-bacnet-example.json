@@ -1,0 +1,11 @@
+{
+  "application_software_revision": "example",
+  "description": "Active production asset under observation.",
+  "firmware_revision": "example",
+  "instance_number": 643,
+  "location": "example",
+  "model_name": "Production Internet Asset Inventory",
+  "object_name": "Production Internet Asset Inventory",
+  "vendor_id": 841,
+  "vendor_name": "Production Internet Asset Inventory"
+}

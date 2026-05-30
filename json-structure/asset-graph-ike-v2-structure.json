@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ike-v2-structure.json",
+  "name": "Ike_V2",
+  "description": "Ike_V2 schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_proposal": {
+      "type": "boolean"
+    },
+    "notify_message_types": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "int32",
+        "minimum": 0
+      }
+    },
+    "vendor_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

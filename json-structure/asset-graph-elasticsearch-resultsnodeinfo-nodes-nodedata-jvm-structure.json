@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-elasticsearch-resultsnodeinfo-nodes-nodedata-jvm-structure.json",
+  "name": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_JVM",
+  "description": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_JVM schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "gc": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "input_args": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "memory_pools": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "start_time": {
+      "type": "string"
+    },
+    "start_time_ms": {
+      "type": "int64"
+    },
+    "version": {
+      "type": "string"
+    },
+    "vm_name": {
+      "type": "string"
+    },
+    "vm_vendor": {
+      "type": "string"
+    },
+    "vm_version": {
+      "type": "string"
+    }
+  }
+}

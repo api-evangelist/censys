@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ssh-algorithmselection-schema.json",
+  "title": "Ssh_AlgorithmSelection",
+  "description": "Ssh_AlgorithmSelection schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "client_to_server_alg_group": {
+      "$ref": "#/components/schemas/Ssh_AlgorithmSelection_DirectionAlgorithms"
+    },
+    "host_key_algorithm": {
+      "type": "string"
+    },
+    "kex_algorithm": {
+      "type": "string"
+    },
+    "server_to_client_alg_group": {
+      "$ref": "#/components/schemas/Ssh_AlgorithmSelection_DirectionAlgorithms"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,9 @@
+{
+  "allow_html": false,
+  "image_message_length": 313,
+  "max_bandwidth": 767,
+  "max_users": 292,
+  "message_length": 928,
+  "recording_allowed": false,
+  "welcome_text": "example"
+}

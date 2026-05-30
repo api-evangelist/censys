@@ -1,0 +1,7 @@
+{
+  "control_url": "https://search.censys.io/hosts/8.8.8.8",
+  "event_sub_url": "https://search.censys.io/hosts/8.8.8.8",
+  "scpd_url": "https://search.censys.io/hosts/8.8.8.8",
+  "service_id": "cns_fb6ba27bcf708bdd",
+  "service_type": "example"
+}

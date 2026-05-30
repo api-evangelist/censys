@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-opcua-endpoint-structure.json",
+  "name": "OpcUa_Endpoint",
+  "description": "OpcUa_Endpoint schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "endpoint_url": {
+      "type": "string"
+    },
+    "security_level": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "security_mode": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "security_policy_uri": {
+      "type": "string"
+    },
+    "serve_cert": {
+      "type": "string"
+    },
+    "server": {
+      "$ref": "#/components/schemas/OpcUa_Description"
+    },
+    "transport_profile_uri": {
+      "type": "string"
+    },
+    "user_identity_token": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/OpcUa_UserTokenPolicy"
+      }
+    }
+  }
+}

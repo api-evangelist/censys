@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-status-structure.json",
+  "name": "Status",
+  "description": "Status schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "available_workers": {
+      "type": "int32"
+    },
+    "function": {
+      "type": "string"
+    },
+    "running": {
+      "type": "int32"
+    },
+    "total": {
+      "type": "int32"
+    }
+  }
+}

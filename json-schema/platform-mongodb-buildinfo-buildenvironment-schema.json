@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-mongodb-buildinfo-buildenvironment-schema.json",
+  "title": "Mongodb_BuildInfo_BuildEnvironment",
+  "description": "Mongodb_BuildInfo_BuildEnvironment schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "cc": {
+      "type": "string"
+    },
+    "cc_flags": {
+      "type": "string"
+    },
+    "cxx": {
+      "type": "string"
+    },
+    "cxx_flags": {
+      "type": "string"
+    },
+    "dist_arch": {
+      "type": "string"
+    },
+    "dist_mod": {
+      "type": "string"
+    },
+    "link_flags": {
+      "type": "string"
+    },
+    "target_arch": {
+      "type": "string"
+    },
+    "target_os": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

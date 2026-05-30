@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-eip-interface-schema.json",
+  "title": "Eip_Interface",
+  "description": "Eip_Interface schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "index": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

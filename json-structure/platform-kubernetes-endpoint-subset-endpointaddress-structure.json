@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-kubernetes-endpoint-subset-endpointaddress-structure.json",
+  "name": "Kubernetes_Endpoint_Subset_EndpointAddress",
+  "description": "Kubernetes_Endpoint_Subset_EndpointAddress schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "hostname": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "node_name": {
+      "type": "string"
+    }
+  }
+}

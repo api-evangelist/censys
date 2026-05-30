@@ -1,0 +1,13 @@
+{
+  "error_code": 359,
+  "error_meaning": "example",
+  "error_message": "Active production asset under observation.",
+  "firmware_revision": 586,
+  "hostname": "example.com",
+  "protocol_revision": 339,
+  "protocol_version": 992,
+  "result_code": 62,
+  "result_meaning": "example",
+  "vendor_name": "Production Internet Asset Inventory",
+  "window_size": 225
+}

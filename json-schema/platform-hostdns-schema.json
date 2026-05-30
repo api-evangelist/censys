@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-hostdns-schema.json",
+  "title": "HostDns",
+  "description": "HostDns schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "forward_dns": {
+      "additionalProperties": {
+        "$ref": "#/components/schemas/HostDns_ForwardResolution"
+      },
+      "type": "object"
+    },
+    "names": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "reverse_dns": {
+      "$ref": "#/components/schemas/HostDns_ReverseResolution"
+    }
+  },
+  "additionalProperties": false
+}

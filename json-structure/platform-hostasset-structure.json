@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-hostasset-structure.json",
+  "name": "HostAsset",
+  "description": "HostAsset schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "resource",
+    "extensions"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "extensions": {
+      "type": "object",
+      "additionalProperties": {}
+    },
+    "resource": {
+      "$ref": "#/components/schemas/Host"
+    }
+  }
+}

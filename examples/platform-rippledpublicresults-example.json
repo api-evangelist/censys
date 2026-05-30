@@ -1,0 +1,13 @@
+{
+  "build_version": "example",
+  "hostid": "cns_be7cf1ce0fdbf48c",
+  "network_id": 694,
+  "peers": 689,
+  "ports": [
+    null,
+    null
+  ],
+  "pubkey_node": "example",
+  "server_state": "enabled",
+  "validation_quorum": 64
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-activemq-structure.json",
+  "name": "Activemq",
+  "description": "Activemq schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cache_enabled": {
+      "type": "boolean"
+    },
+    "cache_size": {
+      "type": "int32"
+    },
+    "max_frame_size": {
+      "type": "int64"
+    },
+    "max_inactivity_duration": {
+      "type": "int64"
+    },
+    "max_inactivity_duration_initial_delay": {
+      "type": "int32"
+    },
+    "platform_details": {
+      "type": "string"
+    },
+    "provider_name": {
+      "type": "string"
+    },
+    "provider_version": {
+      "type": "string"
+    },
+    "size_prefix_disabled": {
+      "type": "boolean"
+    },
+    "stack_trace_enabled": {
+      "type": "boolean"
+    },
+    "tcp_no_delay_enabled": {
+      "type": "boolean"
+    },
+    "tight_encoding_enabled": {
+      "type": "boolean"
+    }
+  }
+}

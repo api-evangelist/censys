@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-redlioncrimson-schema.json",
+  "title": "RedlionCrimson",
+  "description": "RedlionCrimson schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "configs_exposed": {
+      "type": "boolean"
+    },
+    "control_engine_status": {
+      "type": "string"
+    },
+    "current_software_level": {
+      "type": "string"
+    },
+    "execution_status": {
+      "type": "string"
+    },
+    "manufacturer": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

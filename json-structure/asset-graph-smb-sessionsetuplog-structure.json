@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-smb-sessionsetuplog-structure.json",
+  "name": "Smb_SessionSetupLog",
+  "description": "Smb_SessionSetupLog schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "header_log": {
+      "$ref": "#/components/schemas/Smb_HeaderLog"
+    },
+    "negotiate_flags": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "setup_flags": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "target_name": {
+      "type": "string"
+    }
+  }
+}

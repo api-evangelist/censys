@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-wsdiscovery-schema.json",
+  "title": "WsDiscovery",
+  "description": "WsDiscovery schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "addresses": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "metadata_version": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scopes": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "types": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

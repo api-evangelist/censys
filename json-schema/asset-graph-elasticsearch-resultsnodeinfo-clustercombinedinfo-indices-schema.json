@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-elasticsearch-resultsnodeinfo-clustercombinedinfo-indices-schema.json",
+  "title": "ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo_Indices",
+  "description": "ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo_Indices schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "count": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "docs": {
+      "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo_Indices_Docs"
+    },
+    "store": {
+      "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo_Indices_Store"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,267 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Censys Platform — Supply Chain Intelligence
+  description: 'Censys Platform — Supply Chain Intelligence. 4 operation(s). Lead operation: Censys List Supply Chains. Self-contained Naftiko capability covering one Censys business surface.'
+  tags:
+    - Censys
+    - Platform
+    - Supply Chain Intelligence
+  created: '2026-05-29'
+  modified: '2026-05-29'
+binds:
+  - namespace: env
+    keys:
+      CENSYS_PERSONAL_ACCESS_TOKEN: CENSYS_PERSONAL_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: platform-supply-chain-intelligence
+      baseUri: https://api.platform.censys.io
+      description: Censys Platform — Supply Chain Intelligence business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.CENSYS_PERSONAL_ACCESS_TOKEN}}'
+      resources:
+        - name: v1-supplychains
+          path: /v1/supplychains
+          operations:
+            - name: v1-supply-chain-list-supply-chains
+              method: GET
+              description: Censys List Supply Chains
+              inputParameters:
+                - name: organization_id
+                  in: query
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+                - name: X-Organization-ID
+                  in: header
+                  type: string
+                  required: false
+                  description: "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter."
+                - name: page_size
+                  in: query
+                  type: integer
+                  required: false
+                  description: Maximum number of supply chains to return per page.
+                - name: page_token
+                  in: query
+                  type: string
+                  required: false
+                  description: Pagination token from a previous response to retrieve the next page of results.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v1-supplychains-suppliers
+          path: /v1/supplychains/suppliers
+          operations:
+            - name: v1-supply-chain-search-suppliers
+              method: GET
+              description: Censys Search Suppliers
+              inputParameters:
+                - name: organization_id
+                  in: query
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+                - name: X-Organization-ID
+                  in: header
+                  type: string
+                  required: false
+                  description: "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter."
+                - name: keywords
+                  in: query
+                  type: string
+                  required: false
+                  description: Search keywords matched against supplier display names.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: v1-supply-chain-add-suppliers
+              method: POST
+              description: Censys Adds Supplier to Supply Chain
+              inputParameters:
+                - name: organization_id
+                  in: query
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+                - name: X-Organization-ID
+                  in: header
+                  type: string
+                  required: false
+                  description: "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter."
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Request body.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: v1-supplychains-suppliers-supplier-id
+          path: /v1/supplychains/suppliers/{supplier_id}
+          operations:
+            - name: v1-supply-chain-remove-supplier
+              method: DELETE
+              description: Censys Remove a Supplier from a Supply Chain
+              inputParameters:
+                - name: organization_id
+                  in: query
+                  type: string
+                  required: true
+                  description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+                - name: X-Organization-ID
+                  in: header
+                  type: string
+                  required: false
+                  description: "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter."
+                - name: supplier_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of a Censys supplier to remove from the given supply chain.
+                - name: supply_chain_id
+                  in: query
+                  type: string
+                  required: true
+                  description: The ID of a Censys supply chain.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: platform-supply-chain-intelligence-rest
+      port: 8080
+      description: REST adapter for Censys Platform — Supply Chain Intelligence. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/supplychains
+          name: supplychains
+          description: REST surface for supplychains.
+          operations:
+            - method: GET
+              name: v1-supply-chain-list-supply-chains
+              description: Censys List Supply Chains
+              call: platform-supply-chain-intelligence.v1-supply-chain-list-supply-chains
+              with:
+                organization_id: rest.organization_id
+                X-Organization-ID: rest.X-Organization-ID
+                page_size: rest.page_size
+                page_token: rest.page_token
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/supplychains/suppliers
+          name: supplychains-suppliers
+          description: REST surface for supplychains-suppliers.
+          operations:
+            - method: GET
+              name: v1-supply-chain-search-suppliers
+              description: Censys Search Suppliers
+              call: platform-supply-chain-intelligence.v1-supply-chain-search-suppliers
+              with:
+                organization_id: rest.organization_id
+                X-Organization-ID: rest.X-Organization-ID
+                keywords: rest.keywords
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: POST
+              name: v1-supply-chain-add-suppliers
+              description: Censys Adds Supplier to Supply Chain
+              call: platform-supply-chain-intelligence.v1-supply-chain-add-suppliers
+              with:
+                organization_id: rest.organization_id
+                X-Organization-ID: rest.X-Organization-ID
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/supplychains/suppliers/{supplier_id}
+          name: supplychains-suppliers-supplier-id
+          description: REST surface for supplychains-suppliers-supplier-id.
+          operations:
+            - method: DELETE
+              name: v1-supply-chain-remove-supplier
+              description: Censys Remove a Supplier from a Supply Chain
+              call: platform-supply-chain-intelligence.v1-supply-chain-remove-supplier
+              with:
+                organization_id: rest.organization_id
+                X-Organization-ID: rest.X-Organization-ID
+                supplier_id: rest.supplier_id
+                supply_chain_id: rest.supply_chain_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: platform-supply-chain-intelligence-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Censys Platform — Supply Chain Intelligence. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: censys-list-supply-chains
+          description: Censys List Supply Chains
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: platform-supply-chain-intelligence.v1-supply-chain-list-supply-chains
+          with:
+            organization_id: tools.organization_id
+            X-Organization-ID: tools.X-Organization-ID
+            page_size: tools.page_size
+            page_token: tools.page_token
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-search-suppliers
+          description: Censys Search Suppliers
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: platform-supply-chain-intelligence.v1-supply-chain-search-suppliers
+          with:
+            organization_id: tools.organization_id
+            X-Organization-ID: tools.X-Organization-ID
+            keywords: tools.keywords
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-adds-supplier-supply-chain
+          description: Censys Adds Supplier to Supply Chain
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: platform-supply-chain-intelligence.v1-supply-chain-add-suppliers
+          with:
+            organization_id: tools.organization_id
+            X-Organization-ID: tools.X-Organization-ID
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-remove-supplier-supply-chain
+          description: Censys Remove a Supplier from a Supply Chain
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: platform-supply-chain-intelligence.v1-supply-chain-remove-supplier
+          with:
+            organization_id: tools.organization_id
+            X-Organization-ID: tools.X-Organization-ID
+            supplier_id: tools.supplier_id
+            supply_chain_id: tools.supply_chain_id
+          outputParameters:
+            - type: object
+              mapping: $.

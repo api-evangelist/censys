@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-opcua-localizedtext-schema.json",
+  "title": "OpcUa_LocalizedText",
+  "description": "OpcUa_LocalizedText schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "flags": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

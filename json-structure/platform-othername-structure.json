@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-othername-structure.json",
+  "name": "OtherName",
+  "description": "OtherName schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The OID identifying the syntax of the otherName value."
+    },
+    "value": {
+      "type": "string",
+      "description": "The raw otherName value."
+    }
+  }
+}

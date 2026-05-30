@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-onvif-hostname-structure.json",
+  "name": "Onvif_Hostname",
+  "description": "Onvif_Hostname schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "from_dhcp": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

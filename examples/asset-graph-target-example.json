@@ -1,0 +1,19 @@
+{
+  "alias": "example",
+  "auths": [
+    "example"
+  ],
+  "dns_portals": [
+    "example"
+  ],
+  "errors": [
+    "example"
+  ],
+  "name": "Production Internet Asset Inventory",
+  "private_portals": [
+    "example"
+  ],
+  "public_portals": [
+    "example"
+  ]
+}

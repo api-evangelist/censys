@@ -1,0 +1,85 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Censys Asset Graph — Risks
+  description: 'Censys Asset Graph — Risks. 1 operation(s). Lead operation: Censys Get Static Risk Metadata. Self-contained Naftiko capability covering one Censys business surface.'
+  tags:
+    - Censys
+    - Asset Graph
+    - Risks
+  created: '2026-05-29'
+  modified: '2026-05-29'
+binds:
+  - namespace: env
+    keys:
+      CENSYS_PERSONAL_ACCESS_TOKEN: CENSYS_PERSONAL_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: asset-graph-risks
+      baseUri: https://graph.data.censys.io
+      description: Censys Asset Graph — Risks business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.CENSYS_PERSONAL_ACCESS_TOKEN}}'
+      resources:
+        - name: api-v1-risks-risk-id
+          path: /api/v1/risks/{risk_id}
+          operations:
+            - name: get-risk-metadata
+              method: GET
+              description: Censys Get Static Risk Metadata
+              inputParameters:
+                - name: X-Organization-ID
+                  in: header
+                  type: string
+                  required: true
+                  description: Censys organization ID
+                - name: risk_id
+                  in: path
+                  type: string
+                  required: true
+                  description: A Censys risk ID (e.g. CENSYS-2025-1), threat ID (e.g. THREAT-1) or an external risk identifier (e.g. CVE-2025-00001)
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: asset-graph-risks-rest
+      port: 8080
+      description: REST adapter for Censys Asset Graph — Risks. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/api/risks/{risk_id}
+          name: api-risks-risk-id
+          description: REST surface for api-risks-risk-id.
+          operations:
+            - method: GET
+              name: get-risk-metadata
+              description: Censys Get Static Risk Metadata
+              call: asset-graph-risks.get-risk-metadata
+              with:
+                X-Organization-ID: rest.X-Organization-ID
+                risk_id: rest.risk_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: asset-graph-risks-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Censys Asset Graph — Risks. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: censys-get-static-risk-metadata
+          description: Censys Get Static Risk Metadata
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: asset-graph-risks.get-risk-metadata
+          with:
+            X-Organization-ID: tools.X-Organization-ID
+            risk_id: tools.risk_id
+          outputParameters:
+            - type: object
+              mapping: $.

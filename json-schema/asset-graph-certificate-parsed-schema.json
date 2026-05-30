@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-certificate-parsed-schema.json",
+  "title": "Certificate_Parsed",
+  "description": "Certificate_Parsed schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "extensions": {
+      "$ref": "#/components/schemas/CertificateExtensions",
+      "description": "A record containing parsed X.509 extensions that provide additional identification information or additional cryptographic capabilities."
+    },
+    "issuer": {
+      "$ref": "#/components/schemas/DistinguishedName",
+      "description": "A record containing the parsed contents of the issuer_dn."
+    },
+    "issuer_dn": {
+      "description": "Distinguished Name of the entity that has signed and issued the certificate.",
+      "type": "string"
+    },
+    "ja4x": {
+      "type": "string"
+    },
+    "redacted": {
+      "type": "boolean"
+    },
+    "serial_number": {
+      "description": "Issuer-specific identifier of the certificate.",
+      "type": "string"
+    },
+    "serial_number_hex": {
+      "description": "Issuer-specific identifier of the certificate, represented as hexadecimal.",
+      "type": "string"
+    },
+    "signature": {
+      "$ref": "#/components/schemas/Signature"
+    },
+    "subject": {
+      "$ref": "#/components/schemas/DistinguishedName",
+      "description": "A record containing the parsed contents of the subject_dn."
+    },
+    "subject_dn": {
+      "description": "Distinguished Name of the entity associated with the public key.",
+      "type": "string"
+    },
+    "subject_key_info": {
+      "$ref": "#/components/schemas/SubjectKeyInfo",
+      "description": "Information about the certificate's public key."
+    },
+    "unknown_extensions": {
+      "items": {
+        "$ref": "#/components/schemas/Extension"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "validity_period": {
+      "$ref": "#/components/schemas/ValidityPeriod",
+      "description": "Information about the time for which the certificate is valid."
+    },
+    "version": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

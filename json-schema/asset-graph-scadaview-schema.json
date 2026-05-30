@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-scadaview-schema.json",
+  "title": "ScadaView",
+  "description": "ScadaView schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,22 @@
+{
+  "auth_required": false,
+  "cluster": "example",
+  "connect_urls": [
+    "https://search.censys.io/hosts/8.8.8.8"
+  ],
+  "domain": "example.com",
+  "git_commit": "example",
+  "go": "example",
+  "headers": false,
+  "jetstream": true,
+  "proto": 907,
+  "server_id": "cns_44a53bd038ea7204",
+  "server_name": "Production Internet Asset Inventory",
+  "tls_available": false,
+  "tls_required": true,
+  "tls_verify": true,
+  "version": "example",
+  "ws_connect_urls": [
+    "https://search.censys.io/hosts/8.8.8.8"
+  ]
+}

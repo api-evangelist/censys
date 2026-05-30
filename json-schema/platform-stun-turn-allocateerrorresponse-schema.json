@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-stun-turn-allocateerrorresponse-schema.json",
+  "title": "Stun_Turn_AllocateErrorResponse",
+  "description": "Stun_Turn_AllocateErrorResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "error_code": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "error_reason": {
+      "type": "string"
+    },
+    "has_fingerprint": {
+      "type": "boolean"
+    },
+    "nonce": {
+      "type": "string"
+    },
+    "realm": {
+      "type": "string"
+    },
+    "software": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

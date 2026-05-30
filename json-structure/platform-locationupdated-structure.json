@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-locationupdated-structure.json",
+  "name": "LocationUpdated",
+  "description": "LocationUpdated schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "location": {
+      "$ref": "#/components/schemas/Location"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-murmurmessage-schema.json",
+  "title": "MurmurMessage",
+  "description": "MurmurMessage schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "body": {
+      "format": "base64",
+      "type": "string"
+    },
+    "header": {
+      "$ref": "#/components/schemas/MurmurMessage_MurmurHeader"
+    }
+  },
+  "additionalProperties": false
+}

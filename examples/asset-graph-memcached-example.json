@@ -1,0 +1,7 @@
+{
+  "ascii_binding_protocol_enabled": true,
+  "binary_binding_protocol_enabled": true,
+  "responds_to_udp": true,
+  "stats": {},
+  "version": "example"
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-opcua-description-schema.json",
+  "title": "OpcUa_Description",
+  "description": "OpcUa_Description schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "application_name": {
+      "$ref": "#/components/schemas/OpcUa_LocalizedText"
+    },
+    "application_type": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "application_uri": {
+      "type": "string"
+    },
+    "discovery_profile_uri": {
+      "type": "string"
+    },
+    "discovery_urls": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "gateway_server_uri": {
+      "type": "string"
+    },
+    "product_uri": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

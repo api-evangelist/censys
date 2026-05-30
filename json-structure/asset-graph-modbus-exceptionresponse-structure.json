@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-modbus-exceptionresponse-structure.json",
+  "name": "Modbus_ExceptionResponse",
+  "description": "Modbus_ExceptionResponse schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "exception_function": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "exception_type": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

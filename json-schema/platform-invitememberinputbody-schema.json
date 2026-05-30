@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-invitememberinputbody-schema.json",
+  "title": "InviteMemberInputBody",
+  "description": "InviteMemberInputBody schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "email": {
+      "description": "Email of the user",
+      "examples": [
+        "user@example.com"
+      ],
+      "format": "email",
+      "type": "string"
+    }
+  },
+  "required": [
+    "email"
+  ],
+  "additionalProperties": false
+}

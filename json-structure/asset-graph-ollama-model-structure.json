@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ollama-model-structure.json",
+  "name": "Ollama_Model",
+  "description": "Ollama_Model schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "digest": {
+      "type": "string"
+    },
+    "expires_at": {
+      "type": "string"
+    },
+    "family": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "parent_model": {
+      "type": "string"
+    },
+    "size": {
+      "type": "int64",
+      "minimum": 0
+    },
+    "size_vram": {
+      "type": "int64",
+      "minimum": 0
+    }
+  }
+}

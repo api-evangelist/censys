@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-nodeinfov2-structure.json",
+  "name": "NodeInfoV2",
+  "description": "NodeInfoV2 schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "decimals": {
+      "type": "int64"
+    },
+    "features": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "is_healthy": {
+      "type": "boolean"
+    },
+    "latest_milestone": {
+      "type": "int64"
+    },
+    "latest_uncommitted_milestone": {
+      "type": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "network_name": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "int64"
+    },
+    "subunit": {
+      "type": "string"
+    },
+    "supported_protocol_versions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "int64"
+      }
+    },
+    "ticker_symbol": {
+      "type": "string"
+    },
+    "token_name": {
+      "type": "string"
+    },
+    "token_supply": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

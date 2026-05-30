@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-validation-schema.json",
+  "title": "Validation",
+  "description": "Validation schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "apple": {
+      "$ref": "#/components/schemas/RootStore",
+      "description": "A record containing validation information about the certificate from the Apple root store."
+    },
+    "chrome": {
+      "$ref": "#/components/schemas/RootStore",
+      "description": "A record containing validation information about the certificate from the Chrome root store."
+    },
+    "microsoft": {
+      "$ref": "#/components/schemas/RootStore",
+      "description": "A record containing validation information about the certificate from the Microsoft root store."
+    },
+    "nss": {
+      "$ref": "#/components/schemas/RootStore",
+      "description": "A record containing validation information about the certificate from the Mozilla NSS root store."
+    }
+  },
+  "additionalProperties": false
+}

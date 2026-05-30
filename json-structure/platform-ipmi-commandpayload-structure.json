@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-ipmi-commandpayload-structure.json",
+  "name": "Ipmi_CommandPayload",
+  "description": "Ipmi_CommandPayload schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "checksum_error": {
+      "type": "boolean",
+      "description": "This is set to true if the values of chk1 / chk2 do not match the command data"
+    },
+    "data": {
+      "type": "string",
+      "description": "The raw data. On success, this should be the value of the GetAuthenticationCapabilities resopnse"
+    },
+    "ipmi_command_number": {
+      "description": "The parsed IPMI command number",
+      "$ref": "#/components/schemas/Ipmi_CommandPayload_CommandNumber"
+    },
+    "network_function_code": {
+      "description": "The NetFn and LUN",
+      "$ref": "#/components/schemas/Ipmi_CommandPayload_PackedNetFn"
+    },
+    "requestor_sequence_number": {
+      "type": "int32",
+      "description": "The request sequence number."
+    }
+  }
+}

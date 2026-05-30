@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ollama-model-schema.json",
+  "title": "Ollama_Model",
+  "description": "Ollama_Model schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "digest": {
+      "type": "string"
+    },
+    "expires_at": {
+      "type": "string"
+    },
+    "family": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "parent_model": {
+      "type": "string"
+    },
+    "size": {
+      "format": "int64",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "size_vram": {
+      "format": "int64",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

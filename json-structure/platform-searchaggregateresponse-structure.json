@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-searchaggregateresponse-structure.json",
+  "name": "SearchAggregateResponse",
+  "description": "SearchAggregateResponse schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "total_count",
+    "other_count",
+    "query_duration_millis",
+    "is_more_than_total_hits",
+    "buckets"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "buckets": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/SearchAggregateResponseBucket"
+      }
+    },
+    "is_more_than_total_hits": {
+      "type": "boolean"
+    },
+    "other_count": {
+      "type": "int64"
+    },
+    "query_duration_millis": {
+      "type": "int64"
+    },
+    "total_count": {
+      "type": "int64"
+    }
+  }
+}

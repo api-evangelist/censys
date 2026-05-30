@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-ssh-algorithmselection-structure.json",
+  "name": "Ssh_AlgorithmSelection",
+  "description": "Ssh_AlgorithmSelection schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "client_to_server_alg_group": {
+      "$ref": "#/components/schemas/Ssh_AlgorithmSelection_DirectionAlgorithms"
+    },
+    "host_key_algorithm": {
+      "type": "string"
+    },
+    "kex_algorithm": {
+      "type": "string"
+    },
+    "server_to_client_alg_group": {
+      "$ref": "#/components/schemas/Ssh_AlgorithmSelection_DirectionAlgorithms"
+    }
+  }
+}

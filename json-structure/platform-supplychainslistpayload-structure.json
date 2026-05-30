@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-supplychainslistpayload-structure.json",
+  "name": "SupplyChainsListPayload",
+  "description": "SupplyChainsListPayload schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "supply_chain_ids"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "next_page_token": {
+      "type": "string",
+      "description": "Pagination token for the next page of results, if any."
+    },
+    "supply_chain_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Supply chain IDs for the organization.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

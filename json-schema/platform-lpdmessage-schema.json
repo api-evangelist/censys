@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-lpdmessage-schema.json",
+  "title": "LpdMessage",
+  "description": "LpdMessage schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "body": {
+      "format": "base64",
+      "type": "string"
+    },
+    "status": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

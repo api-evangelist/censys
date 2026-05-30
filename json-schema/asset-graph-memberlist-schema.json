@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-memberlist-schema.json",
+  "title": "Memberlist",
+  "description": "Memberlist schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "encrypted": {
+      "type": "boolean"
+    },
+    "encrypted_len": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "encryption_version": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "error_message": {
+      "type": "string"
+    },
+    "node": {
+      "$ref": "#/components/schemas/Memberlist_NodeInfo"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,6 @@
+{
+  "error_code": 917,
+  "error_reason": "Active production asset under observation.",
+  "has_fingerprint": true,
+  "software": "example"
+}

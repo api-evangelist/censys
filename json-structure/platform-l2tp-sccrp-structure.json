@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-l2tp-sccrp-structure.json",
+  "name": "L2Tp_Sccrp",
+  "description": "L2Tp_Sccrp schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "attribute_values": {
+      "$ref": "#/components/schemas/L2Tp_AttributeValues"
+    }
+  }
+}

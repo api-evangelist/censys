@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ethereum-structure.json",
+  "name": "Ethereum",
+  "description": "Ethereum schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "accounts": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "hashrate": {
+      "type": "string"
+    },
+    "version": {
+      "$ref": "#/components/schemas/Ethereum_Version"
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-certificate-schema.json",
+  "title": "Certificate",
+  "description": "Certificate schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "added_at": {
+      "description": "When the certificate was added to the Censys dataset.",
+      "type": "string"
+    },
+    "ct": {
+      "$ref": "#/components/schemas/Ct"
+    },
+    "ever_seen_in_scan": {
+      "description": "Whether the certificate has ever been presented by a service during a scan.",
+      "type": "boolean"
+    },
+    "fingerprint_md5": {
+      "description": "The MD-5 digest of the entire raw certificate. An identifier used by some systems.",
+      "format": "hex",
+      "type": "string"
+    },
+    "fingerprint_sha1": {
+      "description": "The SHA-1 digest of the entire raw certificate. An identifier used by some systems.",
+      "format": "hex",
+      "type": "string"
+    },
+    "fingerprint_sha256": {
+      "description": "The SHA-256 digest of the entire raw certificate. Its unique identifier, which Censys uses to index certificates records.",
+      "format": "hex",
+      "type": "string"
+    },
+    "modified_at": {
+      "description": "When the certificate record was last modified.",
+      "type": "string"
+    },
+    "names": {
+      "description": "All the names contained in the certificate from various fields.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "parent_spki_fingerprint_sha256": {
+      "description": "DEPRECATED: Use parent_spki_subject_fingerprint_sha256",
+      "format": "hex",
+      "type": "string"
+    },
+    "parent_spki_subject_fingerprint_sha256": {
+      "description": "The SHA-256 digest of the parent certificate's DER-encoded SubjectPublicKeyInfo concatenated with its Subject.",
+      "format": "hex",
+      "type": "string"
+    },
+    "parse_status": {
+      "enum": [
+        "",
+        "success",
+        "fail",
+        "corrupted"
+      ],
+      "type": "string"
+    },
+    "parsed": {
+      "$ref": "#/components/schemas/Certificate_Parsed",
+      "description": "A record containing all of the data parsed from the certificate."
+    },
+    "precert": {
+      "description": "Whether the X.509 \"poison\" extension (OID: 1.3.6.1.4.1.11129.2.4.3) is marked critical, which prohibits the pre-certificate from being trusted.",
+      "type": "boolean"
+    },
+    "revocation": {
+      "$ref": "#/components/schemas/CertificateRevocation",
+      "description": "A record containing revocation information, if the certificate has been revoked."
+    },
+    "revoked": {
+      "description": "Whether the certificate has been revoked before its expiry date by the issuer.",
+      "type": "boolean"
+    },
+    "spki_fingerprint_sha256": {
+      "description": "DEPRECATED: Use spki_subject_fingerprint_sha256",
+      "format": "hex",
+      "type": "string"
+    },
+    "spki_subject_fingerprint_sha256": {
+      "description": "The SHA-256 digest of the certificate's DER-encoded SubjectPublicKeyInfo concatenated with its Subject.",
+      "format": "hex",
+      "type": "string"
+    },
+    "tbs_fingerprint_sha256": {
+      "description": "The SHA-256 digest of the unsigned certificate's contents.",
+      "format": "hex",
+      "type": "string"
+    },
+    "tbs_no_ct_fingerprint_sha256": {
+      "description": "The SHA-256 digest of the unsigned certificate with the CT Poison extension removed, if present. This represents the shared contents of a certificate and its corresponding pre-certificate.",
+      "format": "hex",
+      "type": "string"
+    },
+    "validated_at": {
+      "description": "When the certificate record's trust was last checked.",
+      "type": "string"
+    },
+    "validation": {
+      "$ref": "#/components/schemas/Validation",
+      "description": "A record containing information from the maintainers of major root certificate stores related to their trust assessment."
+    },
+    "validation_level": {
+      "description": "The extent to which the certificate's issuer validated the identity of the entity requesting the certificate. Options include Domain validated (DV), Organization Validated (OV), or Extended Validation (EV).",
+      "enum": [
+        "",
+        "dv",
+        "ov",
+        "ev"
+      ],
+      "type": "string"
+    },
+    "zlint": {
+      "$ref": "#/components/schemas/ZLint",
+      "description": "A record containing the results of linting the certificate for conformance to the X.509 standard using Zlint."
+    }
+  },
+  "additionalProperties": false
+}

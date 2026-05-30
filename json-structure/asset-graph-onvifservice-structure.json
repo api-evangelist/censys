@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-onvifservice-structure.json",
+  "name": "OnvifService",
+  "description": "OnvifService schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "capabilities": {
+      "$ref": "#/components/schemas/Capabilities"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "service_version_major": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "service_version_minor": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "xaddr": {
+      "type": "string"
+    }
+  }
+}

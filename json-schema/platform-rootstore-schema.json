@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rootstore-schema.json",
+  "title": "RootStore",
+  "description": "RootStore schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "chains": {
+      "description": "A path of trusted signing certificates up to a root certificate present in a root store, represented as an ordered list of SHA-256 fingerprints.",
+      "items": {
+        "$ref": "#/components/schemas/RootStore_Chain"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "ever_valid": {
+      "description": "Whether the certificate has ever been considered valid by the root store.",
+      "type": "boolean"
+    },
+    "had_trusted_path": {
+      "description": "Whether there ever existed a trusted path of signing certificates from a certificate present in the root certificate store.",
+      "type": "boolean"
+    },
+    "has_trusted_path": {
+      "description": "Whether there currently exists a trusted path of signing certificates from a certificate present in the root certificate store.",
+      "type": "boolean"
+    },
+    "in_revocation_set": {
+      "description": "Whether the certificate is in the revocation set (e.g. OneCRL) associated with the root store.",
+      "type": "boolean"
+    },
+    "is_valid": {
+      "description": "Whether the certificate is currently considered valid by the root store: a summary of the trust path, revoked, blocklisted/allowlisted, and expired fields.",
+      "type": "boolean"
+    },
+    "parents": {
+      "description": "The SHA-256 fingerprints of the certificate's immediate parents in its trust path(s).",
+      "format": "hex",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "type": {
+      "description": "The certificate's type. Options include root, intermediate, or leaf.",
+      "enum": [
+        "",
+        "root",
+        "intermediate",
+        "leaf"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

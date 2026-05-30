@@ -1,0 +1,8 @@
+{
+  "discovered_labels": null,
+  "health": "example",
+  "labels": null,
+  "last_error": "example",
+  "last_scrape": "example",
+  "scrape_url": "https://search.censys.io/hosts/8.8.8.8"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ssh-schema.json",
+  "title": "Ssh",
+  "description": "Ssh schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "algorithm_selection": {
+      "$ref": "#/components/schemas/Ssh_AlgorithmSelection"
+    },
+    "endpoint_id": {
+      "$ref": "#/components/schemas/Ssh_EndpointId"
+    },
+    "hassh_fingerprint": {
+      "type": "string"
+    },
+    "kex_init_message": {
+      "$ref": "#/components/schemas/Ssh_KexInitMessage"
+    },
+    "server_host_key": {
+      "$ref": "#/components/schemas/Ssh_ServerHostKey"
+    }
+  },
+  "additionalProperties": false
+}

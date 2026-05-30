@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ike-v1-structure.json",
+  "name": "Ike_V1",
+  "description": "Ike_V1 schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_proposal": {
+      "type": "boolean",
+      "description": "Did the host accept our security proposal? When false, the host responded with an error."
+    },
+    "notify_message_types": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Which types of NOTIFY messages did the host send us?",
+      "items": {
+        "type": "int32",
+        "minimum": 0
+      }
+    },
+    "vendor_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The list of Vendor ID \"extensions\" the host claimed to support in its handshake",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

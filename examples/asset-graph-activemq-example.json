@@ -1,0 +1,14 @@
+{
+  "cache_enabled": false,
+  "cache_size": 32,
+  "max_frame_size": 886,
+  "max_inactivity_duration": 332,
+  "max_inactivity_duration_initial_delay": 265,
+  "platform_details": "example",
+  "provider_name": "Production Internet Asset Inventory",
+  "provider_version": "example",
+  "size_prefix_disabled": false,
+  "stack_trace_enabled": true,
+  "tcp_no_delay_enabled": true,
+  "tight_encoding_enabled": true
+}

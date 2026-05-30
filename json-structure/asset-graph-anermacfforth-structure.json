@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-anermacfforth-structure.json",
+  "name": "AnermaCfForth",
+  "description": "AnermaCfForth schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ip": {
+      "type": "string"
+    },
+    "product": {
+      "type": "string"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "unit_name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-kubernetes-structure.json",
+  "name": "Kubernetes",
+  "description": "Kubernetes schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "endpoints": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Kubernetes_Endpoint"
+      }
+    },
+    "kubernetes_dashboard_found": {
+      "type": "boolean",
+      "description": "True if the dashboard is running and accessible"
+    },
+    "nodes": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Kubernetes_Node"
+      }
+    },
+    "pod_names": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "roles": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Kubernetes_Role"
+      }
+    },
+    "version_info": {
+      "$ref": "#/components/schemas/Kubernetes_VersionInfo"
+    }
+  }
+}

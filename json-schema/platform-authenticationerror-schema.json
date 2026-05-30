@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-authenticationerror-schema.json",
+  "title": "AuthenticationError",
+  "description": "AuthenticationError schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "error": {
+      "$ref": "#/components/schemas/AuthenticationErrorDetail",
+      "description": "Detailed information about the authentication error"
+    }
+  },
+  "additionalProperties": false
+}

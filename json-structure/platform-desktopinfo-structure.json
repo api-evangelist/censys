@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-desktopinfo-structure.json",
+  "name": "DesktopInfo",
+  "description": "DesktopInfo schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "height": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "name_len": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "pixel_format": {
+      "$ref": "#/components/schemas/PixelFormat"
+    },
+    "width": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

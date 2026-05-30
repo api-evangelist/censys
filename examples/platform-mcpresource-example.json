@@ -1,0 +1,7 @@
+{
+  "content": "example",
+  "description": "Active production asset under observation.",
+  "mime_type": "example",
+  "name": "Production Internet Asset Inventory",
+  "uri": "https://search.censys.io/hosts/8.8.8.8"
+}

@@ -1,0 +1,7 @@
+{
+  "auth_ssl_response": "example",
+  "auth_tls_response": "example",
+  "implicit_tls": true,
+  "status_code": 378,
+  "status_meaning": "enabled"
+}

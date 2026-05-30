@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-mediacapabilities-schema.json",
+  "title": "MediaCapabilities",
+  "description": "MediaCapabilities schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "osd": {
+      "type": "boolean"
+    },
+    "profile": {
+      "$ref": "#/components/schemas/MediaProfile"
+    },
+    "rotation": {
+      "type": "boolean"
+    },
+    "snapshot_uri": {
+      "type": "boolean"
+    },
+    "streaming": {
+      "$ref": "#/components/schemas/MediaStreaming"
+    },
+    "video_source_mode": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

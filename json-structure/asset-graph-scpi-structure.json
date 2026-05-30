@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-scpi-structure.json",
+  "name": "Scpi",
+  "description": "Scpi schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "firmware": {
+      "type": "string"
+    },
+    "manufacturer": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "serial": {
+      "type": "string"
+    }
+  }
+}

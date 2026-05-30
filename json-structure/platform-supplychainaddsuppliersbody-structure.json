@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-supplychainaddsuppliersbody-structure.json",
+  "name": "SupplyChainAddSuppliersBody",
+  "description": "SupplyChainAddSuppliersBody schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "supply_chain_id",
+    "supplier_ids"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "supplier_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "A list of IDs of Censys suppliers to add to the given supply chain, each as a UUID string, each must be unique.",
+      "minItems": 1,
+      "maxItems": 1000,
+      "items": {
+        "type": "string"
+      }
+    },
+    "supply_chain_id": {
+      "type": "uuid",
+      "description": "The ID of a Censys supply chain."
+    }
+  }
+}

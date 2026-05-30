@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-chromecast-application-schema.json",
+  "title": "Chromecast_Application",
+  "description": "Chromecast_Application schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "app_type": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "display_name": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "namespaces": {
+      "items": {
+        "$ref": "#/components/schemas/Chromecast_Namespace"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "session_id": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "transport_id": {
+      "format": "utf8",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-prometheus-schema.json",
+  "title": "Prometheus",
+  "description": "Prometheus schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "response": {
+      "$ref": "#/components/schemas/Prometheus_Response",
+      "description": "Information Prometheus captured as well as build information."
+    }
+  },
+  "additionalProperties": false
+}

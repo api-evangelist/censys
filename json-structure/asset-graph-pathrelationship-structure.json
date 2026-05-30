@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-pathrelationship-structure.json",
+  "name": "PathRelationship",
+  "description": "PathRelationship schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Edge type (e.g. FORWARD_DNS)"
+    }
+  }
+}

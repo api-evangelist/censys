@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-prometheus-response-prometheusversion-schema.json",
+  "title": "Prometheus_Response_PrometheusVersion",
+  "description": "Prometheus_Response_PrometheusVersion schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "go_version": {
+      "description": "Version of Go used to build Prometheus.",
+      "type": "string"
+    },
+    "revision": {
+      "description": "Revision of Prometheus.",
+      "type": "string"
+    },
+    "version": {
+      "description": "Version of Prometheus.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

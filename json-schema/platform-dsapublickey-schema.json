@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-dsapublickey-schema.json",
+  "title": "DsaPublicKey",
+  "description": "DsaPublicKey schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "g": {
+      "format": "hex",
+      "type": "string"
+    },
+    "p": {
+      "format": "hex",
+      "type": "string"
+    },
+    "q": {
+      "format": "hex",
+      "type": "string"
+    },
+    "y": {
+      "format": "hex",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-opendirectory-structure.json",
+  "name": "OpenDirectory",
+  "description": "OpenDirectory schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "files": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/OpenDirectory_File"
+      }
+    },
+    "recursive": {
+      "type": "boolean"
+    }
+  }
+}

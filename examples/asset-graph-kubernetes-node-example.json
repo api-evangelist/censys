@@ -1,0 +1,16 @@
+{
+  "addresses": [
+    null
+  ],
+  "architecture": "example",
+  "container_runtime_version": "example",
+  "images": [
+    "example"
+  ],
+  "kernel_version": "example",
+  "kube_proxy_version": "example",
+  "kubelet_version": "example",
+  "name": "Production Internet Asset Inventory",
+  "operating_system": "example",
+  "os_image": "example"
+}

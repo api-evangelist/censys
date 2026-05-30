@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-threatslistresponse-structure.json",
+  "name": "ThreatsListResponse",
+  "description": "ThreatsListResponse schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "threats"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "threats": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of active threats observed on the platform.",
+      "items": {
+        "$ref": "#/components/schemas/ThreatListItem"
+      }
+    }
+  }
+}

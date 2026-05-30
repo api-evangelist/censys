@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ventrilo-message-structure.json",
+  "name": "Ventrilo_Message",
+  "description": "Ventrilo_Message schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "body": {
+      "type": "string"
+    },
+    "error": {
+      "type": "string"
+    },
+    "header": {
+      "$ref": "#/components/schemas/Ventrilo_Header"
+    }
+  }
+}

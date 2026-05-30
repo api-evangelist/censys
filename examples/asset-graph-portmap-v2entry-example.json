@@ -1,0 +1,7 @@
+{
+  "description": "Active production asset under observation.",
+  "port": 696,
+  "protocol": "SSH",
+  "shorthand": "example",
+  "version": 474
+}

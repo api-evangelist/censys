@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-createtagassignmentinputbody-schema.json",
+  "title": "CreateTagAssignmentInputBody",
+  "description": "CreateTagAssignmentInputBody schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "asset_id": {
+      "description": "The identifier of the asset (host IP, certificate SHA-256 fingerprint, or web property hostname:port).",
+      "examples": [
+        "8.8.8.8",
+        "3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf",
+        "platform.censys.io:443"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "asset_id"
+  ],
+  "additionalProperties": false
+}

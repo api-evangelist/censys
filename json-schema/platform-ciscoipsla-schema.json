@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ciscoipsla-schema.json",
+  "title": "CiscoIpsla",
+  "description": "CiscoIpsla schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "handshake": {
+      "$ref": "#/components/schemas/CiscoIpsla_Handshake"
+    },
+    "measure_response": {
+      "$ref": "#/components/schemas/CiscoIpsla_MeasureResponse"
+    }
+  },
+  "additionalProperties": false
+}

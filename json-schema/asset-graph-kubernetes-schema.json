@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-kubernetes-schema.json",
+  "title": "Kubernetes",
+  "description": "Kubernetes schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "endpoints": {
+      "items": {
+        "$ref": "#/components/schemas/Kubernetes_Endpoint"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "kubernetes_dashboard_found": {
+      "description": "True if the dashboard is running and accessible",
+      "type": "boolean"
+    },
+    "nodes": {
+      "items": {
+        "$ref": "#/components/schemas/Kubernetes_Node"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "pod_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "roles": {
+      "items": {
+        "$ref": "#/components/schemas/Kubernetes_Role"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "version_info": {
+      "$ref": "#/components/schemas/Kubernetes_VersionInfo"
+    }
+  },
+  "additionalProperties": false
+}

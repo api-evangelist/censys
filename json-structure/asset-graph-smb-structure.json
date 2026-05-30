@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-smb-structure.json",
+  "name": "Smb",
+  "description": "Smb schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "group_name": {
+      "type": "string",
+      "description": "Default group name"
+    },
+    "has_ntlm": {
+      "type": "boolean",
+      "description": "Server supports the NTLM authentication method"
+    },
+    "native_os": {
+      "type": "string",
+      "description": "Server-identified operating system"
+    },
+    "negotiation_log": {
+      "$ref": "#/components/schemas/Smb_NegotiationLog"
+    },
+    "ntlm": {
+      "type": "string",
+      "description": "Native LAN manager"
+    },
+    "session_setup_log": {
+      "$ref": "#/components/schemas/Smb_SessionSetupLog"
+    },
+    "smb_capabilities": {
+      "description": "Capabilities flags for the connection. See [MS-SMB2] Sect. 2.2.4.",
+      "$ref": "#/components/schemas/Smb_SmbCapabilities"
+    },
+    "smb_version": {
+      "$ref": "#/components/schemas/Smb_SmbVersions"
+    },
+    "smbv1_support": {
+      "type": "boolean"
+    }
+  }
+}

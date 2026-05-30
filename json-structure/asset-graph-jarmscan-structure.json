@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-jarmscan-structure.json",
+  "name": "JarmScan",
+  "description": "JarmScan schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cipher_and_version_fingerprint": {
+      "type": "string",
+      "description": "The first 30 character portion of the Jarm fingerprint."
+    },
+    "fingerprint": {
+      "type": "string",
+      "description": "The 62 character Jarm fingerprint of the service."
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "is_success": {
+      "type": "boolean"
+    },
+    "port": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "scan_time": {
+      "type": "string",
+      "description": "The time the service was fingerprinted"
+    },
+    "tls_extensions_sha256": {
+      "type": "string",
+      "description": "The second 32 character portion of the Jarm fingerprint"
+    },
+    "transport_protocol": {
+      "type": "string",
+      "enum": [
+        "",
+        "tcp",
+        "udp",
+        "icmp",
+        "quic"
+      ]
+    }
+  }
+}

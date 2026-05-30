@@ -1,0 +1,20 @@
+{
+  "app_name": "Production Internet Asset Inventory",
+  "app_version": "example",
+  "auth_agent_type": "example",
+  "brand_id": "cns_90a9234b53987fd4",
+  "host_address": "example",
+  "host_id": "01234567-89ab-cdef-0123-456789abcdef",
+  "hostname": "example.com",
+  "id": 16,
+  "language": "example",
+  "os_name": "Production Internet Asset Inventory",
+  "os_version": "example",
+  "station_name": "Production Internet Asset Inventory",
+  "sys_info": "example",
+  "time_zone": "example",
+  "version": "example",
+  "vm_name": "Production Internet Asset Inventory",
+  "vm_uuid": "550e8400-e29b-41d4-a716-446655440000",
+  "vm_version": "example"
+}

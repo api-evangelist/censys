@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-l2tp-attributevalues-schema.json",
+  "title": "L2Tp_AttributeValues",
+  "description": "L2Tp_AttributeValues schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "error_code": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "error_meaning": {
+      "type": "string"
+    },
+    "error_message": {
+      "type": "string"
+    },
+    "firmware_revision": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "protocol_revision": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "protocol_version": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "result_code": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "result_meaning": {
+      "type": "string"
+    },
+    "vendor_name": {
+      "type": "string"
+    },
+    "window_size": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

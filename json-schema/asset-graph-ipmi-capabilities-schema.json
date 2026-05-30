@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ipmi-capabilities-schema.json",
+  "title": "Ipmi_Capabilities",
+  "description": "Ipmi_Capabilities schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "auth_status": {
+      "$ref": "#/components/schemas/Ipmi_Capabilities_AuthStatus",
+      "description": "The authentication status"
+    },
+    "channel_number": {
+      "description": "The response channel number",
+      "format": "int32",
+      "type": "integer"
+    },
+    "completion_code": {
+      "$ref": "#/components/schemas/Ipmi_Capabilities_CompletionCode",
+      "description": "The status code of the response"
+    },
+    "extended_capabilities": {
+      "$ref": "#/components/schemas/Ipmi_Capabilities_ExtendedCapabilities",
+      "description": "Extended auth capabilities (if present)"
+    },
+    "oem_data": {
+      "description": "The OEM-specific data",
+      "format": "int32",
+      "type": "integer"
+    },
+    "oem_id": {
+      "description": "The 3-byte OEM identifier",
+      "format": "hex",
+      "type": "string"
+    },
+    "supported_auth_types": {
+      "$ref": "#/components/schemas/Ipmi_Capabilities_SupportedAuthTypes",
+      "description": "The auth types supported by the server"
+    }
+  },
+  "additionalProperties": false
+}

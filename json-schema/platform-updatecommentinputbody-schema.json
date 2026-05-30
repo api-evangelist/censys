@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-updatecommentinputbody-schema.json",
+  "title": "UpdateCommentInputBody",
+  "description": "UpdateCommentInputBody schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "body": {
+      "description": "The updated comment body text.",
+      "maxLength": 10000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "body"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-upnp-specversion-schema.json",
+  "title": "Upnp_SpecVersion",
+  "description": "Upnp_SpecVersion schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "major": {
+      "type": "string"
+    },
+    "minor": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

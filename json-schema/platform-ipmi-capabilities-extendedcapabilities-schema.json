@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ipmi-capabilities-extendedcapabilities-schema.json",
+  "title": "Ipmi_Capabilities_ExtendedCapabilities",
+  "description": "Ipmi_Capabilities_ExtendedCapabilities schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "supports_ipmi_v1_5": {
+      "description": "True if IPMI v1.5 is supported",
+      "type": "boolean"
+    },
+    "supports_ipmi_v2_0": {
+      "description": "True if IPMI v2.0 is supported",
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

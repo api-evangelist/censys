@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-rdp-version-structure.json",
+  "name": "Rdp_Version",
+  "description": "Rdp_Version schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "major": {
+      "type": "int32"
+    },
+    "minor": {
+      "type": "int32"
+    },
+    "raw": {
+      "type": "string",
+      "description": "Raw Version Response, Major version is stored in upper 2 bytes, minor in lower 2 bytes."
+    }
+  }
+}

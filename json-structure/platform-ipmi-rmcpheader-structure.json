@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-ipmi-rmcpheader-structure.json",
+  "name": "Ipmi_RMCPHeader",
+  "description": "Ipmi_RMCPHeader schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "message_class": {
+      "description": "The class of the message.",
+      "$ref": "#/components/schemas/Ipmi_RMCPHeader_MessageClass"
+    },
+    "sequence_number": {
+      "type": "int32",
+      "description": "Sequence number of this packet in the session."
+    },
+    "version": {
+      "type": "int32",
+      "description": "The version. This scanner supports version 6."
+    }
+  }
+}

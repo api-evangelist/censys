@@ -1,0 +1,6 @@
+{
+  "clio_version": "example",
+  "rippled_version": "example",
+  "validated": true,
+  "validation_quorum": 456
+}

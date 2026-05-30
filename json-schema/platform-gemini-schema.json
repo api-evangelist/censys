@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-gemini-schema.json",
+  "title": "Gemini",
+  "description": "Gemini schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "body": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "client_cert_required": {
+      "type": "boolean"
+    },
+    "meta": {
+      "type": "string"
+    },
+    "status_code": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

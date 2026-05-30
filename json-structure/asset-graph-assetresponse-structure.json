@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-assetresponse-structure.json",
+  "name": "AssetResponse",
+  "description": "AssetResponse schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "id"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "uri",
+      "description": "A URL to the JSON Schema for this object."
+    },
+    "certificate": {
+      "description": "Certificate data",
+      "$ref": "#/components/schemas/Certificate"
+    },
+    "discovery_paths": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Discovery paths to this asset",
+      "items": {
+        "$ref": "#/components/schemas/DiscoveryPath"
+      }
+    },
+    "domain": {
+      "description": "Domain data",
+      "$ref": "#/components/schemas/DomainResponse"
+    },
+    "host": {
+      "description": "Host data",
+      "$ref": "#/components/schemas/Host"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the asset"
+    },
+    "web_property": {
+      "description": "Web property data",
+      "$ref": "#/components/schemas/WebProperty"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-mavlink-frame-structure.json",
+  "name": "Mavlink_Frame",
+  "description": "Mavlink_Frame schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "component_id": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "message_id": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "message_type": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "string"
+    },
+    "system_id": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "version": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

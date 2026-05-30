@@ -1,0 +1,5 @@
+{
+  "connection_ack_raw": "example",
+  "connection_ack_return": null,
+  "subscription_ack_return": null
+}

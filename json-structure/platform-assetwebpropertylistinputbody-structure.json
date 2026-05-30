@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-assetwebpropertylistinputbody-structure.json",
+  "name": "AssetWebpropertyListInputBody",
+  "description": "AssetWebpropertyListInputBody schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "webproperty_ids"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "at_time": {
+      "type": "datetime",
+      "description": "RFC3339 Timestamp to view all requested webproperties at a specific point in time. Must be a valid RFC3339 string. Ensure that you suffix the date with T00:00:00Z or a specific time"
+    },
+    "webproperty_ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "A list of web property identifiers.",
+      "minItems": 1,
+      "maxItems": 100,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

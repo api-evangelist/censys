@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-cursorontarget-takv-structure.json",
+  "name": "CursorOnTarget_Takv",
+  "description": "CursorOnTarget_Takv schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "device": {
+      "type": "string"
+    },
+    "os": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

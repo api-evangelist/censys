@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-ser2net-serialparameters-structure.json",
+  "name": "Ser2Net_SerialParameters",
+  "description": "Ser2Net_SerialParameters schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "baud_rate": {
+      "type": "string"
+    },
+    "data_bits": {
+      "type": "string"
+    },
+    "parity": {
+      "type": "string"
+    },
+    "stop_bits": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ventrilo-header-structure.json",
+  "name": "Ventrilo_Header",
+  "description": "Ventrilo_Header schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cmd": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "data_key": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "header_key": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "id": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "total_length": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

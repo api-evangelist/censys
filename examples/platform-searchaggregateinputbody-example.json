@@ -1,0 +1,7 @@
+{
+  "count_by_level": "example",
+  "field": "example",
+  "filter_by_query": false,
+  "number_of_buckets": 949,
+  "query": "services.service_name: HTTP"
+}

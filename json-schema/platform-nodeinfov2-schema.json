@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-nodeinfov2-schema.json",
+  "title": "NodeInfoV2",
+  "description": "NodeInfoV2 schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "decimals": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "features": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "is_healthy": {
+      "type": "boolean"
+    },
+    "latest_milestone": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "latest_uncommitted_milestone": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "network_name": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "subunit": {
+      "type": "string"
+    },
+    "supported_protocol_versions": {
+      "items": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "ticker_symbol": {
+      "type": "string"
+    },
+    "token_name": {
+      "type": "string"
+    },
+    "token_supply": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

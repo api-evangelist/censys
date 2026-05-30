@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-mediaprofile-structure.json",
+  "name": "MediaProfile",
+  "description": "MediaProfile schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "max_profile_count": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

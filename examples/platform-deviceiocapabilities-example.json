@@ -1,0 +1,9 @@
+{
+  "audio_outputs": 858,
+  "audio_sources": 729,
+  "digital_inputs": 926,
+  "relay_outputs": 328,
+  "serial_ports": 595,
+  "video_outputs": 48,
+  "video_source": 420
+}

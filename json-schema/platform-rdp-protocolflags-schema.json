@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rdp-protocolflags-schema.json",
+  "title": "Rdp_ProtocolFlags",
+  "description": "Rdp_ProtocolFlags schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "dynvc_graphics_pipeline": {
+      "type": "boolean"
+    },
+    "extended_client_data_supported": {
+      "type": "boolean"
+    },
+    "neg_resp_reserved": {
+      "type": "boolean"
+    },
+    "restricted_admin_mode": {
+      "type": "boolean"
+    },
+    "restricted_auth_mode": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-reputation-evidence-fieldvalue-schema.json",
+  "title": "Reputation_Evidence_FieldValue",
+  "description": "Reputation_Evidence_FieldValue schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "field": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-pptp-structure.json",
+  "name": "Pptp",
+  "description": "Pptp schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "bearer_message": {
+      "$ref": "#/components/schemas/Pptp_ResponseInfo"
+    },
+    "error_message": {
+      "$ref": "#/components/schemas/Pptp_ResponseInfo"
+    },
+    "firmware": {
+      "$ref": "#/components/schemas/Pptp_Version"
+    },
+    "framing_message": {
+      "$ref": "#/components/schemas/Pptp_ResponseInfo"
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "maximum_channels": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "protocol": {
+      "$ref": "#/components/schemas/Pptp_Version"
+    },
+    "result_message": {
+      "$ref": "#/components/schemas/Pptp_ResponseInfo"
+    },
+    "vendor": {
+      "type": "string"
+    }
+  }
+}

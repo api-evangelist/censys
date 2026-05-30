@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-eventstatuschange-structure.json",
+  "name": "EventStatusChange",
+  "description": "EventStatusChange schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "event_time",
+    "new_status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "event_time": {
+      "type": "datetime"
+    },
+    "new_status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "populating",
+        "paused",
+        "archived"
+      ]
+    },
+    "old_status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "populating",
+        "paused",
+        "archived"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    }
+  }
+}

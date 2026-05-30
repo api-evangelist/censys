@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-organizationmemberslist-structure.json",
+  "name": "OrganizationMembersList",
+  "description": "OrganizationMembersList schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "members",
+    "pagination"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "members": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The list of members in the organization.",
+      "items": {
+        "$ref": "#/components/schemas/OrganizationMember"
+      }
+    },
+    "pagination": {
+      "description": "Pagination information for listing more members.",
+      "$ref": "#/components/schemas/PaginationInfo"
+    }
+  }
+}

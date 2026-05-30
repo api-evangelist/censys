@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-opcua-schema.json",
+  "title": "OpcUa",
+  "description": "OpcUa schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "endpoints": {
+      "items": {
+        "$ref": "#/components/schemas/OpcUa_Endpoint"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "max_chunk_size": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "max_message_size": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "protocol_version": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "receive_buffer_size": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "send_buffer_size": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

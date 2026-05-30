@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-profinetcm-schema.json",
+  "title": "ProfinetCm",
+  "description": "ProfinetCm schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "byte_order": {
+      "type": "string"
+    },
+    "lookup_response_raw": {
+      "format": "hex",
+      "type": "string"
+    },
+    "multiple_fragments": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-mcpresource-schema.json",
+  "title": "McpResource",
+  "description": "McpResource schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "mime_type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "uri": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

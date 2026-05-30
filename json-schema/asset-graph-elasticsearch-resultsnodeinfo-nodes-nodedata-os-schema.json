@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-elasticsearch-resultsnodeinfo-nodes-nodedata-os-schema.json",
+  "title": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_OS",
+  "description": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_OS schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "allocated_proc": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "arch": {
+      "type": "string"
+    },
+    "available_proc": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pretty_name": {
+      "type": "string"
+    },
+    "refresh_interval_ms": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

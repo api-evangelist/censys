@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-mqtt-subscriptionackreturn-structure.json",
+  "name": "Mqtt_SubscriptionAckReturn",
+  "description": "Mqtt_SubscriptionAckReturn schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "raw": {
+      "type": "int32",
+      "description": "Raw subscription response value",
+      "minimum": 0
+    },
+    "return_value": {
+      "type": "string",
+      "description": "Subscription response"
+    }
+  }
+}

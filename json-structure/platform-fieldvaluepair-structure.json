@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-fieldvaluepair-structure.json",
+  "name": "FieldValuePair",
+  "description": "FieldValuePair schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "field",
+    "value"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "field": {
+      "type": "string",
+      "description": "The field to match"
+    },
+    "value": {
+      "type": "string",
+      "description": "The value to match"
+    }
+  }
+}

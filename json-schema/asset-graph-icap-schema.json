@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-icap-schema.json",
+  "title": "Icap",
+  "description": "Icap schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "options_response": {
+      "$ref": "#/components/schemas/Icap_OptionsResponse"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-user-schema.json",
+  "title": "User",
+  "description": "User schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "auth_key_id": {
+      "type": "string"
+    },
+    "steamid": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-nameconstraints-schema.json",
+  "title": "NameConstraints",
+  "description": "NameConstraints schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "critical": {
+      "type": "boolean"
+    },
+    "excluded_directory_names": {
+      "description": "A record providing excluded names of the type directoryName in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "$ref": "#/components/schemas/DistinguishedName"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "excluded_edi_party_names": {
+      "description": "A record providing excluded names of the type ediPartyName in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "$ref": "#/components/schemas/EdiPartyName"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "excluded_email_addresses": {
+      "description": "A record providing a range of excluded names of the type rfc822Name in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "excluded_ip_addresses": {
+      "description": "A record providing a range of excluded names of the type iPAddress in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "$ref": "#/components/schemas/GeneralSubtreeIp"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "excluded_names": {
+      "description": "A record providing a range of excluded names of the type dNSName in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "excluded_registered_ids": {
+      "description": "A record providing excluded names of the type registeredID in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "excluded_uris": {
+      "description": "A record providing a range of excluded uniform resource identifiers in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "permitted_directory_names": {
+      "description": "A record providing permitted names of the type directoryName in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "$ref": "#/components/schemas/DistinguishedName"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "permitted_edi_party_names": {
+      "description": "A record providing permitted names of the type ediPartyName in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "$ref": "#/components/schemas/EdiPartyName"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "permitted_email_addresses": {
+      "description": "A record providing a range of permitted names of the type rfc822Name in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "permitted_ip_addresses": {
+      "description": "A record providing a range of permitted names of the type iPAddress in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "$ref": "#/components/schemas/GeneralSubtreeIp"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "permitted_names": {
+      "description": "A record providing a range of permitted names of the type dNSName in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "permitted_registered_ids": {
+      "description": "A record providing permitted names of the type registeredID in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "permitted_uris": {
+      "description": "A record providing a range of permitted uniform resource identifiers in leaf certificates whose trust path includes this certificate.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

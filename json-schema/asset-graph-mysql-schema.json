@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-mysql-schema.json",
+  "title": "Mysql",
+  "description": "Mysql schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "auth_plugin_data": {
+      "description": "Optional plugin-specific data, whose meaning depends on the value of auth_plugin_name. Returned in the initial HandshakePacket.",
+      "format": "hex",
+      "type": "string"
+    },
+    "auth_plugin_name": {
+      "description": "The name of the authentication plugin, returned in the initial HandshakePacket.",
+      "type": "string"
+    },
+    "capability_flags": {
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "description": "The set of capability flags the server returned in the initial HandshakePacket. Each entry corresponds to a bit being set in the flags; key names correspond to the #defines in the MySQL docs.",
+      "type": "object"
+    },
+    "character_set": {
+      "description": "The identifier for the character set the server is using. Returned in the initial HandshakePacket.",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "connection_id": {
+      "description": "The server's internal identifier for this client's connection, sent in the initial HandshakePacket.",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "error_code": {
+      "description": "Only set if there is an error returned by the server, for example if the scanner is not on the allowed hosts list.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "error_id": {
+      "description": "The friendly name for the error code as defined at https://dev.mysql.com/doc/refman/8.0/en/error-messages-server.html, or UNKNOWN",
+      "type": "string"
+    },
+    "error_message": {
+      "description": "Optional string describing the error. Only set if there is an error.",
+      "type": "string"
+    },
+    "protocol_version": {
+      "description": "8-bit unsigned integer representing the server's protocol version sent in the initial HandshakePacket from the server.",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "server_version": {
+      "description": "The specific server version returned in the initial HandshakePacket. Often in the form x.y.z, but not always.",
+      "type": "string"
+    },
+    "status_flags": {
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "description": "The set of status flags the server returned in the initial HandshakePacket. Each entry corresponds to a bit being set in the flags; key names correspond to the #defines in the MySQL docs.",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

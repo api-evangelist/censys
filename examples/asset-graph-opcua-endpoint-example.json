@@ -1,0 +1,12 @@
+{
+  "endpoint_url": "https://search.censys.io/hosts/8.8.8.8",
+  "security_level": 381,
+  "security_mode": 976,
+  "security_policy_uri": "https://search.censys.io/hosts/8.8.8.8",
+  "serve_cert": "example",
+  "server": null,
+  "transport_profile_uri": "https://search.censys.io/hosts/8.8.8.8",
+  "user_identity_token": [
+    null
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ed25519cryptographickey-schema.json",
+  "title": "ED25519CryptographicKey",
+  "description": "ED25519CryptographicKey schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "public_bytes": {
+      "format": "base64",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

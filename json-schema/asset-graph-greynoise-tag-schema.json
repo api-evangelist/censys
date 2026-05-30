@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-greynoise-tag-schema.json",
+  "title": "Greynoise_Tag",
+  "description": "Greynoise_Tag schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the tag.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

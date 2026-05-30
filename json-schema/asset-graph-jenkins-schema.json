@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-jenkins-schema.json",
+  "title": "Jenkins",
+  "description": "Jenkins schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "assigned_labels": {
+      "items": {
+        "$ref": "#/components/schemas/Jenkins_Label"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "jobs": {
+      "items": {
+        "$ref": "#/components/schemas/Jenkins_Job"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "mode": {
+      "type": "string"
+    },
+    "node_description": {
+      "type": "string"
+    },
+    "node_name": {
+      "type": "string"
+    },
+    "slave_agent_port": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "use_security": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

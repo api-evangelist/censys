@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-dns-resourcerecord-structure.json",
+  "name": "Dns_ResourceRecord",
+  "description": "Dns_ResourceRecord schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The Fully Qualified Domain Name (FQDN) this RR is for."
+    },
+    "response": {
+      "type": "string",
+      "description": "The RDATA field of the RR."
+    },
+    "type": {
+      "type": "string",
+      "description": "An enumerated field indicating what type of data is in the \"services.dns.additionals.response\" field. For example, \"A\" signifies that the value in \"services.dns.additionals.response\" is an IPv4 address for the FQDN in \"services.dns.additionals.name\".",
+      "enum": [
+        "",
+        "a",
+        "txt",
+        "ns"
+      ]
+    }
+  }
+}

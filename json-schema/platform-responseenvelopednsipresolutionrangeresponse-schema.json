@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-responseenvelopednsipresolutionrangeresponse-schema.json",
+  "title": "ResponseEnvelopeDnsIpResolutionRangeResponse",
+  "description": "ResponseEnvelopeDnsIpResolutionRangeResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "result": {
+      "$ref": "#/components/schemas/DnsIpResolutionRangeResponse"
+    }
+  },
+  "additionalProperties": false
+}

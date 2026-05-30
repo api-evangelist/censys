@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-qcstatements-parsedstatements-structure.json",
+  "name": "QcStatements_ParsedStatements",
+  "description": "QcStatements_ParsedStatements schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "etsi_compliance": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "boolean"
+      }
+    },
+    "legislation": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/QcStatements_QCLegislation"
+      }
+    },
+    "limit": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/QcStatements_MonetaryValue"
+      }
+    },
+    "pds_locations": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/QcStatements_PdsLocation"
+      }
+    },
+    "retention_period": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "int64"
+      }
+    },
+    "sscd": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "boolean"
+      }
+    },
+    "types": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/QcStatements_QcType"
+      }
+    }
+  }
+}

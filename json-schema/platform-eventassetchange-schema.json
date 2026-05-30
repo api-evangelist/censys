@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-eventassetchange-schema.json",
+  "title": "EventAssetChange",
+  "description": "EventAssetChange schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "change_type": {
+      "enum": [
+        "added",
+        "removed"
+      ],
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_time",
+    "reason",
+    "change_type"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-extractedendpointdata-analyticsservice-structure.json",
+  "name": "ExtractedEndpointData_AnalyticsService",
+  "description": "ExtractedEndpointData_AnalyticsService schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ids": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "provider": {
+      "type": "string"
+    }
+  }
+}

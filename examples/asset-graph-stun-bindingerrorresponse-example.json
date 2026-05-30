@@ -1,0 +1,6 @@
+{
+  "error_code": 701,
+  "error_reason": "Active production asset under observation.",
+  "has_fingerprint": false,
+  "software": "example"
+}

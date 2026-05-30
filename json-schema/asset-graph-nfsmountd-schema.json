@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-nfsmountd-schema.json",
+  "title": "NfsMountd",
+  "description": "NfsMountd schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "export_lists": {
+      "items": {
+        "$ref": "#/components/schemas/ExportList"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

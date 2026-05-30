@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-elasticsearch-resultsnodeinfo-clustercombinedinfo-indices-store-schema.json",
+  "title": "ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo_Indices_Store",
+  "description": "ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo_Indices_Store schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "reserved_in_bytes": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "size_in_bytes": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

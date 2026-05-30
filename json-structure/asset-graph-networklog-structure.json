@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-networklog-structure.json",
+  "name": "NetworkLog",
+  "description": "NetworkLog schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "har_handle": {
+      "type": "string",
+      "description": "Storage handle for the full HAR network log."
+    },
+    "resources": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Resources fetched during page load.",
+      "items": {
+        "$ref": "#/components/schemas/NetworkLog_ResourceInfo"
+      }
+    }
+  }
+}

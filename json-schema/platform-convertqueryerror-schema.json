@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-convertqueryerror-schema.json",
+  "title": "ConvertQueryError",
+  "description": "ConvertQueryError schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "message": {
+      "description": "The error message if the query could not be converted.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "message"
+  ],
+  "additionalProperties": false
+}

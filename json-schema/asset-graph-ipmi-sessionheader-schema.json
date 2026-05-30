@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ipmi-sessionheader-schema.json",
+  "title": "Ipmi_SessionHeader",
+  "description": "Ipmi_SessionHeader schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "auth_code": {
+      "description": "The 16-byte authentication code; not present if auth_type is None.",
+      "format": "hex",
+      "type": "string"
+    },
+    "auth_type": {
+      "$ref": "#/components/schemas/Ipmi_SessionHeader_AuthType",
+      "description": "The authentication type for this request (see section 13.6)"
+    },
+    "session_id": {
+      "description": "The ID of this sessiod.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "session_sequence_number": {
+      "description": "The session sequence number of this packet in the session",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-flashsocketpolicy-structure.json",
+  "name": "FlashSocketPolicy",
+  "description": "FlashSocketPolicy schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "allow_access_from": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/FlashSocketPolicy_AllowAccessFrom"
+      }
+    },
+    "policy": {
+      "type": "string"
+    },
+    "site_control": {
+      "type": "string"
+    }
+  }
+}

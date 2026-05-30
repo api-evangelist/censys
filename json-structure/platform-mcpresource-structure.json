@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-mcpresource-structure.json",
+  "name": "McpResource",
+  "description": "McpResource schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "content": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "mime_type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "uri": {
+      "type": "string"
+    }
+  }
+}

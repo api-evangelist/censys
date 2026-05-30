@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-privacy-structure.json",
+  "name": "Privacy",
+  "description": "Privacy schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "anonymous": {
+      "type": "boolean",
+      "description": "Whether the host uses any kind of privacy service."
+    },
+    "proxy": {
+      "type": "boolean",
+      "description": "Whether the host is an open web proxy."
+    },
+    "relay": {
+      "type": "boolean",
+      "description": "Whether the host is a location-preserving anonymous relay service, like iCloud Private Relay.."
+    },
+    "service_provider": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The name of the privacy service providers detected.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source": {
+      "type": "string",
+      "description": "The source of the data."
+    },
+    "tor": {
+      "type": "boolean",
+      "description": "Whether the host is a Tor exit node."
+    },
+    "tor_info": {
+      "description": "Information about the Tor exit node, if the host is one.",
+      "$ref": "#/components/schemas/Privacy_TorInfo"
+    },
+    "vpn": {
+      "type": "boolean",
+      "description": "Whether the host is a VPN service exit node IP address."
+    }
+  }
+}

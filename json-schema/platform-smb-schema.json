@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-smb-schema.json",
+  "title": "Smb",
+  "description": "Smb schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "group_name": {
+      "description": "Default group name",
+      "type": "string"
+    },
+    "has_ntlm": {
+      "description": "Server supports the NTLM authentication method",
+      "type": "boolean"
+    },
+    "native_os": {
+      "description": "Server-identified operating system",
+      "type": "string"
+    },
+    "negotiation_log": {
+      "$ref": "#/components/schemas/Smb_NegotiationLog"
+    },
+    "ntlm": {
+      "description": "Native LAN manager",
+      "type": "string"
+    },
+    "session_setup_log": {
+      "$ref": "#/components/schemas/Smb_SessionSetupLog"
+    },
+    "smb_capabilities": {
+      "$ref": "#/components/schemas/Smb_SmbCapabilities",
+      "description": "Capabilities flags for the connection. See [MS-SMB2] Sect. 2.2.4."
+    },
+    "smb_version": {
+      "$ref": "#/components/schemas/Smb_SmbVersions"
+    },
+    "smbv1_support": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,20 @@
+{
+  "additionals": [
+    null
+  ],
+  "answers": [
+    null
+  ],
+  "authorities": [
+    null
+  ],
+  "edns": null,
+  "questions": [
+    null,
+    null
+  ],
+  "r_code": "bad_name",
+  "resolves_correctly": false,
+  "server_type": "",
+  "version": "example"
+}

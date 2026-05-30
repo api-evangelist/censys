@@ -1,0 +1,10 @@
+{
+  "accepted_proposal": true,
+  "notify_message_types": [
+    840,
+    838
+  ],
+  "vendor_ids": [
+    "example"
+  ]
+}

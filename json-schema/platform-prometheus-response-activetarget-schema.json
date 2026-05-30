@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-prometheus-response-activetarget-schema.json",
+  "title": "Prometheus_Response_ActiveTarget",
+  "description": "Prometheus_Response_ActiveTarget schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "discovered_labels": {
+      "$ref": "#/components/schemas/Prometheus_Response_ActiveTarget_DiscoveredLabels"
+    },
+    "health": {
+      "description": "Whether target is up or down.",
+      "type": "string"
+    },
+    "labels": {
+      "$ref": "#/components/schemas/Prometheus_Response_ActiveTarget_Labels"
+    },
+    "last_error": {
+      "description": "Last error that occurred within target.",
+      "type": "string"
+    },
+    "last_scrape": {
+      "description": "Last time Prometheus scraped target.",
+      "type": "string"
+    },
+    "scrape_url": {
+      "description": "URL that Prometheus scraped.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

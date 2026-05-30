@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-privacy-torinfo-relay-schema.json",
+  "title": "Privacy_TorInfo_Relay",
+  "description": "Privacy_TorInfo_Relay schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "advertised_bandwidth": {
+      "description": "Bandwidth in bytes per second that this relay is willing and capable to provide. The minimum of bandwidth_rate, bandwidth_burst, and observed_bandwidth.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "alleged_family": {
+      "description": "Fingerprints of relays that are part of this relay's family but do not consider this relay to be part of their family.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "bandwidth_burst": {
+      "description": "Bandwidth in bytes per second that this relay is willing to sustain in very short intervals.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "bandwidth_rate": {
+      "description": "Average bandwidth in bytes per second that this relay is willing to sustain over long periods.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "blocklist": {
+      "description": "Country codes where this bridge is not served because it is believed to be blocked.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "bridge": {
+      "description": "Whether this entry represents a bridge rather than a relay.",
+      "type": "boolean"
+    },
+    "bridgedb_distributor": {
+      "description": "BridgeDB distributor that this bridge is currently assigned to.",
+      "type": "string"
+    },
+    "consensus_weight": {
+      "description": "Weight assigned to this relay by the directory authorities that clients use in their path selection algorithm.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "consensus_weight_fraction": {
+      "description": "Fraction of this relay's consensus weight compared to the sum of all consensus weights in the network. A rough approximation of the probability of this relay to be selected by clients.",
+      "format": "double",
+      "type": "number"
+    },
+    "contact": {
+      "description": "Contact address of the relay operator.",
+      "type": "string"
+    },
+    "dir_address": {
+      "description": "IPv4 address and TCP port where the relay accepts directory connections.",
+      "type": "string"
+    },
+    "effective_family": {
+      "description": "Fingerprints of relays in an effective, mutual family relationship with this relay. Always contains the relay's own fingerprint.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "exit_addresses": {
+      "description": "IPv4 addresses that the relay used to exit to the Internet in the past 24 hours.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "exit_policy": {
+      "description": "Array of exit-policy lines from the relay's router descriptor.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "exit_policy_summary": {
+      "$ref": "#/components/schemas/Privacy_TorInfo_Relay_ExitPolicySummary",
+      "description": "Summary of the relay's exit policy containing accepted or rejected TCP ports/port ranges for most IP addresses."
+    },
+    "exit_policy_v6_summary": {
+      "$ref": "#/components/schemas/Privacy_TorInfo_Relay_ExitPolicySummary",
+      "description": "Summary of the relay's IPv6 exit policy containing accepted or rejected TCP ports/port ranges for most IP addresses."
+    },
+    "exit_probability": {
+      "description": "Probability of this relay to be selected for the exit position, calculated based on consensus weights, relay flags, and bandwidth weights.",
+      "format": "double",
+      "type": "number"
+    },
+    "fingerprint": {
+      "description": "Relay fingerprint consisting of 40 upper-case hexadecimal characters.",
+      "type": "string"
+    },
+    "flags": {
+      "description": "Relay flags assigned by the directory authorities.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "guard_probability": {
+      "description": "Probability of this relay to be selected for the guard position, calculated based on consensus weights, relay flags, and bandwidth weights.",
+      "format": "double",
+      "type": "number"
+    },
+    "hashed_fingerprint": {
+      "description": "SHA-1 hash of the bridge fingerprint consisting of 40 upper-case hexadecimal characters.",
+      "type": "string"
+    },
+    "indirect_family": {
+      "description": "Fingerprints of relays reachable by following effective, mutual family relationships starting at this relay, but not directly in a mutual family relationship.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "measured": {
+      "description": "Whether the consensus weight of this relay is based on a threshold of 3 or more measurements by Tor bandwidth authorities.",
+      "type": "boolean"
+    },
+    "middle_probability": {
+      "description": "Probability of this relay to be selected for the middle position, calculated based on consensus weights, relay flags, and bandwidth weights.",
+      "format": "double",
+      "type": "number"
+    },
+    "nickname": {
+      "description": "Relay nickname consisting of 1-19 alphanumerical characters.",
+      "type": "string"
+    },
+    "observed_bandwidth": {
+      "description": "Bandwidth estimate in bytes per second of the capacity this relay can handle. The lesser of the maximum sustained output and input over any ten second period in the past day.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "or_addresses": {
+      "description": "IPv4 or IPv6 addresses and TCP ports where the relay accepts onion-routing connections. The first address is the primary onion-routing address.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "overload_general_timestamp": {
+      "description": "Timestamp indicating when the relay reached an overloaded state (e.g., OOM invocation, ntor onionskins dropped, or TCP port exhaustion).",
+      "format": "int64",
+      "type": "integer"
+    },
+    "platform": {
+      "description": "Platform string containing operating system and Tor version details.",
+      "type": "string"
+    },
+    "recommended_version": {
+      "description": "Whether the Tor software version of this relay is recommended by the directory authorities.",
+      "type": "boolean"
+    },
+    "transports": {
+      "description": "Pluggable transport names supported by this bridge.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "unreachable_or_addresses": {
+      "description": "IPv4 or IPv6 addresses and TCP ports where the relay claims to accept onion-routing connections but that the directory authorities failed to confirm as reachable.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "version": {
+      "description": "Tor software version without leading 'Tor' as reported by the directory authorities.",
+      "type": "string"
+    },
+    "version_status": {
+      "description": "Status of the Tor software version: recommended, experimental, obsolete, new in series, or unrecommended.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

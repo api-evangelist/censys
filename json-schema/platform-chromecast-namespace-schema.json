@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-chromecast-namespace-schema.json",
+  "title": "Chromecast_Namespace",
+  "description": "Chromecast_Namespace schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "format": "utf8",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

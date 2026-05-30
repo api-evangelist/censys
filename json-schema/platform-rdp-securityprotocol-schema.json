@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rdp-securityprotocol-schema.json",
+  "title": "Rdp_SecurityProtocol",
+  "description": "Rdp_SecurityProtocol schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "credssp": {
+      "type": "boolean"
+    },
+    "credssp_early_auth": {
+      "type": "boolean"
+    },
+    "error": {
+      "type": "boolean"
+    },
+    "error_bad_flags": {
+      "type": "boolean"
+    },
+    "error_hybrid_required": {
+      "type": "boolean"
+    },
+    "error_ssl_cert_missing": {
+      "type": "boolean"
+    },
+    "error_ssl_forbidden": {
+      "type": "boolean"
+    },
+    "error_ssl_required": {
+      "type": "boolean"
+    },
+    "error_ssl_user_auth_required": {
+      "type": "boolean"
+    },
+    "error_unknown": {
+      "type": "boolean"
+    },
+    "raw_value": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "rdstls": {
+      "type": "boolean"
+    },
+    "standard_rdp": {
+      "type": "boolean"
+    },
+    "tls": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

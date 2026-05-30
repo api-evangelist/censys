@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-nmea-nmeamessage-structure.json",
+  "name": "Nmea_NmeaMessage",
+  "description": "Nmea_NmeaMessage schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "fields": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "sentence_id": {
+      "type": "string"
+    },
+    "talker_id": {
+      "type": "string"
+    },
+    "talker_name": {
+      "type": "string"
+    }
+  }
+}

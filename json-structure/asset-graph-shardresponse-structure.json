@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-shardresponse-structure.json",
+  "name": "ShardResponse",
+  "description": "ShardResponse schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "id"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Shard identifier"
+    }
+  }
+}

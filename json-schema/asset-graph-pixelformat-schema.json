@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-pixelformat-schema.json",
+  "title": "PixelFormat",
+  "description": "PixelFormat schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "big_endian": {
+      "description": "If pixel RGB data are in big-endian",
+      "type": "boolean"
+    },
+    "bits_per_pixel": {
+      "description": "How many bits in a single full pixel datum. Valid values are: 8, 16, 32",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "blue_max": {
+      "description": "Max value of blue pixel",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "blue_shift": {
+      "description": "How many bits to right shift a pixel datum to get blue bits in lsb",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "depth": {
+      "description": "Color depth",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "green_max": {
+      "description": "Max value of green pixel",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "green_shift": {
+      "description": "How many bits to right shift a pixel datum to get green bits in lsb",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "padding1": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "padding2": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "padding3": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "red_max": {
+      "description": "Max value of red pixel",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "red_shift": {
+      "description": "How many bits to right shift a pixel datum to get red bits in lsb",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "true_color": {
+      "description": "If false, color maps are used",
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

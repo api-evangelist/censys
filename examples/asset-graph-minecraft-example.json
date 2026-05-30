@@ -1,0 +1,7 @@
+{
+  "motd": "example",
+  "players_max": 733,
+  "players_online": 931,
+  "protocol_version": "UDP",
+  "server_version": "example"
+}

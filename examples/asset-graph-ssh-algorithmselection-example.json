@@ -1,0 +1,6 @@
+{
+  "client_to_server_alg_group": null,
+  "host_key_algorithm": "example",
+  "kex_algorithm": "example",
+  "server_to_client_alg_group": null
+}

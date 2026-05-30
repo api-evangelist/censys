@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-hashobservationonhostrange-structure.json",
+  "name": "HashObservationOnHostRange",
+  "description": "HashObservationOnHostRange schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "ip",
+    "port",
+    "observation_type",
+    "observation_value",
+    "start_time",
+    "end_time"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "end_time": {
+      "type": "datetime",
+      "description": "When the observation was last seen"
+    },
+    "ip": {
+      "type": "string",
+      "description": "IP address of the host"
+    },
+    "observation_type": {
+      "type": "string",
+      "description": "Observation type selected in the request"
+    },
+    "observation_value": {
+      "type": "string",
+      "description": "Observed value for the selected observation type"
+    },
+    "port": {
+      "type": "string",
+      "description": "Port number"
+    },
+    "start_time": {
+      "type": "datetime",
+      "description": "When the observation was first seen"
+    },
+    "transport_protocol": {
+      "type": "string",
+      "description": "Transport protocol when present for the selected timeline"
+    }
+  }
+}

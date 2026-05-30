@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-cwe-structure.json",
+  "name": "CWE",
+  "description": "CWE schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "entry": {
+      "type": "string",
+      "description": "A unique identifier associated with a class of a software or hardware weakness."
+    }
+  }
+}

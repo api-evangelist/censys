@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ethereum-schema.json",
+  "title": "Ethereum",
+  "description": "Ethereum schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "accounts": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "hashrate": {
+      "type": "string"
+    },
+    "version": {
+      "$ref": "#/components/schemas/Ethereum_Version"
+    }
+  },
+  "additionalProperties": false
+}

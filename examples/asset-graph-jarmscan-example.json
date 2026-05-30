@@ -1,0 +1,11 @@
+{
+  "cipher_and_version_fingerprint": "example",
+  "fingerprint": "example",
+  "hostname": "example.com",
+  "ip": "8.8.8.8",
+  "is_success": false,
+  "port": 96,
+  "scan_time": "example",
+  "tls_extensions_sha256": "f2ad962ca56f6830d8eae72529f3d55d5cbd31c9255398437c1c3b96cfd3d595",
+  "transport_protocol": "tcp"
+}

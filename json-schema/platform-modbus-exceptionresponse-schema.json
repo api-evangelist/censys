@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-modbus-exceptionresponse-schema.json",
+  "title": "Modbus_ExceptionResponse",
+  "description": "Modbus_ExceptionResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "exception_function": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "exception_type": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

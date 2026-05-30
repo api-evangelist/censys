@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-prometheustarget-schema.json",
+  "title": "PrometheusTarget",
+  "description": "PrometheusTarget schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "metric_families": {
+      "items": {
+        "$ref": "#/components/schemas/PrometheusMetricFamily"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-censeyejob-schema.json",
+  "title": "CenseyeJob",
+  "description": "CenseyeJob schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "at_time": {
+      "description": "The point-in-time the asset data was evaluated at.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "create_time": {
+      "description": "When the job was created.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "delete_time": {
+      "description": "When the job and results will be deleted.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "error": {
+      "description": "Error message if the job failed.",
+      "type": "string"
+    },
+    "job_id": {
+      "description": "Unique identifier of the job.",
+      "examples": [
+        "550e8400-e29b-41d4-a716-446655440000"
+      ],
+      "type": "string"
+    },
+    "result_count": {
+      "description": "Total number of result field-value pairs.",
+      "examples": [
+        42
+      ],
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "state": {
+      "description": "Current state of the job.",
+      "enum": [
+        "started",
+        "completed",
+        "failed",
+        "unknown"
+      ],
+      "examples": [
+        "completed"
+      ],
+      "type": "string"
+    },
+    "target": {
+      "$ref": "#/components/schemas/CenseyeTarget",
+      "description": "The asset that was analyzed."
+    },
+    "update_time": {
+      "description": "When the job was last updated.",
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "required": [
+    "job_id",
+    "target",
+    "state"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-cobaltstrike-httpconfig-structure.json",
+  "name": "CobaltStrike_HttpConfig",
+  "description": "CobaltStrike_HttpConfig schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "client": {
+      "type": "string"
+    },
+    "uri": {
+      "type": "string"
+    },
+    "verb": {
+      "type": "string"
+    }
+  }
+}

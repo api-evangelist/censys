@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-scansrescaninputbody-schema.json",
+  "title": "ScansRescanInputBody",
+  "description": "ScansRescanInputBody schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "target": {
+      "oneOf": [
+        {
+          "description": "Rescan of known service",
+          "properties": {
+            "service_id": {
+              "additionalProperties": false,
+              "properties": {
+                "ip": {
+                  "description": "IP address of service",
+                  "examples": [
+                    "8.8.8.8"
+                  ],
+                  "type": "string"
+                },
+                "port": {
+                  "description": "Port number of service",
+                  "examples": [
+                    443
+                  ],
+                  "format": "int32",
+                  "maximum": 65535,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "protocol": {
+                  "description": "Name of service protocol",
+                  "examples": [
+                    "HTTP"
+                  ],
+                  "type": "string"
+                },
+                "transport_protocol": {
+                  "enum": [
+                    "unknown",
+                    "tcp",
+                    "udp",
+                    "icmp",
+                    "quic"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ip",
+                "port",
+                "protocol",
+                "transport_protocol"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "service_id"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Rescan of known web property",
+          "properties": {
+            "web_origin": {
+              "additionalProperties": false,
+              "properties": {
+                "hostname": {
+                  "description": "Hostname of the web origin",
+                  "examples": [
+                    "censys.io"
+                  ],
+                  "type": "string"
+                },
+                "port": {
+                  "description": "Port number of the web origin",
+                  "examples": [
+                    443
+                  ],
+                  "format": "int32",
+                  "maximum": 65535,
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "hostname",
+                "port"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "web_origin"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "target"
+  ],
+  "additionalProperties": false
+}

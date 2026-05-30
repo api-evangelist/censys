@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ssdp-schema.json",
+  "title": "Ssdp",
+  "description": "Ssdp schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "headers": {
+      "additionalProperties": {
+        "$ref": "#/components/schemas/Http_RepeatedHeaders"
+      },
+      "type": "object"
+    },
+    "upnp_url": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,9 @@
+{
+  "game_name": "Production Internet Asset Inventory",
+  "game_type": "example",
+  "region": "us-east-1",
+  "server_url": "https://search.censys.io/hosts/8.8.8.8",
+  "server_version": "example",
+  "steam_id": "cns_930eca0c868e1ad4",
+  "version": "example"
+}

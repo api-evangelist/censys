@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ciscoipsla-handshake-message-structure.json",
+  "name": "CiscoIpsla_Handshake_Message",
+  "description": "CiscoIpsla_Handshake_Message schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ip": {
+      "type": "string"
+    },
+    "length": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "port": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "type": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

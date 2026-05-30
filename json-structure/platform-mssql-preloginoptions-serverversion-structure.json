@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-mssql-preloginoptions-serverversion-structure.json",
+  "name": "Mssql_PreloginOptions_ServerVersion",
+  "description": "Mssql_PreloginOptions_ServerVersion schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "build_number": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "major": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "minor": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

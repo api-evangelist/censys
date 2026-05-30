@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-crestrondinap2-structure.json",
+  "name": "CrestronDinAp2",
+  "description": "CrestronDinAp2 schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version_string": {
+      "type": "string"
+    }
+  }
+}

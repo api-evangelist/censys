@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-bacnet-structure.json",
+  "name": "Bacnet",
+  "description": "Bacnet schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "application_software_revision": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "firmware_revision": {
+      "type": "string"
+    },
+    "instance_number": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "location": {
+      "type": "string"
+    },
+    "model_name": {
+      "type": "string"
+    },
+    "object_name": {
+      "type": "string"
+    },
+    "vendor_id": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "vendor_name": {
+      "type": "string"
+    }
+  }
+}

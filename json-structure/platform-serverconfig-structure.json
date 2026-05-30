@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-serverconfig-structure.json",
+  "name": "ServerConfig",
+  "description": "ServerConfig schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "allow_html": {
+      "type": "boolean"
+    },
+    "image_message_length": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "max_bandwidth": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "max_users": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "message_length": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "recording_allowed": {
+      "type": "boolean"
+    },
+    "welcome_text": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-deviceiocapabilities-schema.json",
+  "title": "DeviceIOCapabilities",
+  "description": "DeviceIOCapabilities schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "audio_outputs": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "audio_sources": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "digital_inputs": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "relay_outputs": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "serial_ports": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "video_outputs": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "video_source": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

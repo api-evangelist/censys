@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-host-schema.json",
+  "title": "Host",
+  "description": "Host schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "autonomous_system": {
+      "$ref": "#/components/schemas/Routing"
+    },
+    "dns": {
+      "$ref": "#/components/schemas/HostDns"
+    },
+    "greynoise": {
+      "$ref": "#/components/schemas/Greynoise"
+    },
+    "hardware": {
+      "$ref": "#/components/schemas/Attribute"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "labels": {
+      "items": {
+        "$ref": "#/components/schemas/Label"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "location": {
+      "$ref": "#/components/schemas/Location"
+    },
+    "network": {
+      "description": "Information about what type of network the host belongs to.",
+      "items": {
+        "$ref": "#/components/schemas/NetworkClassification"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "operating_system": {
+      "$ref": "#/components/schemas/Attribute"
+    },
+    "privacy": {
+      "description": "Information about privacy services used by the IP, such as VPNs, Proxies, or Tor.",
+      "items": {
+        "$ref": "#/components/schemas/Privacy"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "reputation": {
+      "$ref": "#/components/schemas/Reputation"
+    },
+    "service_count": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "services": {
+      "items": {
+        "$ref": "#/components/schemas/Service"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "whois": {
+      "$ref": "#/components/schemas/Whois"
+    }
+  },
+  "additionalProperties": false
+}

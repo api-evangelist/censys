@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-stun-bindingerrorresponse-structure.json",
+  "name": "Stun_BindingErrorResponse",
+  "description": "Stun_BindingErrorResponse schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "error_code": {
+      "type": "int32"
+    },
+    "error_reason": {
+      "type": "string"
+    },
+    "has_fingerprint": {
+      "type": "boolean"
+    },
+    "software": {
+      "type": "string"
+    }
+  }
+}

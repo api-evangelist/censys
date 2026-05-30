@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-cobaltstrike-config-structure.json",
+  "name": "CobaltStrike_Config",
+  "description": "CobaltStrike_Config schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cookie_beacon": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "crypto_scheme": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "dns": {
+      "type": "boolean"
+    },
+    "host_header": {
+      "type": "string"
+    },
+    "http_get": {
+      "$ref": "#/components/schemas/CobaltStrike_HttpConfig"
+    },
+    "http_post": {
+      "$ref": "#/components/schemas/CobaltStrike_HttpConfig"
+    },
+    "jitter": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "killdate": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "post_ex": {
+      "$ref": "#/components/schemas/CobaltStrike_PostEx"
+    },
+    "public_key": {
+      "type": "string"
+    },
+    "sleep_time": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "ssl": {
+      "type": "boolean"
+    },
+    "unknown_bytes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "unknown_int": {
+      "type": "object",
+      "additionalProperties": {
+        "format": "int32",
+        "minimum": 0,
+        "type": "integer"
+      }
+    },
+    "user_agent": {
+      "type": "string"
+    },
+    "watermark": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

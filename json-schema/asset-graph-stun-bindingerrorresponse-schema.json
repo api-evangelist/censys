@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-stun-bindingerrorresponse-schema.json",
+  "title": "Stun_BindingErrorResponse",
+  "description": "Stun_BindingErrorResponse schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "error_code": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "error_reason": {
+      "type": "string"
+    },
+    "has_fingerprint": {
+      "type": "boolean"
+    },
+    "software": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,12 @@
+{
+  "discovered_certificates": 896,
+  "discovered_domains": 333,
+  "discovered_hosts": 299,
+  "discovered_web_properties": 113,
+  "hosts_with_risks": 154,
+  "total_certificates": 257,
+  "total_domains": 880,
+  "total_hosts": 695,
+  "total_web_properties": 848,
+  "web_properties_with_risks": 999
+}

@@ -1,0 +1,16 @@
+{
+  "attack_complexity": "",
+  "attack_requirements": "none",
+  "attack_vector": "physical",
+  "automatable": "",
+  "availability": "",
+  "confidentiality": "low",
+  "integrity": "none",
+  "privileges_required": "none",
+  "provider_urgency": "red",
+  "recovery": "automatic",
+  "safety": "",
+  "user_interaction": "none",
+  "value_density": "",
+  "vulnerability_response_effort": ""
+}

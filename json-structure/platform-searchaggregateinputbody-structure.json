@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-searchaggregateinputbody-structure.json",
+  "name": "SearchAggregateInputBody",
+  "description": "SearchAggregateInputBody schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "query",
+    "field",
+    "number_of_buckets"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "count_by_level": {
+      "type": "string",
+      "description": "Specifies which document level's count is returned per term bucket, primarily for nested fields. This is the same functionality available in the Count By dropdown in the Report Builder UI. When aggregating on nested fields like 'host.services.port': empty string (default) counts documents at the deepest level containing the field; '.' counts root documents (e.g. counts matching 'host'); 'host.services' counts documents at the specified nested level."
+    },
+    "field": {
+      "type": "string",
+      "description": "field to aggregate by"
+    },
+    "filter_by_query": {
+      "type": "boolean",
+      "description": "Controls whether aggregation results are limited to values that match the query. When true, only field values that satisfy the query constraints are included in aggregation counts. When false, aggregation includes all field values from records that match the query, even if those specific field values don't match the query constraints. For example, if the query is 'host.services.protocol=SSH' and you are aggregating by 'host.services.port' - when true, only shows SSH ports; when false, shows all ports on hosts that have SSH services.",
+      "default": false
+    },
+    "number_of_buckets": {
+      "type": "int64",
+      "description": "number of buckets to split results into",
+      "minimum": 1,
+      "maximum": 2000
+    },
+    "query": {
+      "type": "string",
+      "description": "CenQL query string to search upon"
+    }
+  }
+}

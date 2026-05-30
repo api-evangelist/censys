@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-teamviewer-schema.json",
+  "title": "TeamViewer",
+  "description": "TeamViewer schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "response": {
+      "format": "hex",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

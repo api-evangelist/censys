@@ -1,0 +1,32 @@
+{
+  "banner": "example",
+  "banner_hash_sha256": "097fb63daa7a26fafa83155a1cdca2682d709f5bdad39c965c6e66693f6600f6",
+  "chrome_devtools": null,
+  "cobalt_strike": null,
+  "elasticsearch": null,
+  "endpoint_type": "example",
+  "extracted": null,
+  "fortigate": null,
+  "graphql": null,
+  "hostname": "example.com",
+  "http": null,
+  "ip": "8.8.8.8",
+  "ivanti_avalanche": null,
+  "jenkins": null,
+  "kubernetes": null,
+  "ollama": null,
+  "open_directory": null,
+  "path": "example",
+  "plex_media_server": null,
+  "port": 966,
+  "pprof": null,
+  "prometheus": null,
+  "prometheus_target": null,
+  "redlion_web": null,
+  "scada_view": null,
+  "scan_time": "example",
+  "screenshots": [
+    null
+  ],
+  "transport_protocol": "udp"
+}

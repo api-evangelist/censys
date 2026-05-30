@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-eip-identity-structure.json",
+  "name": "Eip_Identity",
+  "description": "Eip_Identity schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "device_type": {
+      "type": "string"
+    },
+    "device_type_code": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "product_code": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "product_name": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "serial_number": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "socket_addr": {
+      "type": "string"
+    },
+    "socket_port": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "state": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "status": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "vendor_id": {
+      "type": "string"
+    },
+    "vendor_name": {
+      "type": "string"
+    }
+  }
+}

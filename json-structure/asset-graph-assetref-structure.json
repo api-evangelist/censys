@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-assetref-structure.json",
+  "name": "AssetRef",
+  "description": "AssetRef schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "uri",
+      "description": "A URL to the JSON Schema for this object."
+    },
+    "autonomous_system": {
+      "type": "int32",
+      "description": "Autonomous system number (ASN)",
+      "minimum": 0
+    },
+    "business_organization": {
+      "type": "string",
+      "description": "Organization name"
+    },
+    "certificate": {
+      "type": "string",
+      "description": "SHA-256 fingerprint of a certificate (hex-encoded)"
+    },
+    "domain": {
+      "type": "string",
+      "description": "Domain name"
+    },
+    "host": {
+      "type": "string",
+      "description": "IP address of a host"
+    },
+    "id": {
+      "type": "string",
+      "description": "Asset id, matching the id returned by the get-asset endpoint. Populated on responses; ignored on input."
+    },
+    "netblock": {
+      "type": "string",
+      "description": "CIDR notation (e.g. 192.168.0.0/24)"
+    },
+    "registrant_email": {
+      "type": "string",
+      "description": "Registrant email address"
+    },
+    "registrant_organization": {
+      "type": "string",
+      "description": "Registrant organization name"
+    },
+    "web_property": {
+      "description": "Web property (hostname and port)",
+      "$ref": "#/components/schemas/WebPropertyIdentifier"
+    }
+  }
+}

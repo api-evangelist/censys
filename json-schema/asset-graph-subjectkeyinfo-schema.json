@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-subjectkeyinfo-schema.json",
+  "title": "SubjectKeyInfo",
+  "description": "SubjectKeyInfo schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "dsa": {
+      "$ref": "#/components/schemas/DsaPublicKey",
+      "description": "A record containing the public portion of a DSA asymmetric key."
+    },
+    "ecdsa": {
+      "$ref": "#/components/schemas/EcdsaPublicKey",
+      "description": "A record containing the public portion of an ECDSA asymmetric key."
+    },
+    "fingerprint_sha256": {
+      "description": "The SHA-256 digest of the certificate's DER-encoded SubjectPublicKeyInfo.",
+      "format": "hex",
+      "type": "string"
+    },
+    "key_algorithm": {
+      "$ref": "#/components/schemas/KeyAlgorithm",
+      "description": "A record containing information about the type of subject key algorithm and any relevant parameters."
+    },
+    "rsa": {
+      "$ref": "#/components/schemas/RsaPublicKey",
+      "description": "A record containing the public portion of an RSA asymmetric key."
+    },
+    "unrecognized": {
+      "$ref": "#/components/schemas/UnrecognizedPublicKey",
+      "description": "A record containing known information about an unrecognized key type."
+    }
+  },
+  "additionalProperties": false
+}

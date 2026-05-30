@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-routerosapi-schema.json",
+  "title": "RouterosApi",
+  "description": "RouterosApi schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "raw_response": {
+      "format": "hex",
+      "type": "string"
+    },
+    "reply_word": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

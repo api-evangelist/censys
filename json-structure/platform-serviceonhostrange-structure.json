@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-serviceonhostrange-structure.json",
+  "name": "ServiceOnHostRange",
+  "description": "ServiceOnHostRange schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "ip",
+    "port",
+    "protocol",
+    "transport_protocol",
+    "start_time",
+    "end_time"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "end_time": {
+      "type": "datetime",
+      "description": "When the service was last observed"
+    },
+    "ip": {
+      "type": "string",
+      "description": "IP address where the service was observed"
+    },
+    "port": {
+      "type": "string",
+      "description": "Port number where the service was observed"
+    },
+    "protocol": {
+      "type": "string",
+      "description": "Application protocol (e.g., HTTP, HTTPS)"
+    },
+    "start_time": {
+      "type": "datetime",
+      "description": "When the service was first observed"
+    },
+    "transport_protocol": {
+      "type": "string",
+      "description": "Transport protocol (e.g., TCP, UDP, QUIC)"
+    }
+  }
+}

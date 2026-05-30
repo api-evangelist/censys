@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-modbus-meiresponse-schema.json",
+  "title": "Modbus_MEIResponse",
+  "description": "Modbus_MEIResponse schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "conformity_level": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "more_follows": {
+      "type": "boolean"
+    },
+    "objects": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

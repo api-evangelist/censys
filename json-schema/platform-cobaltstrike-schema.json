@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-cobaltstrike-schema.json",
+  "title": "CobaltStrike",
+  "description": "CobaltStrike schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "x64": {
+      "$ref": "#/components/schemas/CobaltStrike_Config"
+    },
+    "x86": {
+      "$ref": "#/components/schemas/CobaltStrike_Config"
+    }
+  },
+  "additionalProperties": false
+}

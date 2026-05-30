@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-murmurmessage-murmurheader-structure.json",
+  "name": "MurmurMessage_MurmurHeader",
+  "description": "MurmurMessage_MurmurHeader schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "length": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

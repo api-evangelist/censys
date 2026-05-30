@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-cmore-structure.json",
+  "name": "Cmore",
+  "description": "Cmore schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false
+}

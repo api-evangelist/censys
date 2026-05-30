@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-dns-structure.json",
+  "name": "Dns",
+  "description": "Dns schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "additionals": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "A list of resource records (RRs) contained in the ADDITIONAL section of the response.",
+      "items": {
+        "$ref": "#/components/schemas/Dns_ResourceRecord"
+      }
+    },
+    "answers": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "A list of resource records (RRs) contained in the ANSWER section of the response.",
+      "items": {
+        "$ref": "#/components/schemas/Dns_ResourceRecord"
+      }
+    },
+    "authorities": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "A list of resource records (RRs) contained in the AUTHORITIES section of the response.",
+      "items": {
+        "$ref": "#/components/schemas/Dns_ResourceRecord"
+      }
+    },
+    "edns": {
+      "$ref": "#/components/schemas/Dns_EDns"
+    },
+    "questions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "A list of resource records (RRs) contained in the QUESTION section of the response, which may echo the request that the server is responding to.",
+      "items": {
+        "$ref": "#/components/schemas/Dns_ResourceRecord"
+      }
+    },
+    "r_code": {
+      "type": "string",
+      "description": "A enumerated field indicating the result of the request. The most common values are defined in RFC 1035.",
+      "enum": [
+        "",
+        "success",
+        "format_error",
+        "server_failure",
+        "name_error",
+        "not_implemented",
+        "refused",
+        "yx_domain",
+        "yx_rrset",
+        "nx_rrset",
+        "not_auth",
+        "not_zone",
+        "bad_sig",
+        "bad_key",
+        "bad_time",
+        "bad_mode",
+        "bad_name",
+        "bad_alg",
+        "bad_trunc",
+        "bad_cookie"
+      ]
+    },
+    "resolves_correctly": {
+      "type": "boolean",
+      "description": "Whether the server returns an IP address for ip.parrotdns.com that matches the authoritative server, which is controlled by Censys."
+    },
+    "server_type": {
+      "type": "string",
+      "description": "An enumerated value indicating the behavior of the server. An AUTHORITATIVE server fulfills requests for domain names it controls, which are not listed by the server. FORWARDING and RECURSIVE_RESOLVER servers fulfill requests indirectly for domain names they do not control. A RECURSIVE_RESOLVER will query ip.parrotdns.com itself, resulting in its own IP address being present in the dns.answers.response field.",
+      "enum": [
+        "",
+        "recursive_resolver",
+        "authoritative",
+        "forwarding",
+        "redirecting"
+      ]
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

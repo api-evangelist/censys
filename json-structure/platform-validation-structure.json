@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-validation-structure.json",
+  "name": "Validation",
+  "description": "Validation schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "apple": {
+      "description": "A record containing validation information about the certificate from the Apple root store.",
+      "$ref": "#/components/schemas/RootStore"
+    },
+    "chrome": {
+      "description": "A record containing validation information about the certificate from the Chrome root store.",
+      "$ref": "#/components/schemas/RootStore"
+    },
+    "microsoft": {
+      "description": "A record containing validation information about the certificate from the Microsoft root store.",
+      "$ref": "#/components/schemas/RootStore"
+    },
+    "nss": {
+      "description": "A record containing validation information about the certificate from the Mozilla NSS root store.",
+      "$ref": "#/components/schemas/RootStore"
+    }
+  }
+}

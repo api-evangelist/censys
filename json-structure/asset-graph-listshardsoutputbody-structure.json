@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-listshardsoutputbody-structure.json",
+  "name": "ListShardsOutputBody",
+  "description": "ListShardsOutputBody schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "shards"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "uri",
+      "description": "A URL to the JSON Schema for this object."
+    },
+    "next_page_token": {
+      "type": "string",
+      "description": "Token for the next page of results"
+    },
+    "shards": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of shards",
+      "items": {
+        "$ref": "#/components/schemas/ShardResponse"
+      }
+    }
+  }
+}

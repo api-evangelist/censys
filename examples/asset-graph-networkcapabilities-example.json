@@ -1,0 +1,11 @@
+{
+  "dhcp_v6": false,
+  "dot11_configuration": false,
+  "dot1x_configurations": 958,
+  "dynamic_dns": false,
+  "hostname_from_dhcp": true,
+  "ip_filter": true,
+  "ipv6": true,
+  "ntp": 0,
+  "zero_configuration": true
+}

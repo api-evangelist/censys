@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-responseenvelopevaluecountsresponse-schema.json",
+  "title": "ResponseEnvelopeValueCountsResponse",
+  "description": "ResponseEnvelopeValueCountsResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "result": {
+      "$ref": "#/components/schemas/ValueCountsResponse"
+    }
+  },
+  "additionalProperties": false
+}

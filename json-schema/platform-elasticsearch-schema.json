@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-elasticsearch-schema.json",
+  "title": "ElasticSearch",
+  "description": "ElasticSearch schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "error_message": {
+      "$ref": "#/components/schemas/ElasticSearch_ErrorMessage"
+    },
+    "results_node_info": {
+      "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo"
+    },
+    "system_info": {
+      "$ref": "#/components/schemas/ElasticSearch_SystemInfo"
+    }
+  },
+  "additionalProperties": false
+}

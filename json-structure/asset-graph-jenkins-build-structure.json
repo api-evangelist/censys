@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-jenkins-build-structure.json",
+  "name": "Jenkins_Build",
+  "description": "Jenkins_Build schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "duration_seconds": {
+      "type": "int64"
+    },
+    "number": {
+      "type": "int64"
+    },
+    "result": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "int64"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-basicconstraints-structure.json",
+  "name": "BasicConstraints",
+  "description": "BasicConstraints schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "is_ca": {
+      "type": "boolean",
+      "description": "Whether the certificate is permitted to sign other certificates."
+    },
+    "max_path_len": {
+      "type": "int32",
+      "description": "When present, provides the maximum number of intermediate certificates that may follow this certificate in a trusted certification path."
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-analyticscapabilities-schema.json",
+  "title": "AnalyticsCapabilities",
+  "description": "AnalyticsCapabilities schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "analytics_module_support": {
+      "type": "boolean"
+    },
+    "cell_based_scene_description_supported": {
+      "type": "boolean"
+    },
+    "rule_options_supported": {
+      "type": "boolean"
+    },
+    "rule_support": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

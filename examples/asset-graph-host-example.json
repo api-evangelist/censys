@@ -1,0 +1,26 @@
+{
+  "autonomous_system": null,
+  "dns": null,
+  "greynoise": null,
+  "hardware": null,
+  "ip": "8.8.8.8",
+  "labels": [
+    null,
+    null
+  ],
+  "location": null,
+  "network": [
+    null,
+    null
+  ],
+  "operating_system": null,
+  "privacy": [
+    null
+  ],
+  "reputation": null,
+  "service_count": 211,
+  "services": [
+    null
+  ],
+  "whois": null
+}

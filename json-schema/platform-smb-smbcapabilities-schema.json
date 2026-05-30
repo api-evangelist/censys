@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-smb-smbcapabilities-schema.json",
+  "title": "Smb_SmbCapabilities",
+  "description": "Smb_SmbCapabilities schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "smb_dfs_support": {
+      "description": "Server supports Distributed File System",
+      "type": "boolean"
+    },
+    "smb_directory_leasing_support": {
+      "description": "Server supports directory leasing",
+      "type": "boolean"
+    },
+    "smb_encryption_support": {
+      "description": "Server supports encryption",
+      "type": "boolean"
+    },
+    "smb_leasing_support": {
+      "description": "Server supports Leasing",
+      "type": "boolean"
+    },
+    "smb_multichan_support": {
+      "description": "Server supports multiple channels per session",
+      "type": "boolean"
+    },
+    "smb_multicredit_support": {
+      "description": "Server supports multi-credit operations",
+      "type": "boolean"
+    },
+    "smb_persistent_handle_support": {
+      "description": "Server supports persistent handles",
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

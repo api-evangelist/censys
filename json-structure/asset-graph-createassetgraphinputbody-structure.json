@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-createassetgraphinputbody-structure.json",
+  "name": "CreateAssetGraphInputBody",
+  "description": "CreateAssetGraphInputBody schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "uri",
+      "description": "A URL to the JSON Schema for this object."
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description",
+      "maxLength": 1024
+    },
+    "name": {
+      "type": "string",
+      "description": "User-defined name for this asset graph",
+      "maxLength": 256
+    }
+  }
+}

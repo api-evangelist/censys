@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-organizationcredits-structure.json",
+  "name": "OrganizationCredits",
+  "description": "OrganizationCredits schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "balance",
+    "auto_replenish_config",
+    "credit_expirations",
+    "uid"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "auto_replenish_config": {
+      "description": "The auto-replenish configuration for the organization.",
+      "$ref": "#/components/schemas/AutoReplenishConfig"
+    },
+    "balance": {
+      "type": "int64",
+      "description": "The current credit balance for the organization."
+    },
+    "credit_expirations": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The credit expirations for the organization.",
+      "items": {
+        "$ref": "#/components/schemas/CreditExpiration"
+      }
+    },
+    "uid": {
+      "type": "uuid",
+      "description": "The ID of a Censys organization."
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-sourceusagebreakdown-structure.json",
+  "name": "SourceUsageBreakdown",
+  "description": "SourceUsageBreakdown schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "ui",
+    "api"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "api": {
+      "type": "int64",
+      "description": "The amount of credits consumed through the Platform API."
+    },
+    "auto_replenishment": {
+      "type": "int64",
+      "description": "The amount of credits consumed through auto-replenishment."
+    },
+    "other": {
+      "type": "int64",
+      "description": "The amount of credits consumed through other operations."
+    },
+    "ui": {
+      "type": "int64",
+      "description": "The amount of credits consumed through the Platform UI."
+    }
+  }
+}

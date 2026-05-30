@@ -1,0 +1,15 @@
+{
+  "chains": [
+    null,
+    null
+  ],
+  "ever_valid": true,
+  "had_trusted_path": true,
+  "has_trusted_path": false,
+  "in_revocation_set": false,
+  "is_valid": false,
+  "parents": [
+    "example"
+  ],
+  "type": "root"
+}

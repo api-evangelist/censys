@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-nbd-schema.json",
+  "title": "Nbd",
+  "description": "Nbd schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "exports": {
+      "items": {
+        "$ref": "#/components/schemas/Export"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "handshake_style": {
+      "type": "string"
+    },
+    "policies": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

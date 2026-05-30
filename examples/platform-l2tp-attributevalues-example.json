@@ -1,0 +1,13 @@
+{
+  "error_code": 246,
+  "error_meaning": "example",
+  "error_message": "Active production asset under observation.",
+  "firmware_revision": 573,
+  "hostname": "example.com",
+  "protocol_revision": 727,
+  "protocol_version": 177,
+  "result_code": 838,
+  "result_meaning": "example",
+  "vendor_name": "Production Internet Asset Inventory",
+  "window_size": 875
+}

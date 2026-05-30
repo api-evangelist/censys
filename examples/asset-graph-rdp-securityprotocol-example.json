@@ -1,0 +1,16 @@
+{
+  "credssp": false,
+  "credssp_early_auth": false,
+  "error": false,
+  "error_bad_flags": false,
+  "error_hybrid_required": false,
+  "error_ssl_cert_missing": false,
+  "error_ssl_forbidden": false,
+  "error_ssl_required": false,
+  "error_ssl_user_auth_required": false,
+  "error_unknown": true,
+  "raw_value": 850,
+  "rdstls": false,
+  "standard_rdp": true,
+  "tls": false
+}

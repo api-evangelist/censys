@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-pathsegment-structure.json",
+  "name": "PathSegment",
+  "description": "PathSegment schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "start",
+    "relationship",
+    "end"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "end": {
+      "description": "Ending asset",
+      "$ref": "#/components/schemas/AssetRef"
+    },
+    "relationship": {
+      "description": "Relationship between assets",
+      "$ref": "#/components/schemas/PathRelationship"
+    },
+    "start": {
+      "description": "Starting asset",
+      "$ref": "#/components/schemas/AssetRef"
+    }
+  }
+}

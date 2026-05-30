@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-pptp-responseinfo-structure.json",
+  "name": "Pptp_ResponseInfo",
+  "description": "Pptp_ResponseInfo schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "meaning": {
+      "type": "string"
+    }
+  }
+}

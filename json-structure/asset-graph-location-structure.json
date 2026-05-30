@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-location-structure.json",
+  "name": "Location",
+  "description": "Location schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "city": {
+      "type": "string",
+      "description": "The English name of the detected city."
+    },
+    "continent": {
+      "type": "string",
+      "description": "The English name of the detected continent (North America, Europe, Asia, South America, Africa, Oceania, Antarctica)."
+    },
+    "coordinates": {
+      "description": "The estimated coordinates of the detected location.",
+      "$ref": "#/components/schemas/Coordinates"
+    },
+    "country": {
+      "type": "string",
+      "description": "The English name of the detected country."
+    },
+    "country_code": {
+      "type": "string",
+      "description": "The detected two-letter ISO 3166-1 alpha-2 country code (US, CN, GB, RU, ...)."
+    },
+    "postal_code": {
+      "type": "string",
+      "description": "The postal code (if applicable) of the detected location."
+    },
+    "province": {
+      "type": "string",
+      "description": "The state or province name of the detected location."
+    },
+    "registered_country": {
+      "type": "string",
+      "description": "The English name of the registered country."
+    },
+    "registered_country_code": {
+      "type": "string",
+      "description": "The registered country's two-letter ISO 3166-1 alpha-2 country code (US, CN, GB, RU, ...)."
+    },
+    "timezone": {
+      "type": "string",
+      "description": "The IANA time zone database name of the detected location."
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ipmi-sessionheader-authtype-structure.json",
+  "name": "Ipmi_SessionHeader_AuthType",
+  "description": "Ipmi_SessionHeader_AuthType schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The raw value of the auth_type"
+    },
+    "raw": {
+      "type": "int32",
+      "description": "The raw value of the auth_type"
+    },
+    "type": {
+      "type": "int32",
+      "description": "Just the auth type (reserved bits omitted)"
+    }
+  }
+}

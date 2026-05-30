@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-searchconvertqueryresponse-structure.json",
+  "name": "SearchConvertQueryResponse",
+  "description": "SearchConvertQueryResponse schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "original_query",
+    "errors",
+    "targets"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "alternative_queries": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Alternative queries that may be used. For example, a query that includes web results in addition to host results.",
+      "items": {
+        "$ref": "#/components/schemas/AlternativeQuery"
+      }
+    },
+    "comments": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Comments about the query conversion.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "converted_query": {
+      "type": "string",
+      "description": "The original query, converted to CenQL syntax. This may be empty if unable to translate the query."
+    },
+    "errors": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The error messages if the query could not be converted.",
+      "items": {
+        "$ref": "#/components/schemas/ConvertQueryError"
+      }
+    },
+    "original_query": {
+      "type": "string",
+      "description": "The original Censys Search Language query."
+    },
+    "targets": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The types of Platform data records (host, cert, and web) that can be targeted by the converted query. Note: Does not include targets that could be returned due to full-document search. This may be empty if the query is a match-all for full-document search query.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "host",
+          "web",
+          "cert",
+          "unknown"
+        ]
+      }
+    }
+  }
+}

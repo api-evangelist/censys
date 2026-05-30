@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-errordetail-schema.json",
+  "title": "ErrorDetail",
+  "description": "ErrorDetail schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "location": {
+      "description": "Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'",
+      "type": "string"
+    },
+    "message": {
+      "description": "Error message text",
+      "type": "string"
+    },
+    "value": {
+      "description": "The value at the given location"
+    }
+  },
+  "additionalProperties": false
+}

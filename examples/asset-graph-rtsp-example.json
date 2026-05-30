@@ -1,0 +1,8 @@
+{
+  "auth": "example",
+  "commands": [
+    "example"
+  ],
+  "server": "example",
+  "www_auth": "example"
+}

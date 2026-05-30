@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-networkclassification-structure.json",
+  "name": "NetworkClassification",
+  "description": "NetworkClassification schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "hosting": {
+      "type": "boolean",
+      "description": "Whether the host belongs to an Internet hosting service provider."
+    },
+    "mobile": {
+      "type": "boolean",
+      "description": "Whether the host belongs to a mobile network."
+    },
+    "mobile_info": {
+      "description": "Information about the mobile network the host belongs to, if any.",
+      "$ref": "#/components/schemas/Network_MobileInfo"
+    },
+    "satellite": {
+      "type": "boolean",
+      "description": "Whether the host belongs to a statellite network."
+    },
+    "source": {
+      "type": "string",
+      "description": "The source of the data."
+    }
+  }
+}

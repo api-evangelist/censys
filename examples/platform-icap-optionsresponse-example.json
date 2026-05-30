@@ -1,0 +1,16 @@
+{
+  "allow_204": true,
+  "icap_version": "example",
+  "istag": "example",
+  "max_connections": 182,
+  "methods": [
+    "example"
+  ],
+  "options_ttl": 253,
+  "preview": 541,
+  "server_header": "example",
+  "service": "example",
+  "service_id": "cns_8bc83fcc59dd5d38",
+  "status_code": 817,
+  "status_text": "active"
+}

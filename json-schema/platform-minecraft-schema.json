@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-minecraft-schema.json",
+  "title": "Minecraft",
+  "description": "Minecraft schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "motd": {
+      "type": "string"
+    },
+    "players_max": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "players_online": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "server_version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

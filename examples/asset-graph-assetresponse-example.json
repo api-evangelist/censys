@@ -1,0 +1,12 @@
+{
+  "$schema": "https://search.censys.io",
+  "certificate": null,
+  "discovery_paths": [
+    null,
+    null
+  ],
+  "domain": null,
+  "host": null,
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "web_property": null
+}

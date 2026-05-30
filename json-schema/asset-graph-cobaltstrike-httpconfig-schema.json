@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-cobaltstrike-httpconfig-schema.json",
+  "title": "CobaltStrike_HttpConfig",
+  "description": "CobaltStrike_HttpConfig schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "client": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "uri": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "verb": {
+      "format": "utf8",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

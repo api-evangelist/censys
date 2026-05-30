@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-extractedendpointdata-copyright-structure.json",
+  "name": "ExtractedEndpointData_Copyright",
+  "description": "ExtractedEndpointData_Copyright schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "end_year": {
+      "type": "int32"
+    },
+    "holder": {
+      "type": "string"
+    },
+    "start_year": {
+      "type": "int32"
+    },
+    "text": {
+      "type": "string"
+    }
+  }
+}

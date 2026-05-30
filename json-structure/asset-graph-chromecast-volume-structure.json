@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-chromecast-volume-structure.json",
+  "name": "Chromecast_Volume",
+  "description": "Chromecast_Volume schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "control_type": {
+      "type": "string"
+    },
+    "level": {
+      "type": "float"
+    },
+    "muted": {
+      "type": "boolean"
+    },
+    "step_interval": {
+      "$ref": "#/components/schemas/FloatValue"
+    }
+  }
+}

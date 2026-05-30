@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-oracle-schema.json",
+  "title": "Oracle",
+  "description": "Oracle schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "accept_version": {
+      "description": "The version declared by the service when it accepts the handshake, if applicable.",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "connect_flags0": {
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "description": "The first set of ConnectFlags returned in the Accept packet.",
+      "type": "object"
+    },
+    "connect_flags1": {
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "description": "The second set of ConnectFlags returned in the Accept packet.",
+      "type": "object"
+    },
+    "did_resend": {
+      "description": "Whether the server requested that the scanner resend its initial connection packet.",
+      "type": "boolean"
+    },
+    "global_service_options": {
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "description": "Set of flags that the server returns in the Accept packet.",
+      "type": "object"
+    },
+    "nsn_service_versions": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "A map from the native Service Negotation service names to the ReleaseVersion (in dotted-decimal format) in that service packet.",
+      "type": "object"
+    },
+    "nsn_version": {
+      "description": "The version string in the root of the native service negotiation packet, if applicable.",
+      "type": "string"
+    },
+    "refuse_error": {
+      "description": "The parsed descriptor returned by the server in the Refuse packet; it is empty if the server does not return a Refuse packet. The keys are strings like 'DESCRIPTION.ERROR_STACK.ERROR.CODE",
+      "items": {
+        "$ref": "#/components/schemas/Oracle_Descriptor"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "refuse_error_raw": {
+      "description": "The unparsed error received when the initial handshake is refused.",
+      "type": "string"
+    },
+    "refuse_reason_app": {
+      "description": "The 'AppReason' returned by the server in the RefusePacket, as an 8-bit unsigned hex string.",
+      "type": "string"
+    },
+    "refuse_reason_sys": {
+      "description": "The 'SysReason' returned by the server in the RefusePacket, as an 8-bit unsigned hex string.",
+      "type": "string"
+    },
+    "refuse_version": {
+      "description": "The version declared by the service when it refuses the handshake, if applicable.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

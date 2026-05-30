@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-ntp-structure.json",
+  "name": "Ntp",
+  "description": "Ntp schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "get_time_header": {
+      "description": "The header of the server's response to a GetTime request.",
+      "$ref": "#/components/schemas/Ntp_NTPHeader"
+    }
+  }
+}

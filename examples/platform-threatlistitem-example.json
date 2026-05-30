@@ -1,0 +1,13 @@
+{
+  "added_at": "2026-05-29T12:34:56Z",
+  "count": 961,
+  "description": "Active production asset under observation.",
+  "host_count": 826,
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "name": "Production Internet Asset Inventory",
+  "references": [
+    null,
+    null
+  ],
+  "web_count": 494
+}

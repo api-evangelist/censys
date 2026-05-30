@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-lpd-schema.json",
+  "title": "Lpd",
+  "description": "Lpd schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "jobs": {
+      "$ref": "#/components/schemas/LpdMessage"
+    },
+    "long_state": {
+      "type": "string"
+    },
+    "lpd_message": {
+      "$ref": "#/components/schemas/LpdMessage"
+    },
+    "printer": {
+      "type": "string"
+    },
+    "raw": {
+      "type": "string"
+    },
+    "short_state": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

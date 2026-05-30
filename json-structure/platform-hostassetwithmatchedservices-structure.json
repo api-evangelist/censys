@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-hostassetwithmatchedservices-structure.json",
+  "name": "HostAssetWithMatchedServices",
+  "description": "HostAssetWithMatchedServices schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "resource",
+    "extensions"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "extensions": {
+      "type": "object",
+      "additionalProperties": {}
+    },
+    "matched_services": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The host services that match the query.",
+      "items": {
+        "$ref": "#/components/schemas/MatchedService"
+      }
+    },
+    "resource": {
+      "$ref": "#/components/schemas/Host"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-paginationinfo-schema.json",
+  "title": "PaginationInfo",
+  "description": "PaginationInfo schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "next_page_token": {
+      "description": "The token to use to retrieve the next page of results.",
+      "type": "string"
+    },
+    "page_size": {
+      "description": "The number of results requested per page.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "page_size"
+  ],
+  "additionalProperties": false
+}

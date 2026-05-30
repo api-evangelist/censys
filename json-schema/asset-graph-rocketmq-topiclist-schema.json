@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-rocketmq-topiclist-schema.json",
+  "title": "Rocketmq_TopicList",
+  "description": "Rocketmq_TopicList schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "header": {
+      "$ref": "#/components/schemas/Rocketmq_ResponseHeader"
+    },
+    "topic_list": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

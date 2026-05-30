@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-redlionweb-schema.json",
+  "title": "RedlionWeb",
+  "description": "RedlionWeb schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "enhanced_web_server": {
+      "type": "boolean"
+    },
+    "log_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

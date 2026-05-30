@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-pgbouncer-startupcapabilities-schema.json",
+  "title": "Pgbouncer_StartupCapabilities",
+  "description": "Pgbouncer_StartupCapabilities schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "v2": {
+      "type": "boolean"
+    },
+    "v3": {
+      "type": "boolean"
+    },
+    "v4": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

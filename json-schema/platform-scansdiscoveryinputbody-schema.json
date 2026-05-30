@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-scansdiscoveryinputbody-schema.json",
+  "title": "ScansDiscoveryInputBody",
+  "description": "ScansDiscoveryInputBody schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "target": {
+      "oneOf": [
+        {
+          "description": "Discovery scan against IP:PORT",
+          "properties": {
+            "host_port": {
+              "additionalProperties": false,
+              "properties": {
+                "ip": {
+                  "description": "IP address to scan",
+                  "examples": [
+                    "8.8.8.8"
+                  ],
+                  "type": "string"
+                },
+                "port": {
+                  "description": "Port number to scan",
+                  "examples": [
+                    443
+                  ],
+                  "format": "int32",
+                  "maximum": 65535,
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "ip",
+                "port"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "host_port"
+          ],
+          "type": "object"
+        },
+        {
+          "description": "Discovery scan against hostname:PORT",
+          "properties": {
+            "hostname_port": {
+              "additionalProperties": false,
+              "properties": {
+                "hostname": {
+                  "description": "Hostname to scan",
+                  "examples": [
+                    "censys.io"
+                  ],
+                  "type": "string"
+                },
+                "port": {
+                  "description": "Port number to scan",
+                  "examples": [
+                    443
+                  ],
+                  "format": "int32",
+                  "maximum": 65535,
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "hostname",
+                "port"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "hostname_port"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "target"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,10 @@
+{
+  "data_path": "example",
+  "exists": false,
+  "found_value": "example",
+  "literal_match": "example",
+  "negative": false,
+  "proprietary": false,
+  "regex": "example",
+  "semver_expression": "example"
+}

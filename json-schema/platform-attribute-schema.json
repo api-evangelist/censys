@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-attribute-schema.json",
+  "title": "Attribute",
+  "description": "Attribute schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "components": {
+      "items": {
+        "$ref": "#/components/schemas/CPE"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "confidence": {
+      "format": "double",
+      "type": "number"
+    },
+    "cpe": {
+      "type": "string"
+    },
+    "edition": {
+      "type": "string"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/components/schemas/Evidence"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "life_cycle": {
+      "$ref": "#/components/schemas/CPE_LifeCycle"
+    },
+    "part": {
+      "type": "string"
+    },
+    "product": {
+      "type": "string"
+    },
+    "source": {
+      "enum": [
+        "",
+        "censys",
+        "recog",
+        "wappalyzer",
+        "third_party",
+        "html_meta_extractor"
+      ],
+      "type": "string"
+    },
+    "type": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "update": {
+      "type": "string"
+    },
+    "vendor": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

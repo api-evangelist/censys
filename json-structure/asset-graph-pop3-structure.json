@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-pop3-structure.json",
+  "name": "Pop3",
+  "description": "Pop3 schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "start_tls": {
+      "type": "string",
+      "description": "The server's response to the STARTTLS command."
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-certificateextensions-schema.json",
+  "title": "CertificateExtensions",
+  "description": "CertificateExtensions schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "authority_info_access": {
+      "$ref": "#/components/schemas/AuthorityInfoAccess",
+      "description": "The parsed id-pe-authorityInfoAccess extension (OID: 1.3.6.1.5.7.1.1). Only id-ad-caIssuers and id-ad-ocsp accessMethods are supported; others are omitted."
+    },
+    "authority_key_id": {
+      "description": "A key identifier, usually a digest of the DER-encoded SubjectPublicKeyInfo.",
+      "format": "hex",
+      "type": "string"
+    },
+    "basic_constraints": {
+      "$ref": "#/components/schemas/BasicConstraints",
+      "description": "The parsed id-ce-basicConstraints extension (OID: 2.5.29.19)."
+    },
+    "cabf_organization_id": {
+      "$ref": "#/components/schemas/CabfOrganizationId",
+      "description": "CA/Browser Forum organization ID extensions (OID: 2.23.140.3.1)."
+    },
+    "certificate_policies": {
+      "description": "The parsed id-ce-certificatePolicies extension (OID: 2.5.29.32).",
+      "items": {
+        "$ref": "#/components/schemas/CertificatePolicy"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "crl_distribution_points": {
+      "description": "The parsed id-ce-cRLDistributionPoints extension (OID: 2.5.29.31). Contents are a list of distributionPoint URLs; other distributionPoint types are omitted).",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "ct_poison": {
+      "description": "Whether the certificate possesses the pre-certificate \"poison\" extension (OID: 1.3.6.1.4.1.11129.2.4.3).",
+      "type": "boolean"
+    },
+    "extended_key_usage": {
+      "$ref": "#/components/schemas/ExtendedKeyUsage",
+      "description": "The parsed id-ce-extKeyUsage extension (OID: 2.5.29.37)."
+    },
+    "issuer_alt_name": {
+      "$ref": "#/components/schemas/GeneralNames",
+      "description": "The parsed id-ce-issuerAltName extension (OID: 2.5.29.18)."
+    },
+    "key_usage": {
+      "$ref": "#/components/schemas/KeyUsage",
+      "description": "The parsed id-ce-keyUsage extension (OID: 2.5.29.15)."
+    },
+    "name_constraints": {
+      "$ref": "#/components/schemas/NameConstraints",
+      "description": "The parsed id-ce-nameConstraints extension (OID: 2.5.29.30). Specifies a name space within which all child certificates' subject names MUST be located."
+    },
+    "qc_statements": {
+      "$ref": "#/components/schemas/QcStatements"
+    },
+    "signed_certificate_timestamps": {
+      "items": {
+        "$ref": "#/components/schemas/SignedCertificateTimestamp"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "subject_alt_name": {
+      "$ref": "#/components/schemas/GeneralNames",
+      "description": "The parsed id-ce-subjectAltName extension (OID: 2.5.29.17)."
+    },
+    "subject_key_id": {
+      "description": "A key identifier, usually a digest of the DER-encoded SubjectPublicKeyInfo..",
+      "format": "hex",
+      "type": "string"
+    },
+    "tor_service_descriptors": {
+      "items": {
+        "$ref": "#/components/schemas/TorServiceDescriptor"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ssdp-structure.json",
+  "name": "Ssdp",
+  "description": "Ssdp schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "headers": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/Http_RepeatedHeaders"
+      }
+    },
+    "upnp_url": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "client": "example",
+  "uri": "https://search.censys.io/hosts/8.8.8.8",
+  "verb": "example"
+}

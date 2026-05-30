@@ -1,0 +1,9 @@
+{
+  "firmware_date": "example",
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "ip": "8.8.8.8",
+  "mac_address": "aa:bb:cc:dd:ee:ff",
+  "make_model": "example",
+  "model": "example",
+  "version": "example"
+}

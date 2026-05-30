@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-trackedscan-task-structure.json",
+  "name": "TrackedScan_Task",
+  "description": "TrackedScan_Task schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "",
+        "scanning",
+        "scanned",
+        "rejected",
+        "timed_out",
+        "completed",
+        "ignored"
+      ]
+    },
+    "update_time": {
+      "type": "string"
+    }
+  }
+}

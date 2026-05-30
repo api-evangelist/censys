@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-mqtt-schema.json",
+  "title": "Mqtt",
+  "description": "Mqtt schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "connection_ack_raw": {
+      "description": "Raw CONNACK response packet",
+      "format": "hex",
+      "type": "string"
+    },
+    "connection_ack_return": {
+      "$ref": "#/components/schemas/Mqtt_ConnectionAckReturn"
+    },
+    "subscription_ack_return": {
+      "$ref": "#/components/schemas/Mqtt_SubscriptionAckReturn"
+    }
+  },
+  "additionalProperties": false
+}

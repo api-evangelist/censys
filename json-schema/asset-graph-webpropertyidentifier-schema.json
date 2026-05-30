@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-webpropertyidentifier-schema.json",
+  "title": "WebPropertyIdentifier",
+  "description": "WebPropertyIdentifier schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "hostname": {
+      "description": "Hostname of the web property",
+      "type": "string"
+    },
+    "port": {
+      "description": "Port of the web property",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "hostname",
+    "port"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-countcondition-schema.json",
+  "title": "CountCondition",
+  "description": "CountCondition schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "field_value_pairs": {
+      "description": "Field-value pairs to count matches for. Must target fields from the same nested object and may contain at most 5 pairs per group.",
+      "items": {
+        "$ref": "#/components/schemas/FieldValuePair"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "field_value_pairs"
+  ],
+  "additionalProperties": false
+}

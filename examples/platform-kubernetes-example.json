@@ -1,0 +1,16 @@
+{
+  "endpoints": [
+    null
+  ],
+  "kubernetes_dashboard_found": true,
+  "nodes": [
+    null
+  ],
+  "pod_names": [
+    "Production Internet Asset Inventory"
+  ],
+  "roles": [
+    null
+  ],
+  "version_info": null
+}

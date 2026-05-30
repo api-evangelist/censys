@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-eventscapabilities-schema.json",
+  "title": "EventsCapabilities",
+  "description": "EventsCapabilities schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "max_notification_producers": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "max_pull_points": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ws_pausable_subscription_manager_interface_support": {
+      "type": "boolean"
+    },
+    "ws_pull_point_support": {
+      "type": "boolean"
+    },
+    "ws_subscription_policy_support": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

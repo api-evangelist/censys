@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ftp-schema.json",
+  "title": "Ftp",
+  "description": "Ftp schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "auth_ssl_response": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "auth_tls_response": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "implicit_tls": {
+      "type": "boolean"
+    },
+    "status_code": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "status_meaning": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

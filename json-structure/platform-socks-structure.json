@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-socks-structure.json",
+  "name": "Socks",
+  "description": "Socks schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "no_authentication_required": {
+      "type": "boolean"
+    },
+    "preferred_authentication": {
+      "type": "string"
+    },
+    "preferred_authentication_value": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "socks_version": {
+      "type": "int64"
+    },
+    "supported_versions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "int64"
+      }
+    }
+  }
+}

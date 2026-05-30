@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-dvrip-partitioncapability-schema.json",
+  "title": "DvrIp_PartitionCapability",
+  "description": "DvrIp_PartitionCapability schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "max_partition_number": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "supported": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

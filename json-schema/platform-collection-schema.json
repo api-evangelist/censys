@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-collection-schema.json",
+  "title": "Collection",
+  "description": "Collection schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "added_assets_24_hours": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "create_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "created_by": {
+      "description": "The ID of a Censys user who created the collection.",
+      "format": "uuid",
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "query": {
+      "type": "string"
+    },
+    "removed_assets_24_hours": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "unspecified",
+        "populating",
+        "active",
+        "paused",
+        "archived"
+      ],
+      "type": "string"
+    },
+    "status_reason": {
+      "enum": [
+        "unspecified",
+        "not_enough_credits",
+        "not_entitled",
+        "too_many_assets",
+        "manual",
+        "query_changed",
+        "initial"
+      ],
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "total_assets": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "description",
+    "query",
+    "total_assets",
+    "create_time",
+    "status",
+    "status_reason",
+    "added_assets_24_hours",
+    "removed_assets_24_hours"
+  ],
+  "additionalProperties": false
+}

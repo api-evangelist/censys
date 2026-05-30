@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-trackedscan-task-schema.json",
+  "title": "TrackedScan_Task",
+  "description": "TrackedScan_Task schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "",
+        "scanning",
+        "scanned",
+        "rejected",
+        "timed_out",
+        "completed",
+        "ignored"
+      ],
+      "type": "string"
+    },
+    "update_time": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

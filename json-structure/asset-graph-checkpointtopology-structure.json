@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-checkpointtopology-structure.json",
+  "name": "CheckpointTopology",
+  "description": "CheckpointTopology schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "common_name": {
+      "type": "string"
+    },
+    "organization": {
+      "type": "string"
+    }
+  }
+}

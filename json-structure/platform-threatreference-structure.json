@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-threatreference-structure.json",
+  "name": "ThreatReference",
+  "description": "ThreatReference schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "link"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "link": {
+      "type": "string",
+      "description": "URL reference link for the threat."
+    }
+  }
+}

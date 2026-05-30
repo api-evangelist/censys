@@ -1,0 +1,10 @@
+{
+  "dynamic_recordings": true,
+  "dynamic_tracks": true,
+  "encoding": "example",
+  "max_rate": 143,
+  "max_recordings": 693,
+  "max_recordings_job": 652,
+  "max_total_rate": 773,
+  "options": false
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-openvpnmgmt-schema.json",
+  "title": "OpenvpnMgmt",
+  "description": "OpenvpnMgmt schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "build_date": {
+      "type": "string"
+    },
+    "features": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "management_version": {
+      "type": "string"
+    },
+    "open_vpn_version": {
+      "type": "string"
+    },
+    "target_triple": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

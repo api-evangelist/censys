@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-mcp-structure.json",
+  "name": "Mcp",
+  "description": "Mcp schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "prompts": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/McpPrompt"
+      }
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "resources": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/McpResource"
+      }
+    },
+    "server_name": {
+      "type": "string"
+    },
+    "server_version": {
+      "type": "string"
+    },
+    "tools": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/McpTool"
+      }
+    }
+  }
+}

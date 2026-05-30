@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Censys Asset Graph — Graph Executions
+  description: 'Censys Asset Graph — Graph Executions. 3 operation(s). Lead operation: Censys List Graph Executions. Self-contained Naftiko capability covering one Censys business surface.'
+  tags:
+    - Censys
+    - Asset Graph
+    - Graph Executions
+  created: '2026-05-29'
+  modified: '2026-05-29'
+binds:
+  - namespace: env
+    keys:
+      CENSYS_PERSONAL_ACCESS_TOKEN: CENSYS_PERSONAL_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: asset-graph-graph-executions
+      baseUri: https://graph.data.censys.io
+      description: Censys Asset Graph — Graph Executions business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.CENSYS_PERSONAL_ACCESS_TOKEN}}'
+      resources:
+        - name: api-v1-asset-graphs-graph-id-executions
+          path: /api/v1/asset-graphs/{graph_id}/executions
+          operations:
+            - name: list-graph-executions
+              method: GET
+              description: Censys List Graph Executions
+              inputParameters:
+                - name: X-Organization-ID
+                  in: header
+                  type: string
+                  required: true
+                  description: Censys organization ID
+                - name: graph_id
+                  in: path
+                  type: string
+                  required: true
+                  description: Asset graph ID
+                - name: page_token
+                  in: query
+                  type: string
+                  required: false
+                  description: Pagination token from a previous response
+                - name: page_size
+                  in: query
+                  type: integer
+                  required: false
+                  description: Maximum number of results to return
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: create-graph-execution
+              method: POST
+              description: Censys Create a Graph Execution
+              inputParameters:
+                - name: X-Organization-ID
+                  in: header
+                  type: string
+                  required: true
+                  description: Censys organization ID
+                - name: graph_id
+                  in: path
+                  type: string
+                  required: true
+                  description: Asset graph ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: api-v1-asset-graphs-graph-id-executions-execution-id
+          path: /api/v1/asset-graphs/{graph_id}/executions/{execution_id}
+          operations:
+            - name: get-graph-execution
+              method: GET
+              description: Censys Get a Graph Execution
+              inputParameters:
+                - name: X-Organization-ID
+                  in: header
+                  type: string
+                  required: true
+                  description: Censys organization ID
+                - name: graph_id
+                  in: path
+                  type: string
+                  required: true
+                  description: Asset graph ID
+                - name: execution_id
+                  in: path
+                  type: string
+                  required: true
+                  description: Graph execution ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: asset-graph-graph-executions-rest
+      port: 8080
+      description: REST adapter for Censys Asset Graph — Graph Executions. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/api/asset-graphs/{graph_id}/executions
+          name: api-asset-graphs-graph-id-executions
+          description: REST surface for api-asset-graphs-graph-id-executions.
+          operations:
+            - method: GET
+              name: list-graph-executions
+              description: Censys List Graph Executions
+              call: asset-graph-graph-executions.list-graph-executions
+              with:
+                X-Organization-ID: rest.X-Organization-ID
+                graph_id: rest.graph_id
+                page_token: rest.page_token
+                page_size: rest.page_size
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: POST
+              name: create-graph-execution
+              description: Censys Create a Graph Execution
+              call: asset-graph-graph-executions.create-graph-execution
+              with:
+                X-Organization-ID: rest.X-Organization-ID
+                graph_id: rest.graph_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/api/asset-graphs/{graph_id}/executions/{execution_id}
+          name: api-asset-graphs-graph-id-executions-execution-id
+          description: REST surface for api-asset-graphs-graph-id-executions-execution-id.
+          operations:
+            - method: GET
+              name: get-graph-execution
+              description: Censys Get a Graph Execution
+              call: asset-graph-graph-executions.get-graph-execution
+              with:
+                X-Organization-ID: rest.X-Organization-ID
+                graph_id: rest.graph_id
+                execution_id: rest.execution_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: asset-graph-graph-executions-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Censys Asset Graph — Graph Executions. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: censys-list-graph-executions
+          description: Censys List Graph Executions
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: asset-graph-graph-executions.list-graph-executions
+          with:
+            X-Organization-ID: tools.X-Organization-ID
+            graph_id: tools.graph_id
+            page_token: tools.page_token
+            page_size: tools.page_size
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-create-graph-execution
+          description: Censys Create a Graph Execution
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: asset-graph-graph-executions.create-graph-execution
+          with:
+            X-Organization-ID: tools.X-Organization-ID
+            graph_id: tools.graph_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-get-graph-execution
+          description: Censys Get a Graph Execution
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: asset-graph-graph-executions.get-graph-execution
+          with:
+            X-Organization-ID: tools.X-Organization-ID
+            graph_id: tools.graph_id
+            execution_id: tools.execution_id
+          outputParameters:
+            - type: object
+              mapping: $.

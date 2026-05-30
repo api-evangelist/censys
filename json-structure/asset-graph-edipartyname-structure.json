@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-edipartyname-structure.json",
+  "name": "EdiPartyName",
+  "description": "EdiPartyName schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name_assigner": {
+      "type": "string"
+    },
+    "party_name": {
+      "type": "string"
+    }
+  }
+}

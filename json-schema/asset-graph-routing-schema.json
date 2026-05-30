@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-routing-schema.json",
+  "title": "Routing",
+  "description": "Routing schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "asn": {
+      "description": "The ASN (autonomous system number) of the host's autonomous system.",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "bgp_prefix": {
+      "description": "The autonomous system's CIDR.",
+      "type": "string"
+    },
+    "country_code": {
+      "description": "The autonomous system's two-letter ISO 3166-1 alpha-2 country code (US, CN, GB, RU, ...).",
+      "type": "string"
+    },
+    "description": {
+      "description": "Brief description of the autonomous system.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The friendly name of the autonomous system.",
+      "type": "string"
+    },
+    "organization": {
+      "description": "The name of the organization managning the autonomous system.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

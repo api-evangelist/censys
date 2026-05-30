@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-opcua-structure.json",
+  "name": "OpcUa",
+  "description": "OpcUa schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "endpoints": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/OpcUa_Endpoint"
+      }
+    },
+    "max_chunk_size": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "max_message_size": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "protocol_version": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "receive_buffer_size": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "send_buffer_size": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

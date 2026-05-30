@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-export-schema.json",
+  "title": "Export",
+  "description": "Export schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "details": {
+      "type": "string"
+    },
+    "max_payload_size": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "min_block_size": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "preferred_block_size": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "size": {
+      "format": "int64",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "transmit_flags": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

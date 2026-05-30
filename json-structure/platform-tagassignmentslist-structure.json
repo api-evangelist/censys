@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-tagassignmentslist-structure.json",
+  "name": "TagAssignmentsList",
+  "description": "TagAssignmentsList schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "assignments",
+    "total_size"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "assignments": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The list of tag assignments.",
+      "items": {
+        "$ref": "#/components/schemas/TagAssignment"
+      }
+    },
+    "next_page_token": {
+      "type": "string",
+      "description": "Token to retrieve the next page of results. Omitted when there are no more results."
+    },
+    "total_size": {
+      "type": "int64",
+      "description": "Total number of assignments matching the filters."
+    }
+  }
+}

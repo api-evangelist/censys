@@ -1,0 +1,14 @@
+{
+  "access_url": "https://search.censys.io/hosts/8.8.8.8",
+  "function_capability": "example",
+  "function_list": "example",
+  "hard_drive": "example",
+  "language_support": "example",
+  "network_status": "active",
+  "oem_info": "example",
+  "partition_capability": null,
+  "serial": "example",
+  "split_screen_capability": "example",
+  "version": "example",
+  "wireless_alarm_capability": "example"
+}

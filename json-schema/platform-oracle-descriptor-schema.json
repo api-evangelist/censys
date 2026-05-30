@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-oracle-descriptor-schema.json",
+  "title": "Oracle_Descriptor",
+  "description": "Oracle_Descriptor schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "key": {
+      "description": "The dot-delimited path to the parsed value from the error received when the initial handshake is refused.",
+      "type": "string"
+    },
+    "value": {
+      "description": "The parsed value from the error received when the initial handshake is refused.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

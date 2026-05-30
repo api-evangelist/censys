@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ike-v2-schema.json",
+  "title": "Ike_V2",
+  "description": "Ike_V2 schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "accepted_proposal": {
+      "type": "boolean"
+    },
+    "notify_message_types": {
+      "items": {
+        "format": "int32",
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "vendor_ids": {
+      "format": "utf8",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

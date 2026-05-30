@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-autoreplenishconfig-structure.json",
+  "name": "AutoReplenishConfig",
+  "description": "AutoReplenishConfig schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "enabled"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "amount": {
+      "type": "int64",
+      "description": "The amount of credits to replenish when auto-replenish is triggered."
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the organization has auto-replenish enabled."
+    },
+    "threshold": {
+      "type": "int64",
+      "description": "The threshold at which the organization's credit balance will be auto-replenished."
+    }
+  }
+}

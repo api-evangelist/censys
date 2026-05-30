@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-monerop2p-structure.json",
+  "name": "MoneroP2P",
+  "description": "MoneroP2P schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ping_response": {
+      "$ref": "#/components/schemas/MoneroP2P_PingResponse"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-oracle-structure.json",
+  "name": "Oracle",
+  "description": "Oracle schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "accept_version": {
+      "type": "int32",
+      "description": "The version declared by the service when it accepts the handshake, if applicable.",
+      "minimum": 0
+    },
+    "connect_flags0": {
+      "type": "object",
+      "description": "The first set of ConnectFlags returned in the Accept packet.",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "connect_flags1": {
+      "type": "object",
+      "description": "The second set of ConnectFlags returned in the Accept packet.",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "did_resend": {
+      "type": "boolean",
+      "description": "Whether the server requested that the scanner resend its initial connection packet."
+    },
+    "global_service_options": {
+      "type": "object",
+      "description": "Set of flags that the server returns in the Accept packet.",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "nsn_service_versions": {
+      "type": "object",
+      "description": "A map from the native Service Negotation service names to the ReleaseVersion (in dotted-decimal format) in that service packet.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "nsn_version": {
+      "type": "string",
+      "description": "The version string in the root of the native service negotiation packet, if applicable."
+    },
+    "refuse_error": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The parsed descriptor returned by the server in the Refuse packet; it is empty if the server does not return a Refuse packet. The keys are strings like 'DESCRIPTION.ERROR_STACK.ERROR.CODE",
+      "items": {
+        "$ref": "#/components/schemas/Oracle_Descriptor"
+      }
+    },
+    "refuse_error_raw": {
+      "type": "string",
+      "description": "The unparsed error received when the initial handshake is refused."
+    },
+    "refuse_reason_app": {
+      "type": "string",
+      "description": "The 'AppReason' returned by the server in the RefusePacket, as an 8-bit unsigned hex string."
+    },
+    "refuse_reason_sys": {
+      "type": "string",
+      "description": "The 'SysReason' returned by the server in the RefusePacket, as an 8-bit unsigned hex string."
+    },
+    "refuse_version": {
+      "type": "string",
+      "description": "The version declared by the service when it refuses the handshake, if applicable."
+    }
+  }
+}

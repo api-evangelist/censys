@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-cwmp-schema.json",
+  "title": "Cwmp",
+  "description": "Cwmp schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "auth": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "cookies": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "server": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

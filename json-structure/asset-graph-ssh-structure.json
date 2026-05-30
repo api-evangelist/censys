@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ssh-structure.json",
+  "name": "Ssh",
+  "description": "Ssh schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "algorithm_selection": {
+      "$ref": "#/components/schemas/Ssh_AlgorithmSelection"
+    },
+    "endpoint_id": {
+      "$ref": "#/components/schemas/Ssh_EndpointId"
+    },
+    "hassh_fingerprint": {
+      "type": "string"
+    },
+    "kex_init_message": {
+      "$ref": "#/components/schemas/Ssh_KexInitMessage"
+    },
+    "server_host_key": {
+      "$ref": "#/components/schemas/Ssh_ServerHostKey"
+    }
+  }
+}

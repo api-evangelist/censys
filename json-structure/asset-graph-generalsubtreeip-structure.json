@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-generalsubtreeip-structure.json",
+  "name": "GeneralSubtreeIp",
+  "description": "GeneralSubtreeIp schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "begin": {
+      "type": "string",
+      "description": "The first IP address in the range."
+    },
+    "cidr": {
+      "type": "string",
+      "description": "The CIDR specifying the subtree."
+    },
+    "end": {
+      "type": "string",
+      "description": "The last IP address in the range."
+    },
+    "mask": {
+      "type": "string",
+      "description": "The subnet mask of the CIDR."
+    }
+  }
+}

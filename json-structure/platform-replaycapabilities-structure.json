@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-replaycapabilities-structure.json",
+  "name": "ReplayCapabilities",
+  "description": "ReplayCapabilities schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "reverse_playback": {
+      "type": "boolean"
+    },
+    "rtp_rtsp_tcp": {
+      "type": "boolean"
+    },
+    "session_timeout_range": {
+      "type": "string"
+    }
+  }
+}

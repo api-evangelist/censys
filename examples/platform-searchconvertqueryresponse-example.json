@@ -1,0 +1,16 @@
+{
+  "alternative_queries": [
+    null
+  ],
+  "comments": [
+    "Active production asset under observation."
+  ],
+  "converted_query": "services.service_name: HTTP",
+  "errors": [
+    null
+  ],
+  "original_query": "services.service_name: HTTP",
+  "targets": [
+    "unknown"
+  ]
+}

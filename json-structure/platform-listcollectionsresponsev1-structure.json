@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-listcollectionsresponsev1-structure.json",
+  "name": "ListCollectionsResponseV1",
+  "description": "ListCollectionsResponseV1 schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "collections",
+    "next_page_token"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "collections": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Collection"
+      }
+    },
+    "next_page_token": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-executionstats-structure.json",
+  "name": "ExecutionStats",
+  "description": "ExecutionStats schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "total_hosts",
+    "discovered_hosts",
+    "hosts_with_risks",
+    "total_certificates",
+    "discovered_certificates",
+    "total_domains",
+    "discovered_domains",
+    "total_web_properties",
+    "discovered_web_properties",
+    "web_properties_with_risks"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "discovered_certificates": {
+      "type": "int64",
+      "description": "Number of discovered (non-seed) certificate assets"
+    },
+    "discovered_domains": {
+      "type": "int64",
+      "description": "Number of discovered (non-seed) domain assets"
+    },
+    "discovered_hosts": {
+      "type": "int64",
+      "description": "Number of discovered (non-seed) host assets"
+    },
+    "discovered_web_properties": {
+      "type": "int64",
+      "description": "Number of discovered (non-seed) web property assets"
+    },
+    "hosts_with_risks": {
+      "type": "int64",
+      "description": "Number of host assets with risks"
+    },
+    "total_certificates": {
+      "type": "int64",
+      "description": "Total number of certificate assets"
+    },
+    "total_domains": {
+      "type": "int64",
+      "description": "Total number of domain assets"
+    },
+    "total_hosts": {
+      "type": "int64",
+      "description": "Total number of host assets"
+    },
+    "total_web_properties": {
+      "type": "int64",
+      "description": "Total number of web property assets"
+    },
+    "web_properties_with_risks": {
+      "type": "int64",
+      "description": "Number of web property assets with risks"
+    }
+  }
+}

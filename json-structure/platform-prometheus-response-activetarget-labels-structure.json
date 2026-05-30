@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-prometheus-response-activetarget-labels-structure.json",
+  "name": "Prometheus_Response_ActiveTarget_Labels",
+  "description": "Prometheus_Response_ActiveTarget_Labels schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "instance": {
+      "type": "string",
+      "description": "Instance after relabelling has occurred."
+    },
+    "job": {
+      "type": "string",
+      "description": "Job of target after relabelling has occurred."
+    }
+  }
+}

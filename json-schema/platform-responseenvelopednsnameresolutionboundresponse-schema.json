@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-responseenvelopednsnameresolutionboundresponse-schema.json",
+  "title": "ResponseEnvelopeDnsNameResolutionBoundResponse",
+  "description": "ResponseEnvelopeDnsNameResolutionBoundResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "result": {
+      "$ref": "#/components/schemas/DnsNameResolutionBoundResponse"
+    }
+  },
+  "additionalProperties": false
+}

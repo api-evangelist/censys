@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-status-schema.json",
+  "title": "Status",
+  "description": "Status schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "available_workers": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "function": {
+      "type": "string"
+    },
+    "running": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "total": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

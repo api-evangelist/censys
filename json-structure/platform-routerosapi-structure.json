@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-routerosapi-structure.json",
+  "name": "RouterosApi",
+  "description": "RouterosApi schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "raw_response": {
+      "type": "string"
+    },
+    "reply_word": {
+      "type": "string"
+    }
+  }
+}

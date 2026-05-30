@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-cobaltstrike-postex-schema.json",
+  "title": "CobaltStrike_PostEx",
+  "description": "CobaltStrike_PostEx schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "x64": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "x86": {
+      "format": "utf8",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

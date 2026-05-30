@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-prometheus-response-structure.json",
+  "name": "Prometheus_Response",
+  "description": "Prometheus_Response schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "active_targets": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of active targets.",
+      "items": {
+        "$ref": "#/components/schemas/Prometheus_Response_ActiveTarget"
+      }
+    },
+    "all_versions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of the versions of everything that Prometheus finds i.e., version of Prometheus, Go, Node, cAdvisor, etc.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "config_exposed": {
+      "type": "boolean",
+      "description": "True when the config endpoint is exposed."
+    },
+    "dropped_targets": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of dropped targets.",
+      "items": {
+        "$ref": "#/components/schemas/Prometheus_Response_DroppedTarget"
+      }
+    },
+    "go_versions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of the versions of Go.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prometheus_versions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Prometheus_Response_PrometheusVersion"
+      }
+    }
+  }
+}

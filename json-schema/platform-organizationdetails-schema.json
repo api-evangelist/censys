@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-organizationdetails-schema.json",
+  "title": "OrganizationDetails",
+  "description": "OrganizationDetails schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "created_at": {
+      "description": "The date and time the organization was created.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "member_counts": {
+      "$ref": "#/components/schemas/MemberCounts",
+      "description": "The number of members in the organization, split by role."
+    },
+    "name": {
+      "description": "The name of the organization.",
+      "type": "string"
+    },
+    "preferences": {
+      "$ref": "#/components/schemas/OrganizationPreferences",
+      "description": "The configured preferences of the organization."
+    },
+    "uid": {
+      "description": "The ID of a Censys organization.",
+      "format": "uuid",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "uid"
+  ],
+  "additionalProperties": false
+}

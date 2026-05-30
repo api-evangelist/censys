@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-dnp3-structure.json",
+  "name": "Dnp3",
+  "description": "Dnp3 schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false
+}

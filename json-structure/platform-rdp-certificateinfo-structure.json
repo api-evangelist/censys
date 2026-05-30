@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-rdp-certificateinfo-structure.json",
+  "name": "Rdp_CertificateInfo",
+  "description": "Rdp_CertificateInfo schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "internal_x509_chain_fps": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "proprietary_rsa_key": {
+      "$ref": "#/components/schemas/Rdp_EmbeddedRSACert"
+    }
+  }
+}

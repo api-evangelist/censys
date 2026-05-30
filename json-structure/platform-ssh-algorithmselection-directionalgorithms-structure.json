@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-ssh-algorithmselection-directionalgorithms-structure.json",
+  "name": "Ssh_AlgorithmSelection_DirectionAlgorithms",
+  "description": "Ssh_AlgorithmSelection_DirectionAlgorithms schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cipher": {
+      "type": "string"
+    },
+    "compression": {
+      "type": "string"
+    },
+    "mac": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-dhcpdiscover-deviceinfo-structure.json",
+  "name": "Dhcpdiscover_DeviceInfo",
+  "description": "Dhcpdiscover_DeviceInfo schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "alarm_input_channels": {
+      "type": "int64"
+    },
+    "alarm_output_channels": {
+      "type": "int64"
+    },
+    "device_class": {
+      "type": "string"
+    },
+    "device_id": {
+      "type": "string"
+    },
+    "device_type": {
+      "type": "string"
+    },
+    "http_port": {
+      "type": "int64"
+    },
+    "ipv4_address": {
+      "$ref": "#/components/schemas/Dhcpdiscover_IpAddress"
+    },
+    "ipv6_address": {
+      "$ref": "#/components/schemas/Dhcpdiscover_IpAddress"
+    },
+    "machine_group": {
+      "type": "string"
+    },
+    "machine_name": {
+      "type": "string"
+    },
+    "manufacturer": {
+      "type": "string"
+    },
+    "port": {
+      "type": "int64"
+    },
+    "remote_video_input_channels": {
+      "type": "int64"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "unlogin_func_mask": {
+      "type": "int64"
+    },
+    "vendor": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "video_input_channels": {
+      "type": "int64"
+    },
+    "video_output_channels": {
+      "type": "int64"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-telnet-schema.json",
+  "title": "Telnet",
+  "description": "Telnet schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "do": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": "object"
+    },
+    "dont": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": "object"
+    },
+    "will": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": "object"
+    },
+    "wont": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

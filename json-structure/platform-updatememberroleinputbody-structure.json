@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-updatememberroleinputbody-structure.json",
+  "name": "UpdateMemberRoleInputBody",
+  "description": "UpdateMemberRoleInputBody schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "roles"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "roles": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Array of role identifiers to assign to the user",
+      "minItems": 0,
+      "items": {
+        "type": "string",
+        "enum": [
+          "admin",
+          "api_access"
+        ]
+      }
+    }
+  }
+}

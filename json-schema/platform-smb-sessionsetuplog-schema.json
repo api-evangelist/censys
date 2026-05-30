@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-smb-sessionsetuplog-schema.json",
+  "title": "Smb_SessionSetupLog",
+  "description": "Smb_SessionSetupLog schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "header_log": {
+      "$ref": "#/components/schemas/Smb_HeaderLog"
+    },
+    "negotiate_flags": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "setup_flags": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "target_name": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

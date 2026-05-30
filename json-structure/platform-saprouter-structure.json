@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-saprouter-structure.json",
+  "name": "SapRouter",
+  "description": "SapRouter schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "router_info": {
+      "$ref": "#/components/schemas/SapRouter_RouterInfo"
+    },
+    "router_version_info": {
+      "$ref": "#/components/schemas/SapRouter_RouterVersionInfo"
+    }
+  }
+}

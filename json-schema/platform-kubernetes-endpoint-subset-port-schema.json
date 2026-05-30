@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-kubernetes-endpoint-subset-port-schema.json",
+  "title": "Kubernetes_Endpoint_Subset_Port",
+  "description": "Kubernetes_Endpoint_Subset_Port schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "protocol": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-searchcapabilities-structure.json",
+  "name": "SearchCapabilities",
+  "description": "SearchCapabilities schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "general_start_events": {
+      "type": "boolean"
+    },
+    "metadata_search": {
+      "type": "boolean"
+    }
+  }
+}

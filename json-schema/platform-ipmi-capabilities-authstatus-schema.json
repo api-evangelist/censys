@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ipmi-capabilities-authstatus-schema.json",
+  "title": "Ipmi_Capabilities_AuthStatus",
+  "description": "Ipmi_Capabilities_AuthStatus schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "anonymous_login_enabled": {
+      "description": "If true, the server allows anonymous login.",
+      "type": "boolean"
+    },
+    "auth_each_message": {
+      "description": "If true, each message must be authenticated.",
+      "type": "boolean"
+    },
+    "has_anonymous_users": {
+      "description": "If true, the server has anonymous users.",
+      "type": "boolean"
+    },
+    "has_named_users": {
+      "description": "If true, the server supports named users.",
+      "type": "boolean"
+    },
+    "two_key_login_required": {
+      "description": "The KG field.",
+      "type": "boolean"
+    },
+    "user_auth_disabled": {
+      "description": "If true, user authentication is disabled.",
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

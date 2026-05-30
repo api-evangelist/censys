@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-natsio-structure.json",
+  "name": "NatsIo",
+  "description": "NatsIo schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "auth_required": {
+      "type": "boolean"
+    },
+    "cluster": {
+      "type": "string"
+    },
+    "connect_urls": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "domain": {
+      "type": "string"
+    },
+    "git_commit": {
+      "type": "string"
+    },
+    "go": {
+      "type": "string"
+    },
+    "headers": {
+      "type": "boolean"
+    },
+    "jetstream": {
+      "type": "boolean"
+    },
+    "proto": {
+      "type": "int32"
+    },
+    "server_id": {
+      "type": "string"
+    },
+    "server_name": {
+      "type": "string"
+    },
+    "tls_available": {
+      "type": "boolean"
+    },
+    "tls_required": {
+      "type": "boolean"
+    },
+    "tls_verify": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    },
+    "ws_connect_urls": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

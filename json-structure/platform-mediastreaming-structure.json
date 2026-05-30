@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-mediastreaming-structure.json",
+  "name": "MediaStreaming",
+  "description": "MediaStreaming schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "non_aggregate_control": {
+      "type": "boolean"
+    },
+    "rtp_multicast": {
+      "type": "boolean"
+    },
+    "rtp_rtsp_tcp": {
+      "type": "boolean"
+    },
+    "rtp_tcp": {
+      "type": "boolean"
+    }
+  }
+}

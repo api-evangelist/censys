@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-cvss-structure.json",
+  "name": "CVSS",
+  "description": "CVSS schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "components": {
+      "description": "These metrics contribute to how a CVE is scored.",
+      "$ref": "#/components/schemas/CVSS_Components"
+    },
+    "score": {
+      "type": "double",
+      "description": "Score of the vulnerability; 0.1 is the lowest, 10 is the maximum"
+    },
+    "vector": {
+      "type": "string",
+      "description": "The path, method, or scenario used to exploit the vulnerability. Each section represents components that contribute to the overall CVSS score."
+    }
+  }
+}

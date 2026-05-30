@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ssh-kexinitmessage-schema.json",
+  "title": "Ssh_KexInitMessage",
+  "description": "Ssh_KexInitMessage schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "client_to_server_ciphers": {
+      "description": "A list of ssh cipher algorithm identifiers, named according to section 6 of https://www.ietf.org/rfc/rfc4251.txt; see https://www.iana.org/assignments/ssh-parameters/ssh-parameters.xhtml#ssh-parameters-16 for standard values.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "client_to_server_compression": {
+      "description": "A list of ssh compression algorithm identifiers, named according to section 6 of https://www.ietf.org/rfc/rfc4251.txt; see https://www.iana.org/assignments/ssh-parameters/ssh-parameters.xhtml#ssh-parameters-20 for standard values.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "client_to_server_languages": {
+      "description": "A name-list of language tags in order of preference. As Defined in https://www.ietf.org/rfc/rfc3066.txt.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "client_to_server_macs": {
+      "description": "A list of ssh MAC algorithm identifiers, named according to section 6 of https://www.ietf.org/rfc/rfc4251.txt; see https://www.iana.org/assignments/ssh-parameters/ssh-parameters.xhtml#ssh-parameters-18 for standard values.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "first_kex_follows": {
+      "type": "boolean"
+    },
+    "host_key_algorithms": {
+      "description": "Asymmetric key algorithms for the host key supported by the client.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "kex_algorithms": {
+      "description": "Key exchange algorithms used in the handshake.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "server_to_client_ciphers": {
+      "description": "A list of ssh cipher algorithm identifiers, named according to section 6 of https://www.ietf.org/rfc/rfc4251.txt; see https://www.iana.org/assignments/ssh-parameters/ssh-parameters.xhtml#ssh-parameters-16 for standard values.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "server_to_client_compression": {
+      "description": "A list of ssh compression algorithm identifiers, named according to section 6 of https://www.ietf.org/rfc/rfc4251.txt; see https://www.iana.org/assignments/ssh-parameters/ssh-parameters.xhtml#ssh-parameters-20 for standard values.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "server_to_client_languages": {
+      "description": "A name-list of language tags in order of preference. As Defined in https://www.ietf.org/rfc/rfc3066.txt.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "server_to_client_macs": {
+      "description": "A list of ssh MAC algorithm identifiers, named according to section 6 of https://www.ietf.org/rfc/rfc4251.txt; see https://www.iana.org/assignments/ssh-parameters/ssh-parameters.xhtml#ssh-parameters-18 for standard values.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

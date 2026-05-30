@@ -1,0 +1,11 @@
+{
+  "encrypt_mode": "example",
+  "fed_auth_required": false,
+  "instance": "example",
+  "mars": false,
+  "nonce": "example",
+  "server_version": null,
+  "thread_id": 51,
+  "trace_id": "cns_6c24531a38e65fac",
+  "unknown": {}
+}

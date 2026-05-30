@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-elasticsearch-resultsnodeinfo-clustercombinedinfo-indices-store-structure.json",
+  "name": "ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo_Indices_Store",
+  "description": "ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo_Indices_Store schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "reserved_in_bytes": {
+      "type": "int64"
+    },
+    "size_in_bytes": {
+      "type": "int64"
+    }
+  }
+}

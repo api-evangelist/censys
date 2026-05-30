@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-smb-smbversions-schema.json",
+  "title": "Smb_SmbVersions",
+  "description": "Smb_SmbVersions schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "major": {
+      "description": "Major version",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "minor": {
+      "description": "Minor version",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "revision": {
+      "description": "Protocol Revision",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "version_string": {
+      "description": "Full SMB Version String",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

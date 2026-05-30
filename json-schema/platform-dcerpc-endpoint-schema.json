@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-dcerpc-endpoint-schema.json",
+  "title": "Dcerpc_Endpoint",
+  "description": "Dcerpc_Endpoint schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "bindings": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "executable": {
+      "type": "string"
+    },
+    "explained_uuid": {
+      "type": "string"
+    },
+    "protocol": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

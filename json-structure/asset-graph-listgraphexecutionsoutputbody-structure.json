@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-listgraphexecutionsoutputbody-structure.json",
+  "name": "ListGraphExecutionsOutputBody",
+  "description": "ListGraphExecutionsOutputBody schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "executions"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "uri",
+      "description": "A URL to the JSON Schema for this object."
+    },
+    "executions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of graph executions",
+      "items": {
+        "$ref": "#/components/schemas/GraphExecution"
+      }
+    },
+    "next_page_token": {
+      "type": "string",
+      "description": "Token for the next page of results"
+    }
+  }
+}

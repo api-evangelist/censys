@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-pixelformat-structure.json",
+  "name": "PixelFormat",
+  "description": "PixelFormat schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "big_endian": {
+      "type": "boolean",
+      "description": "If pixel RGB data are in big-endian"
+    },
+    "bits_per_pixel": {
+      "type": "int32",
+      "description": "How many bits in a single full pixel datum. Valid values are: 8, 16, 32",
+      "minimum": 0
+    },
+    "blue_max": {
+      "type": "int32",
+      "description": "Max value of blue pixel",
+      "minimum": 0
+    },
+    "blue_shift": {
+      "type": "int32",
+      "description": "How many bits to right shift a pixel datum to get blue bits in lsb",
+      "minimum": 0
+    },
+    "depth": {
+      "type": "int32",
+      "description": "Color depth",
+      "minimum": 0
+    },
+    "green_max": {
+      "type": "int32",
+      "description": "Max value of green pixel",
+      "minimum": 0
+    },
+    "green_shift": {
+      "type": "int32",
+      "description": "How many bits to right shift a pixel datum to get green bits in lsb",
+      "minimum": 0
+    },
+    "padding1": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "padding2": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "padding3": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "red_max": {
+      "type": "int32",
+      "description": "Max value of red pixel",
+      "minimum": 0
+    },
+    "red_shift": {
+      "type": "int32",
+      "description": "How many bits to right shift a pixel datum to get red bits in lsb",
+      "minimum": 0
+    },
+    "true_color": {
+      "type": "boolean",
+      "description": "If false, color maps are used"
+    }
+  }
+}

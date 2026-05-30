@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-risk-structure.json",
+  "name": "Risk",
+  "description": "Risk schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "confidence": {
+      "type": "double"
+    },
+    "cvss": {
+      "$ref": "#/components/schemas/CVSS"
+    },
+    "evidence": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Evidence"
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "metrics": {
+      "$ref": "#/components/schemas/Metrics"
+    },
+    "name": {
+      "type": "string"
+    },
+    "risk_source": {
+      "type": "string",
+      "enum": [
+        "",
+        "censys",
+        "cve"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "",
+        "censys",
+        "recog",
+        "wappalyzer",
+        "third_party",
+        "html_meta_extractor"
+      ]
+    },
+    "year": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

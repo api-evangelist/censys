@@ -1,0 +1,28 @@
+{
+  "arch_bits": "example",
+  "auth_response": "example",
+  "build_id": "cns_145ce072a422515e",
+  "commands": [
+    "example"
+  ],
+  "commands_processed": 374,
+  "connections_received": 267,
+  "gcc_version": "example",
+  "git_sha1": "example",
+  "info_response": {},
+  "major": 617,
+  "mem_allocator": "example",
+  "minor": 497,
+  "mode": "example",
+  "nonexistent_response": "example",
+  "os": "example",
+  "patch_level": 455,
+  "ping_response": "example",
+  "quit_response": "example",
+  "raw_command_output": [
+    null,
+    null
+  ],
+  "uptime": 1748520000000,
+  "used_memory": 379
+}

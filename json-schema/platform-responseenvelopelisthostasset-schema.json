@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-responseenvelopelisthostasset-schema.json",
+  "title": "ResponseEnvelopeListHostAsset",
+  "description": "ResponseEnvelopeListHostAsset schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "result": {
+      "items": {
+        "$ref": "#/components/schemas/HostAsset"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

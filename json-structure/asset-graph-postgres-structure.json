@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-postgres-structure.json",
+  "name": "Postgres",
+  "description": "Postgres schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "protocol_error": {
+      "type": "object",
+      "description": "The error received in response to a StartupMessage with an unexpected protocol version.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "startup_error": {
+      "type": "object",
+      "description": "The error received in response to a StartupMessage without providing the User field.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "supported_versions": {
+      "type": "string"
+    }
+  }
+}

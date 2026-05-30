@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-securitycapabilities-structure.json",
+  "name": "SecurityCapabilities",
+  "description": "SecurityCapabilities schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "access_policy_config": {
+      "type": "boolean"
+    },
+    "default_access_policy": {
+      "type": "boolean"
+    },
+    "dot1x": {
+      "type": "boolean"
+    },
+    "http_digest": {
+      "type": "boolean"
+    },
+    "kerberos_token": {
+      "type": "boolean"
+    },
+    "max_password_length": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "max_username_length": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "max_users": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "onboard_key_generation": {
+      "type": "boolean"
+    },
+    "rel_token": {
+      "type": "boolean"
+    },
+    "remote_user_handling": {
+      "type": "boolean"
+    },
+    "saml_token": {
+      "type": "boolean"
+    },
+    "supported_eap_methods": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "tls_1_0": {
+      "type": "boolean"
+    },
+    "tls_1_1": {
+      "type": "boolean"
+    },
+    "tls_1_2": {
+      "type": "boolean"
+    },
+    "username_token": {
+      "type": "boolean"
+    },
+    "x509_token": {
+      "type": "boolean"
+    }
+  }
+}

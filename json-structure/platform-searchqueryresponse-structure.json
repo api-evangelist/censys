@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-searchqueryresponse-structure.json",
+  "name": "SearchQueryResponse",
+  "description": "SearchQueryResponse schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "total_hits",
+    "next_page_token",
+    "previous_page_token",
+    "query_duration_millis",
+    "hits"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "hits": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/SearchQueryHit"
+      }
+    },
+    "next_page_token": {
+      "type": "string"
+    },
+    "previous_page_token": {
+      "type": "string"
+    },
+    "query_duration_millis": {
+      "type": "int32"
+    },
+    "total_hits": {
+      "type": "double"
+    }
+  }
+}

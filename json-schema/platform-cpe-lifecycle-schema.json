@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-cpe-lifecycle-schema.json",
+  "title": "CPE_LifeCycle",
+  "description": "CPE_LifeCycle schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "end_of_life": {
+      "type": "boolean"
+    },
+    "end_of_life_date": {
+      "type": "string"
+    },
+    "release_date": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

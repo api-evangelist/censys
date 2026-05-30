@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ja4tscanscan-schema.json",
+  "title": "JA4TScanScan",
+  "description": "JA4TScanScan schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "fingerprint": {
+      "type": "string"
+    },
+    "scan_time": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

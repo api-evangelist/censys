@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-screenshot-structure.json",
+  "name": "Screenshot",
+  "description": "Screenshot schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "extracted_text": {
+      "type": "string"
+    },
+    "handle": {
+      "type": "string"
+    },
+    "palsimhash": {
+      "type": "string"
+    },
+    "phash": {
+      "type": "string"
+    }
+  }
+}

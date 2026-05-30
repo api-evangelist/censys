@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-devicecapabilities-structure.json",
+  "name": "DeviceCapabilities",
+  "description": "DeviceCapabilities schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "network": {
+      "$ref": "#/components/schemas/NetworkCapabilities"
+    },
+    "security": {
+      "$ref": "#/components/schemas/SecurityCapabilities"
+    },
+    "system": {
+      "$ref": "#/components/schemas/SystemCapabilities"
+    }
+  }
+}

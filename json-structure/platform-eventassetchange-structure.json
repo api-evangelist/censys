@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-eventassetchange-structure.json",
+  "name": "EventAssetChange",
+  "description": "EventAssetChange schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "event_time",
+    "reason",
+    "change_type"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "change_type": {
+      "type": "string",
+      "enum": [
+        "added",
+        "removed"
+      ]
+    },
+    "event_time": {
+      "type": "datetime"
+    },
+    "reason": {
+      "type": "string"
+    }
+  }
+}

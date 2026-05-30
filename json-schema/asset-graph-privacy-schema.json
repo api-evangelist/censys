@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-privacy-schema.json",
+  "title": "Privacy",
+  "description": "Privacy schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "anonymous": {
+      "description": "Whether the host uses any kind of privacy service.",
+      "type": "boolean"
+    },
+    "proxy": {
+      "description": "Whether the host is an open web proxy.",
+      "type": "boolean"
+    },
+    "relay": {
+      "description": "Whether the host is a location-preserving anonymous relay service, like iCloud Private Relay..",
+      "type": "boolean"
+    },
+    "service_provider": {
+      "description": "The name of the privacy service providers detected.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "source": {
+      "description": "The source of the data.",
+      "type": "string"
+    },
+    "tor": {
+      "description": "Whether the host is a Tor exit node.",
+      "type": "boolean"
+    },
+    "tor_info": {
+      "$ref": "#/components/schemas/Privacy_TorInfo",
+      "description": "Information about the Tor exit node, if the host is one."
+    },
+    "vpn": {
+      "description": "Whether the host is a VPN service exit node IP address.",
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

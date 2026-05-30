@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-elasticsearch-resultsnodeinfo-nodes-nodedata-threadpool-schema.json",
+  "title": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_ThreadPool",
+  "description": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_ThreadPool schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "keep_alive": {
+      "type": "string"
+    },
+    "max": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "min": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "queue_size": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

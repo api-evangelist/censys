@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-hostdns-reverseresolution-schema.json",
+  "title": "HostDns_ReverseResolution",
+  "description": "HostDns_ReverseResolution schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "names": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "resolve_time": {
+      "type": "string"
+    },
+    "server": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

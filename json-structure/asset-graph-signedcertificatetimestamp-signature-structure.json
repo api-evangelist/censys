@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-signedcertificatetimestamp-signature-structure.json",
+  "name": "SignedCertificateTimestamp_Signature",
+  "description": "SignedCertificateTimestamp_Signature schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "hash_algorithm": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "signature_algorithm": {
+      "type": "string"
+    }
+  }
+}

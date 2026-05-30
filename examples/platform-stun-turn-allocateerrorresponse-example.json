@@ -1,0 +1,8 @@
+{
+  "error_code": 426,
+  "error_reason": "Active production asset under observation.",
+  "has_fingerprint": false,
+  "nonce": "example",
+  "realm": "example",
+  "software": "example"
+}

@@ -1,0 +1,27 @@
+{
+  "body": "example",
+  "body_hash_sha1": "example",
+  "body_hash_sha256": "57820b6b357bb6108e8221a20eaecc8fcae1c99cadf06cc2fb9a42457b56ff8a",
+  "body_hash_tlsh": "example",
+  "body_size": 339,
+  "favicons": [
+    null,
+    null
+  ],
+  "headers": {},
+  "html_tags": [
+    "example"
+  ],
+  "html_title": "example",
+  "network_log": null,
+  "protocol": "SSH",
+  "redirect_chain": [
+    null
+  ],
+  "status_code": 323,
+  "status_reason": "Active production asset under observation.",
+  "supported_versions": [
+    "example"
+  ],
+  "uri": "https://search.censys.io/hosts/8.8.8.8"
+}

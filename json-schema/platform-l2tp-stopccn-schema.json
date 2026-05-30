@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-l2tp-stopccn-schema.json",
+  "title": "L2Tp_StopCcn",
+  "description": "L2Tp_StopCcn schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "attribute_values": {
+      "$ref": "#/components/schemas/L2Tp_AttributeValues"
+    }
+  },
+  "additionalProperties": false
+}

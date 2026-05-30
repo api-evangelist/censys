@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-networkcapabilities-structure.json",
+  "name": "NetworkCapabilities",
+  "description": "NetworkCapabilities schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "dhcp_v6": {
+      "type": "boolean"
+    },
+    "dot11_configuration": {
+      "type": "boolean"
+    },
+    "dot1x_configurations": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "dynamic_dns": {
+      "type": "boolean"
+    },
+    "hostname_from_dhcp": {
+      "type": "boolean"
+    },
+    "ip_filter": {
+      "type": "boolean"
+    },
+    "ipv6": {
+      "type": "boolean"
+    },
+    "ntp": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "zero_configuration": {
+      "type": "boolean"
+    }
+  }
+}

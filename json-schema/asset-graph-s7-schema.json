@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-s7-schema.json",
+  "title": "S7",
+  "description": "S7 schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "copyright": {
+      "type": "string"
+    },
+    "cpu_profile": {
+      "type": "string"
+    },
+    "firmware": {
+      "type": "string"
+    },
+    "hardware": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "memory_serial_number": {
+      "type": "string"
+    },
+    "module": {
+      "type": "string"
+    },
+    "module_id": {
+      "type": "string"
+    },
+    "module_type": {
+      "type": "string"
+    },
+    "oem_id": {
+      "type": "string"
+    },
+    "plant_id": {
+      "type": "string"
+    },
+    "reserved_for_os": {
+      "type": "string"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "system": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

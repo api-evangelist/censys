@@ -1,0 +1,9 @@
+{
+  "smb_dfs_support": true,
+  "smb_directory_leasing_support": true,
+  "smb_encryption_support": false,
+  "smb_leasing_support": true,
+  "smb_multichan_support": false,
+  "smb_multicredit_support": false,
+  "smb_persistent_handle_support": false
+}

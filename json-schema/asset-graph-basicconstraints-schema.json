@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-basicconstraints-schema.json",
+  "title": "BasicConstraints",
+  "description": "BasicConstraints schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "is_ca": {
+      "description": "Whether the certificate is permitted to sign other certificates.",
+      "type": "boolean"
+    },
+    "max_path_len": {
+      "description": "When present, provides the maximum number of intermediate certificates that may follow this certificate in a trusted certification path.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,32 +1,281 @@
 aid: censys
 name: Censys
-description: "Search engine for Internet connected host and devices"
+description: >-
+  Censys is an internet intelligence and attack surface management platform that continuously
+  scans the public IPv4 space, IPv6 announced ranges, and the global certificate transparency
+  ecosystem to produce a comprehensive public dataset of internet-connected hosts, services,
+  certificates, and web properties. The Censys Platform exposes this data through a unified
+  REST API supporting host/web/certificate search, collections, threat hunting, adversary
+  investigation, asset graph traversal, and supply-chain intelligence — making it a primary
+  alternative to Shodan for security researchers, SOC teams, threat hunters, and attack-surface
+  management programs.
 url: https://search.censys.io/api
+humanURL: https://docs.censys.com
+baseURL: https://api.platform.censys.io
+image: https://avatars.githubusercontent.com/u/9468155?s=200&v=4
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-05-29'
 x-source: public-apis/public-apis
-x-category: "Security"
-x-tier: 3
-x-tier-reason: bulk-registered-from-public-apis
+x-category: Security
+x-tier: 2
+x-tier-reason: enriched-full-pipeline-2026-05-29
 tags:
-  - Security
-  - Public APIs
+- Security
+- Internet Intelligence
+- Attack Surface Management
+- Threat Hunting
+- Cyber Threat Intelligence
+- OSINT
+- Internet Scanning
+- Certificates
+- Asset Discovery
 apis:
-  - name: Censys
-    description: "Search engine for Internet connected host and devices"
-    humanURL: https://search.censys.io/api
-    baseURL: https://search.censys.io/api
-    tags:
-      - Security
-    properties:
-      - type: Documentation
-        url: https://search.censys.io/api
+- name: Censys Platform API
+  description: >-
+    The Censys Platform API is the unified next-generation interface to the Censys
+    internet intelligence dataset. It supersedes the legacy Censys Search v1/v2 APIs
+    and Censys ASM API by exposing global asset lookups (hosts, certificates, web
+    properties), Collections, Threat Hunting (CensEye, fingerprints, threats),
+    Adversary Investigation (live discovery scans, certificate-to-host pivots), Account
+    Management (organizations, credits, audit logs), Supply Chain Intelligence, and
+    Tags / Comments through a single Personal Access Token model and Censys Query
+    Language (CenQL).
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Security
+  - Internet Intelligence
+  - Threat Hunting
+  - Attack Surface Management
+  - Certificates
+  properties:
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: OpenAPI
+    url: openapi/censys-platform-openapi.yml
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+    title: Censys ASM Postman Collection
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+    title: Personal Access Tokens
+  - type: Quickstart
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDK
+    url: https://pypi.org/project/censys-platform/
+    title: Python SDK (censys-platform)
+  - type: SDK
+    url: https://github.com/censys/censys-sdk-typescript
+    title: TypeScript SDK
+  - type: SDK
+    url: https://github.com/censys/censys-sdk-go
+    title: Go SDK
+  - type: SDK
+    url: https://pypi.org/project/censys/
+    title: Python SDK Legacy (censys-python)
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: NaftikoCapability
+    url: capabilities/platform-account-management.yaml
+  - type: NaftikoCapability
+    url: capabilities/platform-adversary-investigation.yaml
+  - type: NaftikoCapability
+    url: capabilities/platform-collections.yaml
+  - type: NaftikoCapability
+    url: capabilities/platform-global-data.yaml
+  - type: NaftikoCapability
+    url: capabilities/platform-supply-chain-intelligence.yaml
+  - type: NaftikoCapability
+    url: capabilities/platform-tags-and-comments.yaml
+  - type: NaftikoCapability
+    url: capabilities/platform-threat-hunting.yaml
+  - type: JSON-LD
+    url: json-ld/censys-platform-context.jsonld
+- name: Censys Asset Graph API
+  description: >-
+    The Censys Asset Graph API powers attack-surface graph traversal. It lets
+    customers define asset graphs from seed assets (IPs, domains, certificates),
+    execute graph build runs, page through the resulting nodes (assets) and edges
+    (relationships), manage excluded assets, and pull risk findings per asset_id.
+    It is the dedicated graph-construction layer that complements the Platform
+    API's per-record host/cert/web lookups.
+  humanURL: https://docs.censys.com
+  baseURL: https://graph.data.censys.io
+  tags:
+  - Security
+  - Attack Surface Management
+  - Asset Graph
+  - Risk
+  properties:
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: OpenAPI
+    url: openapi/censys-asset-graph-openapi.yml
+  - type: SDK
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+    title: Go SDK (Asset Graph)
+  - type: NaftikoCapability
+    url: capabilities/asset-graph-asset-graphs.yaml
+  - type: NaftikoCapability
+    url: capabilities/asset-graph-assets.yaml
+  - type: NaftikoCapability
+    url: capabilities/asset-graph-excluded-assets.yaml
+  - type: NaftikoCapability
+    url: capabilities/asset-graph-graph-executions.yaml
+  - type: NaftikoCapability
+    url: capabilities/asset-graph-risks.yaml
+  - type: NaftikoCapability
+    url: capabilities/asset-graph-seeds.yaml
+  - type: NaftikoCapability
+    url: capabilities/asset-graph-shards.yaml
+  - type: JSON-LD
+    url: json-ld/censys-asset-graph-context.jsonld
 common:
-  - type: Website
-    url: https://search.censys.io/api
-  - type: PublicAPIsListing
-    url: https://github.com/public-apis/public-apis
+- type: Website
+  url: https://censys.com
+- type: Portal
+  url: https://platform.censys.io
+- type: SignUp
+  url: https://accounts.censys.io/register
+- type: Pricing
+  url: https://censys.com/pricing/
+- type: TermsOfService
+  url: https://censys.com/terms-of-service/
+- type: PrivacyPolicy
+  url: https://censys.com/privacy-policy/
+- type: StatusPage
+  url: https://status.censys.io
+- type: Blog
+  url: https://censys.com/blog/
+- type: Support
+  url: https://support.censys.io
+- type: GitHubOrganization
+  url: https://github.com/censys
+- type: CLI
+  url: https://github.com/censys/cencli
+  title: cencli — Censys Platform CLI
+- type: Tools
+  url: https://github.com/censys/censys-splunk
+  title: Splunk Add-on and Apps
+- type: Tools
+  url: https://github.com/censys/censys-platform-splunk-soar
+  title: Splunk SOAR Connector
+- type: Tools
+  url: https://github.com/censys/censys-googlesecops-dashboard
+  title: Google SecOps Dashboard
+- type: Tools
+  url: https://github.com/censys/censys-cloud-connector
+  title: Censys Unified Cloud Connector (AWS / Azure / GCP)
+- type: Tools
+  url: https://github.com/censys/censys-maltego
+  title: Maltego Transforms
+- type: Tools
+  url: https://github.com/censys/censys-recon-ng
+  title: recon-ng Modules
+- type: Tools
+  url: https://github.com/censys/nmap-censys
+  title: nmap NSE Script
+- type: Tools
+  url: https://github.com/censys/recog
+  title: Recog — Pattern Recognition
+- type: Tools
+  url: https://github.com/schwarztim/sec-censys-mcp
+  title: MCP Server (Community — sec-censys-mcp)
+- type: PublicAPIsListing
+  url: https://github.com/public-apis/public-apis
+- type: Plans
+  url: plans/censys-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/censys-rate-limits.yml
+- type: FinOps
+  url: finops/censys-finops.yml
+- type: SpectralRules
+  url: rules/censys-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/censys-vocabulary.yml
+- type: JSON-LD
+  url: json-ld/censys-context.jsonld
+- type: Features
+  data:
+  - name: Global Internet Asset Index
+    description: Continuously refreshed host, service, certificate, and web-property dataset spanning the public IPv4 space, announced IPv6 ranges, and the global Certificate Transparency log ecosystem.
+  - name: Censys Query Language (CenQL)
+    description: Unified, expressive query language used across hosts, certificates, and web properties — replaces the legacy Censys Search Language (CSL).
+  - name: Collections
+    description: Saved asset groupings that can be queried, aggregated, and monitored with events, webhooks, and email notifications.
+  - name: Threat Hunting (CensEye)
+    description: Automated pivot engine that hunts adversary infrastructure across host endpoints, fingerprints, certificates, and threats with on-demand discovery scans.
+  - name: Adversary Investigation
+    description: Certificate-to-host and host-to-endpoint pivots, value-count enrichment, and live re-scan endpoints purpose-built for investigating malicious infrastructure.
+  - name: Asset Graph
+    description: Graph-based attack surface composition — define seeds, build graphs, page through assets/edges, manage exclusions, and read per-asset risks.
+  - name: Supply Chain Intelligence
+    description: Track third-party supplier exposure and supply-chain risk against the Censys asset dataset.
+  - name: Account Management
+    description: Organization, membership, invitation, audit-log, credit, and per-user credit-usage APIs for tenant administration.
+  - name: Tags and Comments
+    description: First-class annotation surface for tagging and commenting on assets across the platform.
+  - name: Integrations (Splunk, SOAR, Google SecOps, Maltego, recon-ng, nmap)
+    description: Official connectors and community tooling for the major SOC / threat-intel ecosystems.
+  - name: Legacy Search and ASM Compatibility
+    description: Censys Search v1/v2 and Censys ASM APIs remain available during the migration window; ASM endpoints are not deprecated.
+- type: UseCases
+  data:
+  - name: External Attack Surface Management
+    description: Discover unknown assets, monitor exposure, and prioritize risk across an organization's internet-facing footprint.
+  - name: Threat Hunting
+    description: Pivot across certificates, services, and endpoints to track adversary infrastructure with CensEye-driven discovery scans.
+  - name: Adversary Investigation
+    description: Investigate IPs, certificates, and hosts associated with known malicious activity; rescan suspect infrastructure on demand.
+  - name: SOC Triage and Enrichment
+    description: Enrich alerts in Splunk / SOAR / Google SecOps with Censys host, service, and certificate context.
+  - name: Vulnerability Discovery
+    description: Identify exposed services, deprecated TLS versions, and known-vulnerable software footprints at internet scale.
+  - name: Certificate Inventory
+    description: Search the certificate-transparency-backed corpus for organizational PKI inventory and rogue/expired cert detection.
+  - name: Subdomain and Asset Discovery
+    description: Enumerate subdomains and related assets via certificate, DNS, and IP-graph pivots.
+  - name: Supply Chain Risk
+    description: Track supplier exposure and weak links across third-party internet-facing assets.
+  - name: Academic and Internet Measurement Research
+    description: Long-running Censys research mission supporting peer-reviewed internet-scale measurement studies.
+- type: Integrations
+  data:
+  - name: Splunk
+    description: Censys Splunk Add-on and Apps for SIEM enrichment and dashboards.
+  - name: Splunk SOAR
+    description: Censys SOAR connector for automated response playbooks.
+  - name: Google SecOps (Chronicle)
+    description: Censys Google SecOps dashboard for SOC operations on Chronicle.
+  - name: Microsoft Sentinel
+    description: Documented integration path for ingesting Censys data into Sentinel.
+  - name: Maltego
+    description: Censys Maltego transforms for graph-based investigations.
+  - name: recon-ng
+    description: Censys modules for the recon-ng reconnaissance framework.
+  - name: nmap
+    description: NSE script that leverages Censys data for passive recon.
+  - name: AWS / Azure / GCP
+    description: Censys Unified Cloud Connector pulls cloud-native asset inventory into Censys ASM.
+  - name: Jira and ServiceNow
+    description: ASM ticketing/workflow integrations for asset and risk remediation tracking.
+  - name: Postman
+    description: Censys-published Postman collections for Search and ASM APIs.
+- type: Solutions
+  data:
+  - name: Censys Platform
+    description: Unified next-gen Censys interface for search, collections, threat hunting, and asset graph traversal.
+  - name: Censys Attack Surface Management (ASM)
+    description: Continuous external attack-surface monitoring with risk scoring, integrations, and remediation workflows.
+  - name: Censys Threat Hunting
+    description: Advanced pivoting, CensEye automation, Censys Threat Dataset, and on-demand scanning for proactive infrastructure hunting.
+  - name: Censys Search (Legacy)
+    description: Original search.censys.io interface — Search v1/v2 APIs being migrated to the Platform API.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ciscoipsla-handshake-header-schema.json",
+  "title": "CiscoIpsla_Handshake_Header",
+  "description": "CiscoIpsla_Handshake_Header schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "length": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "seq": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "unknown": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "version": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

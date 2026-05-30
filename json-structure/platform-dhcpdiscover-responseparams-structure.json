@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-dhcpdiscover-responseparams-structure.json",
+  "name": "Dhcpdiscover_ResponseParams",
+  "description": "Dhcpdiscover_ResponseParams schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "device_info": {
+      "$ref": "#/components/schemas/Dhcpdiscover_DeviceInfo"
+    }
+  }
+}

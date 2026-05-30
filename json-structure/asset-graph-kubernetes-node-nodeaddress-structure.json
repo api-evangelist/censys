@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-kubernetes-node-nodeaddress-structure.json",
+  "name": "Kubernetes_Node_NodeAddress",
+  "description": "Kubernetes_Node_NodeAddress schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "address": {
+      "type": "string",
+      "description": "Node address, IP/URL."
+    },
+    "address_type": {
+      "type": "string",
+      "description": "Node address type, one of Hostname, ExternalIP or InternalIP."
+    }
+  }
+}

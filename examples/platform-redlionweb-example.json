@@ -1,0 +1,7 @@
+{
+  "enhanced_web_server": true,
+  "log_names": [
+    "Production Internet Asset Inventory"
+  ],
+  "title": "example"
+}

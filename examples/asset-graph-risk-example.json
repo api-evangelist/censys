@@ -1,0 +1,15 @@
+{
+  "confidence": 66.49,
+  "cvss": null,
+  "evidence": [
+    null,
+    null
+  ],
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "metrics": null,
+  "name": "Production Internet Asset Inventory",
+  "risk_source": "censys",
+  "severity": "critical",
+  "source": "censys",
+  "year": 199
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-organizationpreferences-structure.json",
+  "name": "OrganizationPreferences",
+  "description": "OrganizationPreferences schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ai_opt_in": {
+      "type": "boolean",
+      "description": "Whether the organization has opted into AI features."
+    },
+    "ai_training": {
+      "type": "boolean",
+      "description": "Whether the organization has opted into AI training."
+    },
+    "mfa_required": {
+      "type": "boolean",
+      "description": "Whether the organization has opted into multi-factor authentication."
+    }
+  }
+}

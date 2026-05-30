@@ -1,0 +1,16 @@
+{
+  "attribute_cups_version": "example",
+  "attribute_ipp_versions": [
+    "example"
+  ],
+  "attribute_printer_uris": [
+    "https://search.censys.io/hosts/8.8.8.8"
+  ],
+  "attributes": [
+    null
+  ],
+  "cups_version": "example",
+  "major_version": 736,
+  "minor_version": 307,
+  "version_string": "example"
+}

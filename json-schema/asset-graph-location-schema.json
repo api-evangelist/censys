@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-location-schema.json",
+  "title": "Location",
+  "description": "Location schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "city": {
+      "description": "The English name of the detected city.",
+      "type": "string"
+    },
+    "continent": {
+      "description": "The English name of the detected continent (North America, Europe, Asia, South America, Africa, Oceania, Antarctica).",
+      "type": "string"
+    },
+    "coordinates": {
+      "$ref": "#/components/schemas/Coordinates",
+      "description": "The estimated coordinates of the detected location."
+    },
+    "country": {
+      "description": "The English name of the detected country.",
+      "type": "string"
+    },
+    "country_code": {
+      "description": "The detected two-letter ISO 3166-1 alpha-2 country code (US, CN, GB, RU, ...).",
+      "type": "string"
+    },
+    "postal_code": {
+      "description": "The postal code (if applicable) of the detected location.",
+      "type": "string"
+    },
+    "province": {
+      "description": "The state or province name of the detected location.",
+      "type": "string"
+    },
+    "registered_country": {
+      "description": "The English name of the registered country.",
+      "type": "string"
+    },
+    "registered_country_code": {
+      "description": "The registered country's two-letter ISO 3166-1 alpha-2 country code (US, CN, GB, RU, ...).",
+      "type": "string"
+    },
+    "timezone": {
+      "description": "The IANA time zone database name of the detected location.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

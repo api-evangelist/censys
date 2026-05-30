@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-kubernetes-role-rule-structure.json",
+  "name": "Kubernetes_Role_Rule",
+  "description": "Kubernetes_Role_Rule schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "api_groups": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "APIGroups is the name of the APIGroup that contains the resources. If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "resources": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Resources is a list of resources this rule applies to. ResourceAll represents all resources",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verbs": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule. VerbAll represents all kinds.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

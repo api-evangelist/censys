@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-spice-structure.json",
+  "name": "Spice",
+  "description": "Spice schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "major_version": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "minor_version": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "tls_only": {
+      "type": "boolean"
+    },
+    "x509_public_key": {
+      "type": "string"
+    }
+  }
+}

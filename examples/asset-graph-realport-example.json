@@ -1,0 +1,9 @@
+{
+  "hardware_id": 660,
+  "hardware_version": 78,
+  "num_ports": 667,
+  "product_name": "Production Internet Asset Inventory",
+  "software_version": 271,
+  "unpatched_etherlite": true,
+  "vpd": {}
+}

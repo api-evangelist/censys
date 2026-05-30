@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ollama-schema.json",
+  "title": "Ollama",
+  "description": "Ollama schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "models": {
+      "items": {
+        "$ref": "#/components/schemas/Ollama_Model"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "running_models": {
+      "items": {
+        "$ref": "#/components/schemas/Ollama_Model"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

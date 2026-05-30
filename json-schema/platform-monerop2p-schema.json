@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-monerop2p-schema.json",
+  "title": "MoneroP2P",
+  "description": "MoneroP2P schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "ping_response": {
+      "$ref": "#/components/schemas/MoneroP2P_PingResponse"
+    }
+  },
+  "additionalProperties": false
+}

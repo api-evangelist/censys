@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-trackedscan-scantarget-hostnameport-schema.json",
+  "title": "TrackedScan_ScanTarget_HostnamePort",
+  "description": "TrackedScan_ScanTarget_HostnamePort schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "hostname": {
+      "type": "string"
+    },
+    "port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

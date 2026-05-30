@@ -1,0 +1,12 @@
+{
+  "class_name": "Production Internet Asset Inventory",
+  "desc": "example",
+  "elastic_version": "example",
+  "ext_plugins": [
+    "example"
+  ],
+  "has_native_ctrl": true,
+  "java_version": "example",
+  "name": "Production Internet Asset Inventory",
+  "version": "example"
+}

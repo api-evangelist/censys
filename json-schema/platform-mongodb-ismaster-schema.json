@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-mongodb-ismaster-schema.json",
+  "title": "Mongodb_IsMaster",
+  "description": "Mongodb_IsMaster schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "is_master": {
+      "type": "boolean"
+    },
+    "logical_session_timeout_minutes": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "max_bson_object_size": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "max_message_size_bytes": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "max_wire_version": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "max_write_batch_size": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "min_wire_version": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "read_only": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

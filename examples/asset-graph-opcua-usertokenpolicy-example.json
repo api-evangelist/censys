@@ -1,0 +1,7 @@
+{
+  "issued_token_type": "b3e082f370295f63bcafd51de13f7db7",
+  "issuer_endpoint_url": "https://search.censys.io/hosts/8.8.8.8",
+  "policy_id": "cns_c097f93dd7805c75",
+  "security_policy_uri": "https://search.censys.io/hosts/8.8.8.8",
+  "token_type": 214
+}

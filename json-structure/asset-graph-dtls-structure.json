@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-dtls-structure.json",
+  "name": "Dtls",
+  "description": "Dtls schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false
+}

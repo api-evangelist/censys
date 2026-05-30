@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-hikvision-platform-library-schema.json",
+  "title": "Hikvision_Platform_Library",
+  "description": "Hikvision_Platform_Library schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

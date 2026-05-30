@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-realport-structure.json",
+  "name": "Realport",
+  "description": "Realport schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "hardware_id": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "hardware_version": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "num_ports": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "product_name": {
+      "type": "string"
+    },
+    "software_version": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "unpatched_etherlite": {
+      "type": "boolean"
+    },
+    "vpd": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

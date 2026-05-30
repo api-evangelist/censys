@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-cobaltstrike-config-schema.json",
+  "title": "CobaltStrike_Config",
+  "description": "CobaltStrike_Config schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "cookie_beacon": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "crypto_scheme": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "dns": {
+      "type": "boolean"
+    },
+    "host_header": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "http_get": {
+      "$ref": "#/components/schemas/CobaltStrike_HttpConfig"
+    },
+    "http_post": {
+      "$ref": "#/components/schemas/CobaltStrike_HttpConfig"
+    },
+    "jitter": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "killdate": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "post_ex": {
+      "$ref": "#/components/schemas/CobaltStrike_PostEx"
+    },
+    "public_key": {
+      "format": "hex",
+      "type": "string"
+    },
+    "sleep_time": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ssl": {
+      "type": "boolean"
+    },
+    "unknown_bytes": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "format": "base64",
+      "type": "object"
+    },
+    "unknown_int": {
+      "additionalProperties": {
+        "format": "int32",
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": "object"
+    },
+    "user_agent": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "watermark": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

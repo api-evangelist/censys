@@ -1,0 +1,15 @@
+{
+  "cipher_selected": "example",
+  "fingerprint_sha256": "1f73b2bc065b0b178a017e52ae684f86f51b8e218f48f92da700aaf57af405a8",
+  "ja3s": "example",
+  "ja4s": "example",
+  "presented_chain": [
+    null,
+    null
+  ],
+  "version_selected": "tlsv1_2",
+  "versions": [
+    null,
+    null
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-elasticsearch-errormessage-structure.json",
+  "name": "ElasticSearch_ErrorMessage",
+  "description": "ElasticSearch_ErrorMessage schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "header": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

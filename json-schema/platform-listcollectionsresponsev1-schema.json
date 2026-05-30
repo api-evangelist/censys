@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-listcollectionsresponsev1-schema.json",
+  "title": "ListCollectionsResponseV1",
+  "description": "ListCollectionsResponseV1 schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "collections": {
+      "items": {
+        "$ref": "#/components/schemas/Collection"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "next_page_token": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "collections",
+    "next_page_token"
+  ],
+  "additionalProperties": false
+}

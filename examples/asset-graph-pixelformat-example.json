@@ -1,0 +1,15 @@
+{
+  "big_endian": false,
+  "bits_per_pixel": 11,
+  "blue_max": 784,
+  "blue_shift": 878,
+  "depth": 354,
+  "green_max": 615,
+  "green_shift": 505,
+  "padding1": 63,
+  "padding2": 835,
+  "padding3": 809,
+  "red_max": 727,
+  "red_shift": 811,
+  "true_color": true
+}

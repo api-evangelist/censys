@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-pathsegment-schema.json",
+  "title": "PathSegment",
+  "description": "PathSegment schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "end": {
+      "$ref": "#/components/schemas/AssetRef",
+      "description": "Ending asset"
+    },
+    "relationship": {
+      "$ref": "#/components/schemas/PathRelationship",
+      "description": "Relationship between assets"
+    },
+    "start": {
+      "$ref": "#/components/schemas/AssetRef",
+      "description": "Starting asset"
+    }
+  },
+  "required": [
+    "start",
+    "relationship",
+    "end"
+  ],
+  "additionalProperties": false
+}

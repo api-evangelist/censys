@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-listassetsoutputbody-structure.json",
+  "name": "ListAssetsOutputBody",
+  "description": "ListAssetsOutputBody schema from Asset Graph API",
+  "type": "object",
+  "required": [
+    "assets"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "uri",
+      "description": "A URL to the JSON Schema for this object."
+    },
+    "assets": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "List of assets",
+      "items": {
+        "$ref": "#/components/schemas/AssetResponse"
+      }
+    },
+    "next_page_token": {
+      "type": "string",
+      "description": "Token for the next page of results"
+    }
+  }
+}

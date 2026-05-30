@@ -1,0 +1,13 @@
+{
+  "auth_plugin_data": "example",
+  "auth_plugin_name": "Production Internet Asset Inventory",
+  "capability_flags": {},
+  "character_set": 128,
+  "connection_id": 534,
+  "error_code": 997,
+  "error_id": "cns_4738539a48c50d85",
+  "error_message": "Active production asset under observation.",
+  "protocol_version": 912,
+  "server_version": "example",
+  "status_flags": {}
+}

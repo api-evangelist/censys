@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-opendirectory-file-structure.json",
+  "name": "OpenDirectory_File",
+  "description": "OpenDirectory_File schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "extension": {
+      "type": "string"
+    },
+    "last_modified": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "size": {
+      "type": "int64"
+    },
+    "suspicious_score": {
+      "type": "double"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

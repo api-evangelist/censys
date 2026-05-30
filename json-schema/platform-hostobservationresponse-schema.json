@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-hostobservationresponse-schema.json",
+  "title": "HostObservationResponse",
+  "description": "HostObservationResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "next_page_token": {
+      "type": "string"
+    },
+    "ranges": {
+      "items": {
+        "$ref": "#/components/schemas/HostObservationRange"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "total_results": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ranges",
+    "total_results"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-cpe-lifecycle-structure.json",
+  "name": "CPE_LifeCycle",
+  "description": "CPE_LifeCycle schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "end_of_life": {
+      "type": "boolean"
+    },
+    "end_of_life_date": {
+      "type": "string"
+    },
+    "release_date": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-rustdeskrendezvous-configupdate-schema.json",
+  "title": "RustdeskRendezvous_ConfigUpdate",
+  "description": "RustdeskRendezvous_ConfigUpdate schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "rendezvous_servers": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "serial": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

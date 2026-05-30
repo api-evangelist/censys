@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-authenticationerrordetail-structure.json",
+  "name": "AuthenticationErrorDetail",
+  "description": "AuthenticationErrorDetail schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "type": "int64",
+      "description": "HTTP status code"
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable message describing the error occurrence"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Human-readable explanation of the underlying cause of the error"
+    },
+    "request": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "description": "HTTP status message associated with the error"
+    }
+  }
+}

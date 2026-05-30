@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-pgbouncer-startupcapabilities-structure.json",
+  "name": "Pgbouncer_StartupCapabilities",
+  "description": "Pgbouncer_StartupCapabilities schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "v2": {
+      "type": "boolean"
+    },
+    "v3": {
+      "type": "boolean"
+    },
+    "v4": {
+      "type": "boolean"
+    }
+  }
+}

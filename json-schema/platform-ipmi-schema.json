@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ipmi-schema.json",
+  "title": "Ipmi",
+  "description": "Ipmi schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "capabilities": {
+      "$ref": "#/components/schemas/Ipmi_Capabilities",
+      "description": "The Get Channel Authentication Capabilities response (section 22.13)"
+    },
+    "command_payload": {
+      "$ref": "#/components/schemas/Ipmi_CommandPayload",
+      "description": "The IPMI command payload"
+    },
+    "raw": {
+      "description": "The raw data returned by the server",
+      "format": "hex",
+      "type": "string"
+    },
+    "rmcp_header": {
+      "$ref": "#/components/schemas/Ipmi_RMCPHeader",
+      "description": "The RMCP header of the response, (section 13.1.3)"
+    },
+    "session_header": {
+      "$ref": "#/components/schemas/Ipmi_SessionHeader",
+      "description": "The IPMI sesssion header of the response"
+    }
+  },
+  "additionalProperties": false
+}

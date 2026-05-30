@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-zeromq-schema.json",
+  "title": "Zeromq",
+  "description": "Zeromq schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "greeting": {
+      "$ref": "#/components/schemas/Zeromq_Greeting"
+    },
+    "handshake": {
+      "$ref": "#/components/schemas/Zeromq_Handshake"
+    },
+    "subscription_data": {
+      "format": "hex",
+      "type": "string"
+    },
+    "subscription_match": {
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

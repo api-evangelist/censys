@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-collectioneventsresponse-schema.json",
+  "title": "CollectionEventsResponse",
+  "description": "CollectionEventsResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "events": {
+      "items": {
+        "$ref": "#/components/schemas/CollectionEvent"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "next_page": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "events",
+    "next_page"
+  ],
+  "additionalProperties": false
+}

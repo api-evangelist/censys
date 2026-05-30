@@ -1,0 +1,7 @@
+{
+  "dynvc_graphics_pipeline": false,
+  "extended_client_data_supported": true,
+  "neg_resp_reserved": true,
+  "restricted_admin_mode": false,
+  "restricted_auth_mode": true
+}

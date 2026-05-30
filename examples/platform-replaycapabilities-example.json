@@ -1,0 +1,5 @@
+{
+  "reverse_playback": false,
+  "rtp_rtsp_tcp": true,
+  "session_timeout_range": "example"
+}

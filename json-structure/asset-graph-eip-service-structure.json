@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-eip-service-structure.json",
+  "name": "Eip_Service",
+  "description": "Eip_Service schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "capabilities": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "service_name": {
+      "type": "string"
+    },
+    "supports_tcp": {
+      "type": "boolean"
+    },
+    "supports_udp": {
+      "type": "boolean"
+    }
+  }
+}

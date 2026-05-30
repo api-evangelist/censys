@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-smb-negotiationlog-structure.json",
+  "name": "Smb_NegotiationLog",
+  "description": "Smb_NegotiationLog schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "authentication_types": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "capabilities": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "dialect_revision": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "header_log": {
+      "$ref": "#/components/schemas/Smb_HeaderLog"
+    },
+    "security_mode": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "server_guid": {
+      "type": "string"
+    },
+    "server_start_time": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "system_time": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

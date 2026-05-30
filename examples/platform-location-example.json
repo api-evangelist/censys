@@ -1,0 +1,12 @@
+{
+  "city": "example",
+  "continent": "example",
+  "coordinates": null,
+  "country": "US",
+  "country_code": "US",
+  "postal_code": "example",
+  "province": "example",
+  "registered_country": "US",
+  "registered_country_code": "US",
+  "timezone": "example"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-sapient-registrationack-structure.json",
+  "name": "Sapient_RegistrationAck",
+  "description": "Sapient_RegistrationAck schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "acceptance": {
+      "type": "boolean"
+    },
+    "ack_response_reason": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

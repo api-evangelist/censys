@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-coordinates-schema.json",
+  "title": "Coordinates",
+  "description": "Coordinates schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "latitude": {
+      "format": "double",
+      "type": "number"
+    },
+    "longitude": {
+      "format": "double",
+      "type": "number"
+    }
+  },
+  "additionalProperties": false
+}

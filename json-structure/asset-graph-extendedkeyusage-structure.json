@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-extendedkeyusage-structure.json",
+  "name": "ExtendedKeyUsage",
+  "description": "ExtendedKeyUsage schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "any": {
+      "type": "boolean"
+    },
+    "apple_code_signing": {
+      "type": "boolean"
+    },
+    "apple_code_signing_development": {
+      "type": "boolean"
+    },
+    "apple_code_signing_third_party": {
+      "type": "boolean"
+    },
+    "apple_crypto_development_env": {
+      "type": "boolean"
+    },
+    "apple_crypto_env": {
+      "type": "boolean"
+    },
+    "apple_crypto_maintenance_env": {
+      "type": "boolean"
+    },
+    "apple_crypto_production_env": {
+      "type": "boolean"
+    },
+    "apple_crypto_qos": {
+      "type": "boolean"
+    },
+    "apple_crypto_test_env": {
+      "type": "boolean"
+    },
+    "apple_crypto_tier0_qos": {
+      "type": "boolean"
+    },
+    "apple_crypto_tier1_qos": {
+      "type": "boolean"
+    },
+    "apple_crypto_tier2_qos": {
+      "type": "boolean"
+    },
+    "apple_crypto_tier3_qos": {
+      "type": "boolean"
+    },
+    "apple_ichat_encryption": {
+      "type": "boolean"
+    },
+    "apple_ichat_signing": {
+      "type": "boolean"
+    },
+    "apple_resource_signing": {
+      "type": "boolean"
+    },
+    "apple_software_update_signing": {
+      "type": "boolean"
+    },
+    "apple_system_identity": {
+      "type": "boolean"
+    },
+    "client_auth": {
+      "type": "boolean"
+    },
+    "code_signing": {
+      "type": "boolean"
+    },
+    "dvcs": {
+      "type": "boolean"
+    },
+    "eap_over_lan": {
+      "type": "boolean"
+    },
+    "eap_over_ppp": {
+      "type": "boolean"
+    },
+    "email_protection": {
+      "type": "boolean"
+    },
+    "ipsec_end_system": {
+      "type": "boolean"
+    },
+    "ipsec_intermediate_system_usage": {
+      "type": "boolean"
+    },
+    "ipsec_tunnel": {
+      "type": "boolean"
+    },
+    "ipsec_user": {
+      "type": "boolean"
+    },
+    "microsoft_ca_exchange": {
+      "type": "boolean"
+    },
+    "microsoft_cert_trust_list_signing": {
+      "type": "boolean"
+    },
+    "microsoft_csp_signature": {
+      "type": "boolean"
+    },
+    "microsoft_document_signing": {
+      "type": "boolean"
+    },
+    "microsoft_drm": {
+      "type": "boolean"
+    },
+    "microsoft_drm_individualization": {
+      "type": "boolean"
+    },
+    "microsoft_efs_recovery": {
+      "type": "boolean"
+    },
+    "microsoft_embedded_nt_crypto": {
+      "type": "boolean"
+    },
+    "microsoft_encrypted_file_system": {
+      "type": "boolean"
+    },
+    "microsoft_enrollment_agent": {
+      "type": "boolean"
+    },
+    "microsoft_kernel_mode_code_signing": {
+      "type": "boolean"
+    },
+    "microsoft_key_recovery_21": {
+      "type": "boolean"
+    },
+    "microsoft_key_recovery_3": {
+      "type": "boolean"
+    },
+    "microsoft_license_server": {
+      "type": "boolean"
+    },
+    "microsoft_licenses": {
+      "type": "boolean"
+    },
+    "microsoft_lifetime_signing": {
+      "type": "boolean"
+    },
+    "microsoft_mobile_device_software": {
+      "type": "boolean"
+    },
+    "microsoft_nt5_crypto": {
+      "type": "boolean"
+    },
+    "microsoft_oem_whql_crypto": {
+      "type": "boolean"
+    },
+    "microsoft_qualified_subordinate": {
+      "type": "boolean"
+    },
+    "microsoft_root_list_signer": {
+      "type": "boolean"
+    },
+    "microsoft_server_gated_crypto": {
+      "type": "boolean"
+    },
+    "microsoft_sgc_serialized": {
+      "type": "boolean"
+    },
+    "microsoft_smart_display": {
+      "type": "boolean"
+    },
+    "microsoft_smartcard_logon": {
+      "type": "boolean"
+    },
+    "microsoft_system_health": {
+      "type": "boolean"
+    },
+    "microsoft_system_health_loophole": {
+      "type": "boolean"
+    },
+    "microsoft_timestamp_signing": {
+      "type": "boolean"
+    },
+    "microsoft_whql_crypto": {
+      "type": "boolean"
+    },
+    "netscape_server_gated_crypto": {
+      "type": "boolean"
+    },
+    "ocsp_signing": {
+      "type": "boolean"
+    },
+    "sbgp_cert_aa_service_auth": {
+      "type": "boolean"
+    },
+    "server_auth": {
+      "type": "boolean"
+    },
+    "time_stamping": {
+      "type": "boolean"
+    },
+    "unknown": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

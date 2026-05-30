@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-modbus-schema.json",
+  "title": "Modbus",
+  "description": "Modbus schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "exception_response": {
+      "$ref": "#/components/schemas/Modbus_ExceptionResponse"
+    },
+    "function": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "mei_response": {
+      "$ref": "#/components/schemas/Modbus_MEIResponse"
+    },
+    "unit_id": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

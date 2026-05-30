@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-cobaltstrike-structure.json",
+  "name": "CobaltStrike",
+  "description": "CobaltStrike schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "x64": {
+      "$ref": "#/components/schemas/CobaltStrike_Config"
+    },
+    "x86": {
+      "$ref": "#/components/schemas/CobaltStrike_Config"
+    }
+  }
+}

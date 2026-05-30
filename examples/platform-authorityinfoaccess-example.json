@@ -1,0 +1,8 @@
+{
+  "issuer_urls": [
+    "https://search.censys.io/hosts/8.8.8.8"
+  ],
+  "ocsp_urls": [
+    "https://search.censys.io/hosts/8.8.8.8"
+  ]
+}

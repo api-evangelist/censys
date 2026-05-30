@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-hostdns-structure.json",
+  "name": "HostDns",
+  "description": "HostDns schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "forward_dns": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/HostDns_ForwardResolution"
+      }
+    },
+    "names": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "reverse_dns": {
+      "$ref": "#/components/schemas/HostDns_ReverseResolution"
+    }
+  }
+}

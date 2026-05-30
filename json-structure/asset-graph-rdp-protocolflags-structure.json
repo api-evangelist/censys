@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-rdp-protocolflags-structure.json",
+  "name": "Rdp_ProtocolFlags",
+  "description": "Rdp_ProtocolFlags schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "dynvc_graphics_pipeline": {
+      "type": "boolean"
+    },
+    "extended_client_data_supported": {
+      "type": "boolean"
+    },
+    "neg_resp_reserved": {
+      "type": "boolean"
+    },
+    "restricted_admin_mode": {
+      "type": "boolean"
+    },
+    "restricted_auth_mode": {
+      "type": "boolean"
+    }
+  }
+}

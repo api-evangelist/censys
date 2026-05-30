@@ -1,0 +1,10 @@
+{
+  "asset_id": "01234567-89ab-cdef-0123-456789abcdef",
+  "asset_type": "host",
+  "body": "example",
+  "created_at": "2026-05-29T12:34:56Z",
+  "created_by": "550e8400-e29b-41d4-a716-446655440000",
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "platform_ref": "example",
+  "updated_at": "2026-05-29T12:34:56Z"
+}

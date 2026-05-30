@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-jenkins-build-schema.json",
+  "title": "Jenkins_Build",
+  "description": "Jenkins_Build schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "duration_seconds": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "number": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "result": {
+      "type": "string"
+    },
+    "timestamp": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

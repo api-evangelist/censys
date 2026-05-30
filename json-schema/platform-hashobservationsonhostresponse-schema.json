@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-hashobservationsonhostresponse-schema.json",
+  "title": "HashObservationsOnHostResponse",
+  "description": "HashObservationsOnHostResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "next_page_token": {
+      "description": "A token that can be used to retrieve the next page of ranges.",
+      "type": "string"
+    },
+    "ranges": {
+      "description": "The list of observation ranges matching the request.",
+      "items": {
+        "$ref": "#/components/schemas/HashObservationOnHostRange"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "ranges",
+    "next_page_token"
+  ],
+  "additionalProperties": false
+}

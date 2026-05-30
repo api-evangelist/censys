@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-responseenvelopecertificateasset-structure.json",
+  "name": "ResponseEnvelopeCertificateAsset",
+  "description": "ResponseEnvelopeCertificateAsset schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "result": {
+      "$ref": "#/components/schemas/CertificateAsset"
+    }
+  }
+}

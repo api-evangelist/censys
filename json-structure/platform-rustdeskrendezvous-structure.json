@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-rustdeskrendezvous-structure.json",
+  "name": "RustdeskRendezvous",
+  "description": "RustdeskRendezvous schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "key_exchange": {
+      "$ref": "#/components/schemas/RustdeskRendezvous_KeyExchange"
+    },
+    "message_type": {
+      "type": "string"
+    },
+    "test_nat_response": {
+      "$ref": "#/components/schemas/RustdeskRendezvous_TestNatResponse"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-dvrip-structure.json",
+  "name": "DvrIp",
+  "description": "DvrIp schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "access_url": {
+      "type": "string"
+    },
+    "function_capability": {
+      "type": "string"
+    },
+    "function_list": {
+      "type": "string"
+    },
+    "hard_drive": {
+      "type": "string"
+    },
+    "language_support": {
+      "type": "string"
+    },
+    "network_status": {
+      "type": "string"
+    },
+    "oem_info": {
+      "type": "string"
+    },
+    "partition_capability": {
+      "$ref": "#/components/schemas/DvrIp_PartitionCapability"
+    },
+    "serial": {
+      "type": "string"
+    },
+    "split_screen_capability": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "wireless_alarm_capability": {
+      "type": "string"
+    }
+  }
+}

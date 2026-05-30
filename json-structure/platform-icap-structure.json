@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-icap-structure.json",
+  "name": "Icap",
+  "description": "Icap schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "options_response": {
+      "$ref": "#/components/schemas/Icap_OptionsResponse"
+    }
+  }
+}

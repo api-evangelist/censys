@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-seed-schema.json",
+  "title": "Seed",
+  "description": "Seed schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "description": "A URL to the JSON Schema for this object.",
+      "examples": [
+        "https://graph.data.censys.io/schemas/Seed.json"
+      ],
+      "format": "uri",
+      "readOnly": true,
+      "type": "string"
+    },
+    "autonomous_system": {
+      "description": "Autonomous system number (ASN)",
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "business_organization": {
+      "description": "Organization name",
+      "type": "string"
+    },
+    "certificate": {
+      "description": "SHA-256 fingerprint of a certificate (hex-encoded)",
+      "type": "string"
+    },
+    "create_time": {
+      "description": "RFC3339 creation timestamp",
+      "type": "string"
+    },
+    "domain": {
+      "description": "Domain name",
+      "type": "string"
+    },
+    "host": {
+      "description": "IP address of a host",
+      "type": "string"
+    },
+    "id": {
+      "description": "Unique identifier for the seed",
+      "type": "string"
+    },
+    "netblock": {
+      "description": "CIDR notation (e.g. 192.168.0.0/24)",
+      "type": "string"
+    },
+    "registrant_email": {
+      "description": "Registrant email address",
+      "type": "string"
+    },
+    "registrant_organization": {
+      "description": "Registrant organization name",
+      "type": "string"
+    },
+    "web_property": {
+      "$ref": "#/components/schemas/WebPropertyIdentifier",
+      "description": "Web property (hostname and port)"
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "additionalProperties": false
+}

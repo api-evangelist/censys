@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-dnsipresolutionrangerecord-schema.json",
+  "title": "DnsIpResolutionRangeRecord",
+  "description": "DnsIpResolutionRangeRecord schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "domain": {
+      "description": "The domain name that resolved to this IP.",
+      "type": "string"
+    },
+    "first_seen": {
+      "description": "The time this record was first observed.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "last_seen": {
+      "description": "The time this record was last observed.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "record_type": {
+      "description": "Either A or AAAA.",
+      "enum": [
+        "A",
+        "AAAA"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain",
+    "first_seen",
+    "last_seen",
+    "record_type"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,11 @@
+{
+  "browser": "example",
+  "protocol_version": "HTTP",
+  "targets": [
+    null,
+    null
+  ],
+  "user_agent": "example",
+  "v8_version": "example",
+  "webkit_version": "example"
+}

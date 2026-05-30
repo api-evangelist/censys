@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-networklog-resourceinfo-structure.json",
+  "name": "NetworkLog_ResourceInfo",
+  "description": "NetworkLog_ResourceInfo schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "host": {
+      "type": "string",
+      "description": "Hostname from the URL."
+    },
+    "md5": {
+      "type": "string",
+      "description": "MD5 hash of the resource content."
+    },
+    "mime_type": {
+      "type": "string",
+      "description": "MIME type of the resource."
+    },
+    "path": {
+      "type": "string",
+      "description": "Path from the URL."
+    },
+    "port": {
+      "type": "string",
+      "description": "Port from the URL."
+    },
+    "scheme": {
+      "type": "string",
+      "description": "URL scheme (e.g., http, https)."
+    },
+    "sha1": {
+      "type": "string",
+      "description": "SHA-1 hash of the resource content."
+    },
+    "sha256": {
+      "type": "string",
+      "description": "SHA-256 hash of the resource content."
+    },
+    "size": {
+      "type": "int32",
+      "description": "Size of the resource in bytes."
+    },
+    "url": {
+      "type": "string",
+      "description": "Full URL of the resource."
+    }
+  }
+}

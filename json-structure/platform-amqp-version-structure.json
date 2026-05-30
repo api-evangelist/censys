@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-amqp-version-structure.json",
+  "name": "Amqp_Version",
+  "description": "Amqp_Version schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "major": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "minor": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "revision": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

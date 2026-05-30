@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-redlionweb-schema.json",
+  "title": "RedlionWeb",
+  "description": "RedlionWeb schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "enhanced_web_server": {
+      "type": "boolean"
+    },
+    "log_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

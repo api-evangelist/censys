@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-serviceid-schema.json",
+  "title": "ServiceId",
+  "description": "ServiceId schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "ip": {
+      "type": "string"
+    },
+    "port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "transport_protocol": {
+      "enum": [
+        "",
+        "tcp",
+        "udp",
+        "icmp",
+        "quic"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

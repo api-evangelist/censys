@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-alternativequery-structure.json",
+  "name": "AlternativeQuery",
+  "description": "AlternativeQuery schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "query",
+    "targets"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "query": {
+      "type": "string",
+      "description": "An alternative query that may be used."
+    },
+    "targets": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The types of Platform data records (host, cert, and web) that can be targeted by the alternative query.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "host",
+          "web",
+          "cert",
+          "unknown"
+        ]
+      }
+    }
+  }
+}

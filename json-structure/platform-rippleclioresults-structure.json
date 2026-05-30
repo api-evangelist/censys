@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-rippleclioresults-structure.json",
+  "name": "RippleClioResults",
+  "description": "RippleClioResults schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "clio_version": {
+      "type": "string"
+    },
+    "rippled_version": {
+      "type": "string"
+    },
+    "validated": {
+      "type": "boolean"
+    },
+    "validation_quorum": {
+      "type": "int64"
+    }
+  }
+}

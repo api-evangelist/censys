@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-elasticsearch-resultsnodeinfo-nodes-nodedata-jvm-schema.json",
+  "title": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_JVM",
+  "description": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_JVM schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "gc": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "input_args": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "memory_pools": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "start_time": {
+      "type": "string"
+    },
+    "start_time_ms": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "version": {
+      "type": "string"
+    },
+    "vm_name": {
+      "type": "string"
+    },
+    "vm_vendor": {
+      "type": "string"
+    },
+    "vm_version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

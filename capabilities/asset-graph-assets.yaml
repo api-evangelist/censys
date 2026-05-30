@@ -1,0 +1,183 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Censys Asset Graph — Assets
+  description: 'Censys Asset Graph — Assets. 2 operation(s). Lead operation: Censys List Assets. Self-contained Naftiko capability covering one Censys business surface.'
+  tags:
+    - Censys
+    - Asset Graph
+    - Assets
+  created: '2026-05-29'
+  modified: '2026-05-29'
+binds:
+  - namespace: env
+    keys:
+      CENSYS_PERSONAL_ACCESS_TOKEN: CENSYS_PERSONAL_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: asset-graph-assets
+      baseUri: https://graph.data.censys.io
+      description: Censys Asset Graph — Assets business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.CENSYS_PERSONAL_ACCESS_TOKEN}}'
+      resources:
+        - name: api-v1-asset-graphs-graph-id-executions-execution-id-assets
+          path: /api/v1/asset-graphs/{graph_id}/executions/{execution_id}/assets
+          operations:
+            - name: list-assets
+              method: GET
+              description: Censys List Assets
+              inputParameters:
+                - name: X-Organization-ID
+                  in: header
+                  type: string
+                  required: true
+                  description: Censys organization ID
+                - name: graph_id
+                  in: path
+                  type: string
+                  required: true
+                  description: Asset graph ID
+                - name: execution_id
+                  in: path
+                  type: string
+                  required: true
+                  description: Graph execution ID
+                - name: page_token
+                  in: query
+                  type: string
+                  required: false
+                  description: Pagination token from a previous response
+                - name: page_size
+                  in: query
+                  type: integer
+                  required: false
+                  description: Maximum number of results to return
+                - name: risks
+                  in: query
+                  type: boolean
+                  required: false
+                  description: If true, only return assets with risks
+                - name: shard
+                  in: query
+                  type: string
+                  required: false
+                  description: Shard ID to filter assets by. When provided, full asset data is returned instead of the default partial view. Use the list shards endpoint to discover available shards.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: api-v1-asset-graphs-graph-id-executions-execution-id-assets-asset-id
+          path: /api/v1/asset-graphs/{graph_id}/executions/{execution_id}/assets/{asset_id}
+          operations:
+            - name: get-asset
+              method: GET
+              description: Censys Get an Asset
+              inputParameters:
+                - name: X-Organization-ID
+                  in: header
+                  type: string
+                  required: true
+                  description: Censys organization ID
+                - name: graph_id
+                  in: path
+                  type: string
+                  required: true
+                  description: Asset graph ID
+                - name: execution_id
+                  in: path
+                  type: string
+                  required: true
+                  description: Graph execution ID
+                - name: asset_id
+                  in: path
+                  type: string
+                  required: true
+                  description: Hex-encoded asset identifier
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: asset-graph-assets-rest
+      port: 8080
+      description: REST adapter for Censys Asset Graph — Assets. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/api/asset-graphs/{graph_id}/executions/{execution_id}/assets
+          name: api-asset-graphs-graph-id-executions-execution-id-assets
+          description: REST surface for api-asset-graphs-graph-id-executions-execution-id-assets.
+          operations:
+            - method: GET
+              name: list-assets
+              description: Censys List Assets
+              call: asset-graph-assets.list-assets
+              with:
+                X-Organization-ID: rest.X-Organization-ID
+                graph_id: rest.graph_id
+                execution_id: rest.execution_id
+                page_token: rest.page_token
+                page_size: rest.page_size
+                risks: rest.risks
+                shard: rest.shard
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/api/asset-graphs/{graph_id}/executions/{execution_id}/assets/{asset_id}
+          name: api-asset-graphs-graph-id-executions-execution-id-assets-asset-id
+          description: REST surface for api-asset-graphs-graph-id-executions-execution-id-assets-asset-id.
+          operations:
+            - method: GET
+              name: get-asset
+              description: Censys Get an Asset
+              call: asset-graph-assets.get-asset
+              with:
+                X-Organization-ID: rest.X-Organization-ID
+                graph_id: rest.graph_id
+                execution_id: rest.execution_id
+                asset_id: rest.asset_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: asset-graph-assets-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Censys Asset Graph — Assets. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: censys-list-assets
+          description: Censys List Assets
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: asset-graph-assets.list-assets
+          with:
+            X-Organization-ID: tools.X-Organization-ID
+            graph_id: tools.graph_id
+            execution_id: tools.execution_id
+            page_token: tools.page_token
+            page_size: tools.page_size
+            risks: tools.risks
+            shard: tools.shard
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: censys-get-asset
+          description: Censys Get an Asset
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: asset-graph-assets.get-asset
+          with:
+            X-Organization-ID: tools.X-Organization-ID
+            graph_id: tools.graph_id
+            execution_id: tools.execution_id
+            asset_id: tools.asset_id
+          outputParameters:
+            - type: object
+              mapping: $.

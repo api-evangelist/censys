@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-searchqueryhit-structure.json",
+  "name": "SearchQueryHit",
+  "description": "SearchQueryHit schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "certificate_v1": {
+      "$ref": "#/components/schemas/CertificateAsset"
+    },
+    "host_v1": {
+      "$ref": "#/components/schemas/HostAssetWithMatchedServices"
+    },
+    "tags": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Tags applied to this asset.",
+      "items": {
+        "$ref": "#/components/schemas/SearchQueryTagInfo"
+      }
+    },
+    "webproperty_v1": {
+      "$ref": "#/components/schemas/WebpropertyAsset"
+    }
+  }
+}

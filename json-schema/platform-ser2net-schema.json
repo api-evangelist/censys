@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-ser2net-schema.json",
+  "title": "Ser2Net",
+  "description": "Ser2Net schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "device": {
+      "type": "string"
+    },
+    "os": {
+      "type": "string"
+    },
+    "serial_parameters": {
+      "$ref": "#/components/schemas/Ser2Net_SerialParameters"
+    },
+    "software": {
+      "type": "string"
+    },
+    "software_version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

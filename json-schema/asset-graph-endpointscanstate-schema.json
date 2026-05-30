@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-endpointscanstate-schema.json",
+  "title": "EndpointScanState",
+  "description": "EndpointScanState schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "banner": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "banner_hash_sha256": {
+      "format": "hex",
+      "type": "string"
+    },
+    "chrome_devtools": {
+      "$ref": "#/components/schemas/ChromeDevtools"
+    },
+    "cobalt_strike": {
+      "$ref": "#/components/schemas/CobaltStrike"
+    },
+    "elasticsearch": {
+      "$ref": "#/components/schemas/ElasticSearch"
+    },
+    "endpoint_type": {
+      "type": "string"
+    },
+    "extracted": {
+      "$ref": "#/components/schemas/ExtractedEndpointData"
+    },
+    "fortigate": {
+      "$ref": "#/components/schemas/Fortigate"
+    },
+    "graphql": {
+      "$ref": "#/components/schemas/Graphql"
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "http": {
+      "$ref": "#/components/schemas/Http"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "ivanti_avalanche": {
+      "$ref": "#/components/schemas/IvantiAvalanche"
+    },
+    "jenkins": {
+      "$ref": "#/components/schemas/Jenkins"
+    },
+    "kubernetes": {
+      "$ref": "#/components/schemas/Kubernetes"
+    },
+    "ollama": {
+      "$ref": "#/components/schemas/Ollama"
+    },
+    "open_directory": {
+      "$ref": "#/components/schemas/OpenDirectory"
+    },
+    "path": {
+      "type": "string"
+    },
+    "plex_media_server": {
+      "$ref": "#/components/schemas/PlexMediaServer"
+    },
+    "port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "pprof": {
+      "$ref": "#/components/schemas/Pprof"
+    },
+    "prometheus": {
+      "$ref": "#/components/schemas/Prometheus"
+    },
+    "prometheus_target": {
+      "$ref": "#/components/schemas/PrometheusTarget"
+    },
+    "redlion_web": {
+      "$ref": "#/components/schemas/RedlionWeb"
+    },
+    "scada_view": {
+      "$ref": "#/components/schemas/ScadaView"
+    },
+    "scan_time": {
+      "type": "string"
+    },
+    "screenshots": {
+      "items": {
+        "$ref": "#/components/schemas/Screenshot"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "transport_protocol": {
+      "enum": [
+        "",
+        "tcp",
+        "udp",
+        "icmp",
+        "quic"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

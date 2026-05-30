@@ -1,0 +1,11 @@
+{
+  "at_time": "2026-05-29T12:34:56Z",
+  "create_time": "2026-05-29T12:34:56Z",
+  "delete_time": "2026-05-29T12:34:56Z",
+  "error": "example",
+  "job_id": "01234567-89ab-cdef-0123-456789abcdef",
+  "result_count": 222,
+  "state": "completed",
+  "target": null,
+  "update_time": "2026-05-29T12:34:56Z"
+}

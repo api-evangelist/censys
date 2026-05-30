@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-memberlist-nodeinfo-structure.json",
+  "name": "Memberlist_NodeInfo",
+  "description": "Memberlist_NodeInfo schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "delegate_versions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "int32",
+        "minimum": 0
+      }
+    },
+    "incarnation": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "ip": {
+      "type": "string"
+    },
+    "meta": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "port": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "protocol_version": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

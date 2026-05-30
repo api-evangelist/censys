@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-hostobservationrange-schema.json",
+  "title": "HostObservationRange",
+  "description": "HostObservationRange schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "end_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "port": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "protocols": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "start_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "transport_protocol": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "ip",
+    "port",
+    "transport_protocol",
+    "protocols",
+    "start_time",
+    "end_time"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-darkgate-file-schema.json",
+  "title": "Darkgate_File",
+  "description": "Darkgate_File schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "length": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

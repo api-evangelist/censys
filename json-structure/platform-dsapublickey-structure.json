@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-dsapublickey-structure.json",
+  "name": "DsaPublicKey",
+  "description": "DsaPublicKey schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "g": {
+      "type": "string"
+    },
+    "p": {
+      "type": "string"
+    },
+    "q": {
+      "type": "string"
+    },
+    "y": {
+      "type": "string"
+    }
+  }
+}

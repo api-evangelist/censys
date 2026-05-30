@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-snmp-engine-structure.json",
+  "name": "Snmp_Engine",
+  "description": "Snmp_Engine schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "engine_boots": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "engine_time": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "format": {
+      "type": "string"
+    },
+    "format_data": {
+      "type": "string"
+    },
+    "organization": {
+      "type": "string"
+    },
+    "pen": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "raw_id": {
+      "type": "string"
+    },
+    "rfc3411": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-snmp-interfaces-structure.json",
+  "name": "Snmp_Interfaces",
+  "description": "Snmp_Interfaces schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "num_ifaces": {
+      "type": "int32",
+      "description": "1.3.6.1.2.1.2.1 - Number of network interfaces",
+      "minimum": 0
+    }
+  }
+}

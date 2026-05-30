@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-cabforganizationid-structure.json",
+  "name": "CabfOrganizationId",
+  "description": "CabfOrganizationId schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "country": {
+      "type": "string"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "scheme": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    }
+  }
+}

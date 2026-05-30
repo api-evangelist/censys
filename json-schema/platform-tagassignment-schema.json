@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-tagassignment-schema.json",
+  "title": "TagAssignment",
+  "description": "TagAssignment schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "asset_id": {
+      "description": "The identifier of the tagged asset (host IP, certificate SHA-256 fingerprint, or web property domain/IP:port).",
+      "type": "string"
+    },
+    "asset_type": {
+      "description": "The inferred type of the asset.",
+      "enum": [
+        "host",
+        "certificate",
+        "web_property",
+        "unknown"
+      ],
+      "type": "string"
+    },
+    "created_at": {
+      "description": "RFC3339 timestamp when the assignment was created.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "created_by": {
+      "description": "The user ID of the user who created the assignment.",
+      "format": "uuid",
+      "type": "string"
+    },
+    "id": {
+      "description": "The unique ID of the assignment.",
+      "format": "uuid",
+      "type": "string"
+    },
+    "platform_ref": {
+      "description": "A direct URL to the asset in the Censys platform.",
+      "type": "string"
+    },
+    "tag_id": {
+      "description": "The ID of the tag.",
+      "format": "uuid",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "tag_id",
+    "asset_id",
+    "asset_type",
+    "platform_ref",
+    "created_at",
+    "created_by"
+  ],
+  "additionalProperties": false
+}

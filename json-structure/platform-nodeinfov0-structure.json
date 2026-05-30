@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-nodeinfov0-structure.json",
+  "name": "NodeInfoV0",
+  "description": "NodeInfoV0 schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "features": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "is_healthy": {
+      "type": "boolean"
+    },
+    "latest_milestone": {
+      "type": "int64"
+    },
+    "latest_uncommitted_milestone": {
+      "type": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "neighbors": {
+      "type": "int64"
+    },
+    "tips": {
+      "type": "int64"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rlogin-schema.json",
+  "title": "Rlogin",
+  "description": "Rlogin schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "error": {
+      "type": "string"
+    },
+    "operating_system": {
+      "type": "string"
+    },
+    "software": {
+      "type": "string"
+    },
+    "software_version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

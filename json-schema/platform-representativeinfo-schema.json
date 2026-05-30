@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-representativeinfo-schema.json",
+  "title": "RepresentativeInfo",
+  "description": "RepresentativeInfo schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "excluded_ports": {
+      "items": {
+        "format": "int32",
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "reason": {
+      "enum": [
+        "",
+        "protocol_port_count",
+        "incapsula",
+        "zscaler"
+      ],
+      "type": "string"
+    },
+    "represented_ports": {
+      "items": {
+        "format": "int32",
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "sampled_port": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

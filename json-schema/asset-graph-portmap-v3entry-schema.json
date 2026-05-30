@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-portmap-v3entry-schema.json",
+  "title": "Portmap_V3Entry",
+  "description": "Portmap_V3Entry schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "network_id": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "shorthand": {
+      "type": "string"
+    },
+    "universal_address": {
+      "type": "string"
+    },
+    "version": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

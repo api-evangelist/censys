@@ -1,0 +1,31 @@
+{
+  "broadcasting_active": false,
+  "connect_port": 613,
+  "content_cache_port": 578,
+  "download_lan_peer_group": 853,
+  "enabled_services": 865,
+  "euniverse": 289,
+  "games_running": true,
+  "hostname": "example.com",
+  "ip_addresses": [
+    "example"
+  ],
+  "is64bit": false,
+  "mac_addresses": [
+    "aa:bb:cc:dd:ee:ff"
+  ],
+  "min_version": 715,
+  "ostype": 19,
+  "public_ip_address": "example",
+  "remoteplay_active": true,
+  "screen_locked": false,
+  "steam_deck": true,
+  "steam_version": "example",
+  "supported_services": 305,
+  "users": [
+    null
+  ],
+  "version": 720,
+  "vr_active": true,
+  "vr_link_caps": "https://search.censys.io/hosts/8.8.8.8"
+}

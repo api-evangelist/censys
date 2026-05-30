@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-elasticsearch-resultsnodeinfo-clustercombinedinfo-schema.json",
+  "title": "ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo",
+  "description": "ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "filesystem": {
+      "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo_Filesystem"
+    },
+    "indices": {
+      "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo_ClusterCombinedInfo_Indices"
+    },
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "timestamp": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "uuid": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

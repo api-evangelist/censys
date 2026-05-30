@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-usercredits-schema.json",
+  "title": "UserCredits",
+  "description": "UserCredits schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "balance": {
+      "description": "The current credit balance for the user.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "resets_at": {
+      "description": "The date that the user's credits will be reset.",
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "required": [
+    "balance"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-zlint-structure.json",
+  "name": "ZLint",
+  "description": "ZLint schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "errors_present": {
+      "type": "boolean",
+      "description": "Whether the certificate's attributes triggered any error lints for non-conformance to the X.509 standard."
+    },
+    "failed_lints": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "A list of lint names which failed, if applicable.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fatals_present": {
+      "type": "boolean",
+      "description": "Whether the certificate's attributes triggered any fatal lints for non-conformance to the X.509 standard."
+    },
+    "notices_present": {
+      "type": "boolean",
+      "description": "Whether the certificate's attributes triggered any notice lints for non-conformance to the X.509 standard."
+    },
+    "timestamp": {
+      "type": "string",
+      "description": "An RFC-3339-formated timestamp indicating when the certificate was linted."
+    },
+    "version": {
+      "type": "int64",
+      "description": "The version of Zlint used to lint the certificate."
+    },
+    "warnings_present": {
+      "type": "boolean",
+      "description": "Whether the certificate's attributes triggered any warning lints for non-conformance to the X.509 standard."
+    }
+  }
+}

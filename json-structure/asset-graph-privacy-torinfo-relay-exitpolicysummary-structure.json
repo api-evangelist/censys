@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-privacy-torinfo-relay-exitpolicysummary-structure.json",
+  "name": "Privacy_TorInfo_Relay_ExitPolicySummary",
+  "description": "Privacy_TorInfo_Relay_ExitPolicySummary schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "accept": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "TCP ports or port ranges that the relay accepts for most IP addresses.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reject": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "TCP ports or port ranges that the relay rejects for most IP addresses.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

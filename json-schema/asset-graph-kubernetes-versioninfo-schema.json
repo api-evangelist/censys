@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-kubernetes-versioninfo-schema.json",
+  "title": "Kubernetes_VersionInfo",
+  "description": "Kubernetes_VersionInfo schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "build_date": {
+      "description": "Date version was built.",
+      "type": "string"
+    },
+    "compiler": {
+      "description": "Go Compiler used",
+      "type": "string"
+    },
+    "git_commit": {
+      "description": "Git commit version built from.",
+      "type": "string"
+    },
+    "git_tree_state": {
+      "description": "State of the tree when built.",
+      "type": "string"
+    },
+    "git_version": {
+      "type": "string"
+    },
+    "go_version": {
+      "description": "Version of GO used to build version.",
+      "type": "string"
+    },
+    "major": {
+      "description": "Kubernetes major version",
+      "type": "string"
+    },
+    "minor": {
+      "description": "Kubernetes minor version",
+      "type": "string"
+    },
+    "platform": {
+      "description": "Platform compiled for",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

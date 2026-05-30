@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-murmur-schema.json",
+  "title": "Murmur",
+  "description": "Murmur schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "crypt_setup": {
+      "$ref": "#/components/schemas/CryptSetup"
+    },
+    "murmur_messages": {
+      "items": {
+        "$ref": "#/components/schemas/MurmurMessage"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "reject": {
+      "$ref": "#/components/schemas/Reject"
+    },
+    "server_config": {
+      "$ref": "#/components/schemas/ServerConfig"
+    },
+    "server_sync": {
+      "$ref": "#/components/schemas/ServerSync"
+    },
+    "text_messages": {
+      "items": {
+        "$ref": "#/components/schemas/TextMessage"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "version": {
+      "$ref": "#/components/schemas/Murmur_MurmurVersion"
+    }
+  },
+  "additionalProperties": false
+}

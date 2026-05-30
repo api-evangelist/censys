@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-rsacryptographickey-structure.json",
+  "name": "RSACryptographicKey",
+  "description": "RSACryptographicKey schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "exponent": {
+      "type": "string"
+    },
+    "length": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "modulus": {
+      "type": "string"
+    }
+  }
+}

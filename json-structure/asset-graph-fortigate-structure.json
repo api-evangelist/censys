@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-fortigate-structure.json",
+  "name": "Fortigate",
+  "description": "Fortigate schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "api_version": {
+      "type": "string"
+    },
+    "build": {
+      "type": "int32"
+    },
+    "serial": {
+      "type": "string"
+    },
+    "status_code": {
+      "type": "int32"
+    },
+    "status_msg": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

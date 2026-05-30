@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-elasticsearch-resultsnodeinfo-nodes-nodedata-schema.json",
+  "title": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData",
+  "description": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "build_flavor": {
+      "type": "string"
+    },
+    "build_hash": {
+      "type": "string"
+    },
+    "build_type": {
+      "type": "string"
+    },
+    "host": {
+      "type": "string"
+    },
+    "ingest_processors": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "ip": {
+      "type": "string"
+    },
+    "ip_raw": {
+      "type": "string"
+    },
+    "jvm": {
+      "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo_Nodes_NodeData_JVM"
+    },
+    "modules": {
+      "items": {
+        "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo_Nodes_NodeData_Modules"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "os": {
+      "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo_Nodes_NodeData_OS"
+    },
+    "roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "settings": {
+      "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo_Nodes_NodeData_NodeSettings"
+    },
+    "thread_pool_list": {
+      "items": {
+        "$ref": "#/components/schemas/ElasticSearch_ResultsNodeInfo_Nodes_NodeData_ThreadPool"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "total_indexing_buffer": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

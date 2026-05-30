@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-kubernetes-node-nodeaddress-schema.json",
+  "title": "Kubernetes_Node_NodeAddress",
+  "description": "Kubernetes_Node_NodeAddress schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "address": {
+      "description": "Node address, IP/URL.",
+      "type": "string"
+    },
+    "address_type": {
+      "description": "Node address type, one of Hostname, ExternalIP or InternalIP.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

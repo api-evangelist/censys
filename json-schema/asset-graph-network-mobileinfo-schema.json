@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-network-mobileinfo-schema.json",
+  "title": "Network_MobileInfo",
+  "description": "Network_MobileInfo schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "carrier_name": {
+      "description": "The name of the mobile carrier.",
+      "type": "string"
+    },
+    "mcc": {
+      "description": "The Mobile Country Code, identifying the country of the mobile network.",
+      "type": "string"
+    },
+    "mnc": {
+      "description": "The Mobile Network Code, identifying the specific carrier network.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

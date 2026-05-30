@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-authorityinfoaccess-schema.json",
+  "title": "AuthorityInfoAccess",
+  "description": "AuthorityInfoAccess schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "issuer_urls": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "ocsp_urls": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

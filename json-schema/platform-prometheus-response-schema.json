@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-prometheus-response-schema.json",
+  "title": "Prometheus_Response",
+  "description": "Prometheus_Response schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "active_targets": {
+      "description": "List of active targets.",
+      "items": {
+        "$ref": "#/components/schemas/Prometheus_Response_ActiveTarget"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "all_versions": {
+      "description": "List of the versions of everything that Prometheus finds i.e., version of Prometheus, Go, Node, cAdvisor, etc.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "config_exposed": {
+      "description": "True when the config endpoint is exposed.",
+      "type": "boolean"
+    },
+    "dropped_targets": {
+      "description": "List of dropped targets.",
+      "items": {
+        "$ref": "#/components/schemas/Prometheus_Response_DroppedTarget"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "go_versions": {
+      "description": "List of the versions of Go.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "prometheus_versions": {
+      "items": {
+        "$ref": "#/components/schemas/Prometheus_Response_PrometheusVersion"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

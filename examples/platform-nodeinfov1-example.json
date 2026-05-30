@@ -1,0 +1,11 @@
+{
+  "confirmed_milestone_index": 413,
+  "features": [
+    "example"
+  ],
+  "is_healthy": false,
+  "latest_milestone_index": 512,
+  "name": "Production Internet Asset Inventory",
+  "network_id": "cns_8757b5ec2eda3960",
+  "version": "example"
+}

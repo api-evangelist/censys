@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-sip-structure.json",
+  "name": "Sip",
+  "description": "Sip schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "type": "int32"
+    },
+    "server": {
+      "type": "string",
+      "description": "Server software reported by service"
+    },
+    "status": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "description": "SIP version"
+    }
+  }
+}

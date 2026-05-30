@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-textmessage-schema.json",
+  "title": "TextMessage",
+  "description": "TextMessage schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "actor": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "channel_id": {
+      "items": {
+        "format": "int32",
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "session": {
+      "items": {
+        "format": "int32",
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "tree_id": {
+      "items": {
+        "format": "int32",
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

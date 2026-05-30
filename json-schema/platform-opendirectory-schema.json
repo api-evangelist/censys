@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-opendirectory-schema.json",
+  "title": "OpenDirectory",
+  "description": "OpenDirectory schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "files": {
+      "items": {
+        "$ref": "#/components/schemas/OpenDirectory_File"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "recursive": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

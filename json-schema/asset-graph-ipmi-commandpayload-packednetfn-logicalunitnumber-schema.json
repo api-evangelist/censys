@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-ipmi-commandpayload-packednetfn-logicalunitnumber-schema.json",
+  "title": "Ipmi_CommandPayload_PackedNetFn_LogicalUnitNumber",
+  "description": "Ipmi_CommandPayload_PackedNetFn_LogicalUnitNumber schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The human-readable name of the LUN",
+      "type": "string"
+    },
+    "raw": {
+      "description": "The value of the LUN (3 bits)",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

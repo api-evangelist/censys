@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-certificaterevocation-revocationinfo-structure.json",
+  "name": "CertificateRevocation_RevocationInfo",
+  "description": "CertificateRevocation_RevocationInfo schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "next_update": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string",
+      "description": "An enumerated value indicating the issuer-supplied reason for the revocation.",
+      "enum": [
+        "",
+        "unspecified",
+        "key_compromise",
+        "ca_compromise",
+        "affiliation_changed",
+        "superseded",
+        "cessation_of_operation",
+        "certificate_hold",
+        "remove_from_crl",
+        "privilege_withdrawn",
+        "aa_compromise"
+      ]
+    },
+    "revocation_time": {
+      "type": "string",
+      "description": "The issuer-supplied timestamp indicating when the certificate was revoked."
+    },
+    "revoked": {
+      "type": "boolean",
+      "description": "Whether the certificate has been revoked before its expiry date by the issuer."
+    }
+  }
+}

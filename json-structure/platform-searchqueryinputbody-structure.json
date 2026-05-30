@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-searchqueryinputbody-structure.json",
+  "name": "SearchQueryInputBody",
+  "description": "SearchQueryInputBody schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "query"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "fields": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Specify fields to only return in the response. If you provide fields and omit `host.services.port`, `host.services.transport_protocol`, and `host.services.protocol`, then `matched_services` will not be returned in the response.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "page_size": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Number of results to return to per page. The default and maximum is 100.",
+      "minimum": 0
+    },
+    "page_token": {
+      "type": "string",
+      "description": "page token for the requested page of search results"
+    },
+    "query": {
+      "type": "string",
+      "description": "CenQL query string to search upon"
+    }
+  }
+}

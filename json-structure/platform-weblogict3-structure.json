@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-weblogict3-structure.json",
+  "name": "WeblogicT3",
+  "description": "WeblogicT3 schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "error": {
+      "type": "string"
+    },
+    "error_message": {
+      "type": "string"
+    },
+    "weblogic_version": {
+      "type": "string"
+    }
+  }
+}

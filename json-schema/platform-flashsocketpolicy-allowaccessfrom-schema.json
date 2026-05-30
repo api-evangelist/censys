@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-flashsocketpolicy-allowaccessfrom-schema.json",
+  "title": "FlashSocketPolicy_AllowAccessFrom",
+  "description": "FlashSocketPolicy_AllowAccessFrom schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "domain": {
+      "type": "string"
+    },
+    "secure": {
+      "type": "boolean"
+    },
+    "to_ports": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

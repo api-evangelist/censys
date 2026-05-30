@@ -1,0 +1,13 @@
+{
+  "hello_received": false,
+  "ordered_messages_raw": [
+    "Active production asset under observation."
+  ],
+  "sccn_received": false,
+  "sccrp": null,
+  "sccrp_received": true,
+  "sccrq_received": true,
+  "stop_sccn": null,
+  "stop_sccn_received": true,
+  "zlb_received": true
+}

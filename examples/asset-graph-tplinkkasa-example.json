@@ -1,0 +1,17 @@
+{
+  "active_mode": "example",
+  "brightness": 975,
+  "dev_name": "Production Internet Asset Inventory",
+  "err_code": 989,
+  "feature": "example",
+  "hw_ver": "example",
+  "icon_hash": "example",
+  "led_off": 578,
+  "mic_type": "example",
+  "model": "example",
+  "on_time": 1748520000000,
+  "relay_state": 40,
+  "rssi": 725,
+  "sw_ver": "example",
+  "updating": 389
+}

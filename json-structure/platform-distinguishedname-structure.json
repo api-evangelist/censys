@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-distinguishedname-structure.json",
+  "name": "DistinguishedName",
+  "description": "DistinguishedName schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "common_name": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The commonName (CN) elements of the Distinguished Name (OID: 2.5.4.3).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "country": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The countryName (C) elements of the Distinguished Name (OID: 2.5.4.6).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "domain_component": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The domainComponent (DC) elements of the Distinguished Name (OID: 0.9.2342.19200300.100.1.25).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "email_address": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The emailAddress (E) elements of the Distinguished Name (OID: 1.2.840.113549.1.9.1).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "given_name": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The givenName (G) elements of the Distinguished Name (OID: 2.5.4.42).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "jurisdiction_country": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The jurisdictionCountry elements of the Distinguished Name (OID: 1.3.6.1.4.1.311.60.2.1.3).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "jurisdiction_locality": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The jurisdictionLocality elements of the Distinguished Name (OID: 1.3.6.1.4.1.311.60.2.1.1).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "jurisdiction_province": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The jurisdictionStateOrProvince elements of the Distinguished Name (OID: 1.3.6.1.4.1.311.60.2.1.2).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "locality": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The localityName (L) elements of the Distinguished Name (OID: 2.5.4.7).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "organization": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The organizationName (O) elements of the Distinguished Name (OID: 2.5.4.10).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "organization_id": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "organizational_unit": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The organizationalUnit (OU) elements of the Distinguished Name (OID: 2.5.4.11).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "postal_code": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The postalCode elements of the Distinguished Name (OID: 2.5.4.17).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "province": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The stateOrProvinceName (ST) elements of the Distinguished Name (OID: 2.5.4.8).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "serial_number": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The serialNumber elements of the Distinguished Name (OID: 2.5.4.5).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "street_address": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The streetAddress (STREET) elements of the Distinguished Name (OID: 2.5.4.9).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "surname": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "The surname (SN) elements of the Distinguished Name (OID: 2.5.4.4).",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-mqtt-connectionackreturn-structure.json",
+  "name": "Mqtt_ConnectionAckReturn",
+  "description": "Mqtt_ConnectionAckReturn schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "raw": {
+      "type": "int32",
+      "description": "Raw connect status value",
+      "minimum": 0
+    },
+    "return_value": {
+      "type": "string",
+      "description": "Connection status"
+    }
+  }
+}

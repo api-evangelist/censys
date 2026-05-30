@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-network-structure.json",
+  "name": "Network",
+  "description": "Network schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "allocation_type": {
+      "type": "string"
+    },
+    "cidrs": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "A set of CIDRs describing the range.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created": {
+      "type": "string"
+    },
+    "handle": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "updated": {
+      "type": "string"
+    }
+  }
+}

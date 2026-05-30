@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-murmur-murmurversion-structure.json",
+  "name": "Murmur_MurmurVersion",
+  "description": "Murmur_MurmurVersion schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "build": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "major": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "minor": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "os": {
+      "type": "string"
+    },
+    "os_version": {
+      "type": "string"
+    },
+    "version_string": {
+      "type": "string"
+    }
+  }
+}

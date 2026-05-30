@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-vnc-structure.json",
+  "name": "Vnc",
+  "description": "Vnc schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "connection_failed_reason": {
+      "type": "string",
+      "description": "If server terminates handshake, the reason offered (if any)"
+    },
+    "desktop_name": {
+      "type": "string",
+      "description": "Desktop name provided by the server, capped at 255 bytes"
+    },
+    "pixel_encoding": {
+      "$ref": "#/components/schemas/Vnc_KeyValue"
+    },
+    "screen_info": {
+      "$ref": "#/components/schemas/DesktopInfo"
+    },
+    "security_types": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "server-specified security options",
+      "items": {
+        "$ref": "#/components/schemas/Vnc_KeyValue"
+      }
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

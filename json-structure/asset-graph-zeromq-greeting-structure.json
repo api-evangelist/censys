@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-zeromq-greeting-structure.json",
+  "name": "Zeromq_Greeting",
+  "description": "Zeromq_Greeting schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "as_server": {
+      "type": "boolean"
+    },
+    "mechanism": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "version_major": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "version_minor": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

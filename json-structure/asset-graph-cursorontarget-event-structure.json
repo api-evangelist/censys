@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-cursorontarget-event-structure.json",
+  "name": "CursorOnTarget_Event",
+  "description": "CursorOnTarget_Event schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "callsign": {
+      "type": "string"
+    },
+    "endpoint": {
+      "type": "string"
+    },
+    "how": {
+      "type": "string"
+    },
+    "point": {
+      "$ref": "#/components/schemas/CursorOnTarget_Point"
+    },
+    "stale": {
+      "type": "string"
+    },
+    "start": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/components/schemas/CursorOnTarget_Status"
+    },
+    "takv": {
+      "$ref": "#/components/schemas/CursorOnTarget_Takv"
+    },
+    "time": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "uid": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "video_url": {
+      "type": "string"
+    }
+  }
+}

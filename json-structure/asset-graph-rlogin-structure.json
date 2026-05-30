@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-rlogin-structure.json",
+  "name": "Rlogin",
+  "description": "Rlogin schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "error": {
+      "type": "string"
+    },
+    "operating_system": {
+      "type": "string"
+    },
+    "software": {
+      "type": "string"
+    },
+    "software_version": {
+      "type": "string"
+    }
+  }
+}

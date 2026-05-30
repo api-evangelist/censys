@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-hidvertx-structure.json",
+  "name": "HidVertx",
+  "description": "HidVertx schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "firmware_date": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "mac_address": {
+      "type": "string"
+    },
+    "make_model": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

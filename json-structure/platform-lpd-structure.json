@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-lpd-structure.json",
+  "name": "Lpd",
+  "description": "Lpd schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "jobs": {
+      "$ref": "#/components/schemas/LpdMessage"
+    },
+    "long_state": {
+      "type": "string"
+    },
+    "lpd_message": {
+      "$ref": "#/components/schemas/LpdMessage"
+    },
+    "printer": {
+      "type": "string"
+    },
+    "raw": {
+      "type": "string"
+    },
+    "short_state": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  }
+}

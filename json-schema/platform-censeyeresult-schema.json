@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-censeyeresult-schema.json",
+  "title": "CenseyeResult",
+  "description": "CenseyeResult schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "count": {
+      "description": "Number of matching documents for this field-value combination.",
+      "format": "double",
+      "type": "number"
+    },
+    "field_value_pairs": {
+      "description": "The field-value pairs that were counted.",
+      "items": {
+        "$ref": "#/components/schemas/FieldValuePair"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "count",
+    "field_value_pairs"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-unitronicspcom-schema.json",
+  "title": "UnitronicsPcom",
+  "description": "UnitronicsPcom schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "buffer_size": {
+      "type": "string"
+    },
+    "hardware_version": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "model_executor": {
+      "type": "string"
+    },
+    "model_op_executor": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "os_build": {
+      "type": "string"
+    },
+    "os_version": {
+      "type": "string"
+    },
+    "unique_id": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "unit_id": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

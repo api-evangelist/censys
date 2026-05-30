@@ -1,0 +1,11 @@
+{
+  "detail": "example",
+  "errors": [
+    null,
+    null
+  ],
+  "instance": "https://search.censys.io",
+  "status": 324,
+  "title": "example",
+  "type": "about:blank"
+}

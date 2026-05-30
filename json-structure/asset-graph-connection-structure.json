@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-connection-structure.json",
+  "name": "Connection",
+  "description": "Connection schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ahs_length": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "cmd_seq": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "isid": {
+      "type": "int64",
+      "minimum": 0
+    },
+    "keyval_pairs": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "max_new_cmds": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "status_seq": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "tsih": {
+      "type": "int64",
+      "minimum": 0
+    },
+    "version_active": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "version_max": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

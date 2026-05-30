@@ -1,0 +1,11 @@
+{
+  "cc": "example",
+  "cc_flags": "example",
+  "cxx": "example",
+  "cxx_flags": "example",
+  "dist_arch": "example",
+  "dist_mod": "example",
+  "link_flags": "https://search.censys.io/hosts/8.8.8.8",
+  "target_arch": "example",
+  "target_os": "example"
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-networkclassification-schema.json",
+  "title": "NetworkClassification",
+  "description": "NetworkClassification schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "hosting": {
+      "description": "Whether the host belongs to an Internet hosting service provider.",
+      "type": "boolean"
+    },
+    "mobile": {
+      "description": "Whether the host belongs to a mobile network.",
+      "type": "boolean"
+    },
+    "mobile_info": {
+      "$ref": "#/components/schemas/Network_MobileInfo",
+      "description": "Information about the mobile network the host belongs to, if any."
+    },
+    "satellite": {
+      "description": "Whether the host belongs to a statellite network.",
+      "type": "boolean"
+    },
+    "source": {
+      "description": "The source of the data.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

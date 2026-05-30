@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-elffile-schema.json",
+  "title": "ElfFile",
+  "description": "ElfFile schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "class": {
+      "type": "string"
+    },
+    "data": {
+      "type": "string"
+    },
+    "machine": {
+      "type": "string"
+    },
+    "os_abi": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

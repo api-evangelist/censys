@@ -1,0 +1,28 @@
+{
+  "build_flavor": "example",
+  "build_hash": "example",
+  "build_type": "example",
+  "host": "example",
+  "ingest_processors": [
+    "example"
+  ],
+  "ip": "8.8.8.8",
+  "ip_raw": "example",
+  "jvm": null,
+  "modules": [
+    null,
+    null
+  ],
+  "name": "Production Internet Asset Inventory",
+  "os": null,
+  "roles": [
+    "example"
+  ],
+  "settings": null,
+  "thread_pool_list": [
+    null,
+    null
+  ],
+  "total_indexing_buffer": 557,
+  "version": "example"
+}

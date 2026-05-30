@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-certificate-parsed-structure.json",
+  "name": "Certificate_Parsed",
+  "description": "Certificate_Parsed schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "extensions": {
+      "description": "A record containing parsed X.509 extensions that provide additional identification information or additional cryptographic capabilities.",
+      "$ref": "#/components/schemas/CertificateExtensions"
+    },
+    "issuer": {
+      "description": "A record containing the parsed contents of the issuer_dn.",
+      "$ref": "#/components/schemas/DistinguishedName"
+    },
+    "issuer_dn": {
+      "type": "string",
+      "description": "Distinguished Name of the entity that has signed and issued the certificate."
+    },
+    "ja4x": {
+      "type": "string"
+    },
+    "redacted": {
+      "type": "boolean"
+    },
+    "serial_number": {
+      "type": "string",
+      "description": "Issuer-specific identifier of the certificate."
+    },
+    "serial_number_hex": {
+      "type": "string",
+      "description": "Issuer-specific identifier of the certificate, represented as hexadecimal."
+    },
+    "signature": {
+      "$ref": "#/components/schemas/Signature"
+    },
+    "subject": {
+      "description": "A record containing the parsed contents of the subject_dn.",
+      "$ref": "#/components/schemas/DistinguishedName"
+    },
+    "subject_dn": {
+      "type": "string",
+      "description": "Distinguished Name of the entity associated with the public key."
+    },
+    "subject_key_info": {
+      "description": "Information about the certificate's public key.",
+      "$ref": "#/components/schemas/SubjectKeyInfo"
+    },
+    "unknown_extensions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Extension"
+      }
+    },
+    "validity_period": {
+      "description": "Information about the time for which the certificate is valid.",
+      "$ref": "#/components/schemas/ValidityPeriod"
+    },
+    "version": {
+      "type": "int32"
+    }
+  }
+}

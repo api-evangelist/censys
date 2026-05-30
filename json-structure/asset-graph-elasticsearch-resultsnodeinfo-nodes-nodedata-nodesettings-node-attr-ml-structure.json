@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-elasticsearch-resultsnodeinfo-nodes-nodedata-nodesettings-node-attr-ml-structure.json",
+  "name": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_NodeSettings_Node_Attr_ML",
+  "description": "ElasticSearch_ResultsNodeInfo_Nodes_NodeData_NodeSettings_Node_Attr_ML schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "enabled": {
+      "type": "string"
+    },
+    "machine_memory": {
+      "type": "string"
+    },
+    "max_open_jobs": {
+      "type": "string"
+    }
+  }
+}

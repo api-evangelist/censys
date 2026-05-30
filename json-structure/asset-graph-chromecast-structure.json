@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-chromecast-structure.json",
+  "name": "Chromecast",
+  "description": "Chromecast schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "applications": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Chromecast_Application"
+      }
+    },
+    "icon_url": {
+      "type": "string"
+    },
+    "is_active_input": {
+      "type": "boolean"
+    },
+    "protocol_version": {
+      "type": "int32"
+    },
+    "status_text": {
+      "type": "string"
+    },
+    "universal_app_id": {
+      "type": "string"
+    },
+    "volume": {
+      "$ref": "#/components/schemas/Chromecast_Volume"
+    }
+  }
+}

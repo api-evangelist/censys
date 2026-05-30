@@ -1,0 +1,22 @@
+{
+  "components": [
+    null,
+    null
+  ],
+  "confidence": 9.86,
+  "cpe": "example",
+  "edition": "example",
+  "evidence": [
+    null
+  ],
+  "life_cycle": null,
+  "part": "example",
+  "product": "example",
+  "source": "third_party",
+  "type": [
+    "example"
+  ],
+  "update": "example",
+  "vendor": "example",
+  "version": "example"
+}

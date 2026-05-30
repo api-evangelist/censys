@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-flashsocketpolicy-schema.json",
+  "title": "FlashSocketPolicy",
+  "description": "FlashSocketPolicy schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "allow_access_from": {
+      "items": {
+        "$ref": "#/components/schemas/FlashSocketPolicy_AllowAccessFrom"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "policy": {
+      "type": "string"
+    },
+    "site_control": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

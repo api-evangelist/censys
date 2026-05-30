@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rootstore-chain-schema.json",
+  "title": "RootStore_Chain",
+  "description": "RootStore_Chain schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "sha256fp": {
+      "format": "hex",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

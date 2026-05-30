@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-vnc-keyvalue-schema.json",
+  "title": "Vnc_KeyValue",
+  "description": "Vnc_KeyValue schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "format": "utf8",
+      "type": "string"
+    },
+    "value": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

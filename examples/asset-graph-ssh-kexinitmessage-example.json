@@ -1,0 +1,33 @@
+{
+  "client_to_server_ciphers": [
+    "example"
+  ],
+  "client_to_server_compression": [
+    "example"
+  ],
+  "client_to_server_languages": [
+    "example"
+  ],
+  "client_to_server_macs": [
+    "aa:bb:cc:dd:ee:ff"
+  ],
+  "first_kex_follows": true,
+  "host_key_algorithms": [
+    "example"
+  ],
+  "kex_algorithms": [
+    "example"
+  ],
+  "server_to_client_ciphers": [
+    "example"
+  ],
+  "server_to_client_compression": [
+    "example"
+  ],
+  "server_to_client_languages": [
+    "example"
+  ],
+  "server_to_client_macs": [
+    "aa:bb:cc:dd:ee:ff"
+  ]
+}

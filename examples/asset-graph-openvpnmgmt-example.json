@@ -1,0 +1,9 @@
+{
+  "build_date": "example",
+  "features": [
+    "example"
+  ],
+  "management_version": "example",
+  "open_vpn_version": "example",
+  "target_triple": "example"
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-attribute-structure.json",
+  "name": "Attribute",
+  "description": "Attribute schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "components": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/CPE"
+      }
+    },
+    "confidence": {
+      "type": "double"
+    },
+    "cpe": {
+      "type": "string"
+    },
+    "edition": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Evidence"
+      }
+    },
+    "life_cycle": {
+      "$ref": "#/components/schemas/CPE_LifeCycle"
+    },
+    "part": {
+      "type": "string"
+    },
+    "product": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "",
+        "censys",
+        "recog",
+        "wappalyzer",
+        "third_party",
+        "html_meta_extractor"
+      ]
+    },
+    "type": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "update": {
+      "type": "string"
+    },
+    "vendor": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

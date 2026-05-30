@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-signature-schema.json",
+  "title": "Signature",
+  "description": "Signature schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "self_signed": {
+      "description": "Whether the certificate was signed by its own key.",
+      "type": "boolean"
+    },
+    "signature_algorithm": {
+      "$ref": "#/components/schemas/KeyAlgorithm"
+    },
+    "valid": {
+      "description": "Whether the signature is valid.",
+      "type": "boolean"
+    },
+    "value": {
+      "description": "Contents of the signature.",
+      "format": "hex",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

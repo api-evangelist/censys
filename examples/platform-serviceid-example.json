@@ -1,0 +1,6 @@
+{
+  "ip": "8.8.8.8",
+  "port": 702,
+  "protocol": "SSH",
+  "transport_protocol": "tcp"
+}

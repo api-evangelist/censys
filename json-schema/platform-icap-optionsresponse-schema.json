@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-icap-optionsresponse-schema.json",
+  "title": "Icap_OptionsResponse",
+  "description": "Icap_OptionsResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "allow_204": {
+      "type": "boolean"
+    },
+    "icap_version": {
+      "type": "string"
+    },
+    "istag": {
+      "type": "string"
+    },
+    "max_connections": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "methods": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "options_ttl": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "preview": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "server_header": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "service_id": {
+      "type": "string"
+    },
+    "status_code": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "status_text": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

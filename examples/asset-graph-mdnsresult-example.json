@@ -1,0 +1,13 @@
+{
+  "addresses": [
+    "example"
+  ],
+  "full_name": "Production Internet Asset Inventory",
+  "port": 510,
+  "priority": 273,
+  "target": "example",
+  "texts": [
+    "example"
+  ],
+  "weight": 204
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-threat-schema.json",
+  "title": "Threat",
+  "description": "Threat schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "actors": {
+      "items": {
+        "$ref": "#/components/schemas/Threat_Actor"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "confidence": {
+      "format": "double",
+      "type": "number"
+    },
+    "details": {
+      "$ref": "#/components/schemas/Threat_Details"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/components/schemas/Evidence"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "malware": {
+      "$ref": "#/components/schemas/Threat_Malware"
+    },
+    "name": {
+      "type": "string"
+    },
+    "source": {
+      "enum": [
+        "",
+        "censys",
+        "recog",
+        "wappalyzer",
+        "third_party",
+        "html_meta_extractor"
+      ],
+      "type": "string"
+    },
+    "tactic": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "type": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

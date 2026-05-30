@@ -1,0 +1,10 @@
+{
+  "$schema": "https://search.censys.io",
+  "active_execution": null,
+  "create_time": "example",
+  "description": "Active production asset under observation.",
+  "id": "01234567-89ab-cdef-0123-456789abcdef",
+  "name": "Production Internet Asset Inventory",
+  "status": "DELETING",
+  "update_time": "example"
+}

@@ -1,0 +1,11 @@
+{
+  "details": "example",
+  "max_payload_size": 782,
+  "min_block_size": 716,
+  "name": "Production Internet Asset Inventory",
+  "preferred_block_size": 684,
+  "size": 559,
+  "transmit_flags": [
+    "example"
+  ]
+}

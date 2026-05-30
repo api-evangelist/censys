@@ -1,0 +1,8 @@
+{
+  "anonymous_login_enabled": false,
+  "auth_each_message": false,
+  "has_anonymous_users": true,
+  "has_named_users": false,
+  "two_key_login_required": false,
+  "user_auth_disabled": true
+}

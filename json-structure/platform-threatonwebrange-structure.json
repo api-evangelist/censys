@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-threatonwebrange-structure.json",
+  "name": "ThreatOnWebRange",
+  "description": "ThreatOnWebRange schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "threat_name",
+    "start_time",
+    "end_time"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "end_time": {
+      "type": "datetime",
+      "description": "When the threat was last observed"
+    },
+    "start_time": {
+      "type": "datetime",
+      "description": "When the threat was first observed"
+    },
+    "threat_name": {
+      "type": "string",
+      "description": "Name of the detected threat"
+    }
+  }
+}

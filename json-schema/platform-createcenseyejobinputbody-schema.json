@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-createcenseyejobinputbody-schema.json",
+  "title": "CreateCenseyeJobInputBody",
+  "description": "CreateCenseyeJobInputBody schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "target": {
+      "$ref": "#/components/schemas/CenseyeTarget",
+      "description": "The asset to analyze. Exactly one of host_id, webproperty_id, or certificate_id must be set."
+    }
+  },
+  "required": [
+    "target"
+  ],
+  "additionalProperties": false
+}

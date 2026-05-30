@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-supplychainsearchsupplierspayload-structure.json",
+  "name": "SupplyChainSearchSuppliersPayload",
+  "description": "SupplyChainSearchSuppliersPayload schema from Censys Platform API",
+  "type": "object",
+  "required": [
+    "suppliers"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "suppliers": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "Suppliers matching the search keywords.",
+      "items": {
+        "$ref": "#/components/schemas/SupplyChainSupplier"
+      }
+    }
+  }
+}

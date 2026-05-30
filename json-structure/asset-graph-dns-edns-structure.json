@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-dns-edns-structure.json",
+  "name": "Dns_EDns",
+  "description": "Dns_EDns schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "do": {
+      "type": "boolean"
+    },
+    "options": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "udp": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "version": {
+      "type": "int32",
+      "minimum": 0
+    }
+  }
+}

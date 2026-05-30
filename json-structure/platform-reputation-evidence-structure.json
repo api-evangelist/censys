@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-reputation-evidence-structure.json",
+  "name": "Reputation_Evidence",
+  "description": "Reputation_Evidence schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "additional_fields": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Reputation_Evidence_FieldValue"
+      }
+    },
+    "category": {
+      "type": "string"
+    },
+    "evidence_score": {
+      "type": "float"
+    },
+    "external_signals": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Reputation_Evidence_ExternalSignal"
+      }
+    },
+    "threats": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Reputation_Evidence_Threat"
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rawcertificateresponse-schema.json",
+  "title": "RawCertificateResponse",
+  "description": "RawCertificateResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "certificate_id": {
+      "type": "string"
+    },
+    "pem": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "certificate_id",
+    "pem"
+  ],
+  "additionalProperties": false
+}

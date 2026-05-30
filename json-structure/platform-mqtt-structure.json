@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-mqtt-structure.json",
+  "name": "Mqtt",
+  "description": "Mqtt schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "connection_ack_raw": {
+      "type": "string",
+      "description": "Raw CONNACK response packet"
+    },
+    "connection_ack_return": {
+      "$ref": "#/components/schemas/Mqtt_ConnectionAckReturn"
+    },
+    "subscription_ack_return": {
+      "$ref": "#/components/schemas/Mqtt_SubscriptionAckReturn"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "build_date": "example",
+  "build_flavor": "example",
+  "build_hash": "example",
+  "build_snapshot": true,
+  "build_type": "example",
+  "lucene_version": "example",
+  "min_idx_compat_ver": "example",
+  "min_wire_compat_ver": "example",
+  "number": "example"
+}

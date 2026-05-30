@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-fox-schema.json",
+  "title": "Fox",
+  "description": "Fox schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "app_name": {
+      "type": "string"
+    },
+    "app_version": {
+      "type": "string"
+    },
+    "auth_agent_type": {
+      "type": "string"
+    },
+    "brand_id": {
+      "type": "string"
+    },
+    "host_address": {
+      "type": "string"
+    },
+    "host_id": {
+      "type": "string"
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "id": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "language": {
+      "type": "string"
+    },
+    "os_name": {
+      "type": "string"
+    },
+    "os_version": {
+      "type": "string"
+    },
+    "station_name": {
+      "type": "string"
+    },
+    "sys_info": {
+      "type": "string"
+    },
+    "time_zone": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "vm_name": {
+      "type": "string"
+    },
+    "vm_uuid": {
+      "type": "string"
+    },
+    "vm_version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

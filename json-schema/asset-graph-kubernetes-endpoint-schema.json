@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-kubernetes-endpoint-schema.json",
+  "title": "Kubernetes_Endpoint",
+  "description": "Kubernetes_Endpoint schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "self_link": {
+      "type": "string"
+    },
+    "subsets": {
+      "items": {
+        "$ref": "#/components/schemas/Kubernetes_Endpoint_Subset"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

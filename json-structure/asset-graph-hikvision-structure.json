@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-hikvision-structure.json",
+  "name": "Hikvision",
+  "description": "Hikvision schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "custom_version": {
+      "type": "string"
+    },
+    "platforms": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Hikvision_Platform"
+      }
+    },
+    "plugin_version": {
+      "type": "string"
+    },
+    "web_version": {
+      "type": "string"
+    }
+  }
+}

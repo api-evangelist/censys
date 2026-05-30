@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-network-schema.json",
+  "title": "Network",
+  "description": "Network schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "allocation_type": {
+      "type": "string"
+    },
+    "cidrs": {
+      "description": "A set of CIDRs describing the range.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "created": {
+      "type": "string"
+    },
+    "handle": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "updated": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

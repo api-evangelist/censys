@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-signedcertificatetimestamp-schema.json",
+  "title": "SignedCertificateTimestamp",
+  "description": "SignedCertificateTimestamp schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "log_id": {
+      "format": "hex",
+      "type": "string"
+    },
+    "signature": {
+      "$ref": "#/components/schemas/SignedCertificateTimestamp_Signature"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "version": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

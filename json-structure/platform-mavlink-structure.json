@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-mavlink-structure.json",
+  "name": "Mavlink",
+  "description": "Mavlink schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "frames": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/components/schemas/Mavlink_Frame"
+      }
+    },
+    "saw_pong": {
+      "type": "boolean"
+    }
+  }
+}

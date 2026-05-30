@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-rocketmq-schema.json",
+  "title": "Rocketmq",
+  "description": "Rocketmq schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "cluster_info": {
+      "$ref": "#/components/schemas/Rocketmq_ClusterInfo"
+    },
+    "topics": {
+      "$ref": "#/components/schemas/Rocketmq_TopicList"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

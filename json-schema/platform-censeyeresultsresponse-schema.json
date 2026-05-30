@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-censeyeresultsresponse-schema.json",
+  "title": "CenseyeResultsResponse",
+  "description": "CenseyeResultsResponse schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "next_page_token": {
+      "description": "Token to retrieve the next page of results.",
+      "type": "string"
+    },
+    "results": {
+      "description": "List of count results.",
+      "items": {
+        "$ref": "#/components/schemas/CenseyeResult"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "results"
+  ],
+  "additionalProperties": false
+}

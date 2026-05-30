@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-hajime-schema.json",
+  "title": "Hajime",
+  "description": "Hajime schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "public_key": {
+      "format": "hex",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

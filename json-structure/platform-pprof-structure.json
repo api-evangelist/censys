@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-pprof-structure.json",
+  "name": "Pprof",
+  "description": "Pprof schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "allocs": {
+      "type": "int32"
+    },
+    "block": {
+      "type": "int32"
+    },
+    "cmdline": {
+      "type": "string"
+    },
+    "goroutine": {
+      "type": "int32"
+    },
+    "heap": {
+      "type": "int32"
+    },
+    "mutex": {
+      "type": "int32"
+    },
+    "profile": {
+      "type": "int32"
+    },
+    "threadcreate": {
+      "type": "int32"
+    },
+    "trace": {
+      "type": "int32"
+    }
+  }
+}

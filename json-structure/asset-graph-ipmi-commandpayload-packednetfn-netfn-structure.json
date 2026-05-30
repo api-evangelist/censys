@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/asset-graph-ipmi-commandpayload-packednetfn-netfn-structure.json",
+  "name": "Ipmi_CommandPayload_PackedNetFn_NetFn",
+  "description": "Ipmi_CommandPayload_PackedNetFn_NetFn schema from Asset Graph API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "is_request": {
+      "type": "boolean",
+      "description": "True if the least-significant bit is zero"
+    },
+    "is_response": {
+      "type": "boolean",
+      "description": "True if the least-significant bit is one"
+    },
+    "name": {
+      "type": "string",
+      "description": "The human-readable name of the NetFn"
+    },
+    "raw": {
+      "type": "int32",
+      "description": "The raw value of the NetFn (6 bits, least significant indicates request/response)"
+    },
+    "value": {
+      "type": "int32",
+      "description": "The normalized value of the NetFn (i.e. raw & 0xfe, so it is always even)"
+    }
+  }
+}

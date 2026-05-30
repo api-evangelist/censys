@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-tplinkkasa-schema.json",
+  "title": "TplinkKasa",
+  "description": "TplinkKasa schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "active_mode": {
+      "type": "string"
+    },
+    "brightness": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "dev_name": {
+      "type": "string"
+    },
+    "err_code": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "feature": {
+      "type": "string"
+    },
+    "hw_ver": {
+      "type": "string"
+    },
+    "icon_hash": {
+      "type": "string"
+    },
+    "led_off": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "mic_type": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "on_time": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "relay_state": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "rssi": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "sw_ver": {
+      "type": "string"
+    },
+    "updating": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/platform-saprouter-clientinfo-schema.json",
+  "title": "SapRouter_ClientInfo",
+  "description": "SapRouter_ClientInfo schema from Censys Platform API",
+  "type": "object",
+  "properties": {
+    "connected": {
+      "type": "boolean"
+    },
+    "connected_on": {
+      "type": "string"
+    },
+    "id": {
+      "format": "int32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "routed": {
+      "type": "boolean"
+    },
+    "service": {
+      "type": "string"
+    },
+    "traced": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

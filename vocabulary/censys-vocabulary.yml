@@ -1,0 +1,688 @@
+vocabulary: 1.0.0
+info:
+  provider: Censys
+  description: Unified vocabulary for the Censys Platform and Asset Graph APIs covering operational (OpenAPI) and capability (Naftiko) dimensions.
+  created: '2026-05-29'
+  modified: '2026-05-29'
+operational:
+  apis:
+    - name: Censys Platform API
+      namespace: platform
+      version: 1.0.103
+      baseUrl: https://api.platform.censys.io
+      status: active
+    - name: Asset Graph API
+      namespace: asset-graph
+      version: 1.0.12
+      baseUrl: https://graph.data.censys.io
+      status: active
+  resources:
+    - name: accounts
+      api: platform
+      actions:
+        - v3
+      paths:
+        - /v3/accounts/organizations/{organization_id}
+        - /v3/accounts/organizations/{organization_id}/audit-log-events
+        - /v3/accounts/organizations/{organization_id}/credits
+        - /v3/accounts/organizations/{organization_id}/credits/usage
+        - /v3/accounts/organizations/{organization_id}/invitations
+        - /v3/accounts/organizations/{organization_id}/members
+        - /v3/accounts/organizations/{organization_id}/members/{user_id}
+        - /v3/accounts/organizations/{organization_id}/members/{user_id}/credits/usage
+        - /v3/accounts/users/credits
+        - /v3/accounts/users/credits/usage
+    - name: asset-graphs
+      api: asset-graph
+      actions:
+        - create
+        - delete
+        - get
+        - list
+      paths:
+        - /api/v1/asset-graphs
+        - /api/v1/asset-graphs/{graph_id}/excluded-assets
+        - /api/v1/asset-graphs/{graph_id}/excluded-assets/{excluded_asset_id}
+        - /api/v1/asset-graphs/{graph_id}/executions
+        - /api/v1/asset-graphs/{graph_id}/executions/{execution_id}
+        - /api/v1/asset-graphs/{graph_id}/executions/{execution_id}/assets
+        - /api/v1/asset-graphs/{graph_id}/executions/{execution_id}/assets/{asset_id}
+        - /api/v1/asset-graphs/{graph_id}/executions/{execution_id}/shards
+        - /api/v1/asset-graphs/{graph_id}/seeds
+        - /api/v1/asset-graphs/{graph_id}/seeds/{seed_id}
+        - /api/v1/asset-graphs/{id}
+    - name: collections
+      api: platform
+      actions:
+        - v3
+      paths:
+        - /v3/collections
+        - /v3/collections/{collection_uid}
+        - /v3/collections/{collection_uid}/events
+        - /v3/collections/{collection_uid}/search/aggregate
+        - /v3/collections/{collection_uid}/search/query
+    - name: comments
+      api: platform
+      actions:
+        - v3
+      paths:
+        - /v3/comments
+        - /v3/comments/{comment_id}
+    - name: global
+      api: platform
+      actions:
+        - v3
+      paths:
+        - /v3/global/asset/certificate
+        - /v3/global/asset/certificate/raw
+        - /v3/global/asset/certificate/{certificate_id}
+        - /v3/global/asset/certificate/{certificate_id}/raw
+        - /v3/global/asset/host
+        - /v3/global/asset/host/{host_id}
+        - /v3/global/asset/host/{host_id}/observations/services
+        - /v3/global/asset/host/{host_id}/timeline
+        - /v3/global/asset/webproperty
+        - /v3/global/asset/webproperty/{webproperty_id}
+        - /v3/global/dns/resolutions/ip/{ip}/bounds
+        - /v3/global/dns/resolutions/ip/{ip}/ranges
+        - /v3/global/dns/resolutions/{name}/bounds
+        - /v3/global/dns/resolutions/{name}/ranges
+        - /v3/global/scans/rescan
+        - /v3/global/scans/{scan_id}
+        - /v3/global/search/aggregate
+        - /v3/global/search/convert
+        - /v3/global/search/query
+    - name: risks
+      api: asset-graph
+      actions:
+        - get
+      paths:
+        - /api/v1/risks/{risk_id}
+    - name: supplychains
+      api: platform
+      actions:
+        - v1
+      paths:
+        - /v1/supplychains
+        - /v1/supplychains/suppliers
+        - /v1/supplychains/suppliers/{supplier_id}
+    - name: tags
+      api: platform
+      actions:
+        - v3
+      paths:
+        - /v3/tags
+        - /v3/tags/{tag_id}
+        - /v3/tags/{tag_id}/assignments
+        - /v3/tags/{tag_id}/assignments/{assignment_id}
+    - name: threat-hunting
+      api: platform
+      actions:
+        - v3
+      paths:
+        - /v3/threat-hunting/censeye/jobs
+        - /v3/threat-hunting/censeye/jobs/{job_id}
+        - /v3/threat-hunting/censeye/jobs/{job_id}/results
+        - /v3/threat-hunting/certificate/{certificate_id}/observations/hosts
+        - /v3/threat-hunting/host/{ip}/observations/endpoints
+        - /v3/threat-hunting/host/{ip}/observations/fingerprints
+        - /v3/threat-hunting/host/{ip}/observations/threats
+        - /v3/threat-hunting/scans/discovery
+        - /v3/threat-hunting/scans/{scan_id}
+        - /v3/threat-hunting/threats
+        - /v3/threat-hunting/value-counts
+        - /v3/threat-hunting/web/{webproperty_id}/observations/threats
+  actions:
+    - name: create
+      methods:
+        - POST
+      pattern: write
+    - name: delete
+      methods:
+        - DELETE
+      pattern: destructive
+    - name: get
+      methods:
+        - GET
+      pattern: read
+    - name: list
+      methods:
+        - GET
+      pattern: read
+    - name: v1
+      methods:
+        - DELETE
+        - GET
+        - POST
+      pattern: read
+    - name: v3
+      methods:
+        - DELETE
+        - GET
+        - PATCH
+        - POST
+        - PUT
+      pattern: read
+  enums:
+    - name: asset_type
+      values:
+        - certificate
+        - host
+        - unknown
+        - web_property
+    - name: attack_complexity
+      values:
+        - ''
+        - high
+        - low
+    - name: attack_requirements
+      values:
+        - ''
+        - none
+        - present
+    - name: attack_vector
+      values:
+        - ''
+        - adjacent
+        - local
+        - network
+        - physical
+    - name: automatable
+      values:
+        - ''
+        - no
+        - yes
+    - name: availability
+      values:
+        - ''
+        - high
+        - low
+        - none
+    - name: change_type
+      values:
+        - added
+        - removed
+    - name: confidentiality
+      values:
+        - ''
+        - high
+        - low
+        - none
+    - name: event_type
+      values:
+        - asm_exclude_created
+        - asm_exclude_deleted
+        - asm_risk_instance_accepted
+        - asm_risk_instance_severity_changed
+        - asm_risk_instance_unaccepted
+        - asm_risk_type_default_enabled
+        - asm_risk_type_disabled
+        - asm_risk_type_enabled
+        - asm_risk_type_severity_changed
+        - asm_seed_created
+        - asm_seed_deleted
+        - comment_created
+        - comment_deleted
+        - comment_updated
+        - global_data_aggregation_executed
+        - global_data_lookup_executed
+        - global_data_search_executed
+        - invitation_accepted
+        - invitation_created
+        - invitation_deleted
+        - invitation_resent
+        - membership_created
+        - membership_removed
+        - membership_updated
+        - org_created
+        - org_deleted
+        - org_updated
+        - pat_created
+        - pat_deleted
+        - saml_config_created
+        - saml_config_deleted
+        - saml_config_domain_verified
+        - saml_config_updated
+        - tag_assigned
+        - tag_bulk_operation_cancelled
+        - tag_bulk_operation_completed
+        - tag_bulk_operation_started
+        - tag_created
+        - tag_deleted
+        - tag_unassigned
+        - tag_updated
+        - user_created
+        - user_disabled
+        - user_enabled
+        - user_login
+        - user_login_failed
+        - user_mfa_changed
+        - user_password_changed
+        - user_password_reset
+        - user_settings_changed
+    - name: granularity
+      values:
+        - daily
+        - monthly
+    - name: integrity
+      values:
+        - ''
+        - high
+        - low
+        - none
+    - name: new_status
+      values:
+        - active
+        - archived
+        - paused
+        - populating
+    - name: old_status
+      values:
+        - active
+        - archived
+        - paused
+        - populating
+    - name: parse_status
+      values:
+        - ''
+        - corrupted
+        - fail
+        - success
+    - name: privacy
+      values:
+        - private
+        - shared
+    - name: privileges_required
+      values:
+        - ''
+        - high
+        - low
+        - none
+    - name: provider_urgency
+      values:
+        - ''
+        - amber
+        - clear
+        - green
+        - red
+    - name: r_code
+      values:
+        - ''
+        - bad_alg
+        - bad_cookie
+        - bad_key
+        - bad_mode
+        - bad_name
+        - bad_sig
+        - bad_time
+        - bad_trunc
+        - format_error
+        - name_error
+        - not_auth
+        - not_implemented
+        - not_zone
+        - nx_rrset
+        - refused
+        - server_failure
+        - success
+        - yx_domain
+        - yx_rrset
+    - name: reason
+      values:
+        - ''
+        - aa_compromise
+        - affiliation_changed
+        - ca_compromise
+        - certificate_hold
+        - cessation_of_operation
+        - incapsula
+        - key_compromise
+        - privilege_withdrawn
+        - protocol_port_count
+        - remove_from_crl
+        - superseded
+        - unspecified
+        - zscaler
+    - name: record_type
+      values:
+        - ''
+        - A
+        - AAAA
+        - MX
+        - NS
+        - SOA
+        - TXT
+        - a
+        - aaaa
+    - name: recovery
+      values:
+        - ''
+        - automatic
+        - irrecoverable
+        - user
+    - name: risk_source
+      values:
+        - ''
+        - censys
+        - cve
+    - name: safety
+      values:
+        - ''
+        - negligible
+        - present
+    - name: scope
+      values:
+        - ''
+        - changed
+        - unchanged
+    - name: score_level
+      values:
+        - ''
+        - benign
+        - high_risk
+        - low_risk
+        - malicious
+        - medium_risk
+    - name: server_type
+      values:
+        - ''
+        - authoritative
+        - forwarding
+        - recursive_resolver
+        - redirecting
+    - name: severity
+      values:
+        - ''
+        - critical
+        - high
+        - low
+        - medium
+    - name: source
+      values:
+        - ''
+        - censys
+        - cisa
+        - html_meta_extractor
+        - recog
+        - third_party
+        - wappalyzer
+    - name: state
+      values:
+        - completed
+        - failed
+        - started
+        - unknown
+    - name: status
+      values:
+        - ''
+        - ACTIVE
+        - DELETING
+        - active
+        - archived
+        - completed
+        - ignored
+        - paused
+        - populating
+        - rejected
+        - scanned
+        - scanning
+        - timed_out
+        - unspecified
+    - name: status_reason
+      values:
+        - initial
+        - manual
+        - not_enough_credits
+        - not_entitled
+        - query_changed
+        - too_many_assets
+        - unspecified
+    - name: tlp
+      values:
+        - ''
+        - amber
+        - green
+        - red
+        - white
+    - name: transport_protocol
+      values:
+        - ''
+        - icmp
+        - quic
+        - tcp
+        - udp
+    - name: type
+      values:
+        - ''
+        - a
+        - asm_exclude
+        - asm_risk_instance
+        - asm_risk_type
+        - asm_seed
+        - asm_workspace
+        - authenticator_fail
+        - collection
+        - customer_support
+        - global_data
+        - intermediate
+        - invalid_username
+        - leaf
+        - no_certificate
+        - ns
+        - organization
+        - organization_invitation
+        - organization_membership
+        - pat
+        - root
+        - saml_config
+        - server_full
+        - system
+        - txt
+        - unknown
+        - user
+        - username_in_use
+        - wrong_server_pw
+        - wrong_user_pw
+        - wrong_version
+    - name: user_interaction
+      values:
+        - ''
+        - none
+        - required
+    - name: validation_level
+      values:
+        - ''
+        - dv
+        - ev
+        - ov
+    - name: value_density
+      values:
+        - ''
+        - concentrated
+        - diffuse
+    - name: version
+      values:
+        - ''
+        - dtlsv1_0
+        - dtlsv1_2
+        - dtlsv1_3
+        - ss_lv_2
+        - ss_lv_3
+        - tlsv1_0
+        - tlsv1_1
+        - tlsv1_2
+        - tlsv1_3
+    - name: version_selected
+      values:
+        - ''
+        - dtlsv1_0
+        - dtlsv1_2
+        - dtlsv1_3
+        - ss_lv_2
+        - ss_lv_3
+        - tlsv1_0
+        - tlsv1_1
+        - tlsv1_2
+        - tlsv1_3
+    - name: vulnerability_response_effort
+      values:
+        - ''
+        - high
+        - low
+        - moderate
+  authentication:
+    - name: PersonalAccessToken
+      type: http
+      scheme: bearer
+      apis:
+        - asset-graph
+capability:
+  workflows:
+    - name: Censys Asset Graph — Asset Graphs
+      file: capabilities/asset-graph-asset-graphs.yaml
+      description: 'Censys Asset Graph — Asset Graphs. 4 operation(s). Lead operation: Censys List Asset Graphs. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Asset Graph
+        - Asset Graphs
+      tools: 4
+    - name: Censys Asset Graph — Assets
+      file: capabilities/asset-graph-assets.yaml
+      description: 'Censys Asset Graph — Assets. 2 operation(s). Lead operation: Censys List Assets. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Asset Graph
+        - Assets
+      tools: 2
+    - name: Censys Asset Graph — Excluded Assets
+      file: capabilities/asset-graph-excluded-assets.yaml
+      description: 'Censys Asset Graph — Excluded Assets. 3 operation(s). Lead operation: Censys List Excluded Assets. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Asset Graph
+        - Excluded Assets
+      tools: 3
+    - name: Censys Asset Graph — Graph Executions
+      file: capabilities/asset-graph-graph-executions.yaml
+      description: 'Censys Asset Graph — Graph Executions. 3 operation(s). Lead operation: Censys List Graph Executions. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Asset Graph
+        - Graph Executions
+      tools: 3
+    - name: Censys Asset Graph — Risks
+      file: capabilities/asset-graph-risks.yaml
+      description: 'Censys Asset Graph — Risks. 1 operation(s). Lead operation: Censys Get Static Risk Metadata. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Asset Graph
+        - Risks
+      tools: 1
+    - name: Censys Asset Graph — Seeds
+      file: capabilities/asset-graph-seeds.yaml
+      description: 'Censys Asset Graph — Seeds. 3 operation(s). Lead operation: Censys List Seeds. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Asset Graph
+        - Seeds
+      tools: 3
+    - name: Censys Asset Graph — Shards
+      file: capabilities/asset-graph-shards.yaml
+      description: 'Censys Asset Graph — Shards. 1 operation(s). Lead operation: Censys List Shards. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Asset Graph
+        - Shards
+      tools: 1
+    - name: Censys Platform — Account Management
+      file: capabilities/platform-account-management.yaml
+      description: 'Censys Platform — Account Management. 11 operation(s). Lead operation: Censys Get Organization Details. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Platform
+        - Account Management
+      tools: 11
+    - name: Censys Platform — Adversary Investigation
+      file: capabilities/platform-adversary-investigation.yaml
+      description: 'Censys Platform — Adversary Investigation. 11 operation(s). Lead operation: Censys CensEye: Create a Pivot Analysis Job. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Platform
+        - Adversary Investigation
+      tools: 11
+    - name: Censys Platform — Collections
+      file: capabilities/platform-collections.yaml
+      description: 'Censys Platform — Collections. 8 operation(s). Lead operation: Censys List Collections. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Platform
+        - Collections
+      tools: 8
+    - name: Censys Platform — Global Data
+      file: capabilities/platform-global-data.yaml
+      description: 'Censys Platform — Global Data. 23 operation(s). Lead operation: Censys Retrieve Multiple Certificates. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Platform
+        - Global Data
+      tools: 23
+    - name: Censys Platform — Supply Chain Intelligence
+      file: capabilities/platform-supply-chain-intelligence.yaml
+      description: 'Censys Platform — Supply Chain Intelligence. 4 operation(s). Lead operation: Censys List Supply Chains. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Platform
+        - Supply Chain Intelligence
+      tools: 4
+    - name: Censys Platform — Tags and Comments
+      file: capabilities/platform-tags-and-comments.yaml
+      description: 'Censys Platform — Tags and Comments. 12 operation(s). Lead operation: Censys List Comments. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Platform
+        - Tags and Comments
+      tools: 12
+    - name: Censys Platform — Threat Hunting
+      file: capabilities/platform-threat-hunting.yaml
+      description: 'Censys Platform — Threat Hunting. 13 operation(s). Lead operation: Censys CensEye: List Jobs. Self-contained Naftiko capability covering one Censys business surface.'
+      apis:
+        - Censys
+        - Platform
+        - Threat Hunting
+      tools: 13
+  personas:
+    - id: security-researcher
+      name: Security Researcher
+      description: Uses Censys for academic and OSINT internet measurement research.
+    - id: threat-hunter
+      name: Threat Hunter
+      description: Pivots across hosts/certs/services to track adversary infrastructure.
+    - id: soc-analyst
+      name: SOC Analyst
+      description: Enriches alerts in SIEM/SOAR with Censys host and certificate context.
+    - id: asm-operator
+      name: ASM Operator
+      description: Maintains the external attack surface inventory and remediation pipeline.
+    - id: platform-admin
+      name: Platform Administrator
+      description: Manages Censys org, members, credits, and audit logs.
+  domains:
+    - name: Asset Intelligence
+      description: Hosts, certificates, web properties, DNS lookups.
+    - name: Threat Hunting
+      description: CensEye, fingerprints, threats, discovery scans.
+    - name: Adversary Investigation
+      description: Cert→host and host→endpoint pivots, value counts, threat lookups.
+    - name: Collections
+      description: Saved queries, aggregations, and event subscriptions.
+    - name: Asset Graph
+      description: Graph definition, execution, exclusions, and risk findings.
+    - name: Account Management
+      description: Org, members, invitations, credits, audit logs.
+    - name: Supply Chain
+      description: Supplier registry and supply-chain risk.
+    - name: Tags and Comments
+      description: Cross-asset annotation surface.
+  binds:
+    - name: CENSYS_PERSONAL_ACCESS_TOKEN
+      description: Personal Access Token used as HTTP bearer auth across all Censys Platform and Asset Graph capabilities.

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-schema/asset-graph-torservicedescriptor-schema.json",
+  "title": "TorServiceDescriptor",
+  "description": "TorServiceDescriptor schema from Asset Graph API",
+  "type": "object",
+  "properties": {
+    "algorithm_name": {
+      "type": "string"
+    },
+    "hash": {
+      "format": "hex",
+      "type": "string"
+    },
+    "hash_bits": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "onion": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

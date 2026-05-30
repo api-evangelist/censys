@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/censys/refs/heads/main/json-structure/platform-s7-structure.json",
+  "name": "S7",
+  "description": "S7 schema from Censys Platform API",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "copyright": {
+      "type": "string"
+    },
+    "cpu_profile": {
+      "type": "string"
+    },
+    "firmware": {
+      "type": "string"
+    },
+    "hardware": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "memory_serial_number": {
+      "type": "string"
+    },
+    "module": {
+      "type": "string"
+    },
+    "module_id": {
+      "type": "string"
+    },
+    "module_type": {
+      "type": "string"
+    },
+    "oem_id": {
+      "type": "string"
+    },
+    "plant_id": {
+      "type": "string"
+    },
+    "reserved_for_os": {
+      "type": "string"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "system": {
+      "type": "string"
+    }
+  }
+}

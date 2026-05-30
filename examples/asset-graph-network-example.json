@@ -1,0 +1,10 @@
+{
+  "allocation_type": "example",
+  "cidrs": [
+    "8.8.8.0/24"
+  ],
+  "created": "example",
+  "handle": "example",
+  "name": "Production Internet Asset Inventory",
+  "updated": "example"
+}

@@ -1,0 +1,13 @@
+{
+  "ahs_length": 945,
+  "cmd_seq": 214,
+  "isid": 983,
+  "keyval_pairs": [
+    "example"
+  ],
+  "max_new_cmds": 137,
+  "status_seq": 349,
+  "tsih": 262,
+  "version_active": 889,
+  "version_max": 347
+}
