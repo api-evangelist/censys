@@ -1,0 +1,3221 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Censys Platform API",
+    "version": "1.0.103"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Supply Chain Intelligence",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys List Supply Chains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v1/supplychains",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of supply chains to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response to retrieve the next page of results."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a paginated list of supply chain IDs for the organization.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Search Suppliers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v1/supplychains/suppliers",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "keywords",
+                "value": "Anthropic",
+                "type": "query",
+                "description": "Search keywords matched against supplier display names."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Search for suppliers by display name keywords. Results are capped and not paginated.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Adds Supplier to Supply Chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v1/supplychains/suppliers",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a list of suppliers to the specific supply chain."
+        },
+        {
+          "info": {
+            "name": "Censys Remove a Supplier from a Supply Chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.platform.censys.io/v1/supplychains/suppliers/:supplier_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "supplier_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys supplier to remove from the given supply chain."
+              },
+              {
+                "name": "supply_chain_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys supply chain."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Remove a supplier from the specified supply chain."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys Get Organization Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/accounts/organizations/:organization_id",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "include_member_counts",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include how many members are in this organization, split by role."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve an organization's details, including the count of organization members broken down by role and organization settings such as AI training and MFA requirements.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys List Audit Log Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/accounts/organizations/:organization_id/audit-log-events",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "page_size",
+                "value": "1",
+                "type": "query",
+                "description": "Amount of events to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Page token for the requested page of audit log events."
+              },
+              {
+                "name": "start_time",
+                "value": "2026-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Only return events that occurred after this time. This value must be on or after 2026-01-01T00:00:00Z. If not provided, will default to the earliest possible date."
+              },
+              {
+                "name": "end_time",
+                "value": "2026-02-01T00:00:00Z",
+                "type": "query",
+                "description": "Only return events that occurred before this time. This value must not be in the future. If not provided, it defaults to the current time."
+              },
+              {
+                "name": "event_type",
+                "value": "",
+                "type": "query",
+                "description": "Only return events of this type. This field is deprecated and will be removed in a future version. Use event_types instead."
+              },
+              {
+                "name": "event_types",
+                "value": "user_login,pat_created",
+                "type": "query",
+                "description": "Only return events of these types."
+              },
+              {
+                "name": "exclude_event_types",
+                "value": "user_login,pat_created",
+                "type": "query",
+                "description": "Exclude events of these types."
+              },
+              {
+                "name": "user_email",
+                "value": "user@example.com",
+                "type": "query",
+                "description": "Only return events performed by this user."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order events by this field."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve audit log events for an organization. Use query parameters to filter events by time range, user, and event type.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get Organization Credit Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/accounts/organizations/:organization_id/credits",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve credit balance and expiration information for an organization. <br><br>Credits expire 12 months after they are acquired.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get Organization Credit Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/accounts/organizations/:organization_id/credits/usage",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "date",
+                "value": "2025-11-01",
+                "type": "query",
+                "description": "The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports)."
+              },
+              {
+                "name": "start_date",
+                "value": "2025-11-01",
+                "type": "query",
+                "description": "The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports)."
+              },
+              {
+                "name": "end_date",
+                "value": "2025-12-01",
+                "type": "query",
+                "description": "The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year)."
+              },
+              {
+                "name": "granularity",
+                "value": "daily",
+                "type": "query",
+                "description": "Whether to break down credit usage on a daily or monthly basis."
+              },
+              {
+                "name": "include_consumer_breakdown",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include a breakdown of individual users' consumption in the credit usage report."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve credit information for an organization over a specific date range. You must include a start date in your request.<br><br>Admins can obtain credit usage information for all users in their organization. Members may only retrieve usage information for their own account.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Invite User to Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/accounts/organizations/:organization_id/invitations",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Invite a user to an organization. The user will receive an email to join the organization. This is equivalent to [adding a new member via the UI](https://docs.censys.com/docs/platform-org-management#invite-members).<br><br>Only users with the Admin role in the provided organization can perform this operation.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys List Organization Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/accounts/organizations/:organization_id/members",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of members to return per page"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token for retrieving the next page of results"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of an organization's members and their user details, including their user ID, email, name, creation time, and roles.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Update a Member's Roles in an Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.platform.censys.io/v3/accounts/organizations/:organization_id/members/:user_id",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "user_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys user. You can obtain a user's ID by listing members of an organization."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the roles assigned to an organization member. This operation replaces a member's roles with the list provided in the request body. To remove all roles from a member, provide an empty list. To completely remove a member from an organization, use the [remove member endpoint](https://docs.censys.com/reference/v3-accountmanagement-remove-org-member).<br><br>Only users with the Admin role in the provided organization can perform this operation.<br><br>This endpoint does not cost any credits to"
+        },
+        {
+          "info": {
+            "name": "Censys Remove Member from Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.platform.censys.io/v3/accounts/organizations/:organization_id/members/:user_id",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "user_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys user. You can obtain a user's ID by listing members of an organization."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Remove a user from an organization. This is equivalent to [removing a member via the UI](https://docs.censys.com/docs/platform-org-management#remove-members).<br><br>Only users with the Admin role in the provided organization can perform this operation.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get Organization Member Credit Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/accounts/organizations/:organization_id/members/:user_id/credits/usage",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "user_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys user. You can obtain a user's ID by listing members of an organization."
+              },
+              {
+                "name": "date",
+                "value": "2025-11-01",
+                "type": "query",
+                "description": "The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports)."
+              },
+              {
+                "name": "start_date",
+                "value": "2025-11-01",
+                "type": "query",
+                "description": "The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports)."
+              },
+              {
+                "name": "end_date",
+                "value": "2025-12-01",
+                "type": "query",
+                "description": "The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year)."
+              },
+              {
+                "name": "granularity",
+                "value": "daily",
+                "type": "query",
+                "description": "Whether to break down credit usage on a daily or monthly basis."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve credit consumption information for an organization member over a specific date range. You must include a start date in your request.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get Free User Credit Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/accounts/users/credits",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve your Free user account credit balance and refresh information. To retrieve the credit balance for a Starter or Enterprise account, use the [get organization credit balance endpoint](https://docs.censys.com/reference/v3-accountmanagement-org-credits).<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get Free User Credit Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/accounts/users/credits/usage",
+            "params": [
+              {
+                "name": "date",
+                "value": "2025-11-01",
+                "type": "query",
+                "description": "The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports)."
+              },
+              {
+                "name": "start_date",
+                "value": "2025-11-01",
+                "type": "query",
+                "description": "The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports)."
+              },
+              {
+                "name": "end_date",
+                "value": "2025-12-01",
+                "type": "query",
+                "description": "The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year)."
+              },
+              {
+                "name": "granularity",
+                "value": "daily",
+                "type": "query",
+                "description": "Whether to break down credit usage on a daily or monthly basis."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve your Free user account credit consumption information over a specific date range. You must include a start date in your request.<br><br>This endpoint does not cost any credits to execute."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys List Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/collections",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "page token for the requested page of collection results"
+              },
+              {
+                "name": "page_size",
+                "value": "1",
+                "type": "query",
+                "description": "amount of results to return per page"
+              },
+              {
+                "name": "collection_statuses",
+                "value": "populating,active",
+                "type": "query",
+                "description": "statuses of collection for results to be filtered on."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List all collections for an organization. Retrieved information includes collection ID, name, query, description, status, and asset count.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Create a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/collections",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new collection.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/collections/:collection_uid",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "collection_uid",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The UID for the collection. Obtain the collection ID using the [list collections endpoint](https://docs.censys.com/reference/v3-collections-crud-list#/) or via the collection URL when using the web console."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve information about a collection. Retrieved information includes its name, query, description, status, and asset count.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Update a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.platform.censys.io/v3/collections/:collection_uid",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "collection_uid",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The UID for the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update a collection's name, description, and/or query.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Delete a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.platform.censys.io/v3/collections/:collection_uid",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "collection_uid",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The UID for the collection. Obtain the collection ID using the [list collections endpoint](https://docs.censys.com/reference/v3-collections-crud-list#/) or via the collection URL when using the web console."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a collection.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get a Collection's Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/collections/:collection_uid/events",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "collection_uid",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The UID for the collection. Obtain the collection ID using the [list collections endpoint](https://docs.censys.com/reference/v3-collections-crud-list#/) or via the collection URL when using the web console."
+              },
+              {
+                "name": "page_size",
+                "value": "1",
+                "type": "query",
+                "description": "Amount of results to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Page token for the requested page of collection results."
+              },
+              {
+                "name": "change_types",
+                "value": "",
+                "type": "query",
+                "description": "Change types"
+              },
+              {
+                "name": "asset_change_types",
+                "value": "",
+                "type": "query",
+                "description": "Asset change types"
+              },
+              {
+                "name": "status_change_types",
+                "value": "",
+                "type": "query",
+                "description": "Status change types"
+              },
+              {
+                "name": "start_time",
+                "value": "2025-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start time of the host timeline"
+              },
+              {
+                "name": "end_time",
+                "value": "2025-01-02T00:00:00Z",
+                "type": "query",
+                "description": "End time of the host timeline"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the event history for a collection. This includes the addition or removal of assets as well as collection status changes.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Aggregate Results for a Search Query Within a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/collections/:collection_uid/search/aggregate",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "collection_uid",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The UID for the collection. Obtain the collection ID using the [list collections endpoint](https://docs.censys.com/reference/v3-collections-crud-list#/) or via the collection URL when using the web console."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Aggregate results for a Platform search query that targets a collection's assets. This functionality is equivalent to the [Report Builder](https://docs.censys.com/docs/platform-report-builder#/) in the Platform web UI."
+        },
+        {
+          "info": {
+            "name": "Censys Run a Search Query Within a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/collections/:collection_uid/search/query",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "collection_uid",
+                "value": "",
+                "type": "path",
+                "description": "The UID for the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Run a search query across a collection's assets. Reference the [documentation on Censys Query Language](https://docs.censys.com/docs/censys-query-language#/) for information about query syntax. Host services that match your search criteria will be returned in a `matched_services` object."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tags and Comments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys List Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/comments",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of comments to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response to retrieve the next page of results."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort order. Supported values: create_time_asc, create_time_desc."
+              },
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter comments by asset identifier (host IP, certificate fingerprint, or web property hostname:port)."
+              },
+              {
+                "name": "created_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter comments by the user ID of the user who created the comment."
+              },
+              {
+                "name": "created_before",
+                "value": "",
+                "type": "query",
+                "description": "Filter comments created before this RFC3339 timestamp."
+              },
+              {
+                "name": "created_after",
+                "value": "",
+                "type": "query",
+                "description": "Filter comments created after this RFC3339 timestamp."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of comments in your organization. Use query parameters to filter by asset, creator, or creation time.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Create a Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/comments",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a comment on an asset in your organization.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Update a Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.platform.censys.io/v3/comments/:comment_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "comment_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the comment to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the body of an existing comment. Only the comment's creator can update it.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Delete a Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.platform.censys.io/v3/comments/:comment_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "comment_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the comment to delete."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a comment. Only the comment's creator or an organization admin can delete a comment. This action is permanent and cannot be undone.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys List Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/tags",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of tags to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response to retrieve the next page of results."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort order. Supported values: name_asc, name_desc, created_at_asc, created_at_desc, updated_at_asc, updated_at_desc."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags by name (exact match)."
+              },
+              {
+                "name": "created_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags by the user ID of the user who created the tag."
+              },
+              {
+                "name": "privacy",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags by privacy setting."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of tags in your organization. Private tags created by other users are not included in the results unless your account is an organization admin.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Create a Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/tags",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new tag in your organization. Tags can be used to label and organize assets.<br><br>Specify a privacy setting to control visibility: `private` tags are only visible to you and organization admins, while `shared` tags are visible and manageable by all organization members.<br><br>Tag names must be unique within your organization.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get a Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/tags/:tag_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "tag_id",
+                "value": "123e4567-e89b-12d3-a456-426614174000",
+                "type": "path",
+                "description": "The ID or name of the tag to retrieve."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a tag by its ID or name. Tag names are unique within an organization and can be used interchangeably with the tag ID in the path parameter.<br><br>Only tags that are visible to the caller are returned: private tags created by other users are not accessible unless your account is an organization admin.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Update a Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.platform.censys.io/v3/tags/:tag_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the tag to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update an existing tag in your organization. Only the fields provided in the request body will be updated; omitted fields are left unchanged.<br><br>Only the tag's creator or an organization admin can update a `private` tag. Tags with the `shared` setting can be updated by any organization member.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Delete a Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.platform.censys.io/v3/tags/:tag_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the tag to delete."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a tag and all of its assignments from your organization. This action is permanent and cannot be undone.<br><br>Only the tag's creator or an organization admin can delete a `private` tag. Tags that are `shared` can be deleted by any organization member.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys List Tag Assignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/tags/:tag_id/assignments",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the tag whose assignments to list."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of assignments to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response to retrieve the next page of results."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort order. Supported values: create_time_asc, create_time_desc."
+              },
+              {
+                "name": "asset_id",
+                "value": "8.8.8.8",
+                "type": "query",
+                "description": "The identifier of the asset (host IP, certificate SHA-256 fingerprint, or web property hostname:port)."
+              },
+              {
+                "name": "created_before",
+                "value": "",
+                "type": "query",
+                "description": "RFC3339 timestamp. Only return assignments created before this time."
+              },
+              {
+                "name": "created_after",
+                "value": "",
+                "type": "query",
+                "description": "RFC3339 timestamp. Only return assignments created after this time."
+              },
+              {
+                "name": "created_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the user ID of the user who created the assignment."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of assignments for a tag in your organization. Use query parameters to filter results by asset, created_by, or creation time. Only assignments for tags visible to your account are returned.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Create a Tag Assignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/tags/:tag_id/assignments",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the tag to assign."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Assign a tag to an asset. Tag assignments are only visible to members of your organization, depending on the tag's privacy settings. You must have access to the tag to assign it to an asset.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Delete a Tag Assignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.platform.censys.io/v3/tags/:tag_id/assignments/:assignment_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the tag."
+              },
+              {
+                "name": "assignment_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the assignment to delete."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Remove a tag assignment from an asset. This action is permanent and cannot be undone. Removing an assignment only detaches the tag from the specified asset; the tag itself is not deleted. Only the tag's creator or an organization admin can delete an assignment for a `private` tag. Assignments for `shared` tags can be deleted by any organization member.<br><br>This endpoint does not cost any credits to execute."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Global Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys Retrieve Multiple Certificates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/asset/certificate",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "certificate_ids",
+                "value": "3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf",
+                "type": "query",
+                "description": "A list of SHA-256 certificate fingerprints."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve information about multiple certificates. A certificate ID is its SHA-256 fingerprint in the Censys dataset.<br><br>The GET method of this endpoint is deprecated, but will continue to be supported for backwards compatibility. Please use the [POST variant](https://docs.censys.com/reference/v3-globaldata-asset-certificate-list-post#/) of this endpoint instead."
+        },
+        {
+          "info": {
+            "name": "Censys Retrieve Multiple Certificates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/global/asset/certificate",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve information about multiple certificates. You can retrieve up to 1,000 certificates per call. A certificate ID is its SHA-256 fingerprint in the Censys dataset."
+        },
+        {
+          "info": {
+            "name": "Censys Retrieve Multiple Certificates in PEM Format",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/asset/certificate/raw",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "certificate_ids",
+                "value": "3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf",
+                "type": "query",
+                "description": "A list of SHA-256 certificate fingerprints."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the raw PEM-encoded format for multiple certificates. A certificate ID is its SHA-256 fingerprint in the Censys dataset.<br><br>The GET method of this endpoint is deprecated, but will continue to be supported for backwards compatibility. Please use the [POST variant](https://docs.censys.com/reference/v3-globaldata-asset-certificate-list-raw-post#/) of this endpoint instead."
+        },
+        {
+          "info": {
+            "name": "Censys Retrieve Multiple Certificates in PEM Format",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/global/asset/certificate/raw",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the raw PEM-encoded format for multiple certificates. You can retrieve up to 1,000 certificates per call. A certificate ID is its SHA-256 fingerprint in the Censys dataset."
+        },
+        {
+          "info": {
+            "name": "Censys Get a Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/asset/certificate/:certificate_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "certificate_id",
+                "value": "3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf",
+                "type": "path",
+                "description": "The SHA-256 certificate fingerprint."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve information about a single certificate. A certificate ID is its SHA-256 fingerprint in the Censys dataset."
+        },
+        {
+          "info": {
+            "name": "Censys Get a Certificate in PEM Format",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/asset/certificate/:certificate_id/raw",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "certificate_id",
+                "value": "3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf",
+                "type": "path",
+                "description": "The SHA-256 certificate fingerprint."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the raw PEM-encoded format of a certificate. A certificate ID is its SHA-256 fingerprint in the Censys dataset."
+        },
+        {
+          "info": {
+            "name": "Censys Retrieve Multiple Hosts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/asset/host",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "host_ids",
+                "value": "8.8.8.8",
+                "type": "query",
+                "description": "A list of host IP addresses."
+              },
+              {
+                "name": "at_time",
+                "value": "2025-01-01T00:00:00Z",
+                "type": "query",
+                "description": "RFC3339 Timestamp to view all requested hosts at a specific point in time. Must be a valid RFC3339 string. Ensure that you suffix the date with T00:00:00Z or a specific time."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve information about multiple hosts. A host ID is its IP address.<br><br>The GET method of this endpoint is deprecated, but will continue to be supported for backwards compatibility. Please use the [POST variant](https://docs.censys.com/reference/v3-globaldata-asset-host-list-post#/) of this endpoint instead."
+        },
+        {
+          "info": {
+            "name": "Censys Retrieve Multiple Hosts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/global/asset/host",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve information about multiple hosts. You can retrieve up to 100 hosts per call. A host ID is its IP address."
+        },
+        {
+          "info": {
+            "name": "Censys Get a Host",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/asset/host/:host_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "host_id",
+                "value": "8.8.8.8",
+                "type": "path",
+                "description": "The IP address of a host."
+              },
+              {
+                "name": "at_time",
+                "value": "2025-01-01T00:00:00Z",
+                "type": "query",
+                "description": "RFC3339 Timestamp to view a host at a specific point in time. Must be a valid RFC3339 string. Ensure that you suffix the date with T00:00:00Z or a specific time."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve information about a single host. A host ID is its IP address."
+        },
+        {
+          "info": {
+            "name": "Censys Get Service History for a Host",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/asset/host/:host_id/observations/services",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "port",
+                "value": "443",
+                "type": "query",
+                "description": "Filter by port number"
+              },
+              {
+                "name": "protocol",
+                "value": "HTTP",
+                "type": "query",
+                "description": "Filter by application protocol"
+              },
+              {
+                "name": "transport_protocol",
+                "value": "tcp",
+                "type": "query",
+                "description": "Filter by transport protocol"
+              },
+              {
+                "name": "host_id",
+                "value": "8.8.8.8",
+                "type": "path",
+                "description": "The IP address of a host."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order observations by these fields. Multiple values can be provided to sort by multiple fields (e.g., ['port DESC', 'protocol ASC'])."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve historical service observations for a host. This endpoint returns time ranges during which services were detected on the host.<br><br>You can define a specific time frame of interest. If you do not specify a time frame, this endpoint will search the historical dataset that is available to your account.<br><br>You can filter by port number, protocol, and transport protocol."
+        },
+        {
+          "info": {
+            "name": "Censys Get Host Event History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/asset/host/:host_id/timeline",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "host_id",
+                "value": "8.8.8.8",
+                "type": "path",
+                "description": "The IP address of a host."
+              },
+              {
+                "name": "start_time",
+                "value": "2025-01-02T00:00:00Z",
+                "type": "query",
+                "description": "Start time of the host timeline. Equivalent to the To field in the event history UI. This must be the timestamp closest to the current time. For example, if you want events from January 1, 2025 to the start of January 2, 2025, input the January 2 timestamp here. Must be a valid RFC3339 string. Ensure that you suffix the date with T00:00:00Z or a specific time."
+              },
+              {
+                "name": "end_time",
+                "value": "2025-01-01T00:00:00Z",
+                "type": "query",
+                "description": "End time of the host timeline. Equivalent to the From field in the event history UI. This must be the timestamp furthest from the current time. For example, if you want events from January 1, 2025 to the start of January 2, 2025, input the January 1 timestamp here. Must be a valid RFC3339 string. Ensure that you suffix the date with T00:00:00Z or a specific time."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve event history for a host. A host ID is its IP address.<br><br>Note that when a service protocol changes after a new scan (for example, from `UNKNOWN` to `NETBIOS`), this information will be reflected in the `scan` object."
+        },
+        {
+          "info": {
+            "name": "Censys Retrieve Multiple Web Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/asset/webproperty",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "webproperty_ids",
+                "value": "platform.censys.io:80",
+                "type": "query",
+                "description": "A list of web property identifiers."
+              },
+              {
+                "name": "at_time",
+                "value": "2025-01-01T00:00:00Z",
+                "type": "query",
+                "description": "RFC3339 Timestamp to view all requested webproperties at a specific point in time. Must be a valid RFC3339 string. Ensure that you suffix the date with T00:00:00Z or a specific time"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve information about multiple web properties. Web properties are identified using a combination of a hostname and port joined with a colon, such as `platform.censys.io:80`.<br><br>The GET method of this endpoint is deprecated, but will continue to be supported for backwards compatibility. Please use the [POST variant](https://docs.censys.com/reference/v3-globaldata-asset-webproperty-list-post#/) of this endpoint instead."
+        },
+        {
+          "info": {
+            "name": "Censys Retrieve Multiple Web Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/global/asset/webproperty",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve information about multiple web properties. You can retrieve up to 100 web properties per call. Web properties are identified using a combination of a hostname and port joined with a colon, such as `platform.censys.io:80`."
+        },
+        {
+          "info": {
+            "name": "Censys Get a Web Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/asset/webproperty/:webproperty_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "webproperty_id",
+                "value": "platform.censys.io:80",
+                "type": "path",
+                "description": "A web property identifier."
+              },
+              {
+                "name": "at_time",
+                "value": "2025-01-01T00:00:00Z",
+                "type": "query",
+                "description": "RFC3339 Timestamp to view a webproperty at a specific point in time. Must be a valid RFC3339 string. Ensure that you suffix the date with T00:00:00Z or a specific time"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve information about a single web property. Web properties are identified using a combination of a hostname and port joined with a colon, such as `platform.censys.io:80`."
+        },
+        {
+          "info": {
+            "name": "Censys Get Latest DNS Names That Resolved to an IP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/dns/resolutions/ip/:ip/bounds",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "record_types",
+                "value": "A",
+                "type": "query",
+                "description": "Filter by record types (A, AAAA). For multiple values, include comma-separated values. Defaults to A and AAAA when omitted."
+              },
+              {
+                "name": "ip",
+                "value": "8.8.8.8",
+                "type": "path",
+                "description": "The IP address of a DNS record."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the latest domain names that resolved to the IP you provide (A and AAAA). You can narrow results with `record_types` (A or AAAA).<br><br>[Learn more about Censys Active DNS Resolution](https://docs.censys.com/docs/platform-active-dns).<br><br>This endpoint is in beta and is only available to Censys Enterprise users."
+        },
+        {
+          "info": {
+            "name": "Censys Get DNS Names That Resolved to an IP Within a Time Window",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/dns/resolutions/ip/:ip/ranges",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "record_types",
+                "value": "A",
+                "type": "query",
+                "description": "Filter by record types (A, AAAA). For multiple values, include comma-separated values. Defaults to A and AAAA when omitted."
+              },
+              {
+                "name": "domain",
+                "value": "platform.censys.io",
+                "type": "query",
+                "description": "Filter to a specific domain name resolving to this IP."
+              },
+              {
+                "name": "ip",
+                "value": "8.8.8.8",
+                "type": "path",
+                "description": "The IP address of a DNS record."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve domain names that resolved to the IP you provide (A and AAAA) within the requested time window.<br><br>[Learn more about Censys Active DNS Resolution](https://docs.censys.com/docs/platform-active-dns).<br><br>This endpoint is in beta and is only available to Censys Enterprise users."
+        },
+        {
+          "info": {
+            "name": "Censys Get Latest DNS Resolution Records for a Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/dns/resolutions/:name/bounds",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "record_types",
+                "value": "MX",
+                "type": "query",
+                "description": "Filter by record types (A, AAAA, MX, NS, SOA, TXT). For multiple values, include comma-separated values. Defaults to all supported types when omitted."
+              },
+              {
+                "name": "name",
+                "value": "platform.censys.io",
+                "type": "path",
+                "description": "The domain name"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the latest DNS resolution records for a name. This endpoint returns the latest observed A, AAAA, MX, NS, SOA, and TXT records for the name you provide. You can filter by one or more record types using `record_types`.<br><br>[Learn more about Censys Active DNS Resolution](https://docs.censys.com/docs/platform-active-dns).<br><br>This endpoint is in beta and is only available to Censys Enterprise users."
+        },
+        {
+          "info": {
+            "name": "Censys Get Historical DNS Resolution Ranges for a Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/dns/resolutions/:name/ranges",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "record_types",
+                "value": "MX",
+                "type": "query",
+                "description": "Filter by record types (A, AAAA, MX, NS, SOA, TXT). For multiple values, include comma-separated values. Defaults to all supported types when omitted."
+              },
+              {
+                "name": "name",
+                "value": "platform.censys.io",
+                "type": "path",
+                "description": "The domain name"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve historical DNS resolution observations for a name. Each item is one window during which a record value was observed by Censys.<br><br>[Learn more about Censys Active DNS Resolution](https://docs.censys.com/docs/platform-active-dns).<br><br>This endpoint is in beta and is only available to Censys Enterprise users."
+        },
+        {
+          "info": {
+            "name": "Censys Live Rescan: Initiate a New Rescan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/global/scans/rescan",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Initiate a rescan for a known host service at a specific IP and port (`ip:port`) or hostname and port (`hostname:port`). This is equivalent to the [Live Rescan](https://docs.censys.com/docs/platform-live-rescan#/) feature available in the UI, but you can also target web properties in addition to hosts.<br><br>The scan may take several minutes to complete. The response will contain a scan ID that you can use to [monitor the scan's status](https://docs.censys.com/reference/v3-globaldata-scans-get#"
+        },
+        {
+          "info": {
+            "name": "Censys Get Scan Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/global/scans/:scan_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "scan_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the tracked scan"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the current status of a scan by its ID. This endpoint works for both [Live Discovery scans](https://docs.censys.com/reference/v3-threathunting-scans-discovery#/) and [Live Rescans](https://docs.censys.com/reference/v3-globaldata-scans-rescan#/).<br><br>If the scan was successful, perform a lookup on the target asset to retrieve detailed scan information.<br><br>This endpoint is available to all Enterprise customers. This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Aggregate Results for a Search Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/global/search/aggregate",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Aggregate results for a Platform search query. This functionality is equivalent to the [Report Builder](https://docs.censys.com/docs/platform-report-builder#/) in the Platform web UI."
+        },
+        {
+          "info": {
+            "name": "Censys Convert Legacy Search Queries to Platform Queries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/global/search/convert",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Convert Censys Search Language queries used in Legacy Search into Censys Query Language (CenQL) queries for use in the Platform.<br><br>Reference the [documentation on CenQL](https://docs.censys.com/docs/censys-query-language) for more information about query syntax."
+        },
+        {
+          "info": {
+            "name": "Censys Run a Search Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/global/search/query",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. If omitted, the request will be processed using the authenticated user's free wallet where applicable. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Run a search query across Censys data. Reference the [documentation on Censys Query Language](https://docs.censys.com/docs/censys-query-language#/) for information about query syntax. Host services that match your search criteria will be returned in a `matched_services` object."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Threat Hunting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys CensEye: List Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/censeye/jobs",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "host_id",
+                "value": "8.8.8.8",
+                "type": "query",
+                "description": "Filter by host IP address."
+              },
+              {
+                "name": "webproperty_id",
+                "value": "example.com:443",
+                "type": "query",
+                "description": "Filter by web property (hostname:port)."
+              },
+              {
+                "name": "certificate_id",
+                "value": "3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf",
+                "type": "query",
+                "description": "Filter by certificate SHA-256 fingerprint."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List CensEye pivot analysis jobs for the current organization. Results are paginated. Optionally filter by asset (host, web property, or certificate)."
+        },
+        {
+          "info": {
+            "name": "Censys CensEye: Create a Pivot Analysis Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/censeye/jobs",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create an asynchronous CensEye pivot analysis job for a host, web property, or certificate. The job extracts [default pivot fields](https://docs.censys.com/docs/platform-threat-hunting-use-censeye-to-build-detections#default-pivot-fields) from the target asset and counts matching documents for each field-value pair. Poll the job status endpoint to track progress, then retrieve results when complete.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation mo"
+        },
+        {
+          "info": {
+            "name": "Censys CensEye: Get Job Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/censeye/jobs/:job_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the CensEye job."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the current status of a CensEye pivot analysis job. Use this to poll for completion before fetching results.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation module."
+        },
+        {
+          "info": {
+            "name": "Censys CensEye: Get Job Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/censeye/jobs/:job_id/results",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the CensEye job."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the results of a completed CensEye pivot analysis job. Each result contains a count and the field-value pairs that were analyzed. Results may be empty if the job is still running.<br><br>Results are paginated. Use the `next_page_token` from the response to fetch subsequent pages.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation module."
+        },
+        {
+          "info": {
+            "name": "Censys Get Host History for a Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/certificate/:certificate_id/observations/hosts",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "certificate_id",
+                "value": "55af8a301eb51abdaf7c31bec951638fe5a99d5d92117eca2be493026613fa46",
+                "type": "path",
+                "description": "SHA-256 hash of the certificate"
+              },
+              {
+                "name": "start_time",
+                "value": "2023-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Only show ranges ending at or after this time (ISO 8601)"
+              },
+              {
+                "name": "end_time",
+                "value": "2023-12-31T23:59:59Z",
+                "type": "query",
+                "description": "Only show ranges starting at or before this time (ISO 8601)"
+              },
+              {
+                "name": "port",
+                "value": "443",
+                "type": "query",
+                "description": "The port to filter by"
+              },
+              {
+                "name": "protocol",
+                "value": "TCP",
+                "type": "query",
+                "description": "The transport protocol to filter by"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response to retrieve next page of results"
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page. Maximum 100, defaults to 100 if not specified"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the historical observations of hosts associated with a certificate. This is useful for threat hunting, detection engineering, and timeline generation. Certificate history is also visible to Adversary Investigation users in the Platform UI on the [certificate timeline](https://docs.censys.com/docs/platform-threat-hunting-use-cert-history-to-build-better-detections#/).<br><br>You can define a specific time frame of interest. If you do not specify a time frame, this endpoint will search th"
+        },
+        {
+          "info": {
+            "name": "Censys Get Endpoint Observation History for a Host",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/host/:ip/observations/endpoints",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "port",
+                "value": "443",
+                "type": "query",
+                "description": "Filter by port number"
+              },
+              {
+                "name": "observation_value",
+                "value": "",
+                "type": "query",
+                "description": "Filter by observation value for the selected observation_type"
+              },
+              {
+                "name": "ip",
+                "value": "8.8.8.8",
+                "type": "path",
+                "description": "The IP address of a host."
+              },
+              {
+                "name": "observation_type",
+                "value": "",
+                "type": "query",
+                "description": "Endpoint observation type to query."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order observations by these fields. Multiple values can be provided (e.g., ['port DESC', 'observation_value ASC'])."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve historical endpoint-level hash observations for a host. This action returns time frames during which Censys observed host service endpoint body, favicon, and banner hash values. You must provide an `observation_type` and can optionally filter by a specific value using the `observation_value` parameter. You may also filter by port number.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation module."
+        },
+        {
+          "info": {
+            "name": "Censys Get Fingerprint Observation History for a Host",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/host/:ip/observations/fingerprints",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "port",
+                "value": "443",
+                "type": "query",
+                "description": "Filter by port number"
+              },
+              {
+                "name": "transport_protocol",
+                "value": "tcp",
+                "type": "query",
+                "description": "Filter by transport protocol when supported by the selected observation_type"
+              },
+              {
+                "name": "observation_value",
+                "value": "",
+                "type": "query",
+                "description": "Filter by observation value for the selected observation_type"
+              },
+              {
+                "name": "ip",
+                "value": "8.8.8.8",
+                "type": "path",
+                "description": "The IP address of a host."
+              },
+              {
+                "name": "observation_type",
+                "value": "",
+                "type": "query",
+                "description": "Fingerprint observation type to query."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order observations by these fields. Multiple values can be provided (e.g., ['port DESC', 'observation_value ASC']). transport_protocol ordering is only supported for observation types whose timelines expose that field; see the endpoint description for details."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve fingerprint observations for a host. You must provide an observation_type, and can optionally filter by port and observation_value. You may also filter or sort by transport_protocol when supported by the selected observation_type. The shared order_by schema includes transport_protocol for the fingerprint family, but requests for observation types whose timelines do not expose transport_protocol will be rejected if they attempt to sort by it.<br><br>Capability matrix:<br>- jarm_fingerpri"
+        },
+        {
+          "info": {
+            "name": "Censys Get Threat History for a Host",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/host/:ip/observations/threats",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "port",
+                "value": "443",
+                "type": "query",
+                "description": "Filter by port number"
+              },
+              {
+                "name": "protocol",
+                "value": "HTTP",
+                "type": "query",
+                "description": "Filter by application protocol"
+              },
+              {
+                "name": "threat_name",
+                "value": "Acunetix",
+                "type": "query",
+                "description": "Filter by threat name"
+              },
+              {
+                "name": "transport_protocol",
+                "value": "tcp",
+                "type": "query",
+                "description": "Filter by transport protocol"
+              },
+              {
+                "name": "ip",
+                "value": "8.8.8.8",
+                "type": "path",
+                "description": "The IP address of a host."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order observations by these fields. Multiple values can be provided to sort by multiple fields (e.g., ['port DESC', 'protocol ASC'])."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve historical threat observations for a host. This endpoint returns time ranges during which threats were detected on the host.<br><br>You can define a specific time frame of interest. If you do not specify a time frame, this endpoint will search the historical dataset that is available to your account.<br><br>You can filter by port number, protocol, threat name, and transport protocol.<br><br>This endpoint is available to organizations that have access to the Adversary Investigation modul"
+        },
+        {
+          "info": {
+            "name": "Censys Live Discovery: Initiate a New Scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/scans/discovery",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Initiate a scan to look for a currently unobserved service at a specific IP and port (`ip:port`) or hostname and port (`hostname:port`). This is equivalent to the [Live Discovery](https://docs.censys.com/docs/platform-threat-hunting-use-live-scan-and-rescan-to-validate-infrastructure#/) feature available in the UI, but you can also target web properties in addition to hosts.<br><br>The scan may take several minutes to complete. The response will contain a scan ID that you can use to [monitor the"
+        },
+        {
+          "info": {
+            "name": "Censys Get Scan Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/scans/:scan_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "scan_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the tracked scan"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the current status of a scan by its ID. This endpoint works for both [Live Discovery scans](https://docs.censys.com/reference/v3-threathunting-scans-discovery#/) and [Live Rescans](https://docs.censys.com/reference/v3-globaldata-scans-rescan#/).<br><br>If the scan was successful, perform a lookup on the target asset to retrieve detailed scan information.<br><br>This endpoint is available to all Enterprise customers. This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys List Active Threats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/threats",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "query",
+                "value": "*",
+                "type": "query",
+                "description": "Optional CenQL filter to constrain threats list"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a list of active threats observed by Censys by aggregating threat IDs across hosts and web properties. Threats are active if their fingerprint has been identified on hosts or web properties by Censys scans. This information is also available on the [Explore Threats page in the Platform web UI](https://platform.censys.io/threats).<br><br>This endpoint is available to organizations that have access to the Adversary Investigation module."
+        },
+        {
+          "info": {
+            "name": "Censys CensEye: Retrieve Value Counts to Discover Pivots",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/value-counts",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get counts of web assets for specific field-value pairs and combinations of field-value pairs. This is similar to the [CensEye functionality](https://docs.censys.com/docs/platform-threat-hunting-use-censeye-to-build-detections#/) available in the Platform web UI, but it allows you to define specific fields of interest rather than the [default fields](https://docs.censys.com/docs/platform-threat-hunting-use-censeye-to-build-detections#default-pivot-fields) leveraged by the tool in the UI.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Censys Get Threat History for a Web Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.platform.censys.io/v3/threat-hunting/web/:webproperty_id/observations/threats",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "threat_name",
+                "value": "Acunetix",
+                "type": "query",
+                "description": "Filter by threat name"
+              },
+              {
+                "name": "webproperty_id",
+                "value": "platform.censys.io:80",
+                "type": "path",
+                "description": "A web property identifier in hostname:port format."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order observations by these fields. Multiple values can be provided to sort by multiple fields (e.g., ['threat_name DESC'])."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve historical threat observations for a web property. This endpoint returns time ranges during which threats were detected on the host.<br><br>You can define a specific time frame of interest. If you do not specify a time frame, this endpoint will search the historical dataset that is available to your account.<br><br>You can filter by threat name.<br><br>This endpoint is available to organizations that have access to the Adversary Investigation module."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
