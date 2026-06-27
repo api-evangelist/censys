@@ -60,23 +60,23 @@ apis:
       - type: Authentication
         url: https://accounts.censys.io/settings/personal-access-tokens
         title: Personal Access Tokens
-      - type: Quickstart
+      - type: GettingStarted
         url: https://docs.censys.com/docs/platform-quickstart
-      - type: SDK
+      - type: SDKs
         url: https://pypi.org/project/censys-platform/
         title: Python SDK (censys-platform)
-      - type: SDK
+      - type: SDKs
         url: https://github.com/censys/censys-sdk-typescript
         title: TypeScript SDK
-      - type: SDK
+      - type: SDKs
         url: https://github.com/censys/censys-sdk-go
         title: Go SDK
-      - type: SDK
+      - type: SDKs
         url: https://pypi.org/project/censys/
         title: Python SDK Legacy (censys-python)
       - type: ChangeLog
         url: https://docs.censys.com/changelog
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/censys-platform-context.jsonld
   - name: Censys Asset Graph API
     description: >-
@@ -96,17 +96,17 @@ apis:
         url: https://docs.censys.com
       - type: OpenAPI
         url: openapi/censys-asset-graph-openapi.yml
-      - type: SDK
+      - type: SDKs
         url: https://github.com/censys/censys-asset-graph-sdk-go
         title: Go SDK (Asset Graph)
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/censys-asset-graph-context.jsonld
 common:
   - type: Website
     url: https://censys.com
   - type: Portal
     url: https://platform.censys.io
-  - type: SignUp
+  - type: Signup
     url: https://accounts.censys.io/register
   - type: Pricing
     url: https://censys.com/pricing/
@@ -164,7 +164,7 @@ common:
     url: rules/censys-spectral-rules.yml
   - type: Vocabulary
     url: vocabulary/censys-vocabulary.yml
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/censys-context.jsonld
   - type: Features
     data:
