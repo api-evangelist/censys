@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/censys-asset-graph-openapi.yml, openapi/censys-platform-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: PersonalAccessToken
+  type: http
+  scheme: bearer
+  description: Your Censys personal access token.
+  sources:
+  - openapi/censys-asset-graph-openapi.yml
+  - openapi/censys-platform-openapi.yml

@@ -102,6 +102,12 @@ apis:
       - type: JSONLD
         url: json-ld/censys-asset-graph-context.jsonld
 common:
+  - type: VulnerabilityDisclosure
+    url: security/censys-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/censys-domain-security.yml
+  - type: Authentication
+    url: authentication/censys-authentication.yml
   - type: Website
     url: https://censys.com
   - type: Portal
