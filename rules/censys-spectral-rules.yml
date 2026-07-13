@@ -1,13 +1,26 @@
-# Censys API Spectral Ruleset
-# Generated 2026-05-29 from analysis of openapi/censys-platform-openapi.yml and openapi/censys-asset-graph-openapi.yml
-# Enforces Censys's OpenAPI 3.1, snake_case schema properties, /v{n} versioning, PersonalAccessToken bearer auth,
-# Personal Access Token security, and Title Case operation summaries prefixed with "Censys".
-
-extends: [[spectral:oas, recommended]]
-
+# censys — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - servers-https-only: 100% of servers already https (error)
+#   - servers-expected-domain: 2/2 servers on censys.io
+#   - path-params-casing: snake @ 100% (n=69)
+#   - query-params-casing: snake @ 100% (n=218)
+#   - operationid-casing: kebab @ 100% (n=88)
+#   - schema-names-casing: pascal @ 61% (n=1151)
+#   - schema-properties-casing: snake @ 100% (n=5846)
+#   - operation-security-required: 85/88 ops declare per-op security
+#   - error-schema-defined: ElasticSearch_ErrorMessage
+#   - operation-documents-401: 81% adherence
+#   - operation-documents-500: 81% adherence
+#   - pagination params observed: ['page_size', 'page_token']
+#   - merge: kept 31 existing, added 8 measured, upgraded 0
+#   - added: path-params-casing, query-params-casing, schema-names-casing, schema-properties-casing, operation-security-required, error-schema-defined, operation-documents-500, no-empty-descriptions
+extends:
+  - spectral:oas
 rules:
-
-  # ── INFO / METADATA ────────────────────────────────────────────────
   info-title-censys-prefix:
     description: API title must start with "Censys".
     given: $.info.title
@@ -15,7 +28,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^Censys"
+        match: ^Censys
   info-description-required:
     description: API info.description is required.
     given: $.info
@@ -30,8 +43,6 @@ rules:
     then:
       field: version
       function: truthy
-
-  # ── OPENAPI VERSION ────────────────────────────────────────────────
   openapi-version-3-1:
     description: Censys APIs target OpenAPI 3.1.
     given: $
@@ -40,9 +51,7 @@ rules:
       field: openapi
       function: pattern
       functionOptions:
-        match: "^3\\.1"
-
-  # ── SERVERS ────────────────────────────────────────────────────────
+        match: ^3\.1
   servers-required:
     description: At least one server must be defined.
     given: $
@@ -57,7 +66,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^https://"
+        match: ^https://
   servers-censys-host:
     description: Server URL should be a censys.io domain.
     given: $.servers[*].url
@@ -65,9 +74,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "censys\\.io"
-
-  # ── PATHS ──────────────────────────────────────────────────────────
+        match: censys\.io
   paths-kebab-case:
     description: Path segments should be kebab-case (or path parameters).
     given: $.paths.*~
@@ -75,7 +82,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^(/(v\\d+|api)?(/[a-z0-9-]+|/\\{[a-zA-Z0-9_]+\\})*)+/?$"
+        match: ^(/(v\d+|api)?(/[a-z0-9-]+|/\{[a-zA-Z0-9_]+\})*)+/?$
   paths-no-trailing-slash:
     description: Paths must not end with a trailing slash.
     given: $.paths.*~
@@ -83,7 +90,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        notMatch: ".+/$"
+        notMatch: .+/$
   paths-version-prefix:
     description: Censys paths must include a /v{n} or /api/v{n} version prefix.
     given: $.paths.*~
@@ -91,9 +98,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^/(v\\d+|api/v\\d+)"
-
-  # ── OPERATIONS ─────────────────────────────────────────────────────
+        match: ^/(v\d+|api/v\d+)
   operation-operationid-required:
     description: Every operation must have an operationId.
     given: $.paths.*[get,post,put,patch,delete]
@@ -108,7 +113,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^[a-z0-9]+(-[a-z0-9]+)*$"
+        match: ^[a-z0-9]+(-[a-z0-9]+)*$
   operation-summary-required:
     description: Every operation must have a summary.
     given: $.paths.*[get,post,put,patch,delete]
@@ -123,7 +128,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^Censys "
+        match: '^Censys '
   operation-description-required:
     description: Every operation should have a description.
     given: $.paths.*[get,post,put,patch,delete]
@@ -142,8 +147,6 @@ rules:
         schema:
           type: array
           minItems: 1
-
-  # ── TAGS ───────────────────────────────────────────────────────────
   tags-global-defined:
     description: Top-level tags array should be defined.
     given: $
@@ -158,9 +161,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^[A-Z][A-Za-z0-9]*( [A-Za-z0-9]+)*$"
-
-  # ── PARAMETERS ─────────────────────────────────────────────────────
+        match: ^[A-Z][A-Za-z0-9]*( [A-Za-z0-9]+)*$
   parameter-description-required:
     description: Parameters should have a description.
     given: $.paths.*[get,post,put,patch,delete].parameters[*]
@@ -175,7 +176,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^[a-z][a-z0-9_]*$"
+        match: ^[a-z][a-z0-9_]*$
   parameter-no-auth-query:
     description: Authentication tokens must not be sent in query parameters.
     given: $.paths.*[get,post,put,patch,delete].parameters[?(@.in=='query')].name
@@ -183,9 +184,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        notMatch: "(?i)(api[_-]?key|access[_-]?token|bearer)"
-
-  # ── REQUEST BODIES ─────────────────────────────────────────────────
+        notMatch: (?i)(api[_-]?key|access[_-]?token|bearer)
   requestbody-json-content:
     description: Request bodies must offer application/json content.
     given: $.paths.*[post,put,patch].requestBody.content
@@ -193,8 +192,6 @@ rules:
     then:
       field: application/json
       function: truthy
-
-  # ── RESPONSES ──────────────────────────────────────────────────────
   response-2xx-required:
     description: Operations must define at least one 2xx response.
     given: $.paths.*[get,post,put,patch,delete].responses
@@ -205,7 +202,7 @@ rules:
         schema:
           type: object
           patternProperties:
-            "^2[0-9][0-9]$": {}
+            ^2[0-9][0-9]$: {}
           minProperties: 1
   response-401-defined:
     description: Authenticated operations should document a 401 response.
@@ -228,8 +225,6 @@ rules:
     then:
       field: application/json
       function: truthy
-
-  # ── SCHEMAS ────────────────────────────────────────────────────────
   schema-property-snake-case:
     description: Schema properties must be snake_case.
     given: $.components.schemas.*.properties.*~
@@ -237,7 +232,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^[a-z][a-z0-9_]*$"
+        match: ^[a-z][a-z0-9_]*$
   schema-type-required:
     description: Schemas must declare type or composition (oneOf/anyOf/allOf/$ref).
     given: $.components.schemas.*
@@ -247,13 +242,16 @@ rules:
       functionOptions:
         schema:
           anyOf:
-            - required: [type]
-            - required: [oneOf]
-            - required: [anyOf]
-            - required: [allOf]
-            - required: ["$ref"]
-
-  # ── SECURITY ───────────────────────────────────────────────────────
+          - required:
+            - type
+          - required:
+            - oneOf
+          - required:
+            - anyOf
+          - required:
+            - allOf
+          - required:
+            - $ref
   security-personal-access-token-defined:
     description: PersonalAccessToken security scheme must be defined.
     given: $.components.securitySchemes
@@ -271,15 +269,79 @@ rules:
         schema:
           type: object
           properties:
-            type: { const: http }
-            scheme: { const: bearer }
-          required: [type, scheme]
-
-  # ── GENERAL QUALITY ────────────────────────────────────────────────
+            type:
+              const: http
+            scheme:
+              const: bearer
+          required:
+          - type
+          - scheme
   deprecated-documented:
     description: Deprecated operations should document migration in description.
     given: $.paths.*[?(@.deprecated==true)]
     severity: warn
     then:
       field: description
+      function: truthy
+  path-params-casing:
+    description: Path parameters should be snake_case (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*].parameters[?(@.in=='path')].name
+    then:
+      function: casing
+      functionOptions:
+        type: snake
+  query-params-casing:
+    description: Query parameters should be snake_case (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[?(@.in=='query')]
+    then:
+      field: name
+      function: casing
+      functionOptions:
+        type: snake
+  schema-names-casing:
+    description: Component schema names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: '@key'
+      function: pattern
+      functionOptions:
+        match: ^[A-Z][A-Za-z0-9]*$
+  schema-properties-casing:
+    description: Schema properties should be snake_case (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: snake
+  operation-security-required:
+    description: Every operation should declare its security requirements.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: security
+      function: truthy
+  error-schema-defined:
+    description: A shared error schema (ElasticSearch_ErrorMessage) should be defined for error payloads.
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: ElasticSearch_ErrorMessage
+      function: truthy
+  operation-documents-500:
+    description: Operations should document a 500 response (documented on 81% of this API's operations).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '500'
+      function: truthy
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
       function: truthy
