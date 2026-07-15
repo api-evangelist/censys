@@ -102,6 +102,8 @@ apis:
       - type: JSONLD
         url: json-ld/censys-asset-graph-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/censys-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/censys-vulnerability-disclosure.yml
   - type: DomainSecurity
