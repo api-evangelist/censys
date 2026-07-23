@@ -1,0 +1,407 @@
+openapi: 3.1.0
+info:
+  contact:
+    email: support@censys.io
+    name: Censys Support
+  description: '# Asset Graph API
+
+
+    The Asset Graph API provides comprehensive visibility into your Internet-facing assets. Use this API to build and manage attack surfaces by creating asset graphs, configuring seeds and exclusions, running discovery executions, and retrieving discovered assets and risk metadata.
+
+
+    ### Authentication
+
+
+    All requests must include a valid Censys personal access token (PAT) in the `Authorization` header:
+
+
+    ```
+
+    Authorization: Bearer <your-api-token>
+
+    ```
+
+
+    An `X-Organization-ID` header must also be present on every request. This identifies the Censys organization that owns the resources being accessed.
+
+
+    ```
+
+    X-Organization-ID: <your-organization-id>
+
+    ```
+
+
+    ### Core Concepts
+
+
+    - **Asset Graph**: The parent resource representing an attack surface. Each asset graph contains seeds, excluded assets, and executions.
+
+    - **Seeds**: Persistent starting points used to discover additional assets. Supported types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.
+
+    - **Excluded Assets**: Assets explicitly excluded from the graph. Excluded assets will not appear in execution results and will not be used to discover additional assets.
+
+    - **Executions**: A discovery process that uses the graph''s configured seeds and excluded assets to generate a complete snapshot of the attack surface. Censys periodically runs executions in the background, or they can be triggered on-demand.
+
+    - **Assets**: Internet-facing resources discovered during an execution, including hosts, domains, certificates, and web properties. Each asset includes discovery paths showing how it was found from your seeds.
+
+    - **Risks**: Vulnerabilities, exposures, misconfigurations, and threats identified on discovered assets.
+
+
+    ### Getting Started
+
+
+    1. **Create an asset graph** to represent your attack surface.
+
+    2. **Add seeds** — the known assets that Censys will use as starting points for discovery.
+
+    3. **Optionally add excluded assets** to omit specific assets from results.
+
+    4. **Create an execution** to trigger the discovery process, or wait for Censys to run one automatically.
+
+    5. **List assets** from a completed execution to view your discovered attack surface.
+
+    6. **Look up risk metadata** for any risk IDs found on your assets.
+
+    '
+  title: Asset Graph Account Management Graph Executions API
+  version: 1.0.12
+servers:
+- description: Asset Graph API
+  url: https://graph.data.censys.io
+tags:
+- name: Graph Executions
+paths:
+  /api/v1/asset-graphs/{graph_id}/executions:
+    get:
+      description: List all executions for an asset graph. Results are sorted by descending update time.
+      operationId: list-graph-executions
+      parameters:
+      - description: Censys organization ID
+        in: header
+        name: X-Organization-ID
+        required: true
+        schema:
+          description: Censys organization ID
+          format: uuid
+          type: string
+      - description: Asset graph ID
+        in: path
+        name: graph_id
+        required: true
+        schema:
+          description: Asset graph ID
+          format: uuid
+          type: string
+      - description: Pagination token from a previous response
+        explode: false
+        in: query
+        name: page_token
+        schema:
+          description: Pagination token from a previous response
+          type: string
+      - description: Maximum number of results to return
+        explode: false
+        in: query
+        name: page_size
+        schema:
+          description: Maximum number of results to return
+          format: int32
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListGraphExecutionsOutputBody'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys List Graph Executions
+      tags:
+      - Graph Executions
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      description: 'Start a new on-demand execution for an asset graph. An execution triggers the discovery process using the graph''s configured seeds and excluded assets. Creating an execution will preempt and cancel any currently running execution. Executions may take up to several hours to complete.
+
+
+        Censys also periodically runs executions in the background. Older executions are removed automatically.'
+      operationId: create-graph-execution
+      parameters:
+      - description: Censys organization ID
+        in: header
+        name: X-Organization-ID
+        required: true
+        schema:
+          description: Censys organization ID
+          format: uuid
+          type: string
+      - description: Asset graph ID
+        in: path
+        name: graph_id
+        required: true
+        schema:
+          description: Asset graph ID
+          format: uuid
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphExecution'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Create a Graph Execution
+      tags:
+      - Graph Executions
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /api/v1/asset-graphs/{graph_id}/executions/{execution_id}:
+    get:
+      description: Retrieve an execution, including its current status and discovery statistics.
+      operationId: get-graph-execution
+      parameters:
+      - description: Censys organization ID
+        in: header
+        name: X-Organization-ID
+        required: true
+        schema:
+          description: Censys organization ID
+          format: uuid
+          type: string
+      - description: Asset graph ID
+        in: path
+        name: graph_id
+        required: true
+        schema:
+          description: Asset graph ID
+          format: uuid
+          type: string
+      - description: Graph execution ID
+        in: path
+        name: execution_id
+        required: true
+        schema:
+          description: Graph execution ID
+          format: uuid
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphExecution'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Get a Graph Execution
+      tags:
+      - Graph Executions
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ExecutionStats:
+      additionalProperties: false
+      properties:
+        discovered_certificates:
+          description: Number of discovered (non-seed) certificate assets
+          format: int64
+          type: integer
+        discovered_domains:
+          description: Number of discovered (non-seed) domain assets
+          format: int64
+          type: integer
+        discovered_hosts:
+          description: Number of discovered (non-seed) host assets
+          format: int64
+          type: integer
+        discovered_web_properties:
+          description: Number of discovered (non-seed) web property assets
+          format: int64
+          type: integer
+        hosts_with_risks:
+          description: Number of host assets with risks
+          format: int64
+          type: integer
+        total_certificates:
+          description: Total number of certificate assets
+          format: int64
+          type: integer
+        total_domains:
+          description: Total number of domain assets
+          format: int64
+          type: integer
+        total_hosts:
+          description: Total number of host assets
+          format: int64
+          type: integer
+        total_web_properties:
+          description: Total number of web property assets
+          format: int64
+          type: integer
+        web_properties_with_risks:
+          description: Number of web property assets with risks
+          format: int64
+          type: integer
+      required:
+      - total_hosts
+      - discovered_hosts
+      - hosts_with_risks
+      - total_certificates
+      - discovered_certificates
+      - total_domains
+      - discovered_domains
+      - total_web_properties
+      - discovered_web_properties
+      - web_properties_with_risks
+      type: object
+    ListGraphExecutionsOutputBody:
+      additionalProperties: false
+      properties:
+        $schema:
+          description: A URL to the JSON Schema for this object.
+          examples:
+          - https://graph.data.censys.io/schemas/ListGraphExecutionsOutputBody.json
+          format: uri
+          readOnly: true
+          type: string
+        executions:
+          description: List of graph executions
+          items:
+            $ref: '#/components/schemas/GraphExecution'
+          type:
+          - array
+          - 'null'
+        next_page_token:
+          description: Token for the next page of results
+          type: string
+      required:
+      - executions
+      type: object
+    GraphExecution:
+      additionalProperties: false
+      properties:
+        $schema:
+          description: A URL to the JSON Schema for this object.
+          examples:
+          - https://graph.data.censys.io/schemas/GraphExecution.json
+          format: uri
+          readOnly: true
+          type: string
+        create_time:
+          description: RFC3339 creation timestamp
+          type: string
+        id:
+          description: Unique identifier for the execution
+          type: string
+        stats:
+          $ref: '#/components/schemas/ExecutionStats'
+          description: Execution statistics
+        status:
+          description: Execution status
+          type: string
+        update_time:
+          description: RFC3339 last-update timestamp
+          type: string
+      required:
+      - id
+      - status
+      - create_time
+      - update_time
+      type: object
+    ErrorModel:
+      additionalProperties: false
+      properties:
+        $schema:
+          description: A URL to the JSON Schema for this object.
+          examples:
+          - https://graph.data.censys.io/schemas/ErrorModel.json
+          format: uri
+          readOnly: true
+          type: string
+        detail:
+          description: A human-readable explanation specific to this occurrence of the problem.
+          examples:
+          - Property foo is required but is missing.
+          type: string
+        errors:
+          description: Optional list of individual error details
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
+          type:
+          - array
+          - 'null'
+        instance:
+          description: A URI reference that identifies the specific occurrence of the problem.
+          examples:
+          - https://example.com/error-log/abc123
+          format: uri
+          type: string
+        status:
+          description: HTTP status code
+          examples:
+          - 400
+          format: int64
+          type: integer
+        title:
+          description: A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
+          examples:
+          - Bad Request
+          type: string
+        type:
+          default: about:blank
+          description: A URI reference to human-readable documentation for the error.
+          examples:
+          - https://example.com/errors/example
+          format: uri
+          type: string
+      type: object
+    ErrorDetail:
+      additionalProperties: false
+      properties:
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
+          type: string
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
+      type: object
+  securitySchemes:
+    PersonalAccessToken:
+      description: Your Censys personal access token.
+      scheme: bearer
+      type: http
+x-speakeasy-globals:
+  parameters:
+  - in: header
+    name: X-Organization-ID
+    schema:
+      type: string
+    x-speakeasy-globals-hidden: true

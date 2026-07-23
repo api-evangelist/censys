@@ -1,0 +1,678 @@
+openapi: 3.1.0
+info:
+  contact:
+    email: support@censys.io
+    name: Censys Support
+  description: '# Asset Graph API
+
+
+    The Asset Graph API provides comprehensive visibility into your Internet-facing assets. Use this API to build and manage attack surfaces by creating asset graphs, configuring seeds and exclusions, running discovery executions, and retrieving discovered assets and risk metadata.
+
+
+    ### Authentication
+
+
+    All requests must include a valid Censys personal access token (PAT) in the `Authorization` header:
+
+
+    ```
+
+    Authorization: Bearer <your-api-token>
+
+    ```
+
+
+    An `X-Organization-ID` header must also be present on every request. This identifies the Censys organization that owns the resources being accessed.
+
+
+    ```
+
+    X-Organization-ID: <your-organization-id>
+
+    ```
+
+
+    ### Core Concepts
+
+
+    - **Asset Graph**: The parent resource representing an attack surface. Each asset graph contains seeds, excluded assets, and executions.
+
+    - **Seeds**: Persistent starting points used to discover additional assets. Supported types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.
+
+    - **Excluded Assets**: Assets explicitly excluded from the graph. Excluded assets will not appear in execution results and will not be used to discover additional assets.
+
+    - **Executions**: A discovery process that uses the graph''s configured seeds and excluded assets to generate a complete snapshot of the attack surface. Censys periodically runs executions in the background, or they can be triggered on-demand.
+
+    - **Assets**: Internet-facing resources discovered during an execution, including hosts, domains, certificates, and web properties. Each asset includes discovery paths showing how it was found from your seeds.
+
+    - **Risks**: Vulnerabilities, exposures, misconfigurations, and threats identified on discovered assets.
+
+
+    ### Getting Started
+
+
+    1. **Create an asset graph** to represent your attack surface.
+
+    2. **Add seeds** — the known assets that Censys will use as starting points for discovery.
+
+    3. **Optionally add excluded assets** to omit specific assets from results.
+
+    4. **Create an execution** to trigger the discovery process, or wait for Censys to run one automatically.
+
+    5. **List assets** from a completed execution to view your discovered attack surface.
+
+    6. **Look up risk metadata** for any risk IDs found on your assets.
+
+    '
+  title: Asset Graph Account Management Supply Chain Intelligence API
+  version: 1.0.12
+servers:
+- description: Asset Graph API
+  url: https://graph.data.censys.io
+tags:
+- description: Endpoints related to the Supply Chain Intelligence product
+  name: Supply Chain Intelligence
+paths:
+  /v1/supplychains:
+    get:
+      description: Returns a paginated list of supply chain IDs for the organization.<br><br>This endpoint does not cost credits to execute.
+      operationId: v1-supply-chain-list-supply-chains
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      - description: Maximum number of supply chains to return per page.
+        explode: false
+        in: query
+        name: page_size
+        schema:
+          default: 100
+          description: Maximum number of supply chains to return per page.
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+      - description: Pagination token from a previous response to retrieve the next page of results.
+        explode: false
+        in: query
+        name: page_token
+        schema:
+          description: Pagination token from a previous response to retrieve the next page of results.
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeSupplyChainsListPayload'
+          description: Supply chains listed successfully
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid arguments
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '409':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Conflict
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid inputs
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys List Supply Chains
+      tags:
+      - Supply Chain Intelligence
+      x-speakeasy-ignore: true
+      x-speakeasy-name-override: ListSupplyChains
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/supplychains/suppliers:
+    get:
+      description: Search for suppliers by display name keywords. Results are capped and not paginated.<br><br>This endpoint does not cost credits to execute.
+      operationId: v1-supply-chain-search-suppliers
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      - description: Search keywords matched against supplier display names.
+        example: Anthropic
+        explode: false
+        in: query
+        name: keywords
+        schema:
+          description: Search keywords matched against supplier display names.
+          examples:
+          - Anthropic
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeSupplyChainSearchSuppliersPayload'
+          description: Suppliers found successfully
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid arguments
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '409':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Conflict
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid inputs
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Search Suppliers
+      tags:
+      - Supply Chain Intelligence
+      x-speakeasy-ignore: true
+      x-speakeasy-name-override: SearchSuppliers
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      description: Add a list of suppliers to the specific supply chain.
+      operationId: v1-supply-chain-add-suppliers
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupplyChainAddSuppliersBody'
+        required: true
+      responses:
+        '201':
+          description: Suppliers Added To supply chain successfully
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Supplier/supply chain not found
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid Inputs
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Adds Supplier to Supply Chain
+      tags:
+      - Supply Chain Intelligence
+      x-speakeasy-ignore: true
+      x-speakeasy-name-override: AddSuppliers
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/supplychains/suppliers/{supplier_id}:
+    delete:
+      description: Remove a supplier from the specified supply chain.
+      operationId: v1-supply-chain-remove-supplier
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      - description: The ID of a Censys supplier to remove from the given supply chain.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: supplier_id
+        required: true
+        schema:
+          description: The ID of a Censys supplier to remove from the given supply chain.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: The ID of a Censys supply chain.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: supply_chain_id
+        required: true
+        schema:
+          description: The ID of a Censys supply chain.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      responses:
+        '204':
+          description: Supplier removed from supply chain successfully
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Supplier or supply chain not found
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid inputs
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Remove a Supplier from a Supply Chain
+      tags:
+      - Supply Chain Intelligence
+      x-speakeasy-ignore: true
+      x-speakeasy-name-override: RemoveSupplier
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    SupplyChainAddSuppliersBody:
+      additionalProperties: false
+      properties:
+        supplier_ids:
+          description: A list of IDs of Censys suppliers to add to the given supply chain, each as a UUID string, each must be unique.
+          examples:
+          - - 11111111-2222-3333-4444-555555555555
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type:
+          - array
+          - 'null'
+        supply_chain_id:
+          description: The ID of a Censys supply chain.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      required:
+      - supply_chain_id
+      - supplier_ids
+      type: object
+    ErrorDetail:
+      additionalProperties: false
+      properties:
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
+          type: string
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
+      type: object
+    AuthenticationError:
+      additionalProperties: false
+      properties:
+        error:
+          $ref: '#/components/schemas/AuthenticationErrorDetail'
+          description: Detailed information about the authentication error
+      type: object
+    ErrorModel:
+      additionalProperties: false
+      properties:
+        detail:
+          description: A human-readable explanation specific to this occurrence of the problem.
+          examples:
+          - Property foo is required but is missing.
+          type: string
+        errors:
+          description: Optional list of individual error details
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
+          type:
+          - array
+          - 'null'
+        instance:
+          description: A URI reference that identifies the specific occurrence of the problem.
+          examples:
+          - https://example.com/error-log/abc123
+          format: uri
+          type: string
+        status:
+          description: HTTP status code
+          examples:
+          - 400
+          format: int64
+          type: integer
+        title:
+          description: A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
+          examples:
+          - Bad Request
+          type: string
+        type:
+          default: about:blank
+          description: A URI reference to human-readable documentation for the error.
+          examples:
+          - https://example.com/errors/example
+          format: uri
+          type: string
+      type: object
+    ResponseEnvelopeSupplyChainSearchSuppliersPayload:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/SupplyChainSearchSuppliersPayload'
+      type: object
+    SupplyChainSupplier:
+      additionalProperties: false
+      properties:
+        city:
+          description: Supplier headquarters city.
+          type: string
+        continent:
+          description: Supplier headquarters continent.
+          type: string
+        country:
+          description: Supplier headquarters country.
+          type: string
+        description:
+          description: Supplier description.
+          type: string
+        display_name:
+          description: Supplier display name.
+          type: string
+        id:
+          description: Supplier ID.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        legal_name:
+          description: Supplier legal name.
+          type: string
+        region:
+          description: Supplier headquarters region or state.
+          type: string
+        status:
+          description: Supplier status.
+          type: string
+      required:
+      - id
+      - display_name
+      - legal_name
+      - description
+      - city
+      - region
+      - country
+      - continent
+      - status
+      type: object
+    SupplyChainSearchSuppliersPayload:
+      additionalProperties: false
+      properties:
+        suppliers:
+          description: Suppliers matching the search keywords.
+          items:
+            $ref: '#/components/schemas/SupplyChainSupplier'
+          type:
+          - array
+          - 'null'
+      required:
+      - suppliers
+      type: object
+    ResponseEnvelopeSupplyChainsListPayload:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/SupplyChainsListPayload'
+      type: object
+    AuthenticationErrorDetail:
+      additionalProperties: false
+      properties:
+        code:
+          description: HTTP status code
+          examples:
+          - 401
+          format: int64
+          type: integer
+        message:
+          description: Human-readable message describing the error occurrence
+          examples:
+          - Access credentials are invalid
+          type: string
+        reason:
+          description: Human-readable explanation of the underlying cause of the error
+          examples:
+          - Access token is not active
+          type: string
+        request:
+          type: string
+        status:
+          description: HTTP status message associated with the error
+          examples:
+          - Unauthorized
+          type: string
+      type: object
+    SupplyChainsListPayload:
+      additionalProperties: false
+      properties:
+        next_page_token:
+          description: Pagination token for the next page of results, if any.
+          type: string
+        supply_chain_ids:
+          description: Supply chain IDs for the organization.
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      required:
+      - supply_chain_ids
+      type: object
+  securitySchemes:
+    PersonalAccessToken:
+      description: Your Censys personal access token.
+      scheme: bearer
+      type: http
+x-speakeasy-globals:
+  parameters:
+  - in: header
+    name: X-Organization-ID
+    schema:
+      type: string
+    x-speakeasy-globals-hidden: true

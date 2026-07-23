@@ -1,0 +1,2267 @@
+openapi: 3.1.0
+info:
+  contact:
+    email: support@censys.io
+    name: Censys Support
+  description: '# Asset Graph API
+
+
+    The Asset Graph API provides comprehensive visibility into your Internet-facing assets. Use this API to build and manage attack surfaces by creating asset graphs, configuring seeds and exclusions, running discovery executions, and retrieving discovered assets and risk metadata.
+
+
+    ### Authentication
+
+
+    All requests must include a valid Censys personal access token (PAT) in the `Authorization` header:
+
+
+    ```
+
+    Authorization: Bearer <your-api-token>
+
+    ```
+
+
+    An `X-Organization-ID` header must also be present on every request. This identifies the Censys organization that owns the resources being accessed.
+
+
+    ```
+
+    X-Organization-ID: <your-organization-id>
+
+    ```
+
+
+    ### Core Concepts
+
+
+    - **Asset Graph**: The parent resource representing an attack surface. Each asset graph contains seeds, excluded assets, and executions.
+
+    - **Seeds**: Persistent starting points used to discover additional assets. Supported types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.
+
+    - **Excluded Assets**: Assets explicitly excluded from the graph. Excluded assets will not appear in execution results and will not be used to discover additional assets.
+
+    - **Executions**: A discovery process that uses the graph''s configured seeds and excluded assets to generate a complete snapshot of the attack surface. Censys periodically runs executions in the background, or they can be triggered on-demand.
+
+    - **Assets**: Internet-facing resources discovered during an execution, including hosts, domains, certificates, and web properties. Each asset includes discovery paths showing how it was found from your seeds.
+
+    - **Risks**: Vulnerabilities, exposures, misconfigurations, and threats identified on discovered assets.
+
+
+    ### Getting Started
+
+
+    1. **Create an asset graph** to represent your attack surface.
+
+    2. **Add seeds** — the known assets that Censys will use as starting points for discovery.
+
+    3. **Optionally add excluded assets** to omit specific assets from results.
+
+    4. **Create an execution** to trigger the discovery process, or wait for Censys to run one automatically.
+
+    5. **List assets** from a completed execution to view your discovered attack surface.
+
+    6. **Look up risk metadata** for any risk IDs found on your assets.
+
+    '
+  title: Asset Graph Account Management Adversary Investigation API
+  version: 1.0.12
+servers:
+- description: Asset Graph API
+  url: https://graph.data.censys.io
+tags:
+- description: Endpoints related to the Adversary Investigation product
+  name: Adversary Investigation
+paths:
+  /v3/threat-hunting/censeye/jobs:
+    post:
+      description: Create an asynchronous CensEye pivot analysis job for a host, web property, or certificate. The job extracts [default pivot fields](https://docs.censys.com/docs/platform-threat-hunting-use-censeye-to-build-detections#default-pivot-fields) from the target asset and counts matching documents for each field-value pair. Poll the job status endpoint to track progress, then retrieve results when complete.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation module.<br><br>This endpoint costs 44 credits to execute for a host, 28 credits to execute for a web property, and 7 credits to execute for a certificate.
+      operationId: v3-threathunting-censeye-jobs-create
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCenseyeJobInputBody'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeCenseyeJob'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid input
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: 'Censys CensEye: Create a Pivot Analysis Job'
+      tags:
+      - Adversary Investigation
+      x-speakeasy-name-override: CreateCenseyeJob
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/threat-hunting/censeye/jobs/{job_id}:
+    get:
+      description: Retrieve the current status of a CensEye pivot analysis job. Use this to poll for completion before fetching results.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation module.
+      operationId: v3-threathunting-censeye-jobs-get
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      - description: The unique identifier of the CensEye job.
+        in: path
+        name: job_id
+        required: true
+        schema:
+          description: The unique identifier of the CensEye job.
+          format: uuid
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeCenseyeJob'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Resource not found
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: 'Censys CensEye: Get Job Status'
+      tags:
+      - Adversary Investigation
+      x-speakeasy-name-override: GetCenseyeJob
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/threat-hunting/censeye/jobs/{job_id}/results:
+    get:
+      description: Retrieve the results of a completed CensEye pivot analysis job. Each result contains a count and the field-value pairs that were analyzed. Results may be empty if the job is still running.<br><br>Results are paginated. Use the `next_page_token` from the response to fetch subsequent pages.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation module.
+      operationId: v3-threathunting-censeye-job-results
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      - description: The unique identifier of the CensEye job.
+        in: path
+        name: job_id
+        required: true
+        schema:
+          description: The unique identifier of the CensEye job.
+          format: uuid
+          type: string
+      - description: Number of results per page (max 100)
+        explode: false
+        in: query
+        name: page_size
+        schema:
+          default: 100
+          description: Number of results per page (max 100)
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+      - description: Pagination token from previous response
+        explode: false
+        in: query
+        name: page_token
+        schema:
+          description: Pagination token from previous response
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeCenseyeResultsResponse'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Resource not found
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: 'Censys CensEye: Get Job Results'
+      tags:
+      - Adversary Investigation
+      x-speakeasy-name-override: GetCenseyeJobResults
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/threat-hunting/certificate/{certificate_id}/observations/hosts:
+    get:
+      description: Retrieve the historical observations of hosts associated with a certificate. This is useful for threat hunting, detection engineering, and timeline generation. Certificate history is also visible to Adversary Investigation users in the Platform UI on the [certificate timeline](https://docs.censys.com/docs/platform-threat-hunting-use-cert-history-to-build-better-detections#/).<br><br>You can define a specific time frame of interest. If you do not specify a time frame, this endpoint will search the historical dataset that is available to your account. You may also filter results by port and transport protocol.<br><br>This endpoint is available to organizations that have access to the Adversary Investigation module. It costs 5 credits per page of results.
+      operationId: v3-threathunting-get-host-observations-with-certificate
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      - description: SHA-256 hash of the certificate
+        example: 55af8a301eb51abdaf7c31bec951638fe5a99d5d92117eca2be493026613fa46
+        in: path
+        name: certificate_id
+        required: true
+        schema:
+          description: SHA-256 hash of the certificate
+          examples:
+          - 55af8a301eb51abdaf7c31bec951638fe5a99d5d92117eca2be493026613fa46
+          type: string
+      - description: Only show ranges ending at or after this time (ISO 8601)
+        example: '2023-01-01T00:00:00Z'
+        explode: false
+        in: query
+        name: start_time
+        schema:
+          description: Only show ranges ending at or after this time (ISO 8601)
+          examples:
+          - '2023-01-01T00:00:00Z'
+          type: string
+      - description: Only show ranges starting at or before this time (ISO 8601)
+        example: '2023-12-31T23:59:59Z'
+        explode: false
+        in: query
+        name: end_time
+        schema:
+          description: Only show ranges starting at or before this time (ISO 8601)
+          examples:
+          - '2023-12-31T23:59:59Z'
+          type: string
+      - description: The port to filter by
+        example: 443
+        explode: false
+        in: query
+        name: port
+        schema:
+          description: The port to filter by
+          examples:
+          - 443
+          format: int32
+          type: integer
+      - description: The transport protocol to filter by
+        example: TCP
+        explode: false
+        in: query
+        name: protocol
+        schema:
+          description: The transport protocol to filter by
+          examples:
+          - TCP
+          type: string
+      - description: Pagination token from previous response to retrieve next page of results
+        explode: false
+        in: query
+        name: page_token
+        schema:
+          description: Pagination token from previous response to retrieve next page of results
+          type: string
+      - description: Number of results per page. Maximum 100, defaults to 100 if not specified
+        example: 50
+        explode: false
+        in: query
+        name: page_size
+        schema:
+          description: Number of results per page. Maximum 100, defaults to 100 if not specified
+          examples:
+          - 50
+          format: int32
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeHostObservationResponse'
+          description: A list of host observations for the certificate
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Resource not found
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Get Host History for a Certificate
+      tags:
+      - Adversary Investigation
+      x-speakeasy-name-override: GetHostObservationsWithCertificate
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/threat-hunting/host/{ip}/observations/endpoints:
+    get:
+      description: Retrieve historical endpoint-level hash observations for a host. This action returns time frames during which Censys observed host service endpoint body, favicon, and banner hash values. You must provide an `observation_type` and can optionally filter by a specific value using the `observation_value` parameter. You may also filter by port number.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation module.
+      operationId: v3-threathunting-endpoint-observations-on-host
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      - description: Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time.
+        example: '2024-01-01T00:00:00Z'
+        explode: false
+        in: query
+        name: start_time
+        schema:
+          description: Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time.
+          examples:
+          - '2024-01-01T00:00:00Z'
+          type: string
+      - description: End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future.
+        example: '2024-01-31T23:59:59Z'
+        explode: false
+        in: query
+        name: end_time
+        schema:
+          description: End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future.
+          examples:
+          - '2024-01-31T23:59:59Z'
+          type: string
+      - description: Number of results per page (max 100)
+        example: 50
+        explode: false
+        in: query
+        name: page_size
+        schema:
+          default: 100
+          description: Number of results per page (max 100)
+          examples:
+          - 50
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+      - description: Pagination token from previous response
+        explode: false
+        in: query
+        name: page_token
+        schema:
+          description: Pagination token from previous response
+          type: string
+      - description: Filter by port number
+        example: 443
+        explode: false
+        in: query
+        name: port
+        schema:
+          description: Filter by port number
+          examples:
+          - 443
+          format: int32
+          type: integer
+      - description: Filter by observation value for the selected observation_type
+        explode: false
+        in: query
+        name: observation_value
+        schema:
+          description: Filter by observation value for the selected observation_type
+          type: string
+      - description: The IP address of a host.
+        example: 8.8.8.8
+        in: path
+        name: ip
+        required: true
+        schema:
+          description: The IP address of a host.
+          examples:
+          - 8.8.8.8
+          format: ip
+          type: string
+      - description: Endpoint observation type to query.
+        explode: false
+        in: query
+        name: observation_type
+        required: true
+        schema:
+          description: Endpoint observation type to query.
+          enum:
+          - body_hash_sha1
+          - body_hash_sha256
+          - favicon_hash_md5
+          - favicon_hash_sha256
+          - favicon_hash_shodan
+          - banner_hash_sha256
+          - endpoints_banner_hash_sha256
+          type: string
+      - description: Order observations by these fields. Multiple values can be provided (e.g., ['port DESC', 'observation_value ASC']).
+        explode: false
+        in: query
+        name: order_by
+        schema:
+          description: Order observations by these fields. Multiple values can be provided (e.g., ['port DESC', 'observation_value ASC']).
+          items:
+            enum:
+            - port ASC
+            - port DESC
+            - observation_value ASC
+            - observation_value DESC
+            type: string
+          type:
+          - array
+          - 'null'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeHashObservationsOnHostResponse'
+          description: A list of observation ranges
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Resource not found
+        '409':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Feature not enabled
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Get Endpoint Observation History for a Host
+      tags:
+      - Adversary Investigation
+      x-speakeasy-ignore: true
+      x-speakeasy-name-override: ListEndpointObservationsOnHost
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/threat-hunting/host/{ip}/observations/fingerprints:
+    get:
+      description: 'Retrieve fingerprint observations for a host. You must provide an observation_type, and can optionally filter by port and observation_value. You may also filter or sort by transport_protocol when supported by the selected observation_type. The shared order_by schema includes transport_protocol for the fingerprint family, but requests for observation types whose timelines do not expose transport_protocol will be rejected if they attempt to sort by it.<br><br>Capability matrix:<br>- jarm_fingerprint: port, transport_protocol, observation_value<br>- jarm_cipher_and_version_fingerprint: port, transport_protocol, observation_value<br>- jarm_tls_extensions_sha256: port, transport_protocol, observation_value<br>- ja4tscan_fingerprint: port, observation_value<br>- ja3s: port, observation_value<br>- ja4s: port, observation_value<br>- tls_presented_chain_fingerprint_sha256: port, observation_value'
+      operationId: v3-threathunting-fingerprint-observations-on-host
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      - description: Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time.
+        example: '2024-01-01T00:00:00Z'
+        explode: false
+        in: query
+        name: start_time
+        schema:
+          description: Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time.
+          examples:
+          - '2024-01-01T00:00:00Z'
+          type: string
+      - description: End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future.
+        example: '2024-01-31T23:59:59Z'
+        explode: false
+        in: query
+        name: end_time
+        schema:
+          description: End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future.
+          examples:
+          - '2024-01-31T23:59:59Z'
+          type: string
+      - description: Number of results per page (max 100)
+        example: 50
+        explode: false
+        in: query
+        name: page_size
+        schema:
+          default: 100
+          description: Number of results per page (max 100)
+          examples:
+          - 50
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+      - description: Pagination token from previous response
+        explode: false
+        in: query
+        name: page_token
+        schema:
+          description: Pagination token from previous response
+          type: string
+      - description: Filter by port number
+        example: 443
+        explode: false
+        in: query
+        name: port
+        schema:
+          description: Filter by port number
+          examples:
+          - 443
+          format: int32
+          type: integer
+      - description: Filter by transport protocol when supported by the selected observation_type
+        example: tcp
+        explode: false
+        in: query
+        name: transport_protocol
+        schema:
+          description: Filter by transport protocol when supported by the selected observation_type
+          enum:
+          - tcp
+          - udp
+          - icmp
+          - quic
+          examples:
+          - tcp
+          type: string
+      - description: Filter by observation value for the selected observation_type
+        explode: false
+        in: query
+        name: observation_value
+        schema:
+          description: Filter by observation value for the selected observation_type
+          type: string
+      - description: The IP address of a host.
+        example: 8.8.8.8
+        in: path
+        name: ip
+        required: true
+        schema:
+          description: The IP address of a host.
+          examples:
+          - 8.8.8.8
+          format: ip
+          type: string
+      - description: Fingerprint observation type to query.
+        explode: false
+        in: query
+        name: observation_type
+        required: true
+        schema:
+          description: Fingerprint observation type to query.
+          enum:
+          - jarm_fingerprint
+          - jarm_cipher_and_version_fingerprint
+          - jarm_tls_extensions_sha256
+          - ja4tscan_fingerprint
+          - ja3s
+          - ja4s
+          - tls_presented_chain_fingerprint_sha256
+          type: string
+      - description: Order observations by these fields. Multiple values can be provided (e.g., ['port DESC', 'observation_value ASC']). transport_protocol ordering is only supported for observation types whose timelines expose that field; see the endpoint description for details.
+        explode: false
+        in: query
+        name: order_by
+        schema:
+          description: Order observations by these fields. Multiple values can be provided (e.g., ['port DESC', 'observation_value ASC']). transport_protocol ordering is only supported for observation types whose timelines expose that field; see the endpoint description for details.
+          items:
+            enum:
+            - port ASC
+            - port DESC
+            - transport_protocol ASC
+            - transport_protocol DESC
+            - observation_value ASC
+            - observation_value DESC
+            type: string
+          type:
+          - array
+          - 'null'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeHashObservationsOnHostResponse'
+          description: A list of observation ranges
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Resource not found
+        '409':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Feature not enabled
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Get Fingerprint Observation History for a Host
+      tags:
+      - Adversary Investigation
+      x-speakeasy-ignore: true
+      x-speakeasy-name-override: ListFingerprintObservationsOnHost
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/threat-hunting/host/{ip}/observations/threats:
+    get:
+      description: Retrieve historical threat observations for a host. This endpoint returns time ranges during which threats were detected on the host.<br><br>You can define a specific time frame of interest. If you do not specify a time frame, this endpoint will search the historical dataset that is available to your account.<br><br>You can filter by port number, protocol, threat name, and transport protocol.<br><br>This endpoint is available to organizations that have access to the Adversary Investigation module.
+      operationId: v3-threathunting-threats-on-host
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      - description: Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time.
+        example: '2024-01-01T00:00:00Z'
+        explode: false
+        in: query
+        name: start_time
+        schema:
+          description: Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time.
+          examples:
+          - '2024-01-01T00:00:00Z'
+          type: string
+      - description: End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future.
+        example: '2024-01-31T23:59:59Z'
+        explode: false
+        in: query
+        name: end_time
+        schema:
+          description: End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future.
+          examples:
+          - '2024-01-31T23:59:59Z'
+          type: string
+      - description: Number of results per page (max 100)
+        example: 50
+        explode: false
+        in: query
+        name: page_size
+        schema:
+          default: 100
+          description: Number of results per page (max 100)
+          examples:
+          - 50
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+      - description: Pagination token from previous response
+        explode: false
+        in: query
+        name: page_token
+        schema:
+          description: Pagination token from previous response
+          type: string
+      - description: Filter by port number
+        example: 443
+        explode: false
+        in: query
+        name: port
+        schema:
+          description: Filter by port number
+          examples:
+          - 443
+          format: int32
+          type: integer
+      - description: Filter by application protocol
+        example: HTTP
+        explode: false
+        in: query
+        name: protocol
+        schema:
+          description: Filter by application protocol
+          examples:
+          - HTTP
+          type: string
+      - description: Filter by threat name
+        example: Acunetix
+        explode: false
+        in: query
+        name: threat_name
+        schema:
+          description: Filter by threat name
+          examples:
+          - Acunetix
+          type: string
+      - description: Filter by transport protocol
+        example: tcp
+        explode: false
+        in: query
+        name: transport_protocol
+        schema:
+          description: Filter by transport protocol
+          enum:
+          - tcp
+          - udp
+          examples:
+          - tcp
+          type: string
+      - description: The IP address of a host.
+        example: 8.8.8.8
+        in: path
+        name: ip
+        required: true
+        schema:
+          description: The IP address of a host.
+          examples:
+          - 8.8.8.8
+          format: ip
+          type: string
+      - description: Order observations by these fields. Multiple values can be provided to sort by multiple fields (e.g., ['port DESC', 'protocol ASC']).
+        explode: false
+        in: query
+        name: order_by
+        schema:
+          description: Order observations by these fields. Multiple values can be provided to sort by multiple fields (e.g., ['port DESC', 'protocol ASC']).
+          items:
+            enum:
+            - port ASC
+            - port DESC
+            - protocol ASC
+            - protocol DESC
+            - transport_protocol ASC
+            - transport_protocol DESC
+            - threat_name ASC
+            - threat_name DESC
+            type: string
+          type:
+          - array
+          - 'null'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeThreatsOnHostResponse'
+          description: A list of threat observation ranges
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Resource not found
+        '409':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Feature not enabled
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Get Threat History for a Host
+      tags:
+      - Adversary Investigation
+      x-speakeasy-ignore: true
+      x-speakeasy-name-override: ListThreatsOnHost
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/threat-hunting/scans/discovery:
+    post:
+      description: Initiate a scan to look for a currently unobserved service at a specific IP and port (`ip:port`) or hostname and port (`hostname:port`). This is equivalent to the [Live Discovery](https://docs.censys.com/docs/platform-threat-hunting-use-live-scan-and-rescan-to-validate-infrastructure#/) feature available in the UI, but you can also target web properties in addition to hosts.<br><br>The scan may take several minutes to complete. The response will contain a scan ID that you can use to [monitor the scan's status](https://docs.censys.com/reference/v3-threathunting-scans-get#/). After the scan completes, perform a lookup on the target asset to retrieve detailed scan information.<br><br>This endpoint is available to organizations that have access to the Adversary Investigation module. It costs 15 credits to execute this endpoint.
+      operationId: v3-threathunting-scans-discovery
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScansDiscoveryInputBody'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeTrackedScan'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid input
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: 'Censys Live Discovery: Initiate a New Scan'
+      tags:
+      - Adversary Investigation
+      x-speakeasy-name-override: CreateTrackedScan
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/threat-hunting/threats:
+    get:
+      description: Retrieve a list of active threats observed by Censys by aggregating threat IDs across hosts and web properties. Threats are active if their fingerprint has been identified on hosts or web properties by Censys scans. This information is also available on the [Explore Threats page in the Platform web UI](https://platform.censys.io/threats).<br><br>This endpoint is available to organizations that have access to the Adversary Investigation module.
+      operationId: v3-threathunting-threats-list
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      - description: Optional CenQL filter to constrain threats list
+        example: '*'
+        explode: false
+        in: query
+        name: query
+        schema:
+          description: Optional CenQL filter to constrain threats list
+          examples:
+          - '*'
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeThreatsListResponse'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid input
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys List Active Threats
+      tags:
+      - Adversary Investigation
+      x-speakeasy-name-override: ListThreats
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/threat-hunting/value-counts:
+    post:
+      description: Get counts of web assets for specific field-value pairs and combinations of field-value pairs. This is similar to the [CensEye functionality](https://docs.censys.com/docs/platform-threat-hunting-use-censeye-to-build-detections#/) available in the Platform web UI, but it allows you to define specific fields of interest rather than the [default fields](https://docs.censys.com/docs/platform-threat-hunting-use-censeye-to-build-detections#default-pivot-fields) leveraged by the tool in the UI.<br><br>Each array can only target fields within the same nested object and may contain at most 5 field-value pairs. For example, you can combine `host.services.port=80` and `host.services.protocol=SSH` in the same array, but you cannot combine `host.services.port=80` and `host.location.country="United States"` in the same array. You can input multiple arrays of objects in each API call.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation module. This endpoint costs 1 credit per count condition (array of objects) included in the API call.
+      operationId: v3-threathunting-value-counts
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchValueCountsInputBody'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeValueCountsResponse'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid input
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: 'Censys CensEye: Retrieve Value Counts to Discover Pivots'
+      tags:
+      - Adversary Investigation
+      x-speakeasy-name-override: ValueCounts
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/threat-hunting/web/{webproperty_id}/observations/threats:
+    get:
+      description: Retrieve historical threat observations for a web property. This endpoint returns time ranges during which threats were detected on the host.<br><br>You can define a specific time frame of interest. If you do not specify a time frame, this endpoint will search the historical dataset that is available to your account.<br><br>You can filter by threat name.<br><br>This endpoint is available to organizations that have access to the Adversary Investigation module.
+      operationId: v3-threathunting-threats-on-web
+      parameters:
+      - description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        explode: false
+        in: query
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+        example: 11111111-2222-3333-4444-555555555555
+        in: header
+        name: X-Organization-ID
+        schema:
+          description: 'The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.'
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+        x-speakeasy-ignore: true
+      - description: Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time.
+        example: '2024-01-01T00:00:00Z'
+        explode: false
+        in: query
+        name: start_time
+        schema:
+          description: Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time.
+          examples:
+          - '2024-01-01T00:00:00Z'
+          type: string
+      - description: End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future.
+        example: '2024-01-31T23:59:59Z'
+        explode: false
+        in: query
+        name: end_time
+        schema:
+          description: End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future.
+          examples:
+          - '2024-01-31T23:59:59Z'
+          type: string
+      - description: Number of results per page (max 100)
+        example: 50
+        explode: false
+        in: query
+        name: page_size
+        schema:
+          default: 100
+          description: Number of results per page (max 100)
+          examples:
+          - 50
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+      - description: Pagination token from previous response
+        explode: false
+        in: query
+        name: page_token
+        schema:
+          description: Pagination token from previous response
+          type: string
+      - description: Filter by threat name
+        example: Acunetix
+        explode: false
+        in: query
+        name: threat_name
+        schema:
+          description: Filter by threat name
+          examples:
+          - Acunetix
+          type: string
+      - description: A web property identifier in hostname:port format.
+        example: platform.censys.io:80
+        in: path
+        name: webproperty_id
+        required: true
+        schema:
+          description: A web property identifier in hostname:port format.
+          examples:
+          - platform.censys.io:80
+          type: string
+      - description: Order observations by these fields. Multiple values can be provided to sort by multiple fields (e.g., ['threat_name DESC']).
+        explode: false
+        in: query
+        name: order_by
+        schema:
+          description: Order observations by these fields. Multiple values can be provided to sort by multiple fields (e.g., ['threat_name DESC']).
+          items:
+            enum:
+            - threat_name ASC
+            - threat_name DESC
+            type: string
+          type:
+          - array
+          - 'null'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeThreatsOnWebResponse'
+          description: A list of threat observation ranges
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Resource not found
+        '409':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Feature not enabled
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Get Threat History for a Web Property
+      tags:
+      - Adversary Investigation
+      x-speakeasy-ignore: true
+      x-speakeasy-name-override: ListThreatsOnWeb
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ThreatsListResponse:
+      additionalProperties: false
+      properties:
+        threats:
+          description: List of active threats observed on the platform.
+          items:
+            $ref: '#/components/schemas/ThreatListItem'
+          type:
+          - array
+          - 'null'
+      required:
+      - threats
+      type: object
+    TrackedScan_Task:
+      additionalProperties: false
+      properties:
+        description:
+          type: string
+        status:
+          enum:
+          - ''
+          - scanning
+          - scanned
+          - rejected
+          - timed_out
+          - completed
+          - ignored
+          type: string
+        update_time:
+          type: string
+      type: object
+    CountCondition:
+      additionalProperties: false
+      properties:
+        field_value_pairs:
+          description: Field-value pairs to count matches for. Must target fields from the same nested object and may contain at most 5 pairs per group.
+          items:
+            $ref: '#/components/schemas/FieldValuePair'
+          type:
+          - array
+          - 'null'
+      required:
+      - field_value_pairs
+      type: object
+    TrackedScan_ScanTarget_HostnamePort:
+      additionalProperties: false
+      properties:
+        hostname:
+          type: string
+        port:
+          format: int32
+          minimum: 0
+          type: integer
+      type: object
+    ThreatOnHostRange:
+      additionalProperties: false
+      properties:
+        end_time:
+          description: When the threat was last observed
+          format: date-time
+          type: string
+        ip:
+          description: IP address where the threat was observed
+          type: string
+        port:
+          description: Port number where the threat was observed
+          type: string
+        protocol:
+          description: Application protocol (e.g., HTTP, HTTPS)
+          type: string
+        start_time:
+          description: When the threat was first observed
+          format: date-time
+          type: string
+        threat_name:
+          description: Name of the detected threat
+          type: string
+        transport_protocol:
+          description: Transport protocol (TCP or UDP)
+          type: string
+      required:
+      - threat_name
+      - ip
+      - port
+      - protocol
+      - transport_protocol
+      - start_time
+      - end_time
+      type: object
+    HashObservationOnHostRange:
+      additionalProperties: false
+      properties:
+        end_time:
+          description: When the observation was last seen
+          format: date-time
+          type: string
+        ip:
+          description: IP address of the host
+          type: string
+        observation_type:
+          description: Observation type selected in the request
+          type: string
+        observation_value:
+          description: Observed value for the selected observation type
+          type: string
+        port:
+          description: Port number
+          type: string
+        start_time:
+          description: When the observation was first seen
+          format: date-time
+          type: string
+        transport_protocol:
+          description: Transport protocol when present for the selected timeline
+          type: string
+      required:
+      - ip
+      - port
+      - observation_type
+      - observation_value
+      - start_time
+      - end_time
+      type: object
+    ThreatListItem:
+      additionalProperties: false
+      properties:
+        added_at:
+          description: The date and time when the threat was added.
+          format: date-time
+          type: string
+        count:
+          description: Total count of assets affected by this threat.
+          format: int64
+          type: integer
+        description:
+          description: Detailed description of the threat.
+          type: string
+        host_count:
+          description: Number of hosts affected by this threat.
+          format: int64
+          type: integer
+        id:
+          description: Unique identifier of the threat.
+          type: string
+        name:
+          description: Human-readable name of the threat.
+          type: string
+        references:
+          description: External reference links for the threat.
+          items:
+            $ref: '#/components/schemas/ThreatReference'
+          type:
+          - array
+          - 'null'
+        web_count:
+          description: Number of web properties affected by this threat.
+          format: int64
+          type: integer
+      required:
+      - id
+      - count
+      - host_count
+      - web_count
+      type: object
+    ResponseEnvelopeCenseyeResultsResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/CenseyeResultsResponse'
+      type: object
+    ErrorDetail:
+      additionalProperties: false
+      properties:
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
+          type: string
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
+      type: object
+    ScansDiscoveryInputBody:
+      additionalProperties: false
+      properties:
+        target:
+          oneOf:
+          - description: Discovery scan against IP:PORT
+            properties:
+              host_port:
+                additionalProperties: false
+                properties:
+                  ip:
+                    description: IP address to scan
+                    examples:
+                    - 8.8.8.8
+                    type: string
+                  port:
+                    description: Port number to scan
+                    examples:
+                    - 443
+                    format: int32
+                    maximum: 65535
+                    minimum: 1
+                    type: integer
+                required:
+                - ip
+                - port
+                type: object
+            required:
+            - host_port
+            type: object
+          - description: Discovery scan against hostname:PORT
+            properties:
+              hostname_port:
+                additionalProperties: false
+                properties:
+                  hostname:
+                    description: Hostname to scan
+                    examples:
+                    - censys.io
+                    type: string
+                  port:
+                    description: Port number to scan
+                    examples:
+                    - 443
+                    format: int32
+                    maximum: 65535
+                    minimum: 1
+                    type: integer
+                required:
+                - hostname
+                - port
+                type: object
+            required:
+            - hostname_port
+            type: object
+          type: object
+      required:
+      - target
+      type: object
+    ResponseEnvelopeValueCountsResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/ValueCountsResponse'
+      type: object
+    CenseyeResultsResponse:
+      additionalProperties: false
+      properties:
+        next_page_token:
+          description: Token to retrieve the next page of results.
+          type: string
+        results:
+          description: List of count results.
+          items:
+            $ref: '#/components/schemas/CenseyeResult'
+          type:
+          - array
+          - 'null'
+      required:
+      - results
+      type: object
+    SearchValueCountsInputBody:
+      additionalProperties: false
+      properties:
+        and_count_conditions:
+          description: Groups of field-value pairs to count matches for. Each group may contain up to 5 field-value pairs.
+          items:
+            $ref: '#/components/schemas/CountCondition'
+          type:
+          - array
+          - 'null'
+        query:
+          description: CenQL query string to filter documents
+          type: string
+      required:
+      - and_count_conditions
+      type: object
+    CenseyeJob:
+      additionalProperties: false
+      properties:
+        at_time:
+          description: The point-in-time the asset data was evaluated at.
+          format: date-time
+          type: string
+        create_time:
+          description: When the job was created.
+          format: date-time
+          type: string
+        delete_time:
+          description: When the job and results will be deleted.
+          format: date-time
+          type: string
+        error:
+          description: Error message if the job failed.
+          type: string
+        job_id:
+          description: Unique identifier of the job.
+          examples:
+          - 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        result_count:
+          description: Total number of result field-value pairs.
+          examples:
+          - 42
+          format: int32
+          minimum: 0
+          type: integer
+        state:
+          description: Current state of the job.
+          enum:
+          - started
+          - completed
+          - failed
+          - unknown
+          examples:
+          - completed
+          type: string
+        target:
+          $ref: '#/components/schemas/CenseyeTarget'
+          description: The asset that was analyzed.
+        update_time:
+          description: When the job was last updated.
+          format: date-time
+          type: string
+      required:
+      - job_id
+      - target
+      - state
+      type: object
+    ThreatsOnHostResponse:
+      additionalProperties: false
+      properties:
+        NextPageToken:
+          type: string
+        Ranges:
+          items:
+            $ref: '#/components/schemas/ThreatOnHostRange'
+          type:
+          - array
+          - 'null'
+      required:
+      - Ranges
+      - NextPageToken
+      type: object
+    CreateCenseyeJobInputBody:
+      additionalProperties: false
+      properties:
+        target:
+          $ref: '#/components/schemas/CenseyeTarget'
+          description: The asset to analyze. Exactly one of host_id, webproperty_id, or certificate_id must be set.
+      required:
+      - target
+      type: object
+    TrackedScan_ScanTarget:
+      additionalProperties: false
+      properties:
+        host_port:
+          $ref: '#/components/schemas/TrackedScan_ScanTarget_HostPort'
+        hostname_port:
+          $ref: '#/components/schemas/TrackedScan_ScanTarget_HostnamePort'
+        service_id:
+          $ref: '#/components/schemas/ServiceId'
+        web_origin:
+          $ref: '#/components/schemas/WebOrigin'
+      type: object
+    ServiceId:
+      additionalProperties: false
+      properties:
+        ip:
+          type: string
+        port:
+          format: int32
+          minimum: 0
+          type: integer
+        protocol:
+          type: string
+        transport_protocol:
+          enum:
+          - ''
+          - tcp
+          - udp
+          - icmp
+          - quic
+          type: string
+      type: object
+    ResponseEnvelopeThreatsOnHostResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/ThreatsOnHostResponse'
+      type: object
+    FieldValuePair:
+      additionalProperties: false
+      properties:
+        field:
+          description: The field to match
+          examples:
+          - host.services.port
+          type: string
+        value:
+          description: The value to match
+          examples:
+          - '80'
+          type: string
+      required:
+      - field
+      - value
+      type: object
+    AuthenticationErrorDetail:
+      additionalProperties: false
+      properties:
+        code:
+          description: HTTP status code
+          examples:
+          - 401
+          format: int64
+          type: integer
+        message:
+          description: Human-readable message describing the error occurrence
+          examples:
+          - Access credentials are invalid
+          type: string
+        reason:
+          description: Human-readable explanation of the underlying cause of the error
+          examples:
+          - Access token is not active
+          type: string
+        request:
+          type: string
+        status:
+          description: HTTP status message associated with the error
+          examples:
+          - Unauthorized
+          type: string
+      type: object
+    ThreatsOnWebResponse:
+      additionalProperties: false
+      properties:
+        NextPageToken:
+          type: string
+        Ranges:
+          items:
+            $ref: '#/components/schemas/ThreatOnWebRange'
+          type:
+          - array
+          - 'null'
+      required:
+      - Ranges
+      - NextPageToken
+      type: object
+    ResponseEnvelopeHashObservationsOnHostResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/HashObservationsOnHostResponse'
+      type: object
+    AuthenticationError:
+      additionalProperties: false
+      properties:
+        error:
+          $ref: '#/components/schemas/AuthenticationErrorDetail'
+          description: Detailed information about the authentication error
+      type: object
+    ResponseEnvelopeThreatsOnWebResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/ThreatsOnWebResponse'
+      type: object
+    HostObservationRange:
+      additionalProperties: false
+      properties:
+        end_time:
+          format: date-time
+          type: string
+        ip:
+          type: string
+        port:
+          format: int32
+          type: integer
+        protocols:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        start_time:
+          format: date-time
+          type: string
+        transport_protocol:
+          type: string
+      required:
+      - ip
+      - port
+      - transport_protocol
+      - protocols
+      - start_time
+      - end_time
+      type: object
+    ThreatReference:
+      additionalProperties: false
+      properties:
+        link:
+          description: URL reference link for the threat.
+          type: string
+      required:
+      - link
+      type: object
+    HashObservationsOnHostResponse:
+      additionalProperties: false
+      properties:
+        next_page_token:
+          description: A token that can be used to retrieve the next page of ranges.
+          type: string
+        ranges:
+          description: The list of observation ranges matching the request.
+          items:
+            $ref: '#/components/schemas/HashObservationOnHostRange'
+          type:
+          - array
+          - 'null'
+      required:
+      - ranges
+      - next_page_token
+      type: object
+    HostObservationResponse:
+      additionalProperties: false
+      properties:
+        next_page_token:
+          type: string
+        ranges:
+          items:
+            $ref: '#/components/schemas/HostObservationRange'
+          type:
+          - array
+          - 'null'
+        total_results:
+          format: int64
+          type: integer
+      required:
+      - ranges
+      - total_results
+      type: object
+    TrackedScan:
+      additionalProperties: false
+      properties:
+        completed:
+          type: boolean
+        create_time:
+          type: string
+        target:
+          $ref: '#/components/schemas/TrackedScan_ScanTarget'
+        tasks:
+          items:
+            $ref: '#/components/schemas/TrackedScan_Task'
+          type:
+          - array
+          - 'null'
+        tracked_scan_id:
+          type: string
+      type: object
+    ResponseEnvelopeHostObservationResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/HostObservationResponse'
+      type: object
+    ErrorModel:
+      additionalProperties: false
+      properties:
+        detail:
+          description: A human-readable explanation specific to this occurrence of the problem.
+          examples:
+          - Property foo is required but is missing.
+          type: string
+        errors:
+          description: Optional list of individual error details
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
+          type:
+          - array
+          - 'null'
+        instance:
+          description: A URI reference that identifies the specific occurrence of the problem.
+          examples:
+          - https://example.com/error-log/abc123
+          format: uri
+          type: string
+        status:
+          description: HTTP status code
+          examples:
+          - 400
+          format: int64
+          type: integer
+        title:
+          description: A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
+          examples:
+          - Bad Request
+          type: string
+        type:
+          default: about:blank
+          description: A URI reference to human-readable documentation for the error.
+          examples:
+          - https://example.com/errors/example
+          format: uri
+          type: string
+      type: object
+    CenseyeTarget:
+      additionalProperties: false
+      properties:
+        certificate_id:
+          description: SHA-256 fingerprint of the certificate to analyze.
+          examples:
+          - 3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf
+          type: string
+        host_id:
+          description: IP address of the host to analyze.
+          examples:
+          - 8.8.8.8
+          type: string
+        webproperty_id:
+          description: Web property identifier (hostname:port) to analyze.
+          examples:
+          - example.com:443
+          type: string
+      type: object
+    ResponseEnvelopeThreatsListResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/ThreatsListResponse'
+      type: object
+    CenseyeResult:
+      additionalProperties: false
+      properties:
+        count:
+          description: Number of matching documents for this field-value combination.
+          format: double
+          type: number
+        field_value_pairs:
+          description: The field-value pairs that were counted.
+          items:
+            $ref: '#/components/schemas/FieldValuePair'
+          type:
+          - array
+          - 'null'
+      required:
+      - count
+      - field_value_pairs
+      type: object
+    ResponseEnvelopeCenseyeJob:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/CenseyeJob'
+      type: object
+    TrackedScan_ScanTarget_HostPort:
+      additionalProperties: false
+      properties:
+        ip:
+          type: string
+        port:
+          format: int32
+          minimum: 0
+          type: integer
+      type: object
+    ThreatOnWebRange:
+      additionalProperties: false
+      properties:
+        end_time:
+          description: When the threat was last observed
+          format: date-time
+          type: string
+        start_time:
+          description: When the threat was first observed
+          format: date-time
+          type: string
+        threat_name:
+          description: Name of the detected threat
+          type: string
+      required:
+      - threat_name
+      - start_time
+      - end_time
+      type: object
+    ValueCountsResponse:
+      additionalProperties: false
+      properties:
+        and_count_results:
+          items:
+            format: double
+            type: number
+          type:
+          - array
+          - 'null'
+      required:
+      - and_count_results
+      type: object
+    ResponseEnvelopeTrackedScan:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/TrackedScan'
+      type: object
+    WebOrigin:
+      additionalProperties: false
+      properties:
+        hostname:
+          type: string
+        port:
+          format: int32
+          minimum: 0
+          type: integer
+      type: object
+  securitySchemes:
+    PersonalAccessToken:
+      description: Your Censys personal access token.
+      scheme: bearer
+      type: http
+x-speakeasy-globals:
+  parameters:
+  - in: header
+    name: X-Organization-ID
+    schema:
+      type: string
+    x-speakeasy-globals-hidden: true

@@ -1,0 +1,1963 @@
+openapi: 3.1.0
+info:
+  contact:
+    email: support@censys.io
+    name: Censys Support
+  description: '# Asset Graph API
+
+
+    The Asset Graph API provides comprehensive visibility into your Internet-facing assets. Use this API to build and manage attack surfaces by creating asset graphs, configuring seeds and exclusions, running discovery executions, and retrieving discovered assets and risk metadata.
+
+
+    ### Authentication
+
+
+    All requests must include a valid Censys personal access token (PAT) in the `Authorization` header:
+
+
+    ```
+
+    Authorization: Bearer <your-api-token>
+
+    ```
+
+
+    An `X-Organization-ID` header must also be present on every request. This identifies the Censys organization that owns the resources being accessed.
+
+
+    ```
+
+    X-Organization-ID: <your-organization-id>
+
+    ```
+
+
+    ### Core Concepts
+
+
+    - **Asset Graph**: The parent resource representing an attack surface. Each asset graph contains seeds, excluded assets, and executions.
+
+    - **Seeds**: Persistent starting points used to discover additional assets. Supported types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.
+
+    - **Excluded Assets**: Assets explicitly excluded from the graph. Excluded assets will not appear in execution results and will not be used to discover additional assets.
+
+    - **Executions**: A discovery process that uses the graph''s configured seeds and excluded assets to generate a complete snapshot of the attack surface. Censys periodically runs executions in the background, or they can be triggered on-demand.
+
+    - **Assets**: Internet-facing resources discovered during an execution, including hosts, domains, certificates, and web properties. Each asset includes discovery paths showing how it was found from your seeds.
+
+    - **Risks**: Vulnerabilities, exposures, misconfigurations, and threats identified on discovered assets.
+
+
+    ### Getting Started
+
+
+    1. **Create an asset graph** to represent your attack surface.
+
+    2. **Add seeds** — the known assets that Censys will use as starting points for discovery.
+
+    3. **Optionally add excluded assets** to omit specific assets from results.
+
+    4. **Create an execution** to trigger the discovery process, or wait for Censys to run one automatically.
+
+    5. **List assets** from a completed execution to view your discovered attack surface.
+
+    6. **Look up risk metadata** for any risk IDs found on your assets.
+
+    '
+  title: Asset Graph Account Management API
+  version: 1.0.12
+servers:
+- description: Asset Graph API
+  url: https://graph.data.censys.io
+tags:
+- description: Endpoints related to the Account Management product
+  name: Account Management
+paths:
+  /v3/accounts/organizations/{organization_id}:
+    get:
+      description: Retrieve an organization's details, including the count of organization members broken down by role and organization settings such as AI training and MFA requirements.<br><br>This endpoint does not cost any credits to execute.
+      operationId: v3-accountmanagement-org-details
+      parameters:
+      - description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: Whether to include how many members are in this organization, split by role.
+        explode: false
+        in: query
+        name: include_member_counts
+        schema:
+          default: false
+          description: Whether to include how many members are in this organization, split by role.
+          type: boolean
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeOrganizationDetails'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Organization not found
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid organization ID
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Get Organization Details
+      tags:
+      - Account Management
+      x-speakeasy-name-override: GetOrganizationDetails
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/accounts/organizations/{organization_id}/audit-log-events:
+    get:
+      description: Retrieve audit log events for an organization. Use query parameters to filter events by time range, user, and event type.<br><br>This endpoint does not cost any credits to execute.
+      operationId: v3-accountmanagement-org-audit-log-events
+      parameters:
+      - description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: Amount of events to return per page.
+        example: 1
+        explode: false
+        in: query
+        name: page_size
+        schema:
+          default: 10
+          description: Amount of events to return per page.
+          examples:
+          - 1
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+      - description: Page token for the requested page of audit log events.
+        explode: false
+        in: query
+        name: page_token
+        schema:
+          description: Page token for the requested page of audit log events.
+          type: string
+      - description: Only return events that occurred after this time. This value must be on or after 2026-01-01T00:00:00Z. If not provided, will default to the earliest possible date.
+        example: '2026-01-01T00:00:00Z'
+        explode: false
+        in: query
+        name: start_time
+        schema:
+          description: Only return events that occurred after this time. This value must be on or after 2026-01-01T00:00:00Z. If not provided, will default to the earliest possible date.
+          examples:
+          - '2026-01-01T00:00:00Z'
+          format: date-time
+          type: string
+      - description: Only return events that occurred before this time. This value must not be in the future. If not provided, it defaults to the current time.
+        example: '2026-02-01T00:00:00Z'
+        explode: false
+        in: query
+        name: end_time
+        schema:
+          description: Only return events that occurred before this time. This value must not be in the future. If not provided, it defaults to the current time.
+          examples:
+          - '2026-02-01T00:00:00Z'
+          format: date-time
+          type: string
+      - description: Only return events of this type. This field is deprecated and will be removed in a future version. Use event_types instead.
+        explode: false
+        in: query
+        name: event_type
+        schema:
+          deprecated: true
+          description: Only return events of this type. This field is deprecated and will be removed in a future version. Use event_types instead.
+          enum:
+          - user_created
+          - user_login
+          - user_login_failed
+          - user_password_changed
+          - user_password_reset
+          - user_mfa_changed
+          - user_settings_changed
+          - user_enabled
+          - user_disabled
+          - invitation_created
+          - invitation_resent
+          - invitation_accepted
+          - invitation_deleted
+          - membership_created
+          - membership_updated
+          - membership_removed
+          - org_created
+          - org_updated
+          - org_deleted
+          - saml_config_created
+          - saml_config_updated
+          - saml_config_deleted
+          - saml_config_domain_verified
+          - pat_created
+          - pat_deleted
+          - global_data_search_executed
+          - global_data_lookup_executed
+          - global_data_aggregation_executed
+          - asm_seed_created
+          - asm_seed_deleted
+          - asm_exclude_created
+          - asm_exclude_deleted
+          - asm_risk_instance_severity_changed
+          - asm_risk_instance_accepted
+          - asm_risk_instance_unaccepted
+          - asm_risk_type_severity_changed
+          - asm_risk_type_enabled
+          - asm_risk_type_disabled
+          - asm_risk_type_default_enabled
+          - tag_created
+          - tag_updated
+          - tag_deleted
+          - tag_assigned
+          - tag_unassigned
+          - tag_bulk_operation_started
+          - tag_bulk_operation_completed
+          - tag_bulk_operation_cancelled
+          - comment_created
+          - comment_updated
+          - comment_deleted
+          type: string
+      - description: Only return events of these types.
+        example:
+        - user_login
+        - pat_created
+        explode: false
+        in: query
+        name: event_types
+        schema:
+          description: Only return events of these types.
+          examples:
+          - - user_login
+            - pat_created
+          items:
+            enum:
+            - user_created
+            - user_login
+            - user_login_failed
+            - user_password_changed
+            - user_password_reset
+            - user_mfa_changed
+            - user_settings_changed
+            - user_enabled
+            - user_disabled
+            - invitation_created
+            - invitation_resent
+            - invitation_accepted
+            - invitation_deleted
+            - membership_created
+            - membership_updated
+            - membership_removed
+            - org_created
+            - org_updated
+            - org_deleted
+            - saml_config_created
+            - saml_config_updated
+            - saml_config_deleted
+            - saml_config_domain_verified
+            - pat_created
+            - pat_deleted
+            - global_data_search_executed
+            - global_data_lookup_executed
+            - global_data_aggregation_executed
+            - asm_seed_created
+            - asm_seed_deleted
+            - asm_exclude_created
+            - asm_exclude_deleted
+            - asm_risk_instance_severity_changed
+            - asm_risk_instance_accepted
+            - asm_risk_instance_unaccepted
+            - asm_risk_type_severity_changed
+            - asm_risk_type_enabled
+            - asm_risk_type_disabled
+            - asm_risk_type_default_enabled
+            - tag_created
+            - tag_updated
+            - tag_deleted
+            - tag_assigned
+            - tag_unassigned
+            - tag_bulk_operation_started
+            - tag_bulk_operation_completed
+            - tag_bulk_operation_cancelled
+            - comment_created
+            - comment_updated
+            - comment_deleted
+            type: string
+          maxItems: 10
+          type:
+          - array
+          - 'null'
+      - description: Exclude events of these types.
+        example:
+        - user_login
+        - pat_created
+        explode: false
+        in: query
+        name: exclude_event_types
+        schema:
+          description: Exclude events of these types.
+          examples:
+          - - user_login
+            - pat_created
+          items:
+            enum:
+            - user_created
+            - user_login
+            - user_login_failed
+            - user_password_changed
+            - user_password_reset
+            - user_mfa_changed
+            - user_settings_changed
+            - user_enabled
+            - user_disabled
+            - invitation_created
+            - invitation_resent
+            - invitation_accepted
+            - invitation_deleted
+            - membership_created
+            - membership_updated
+            - membership_removed
+            - org_created
+            - org_updated
+            - org_deleted
+            - saml_config_created
+            - saml_config_updated
+            - saml_config_deleted
+            - saml_config_domain_verified
+            - pat_created
+            - pat_deleted
+            - global_data_search_executed
+            - global_data_lookup_executed
+            - global_data_aggregation_executed
+            - asm_seed_created
+            - asm_seed_deleted
+            - asm_exclude_created
+            - asm_exclude_deleted
+            - asm_risk_instance_severity_changed
+            - asm_risk_instance_accepted
+            - asm_risk_instance_unaccepted
+            - asm_risk_type_severity_changed
+            - asm_risk_type_enabled
+            - asm_risk_type_disabled
+            - asm_risk_type_default_enabled
+            - tag_created
+            - tag_updated
+            - tag_deleted
+            - tag_assigned
+            - tag_unassigned
+            - tag_bulk_operation_started
+            - tag_bulk_operation_completed
+            - tag_bulk_operation_cancelled
+            - comment_created
+            - comment_updated
+            - comment_deleted
+            type: string
+          maxItems: 10
+          type:
+          - array
+          - 'null'
+      - description: Only return events performed by this user.
+        example: user@example.com
+        explode: false
+        in: query
+        name: user_email
+        schema:
+          description: Only return events performed by this user.
+          examples:
+          - user@example.com
+          type: string
+      - description: Order events by this field.
+        explode: false
+        in: query
+        name: order_by
+        schema:
+          default: timestamp_desc
+          description: Order events by this field.
+          enum:
+          - timestamp_desc
+          - timestamp_asc
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeAuditLogEventsResponse'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User not found
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid request parameters
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys List Audit Log Events
+      tags:
+      - Account Management
+      x-speakeasy-ignore: true
+      x-speakeasy-name-override: GetOrganizationAuditLogEvents
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/accounts/organizations/{organization_id}/credits:
+    get:
+      description: Retrieve credit balance and expiration information for an organization. <br><br>Credits expire 12 months after they are acquired.<br><br>This endpoint does not cost any credits to execute.
+      operationId: v3-accountmanagement-org-credits
+      parameters:
+      - description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeOrganizationCredits'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Organization not found
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid organization ID
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Get Organization Credit Balance
+      tags:
+      - Account Management
+      x-speakeasy-name-override: GetOrganizationCredits
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/accounts/organizations/{organization_id}/credits/usage:
+    get:
+      description: Retrieve credit information for an organization over a specific date range. You must include a start date in your request.<br><br>Admins can obtain credit usage information for all users in their organization. Members may only retrieve usage information for their own account.<br><br>This endpoint does not cost any credits to execute.
+      operationId: v3-accountmanagement-org-credits-usage
+      parameters:
+      - description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+        example: '2025-11-01'
+        explode: false
+        in: query
+        name: date
+        schema:
+          deprecated: true
+          description: The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+          examples:
+          - '2025-11-01'
+          type: string
+      - description: The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+        example: '2025-11-01'
+        explode: false
+        in: query
+        name: start_date
+        schema:
+          description: The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+          examples:
+          - '2025-11-01'
+          format: date
+          type: string
+      - description: The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year).
+        example: '2025-12-01'
+        explode: false
+        in: query
+        name: end_date
+        schema:
+          description: The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year).
+          examples:
+          - '2025-12-01'
+          format: date
+          type: string
+      - description: Whether to break down credit usage on a daily or monthly basis.
+        example: daily
+        explode: false
+        in: query
+        name: granularity
+        required: true
+        schema:
+          default: daily
+          description: Whether to break down credit usage on a daily or monthly basis.
+          enum:
+          - daily
+          - monthly
+          examples:
+          - daily
+          type: string
+      - description: Whether to include a breakdown of individual users' consumption in the credit usage report.
+        explode: false
+        in: query
+        name: include_consumer_breakdown
+        schema:
+          default: false
+          description: Whether to include a breakdown of individual users' consumption in the credit usage report.
+          type: boolean
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeCreditUsageReport'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid date format
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Organization not found
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid organization ID or date
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Get Organization Credit Usage
+      tags:
+      - Account Management
+      x-speakeasy-name-override: GetOrganizationCreditUsage
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/accounts/organizations/{organization_id}/invitations:
+    post:
+      description: Invite a user to an organization. The user will receive an email to join the organization. This is equivalent to [adding a new member via the UI](https://docs.censys.com/docs/platform-org-management#invite-members).<br><br>Only users with the Admin role in the provided organization can perform this operation.<br><br>This endpoint does not cost any credits to execute.
+      operationId: v3-accountmanagement-invite-user-to-org
+      parameters:
+      - description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InviteMemberInputBody'
+        required: true
+      responses:
+        '201':
+          description: Invitation sent successfully
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission or organization has reached maximum seat capacity
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Organization not found
+        '409':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User is already a member of this organization or an invitation already exists
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid email address
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Invite User to Organization
+      tags:
+      - Account Management
+      x-speakeasy-name-override: InviteUserToOrganization
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/accounts/organizations/{organization_id}/members:
+    get:
+      description: Retrieve a paginated list of an organization's members and their user details, including their user ID, email, name, creation time, and roles.<br><br>This endpoint does not cost any credits to execute.
+      operationId: v3-accountmanagement-list-org-members
+      parameters:
+      - description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: Number of members to return per page
+        explode: false
+        in: query
+        name: page_size
+        schema:
+          default: 10
+          description: Number of members to return per page
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: integer
+      - description: Pagination token for retrieving the next page of results
+        explode: false
+        in: query
+        name: page_token
+        schema:
+          description: Pagination token for retrieving the next page of results
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeOrganizationMembersList'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Organization not found
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid input
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys List Organization Members
+      tags:
+      - Account Management
+      x-speakeasy-name-override: ListOrganizationMembers
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/accounts/organizations/{organization_id}/members/{user_id}:
+    delete:
+      description: Remove a user from an organization. This is equivalent to [removing a member via the UI](https://docs.censys.com/docs/platform-org-management#remove-members).<br><br>Only users with the Admin role in the provided organization can perform this operation.<br><br>This endpoint does not cost any credits to execute.
+      operationId: v3-accountmanagement-remove-org-member
+      parameters:
+      - description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: The ID of a Censys user. You can obtain a user's ID by listing members of an organization.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: user_id
+        required: true
+        schema:
+          description: The ID of a Censys user. You can obtain a user's ID by listing members of an organization.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      responses:
+        '204':
+          description: Member removed successfully
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Membership or organization not found
+        '409':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Cannot remove the last admin from the organization
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid organization ID or user ID
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Remove Member from Organization
+      tags:
+      - Account Management
+      x-speakeasy-name-override: RemoveOrganizationMember
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      description: Update the roles assigned to an organization member. This operation replaces a member's roles with the list provided in the request body. To remove all roles from a member, provide an empty list. To completely remove a member from an organization, use the [remove member endpoint](https://docs.censys.com/reference/v3-accountmanagement-remove-org-member).<br><br>Only users with the Admin role in the provided organization can perform this operation.<br><br>This endpoint does not cost any credits to execute.
+      operationId: v3-accountmanagement-update-org-member
+      parameters:
+      - description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: The ID of a Censys user. You can obtain a user's ID by listing members of an organization.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: user_id
+        required: true
+        schema:
+          description: The ID of a Censys user. You can obtain a user's ID by listing members of an organization.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMemberRoleInputBody'
+        required: true
+      responses:
+        '204':
+          description: Organization member updated successfully
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid role identifiers or user/organization ID
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User, organization, or membership not found
+        '409':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Conflict
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid organization ID or user ID
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Update a Member's Roles in an Organization
+      tags:
+      - Account Management
+      x-speakeasy-name-override: UpdateOrganizationMember
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/accounts/organizations/{organization_id}/members/{user_id}/credits/usage:
+    get:
+      description: Retrieve credit consumption information for an organization member over a specific date range. You must include a start date in your request.<br><br>This endpoint does not cost any credits to execute.
+      operationId: v3-accountmanagement-member-credits-usage
+      parameters:
+      - description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: organization_id
+        required: true
+        schema:
+          description: The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: The ID of a Censys user. You can obtain a user's ID by listing members of an organization.
+        example: 11111111-2222-3333-4444-555555555555
+        in: path
+        name: user_id
+        required: true
+        schema:
+          description: The ID of a Censys user. You can obtain a user's ID by listing members of an organization.
+          examples:
+          - 11111111-2222-3333-4444-555555555555
+          format: uuid
+          type: string
+      - description: The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+        example: '2025-11-01'
+        explode: false
+        in: query
+        name: date
+        schema:
+          deprecated: true
+          description: The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+          examples:
+          - '2025-11-01'
+          type: string
+      - description: The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+        example: '2025-11-01'
+        explode: false
+        in: query
+        name: start_date
+        schema:
+          description: The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+          examples:
+          - '2025-11-01'
+          format: date
+          type: string
+      - description: The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year).
+        example: '2025-12-01'
+        explode: false
+        in: query
+        name: end_date
+        schema:
+          description: The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year).
+          examples:
+          - '2025-12-01'
+          format: date
+          type: string
+      - description: Whether to break down credit usage on a daily or monthly basis.
+        example: daily
+        explode: false
+        in: query
+        name: granularity
+        required: true
+        schema:
+          default: daily
+          description: Whether to break down credit usage on a daily or monthly basis.
+          enum:
+          - daily
+          - monthly
+          examples:
+          - daily
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeCreditUsageReport'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid date format
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '403':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User does not have permission to access this data
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Organization not found
+        '422':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Invalid user ID or organization ID
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Get Organization Member Credit Usage
+      tags:
+      - Account Management
+      x-speakeasy-name-override: GetMemberCreditUsage
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/accounts/users/credits:
+    get:
+      description: Retrieve your Free user account credit balance and refresh information. To retrieve the credit balance for a Starter or Enterprise account, use the [get organization credit balance endpoint](https://docs.censys.com/reference/v3-accountmanagement-org-credits).<br><br>This endpoint does not cost any credits to execute.
+      operationId: v3-accountmanagement-user-credits
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeUserCredits'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User not found
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Get Free User Credit Balance
+      tags:
+      - Account Management
+      x-speakeasy-name-override: GetUserCredits
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/accounts/users/credits/usage:
+    get:
+      description: Retrieve your Free user account credit consumption information over a specific date range. You must include a start date in your request.<br><br>This endpoint does not cost any credits to execute.
+      operationId: v3-accountmanagement-user-credits-usage
+      parameters:
+      - description: The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+        example: '2025-11-01'
+        explode: false
+        in: query
+        name: date
+        schema:
+          deprecated: true
+          description: The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+          examples:
+          - '2025-11-01'
+          type: string
+      - description: The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+        example: '2025-11-01'
+        explode: false
+        in: query
+        name: start_date
+        schema:
+          description: The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports).
+          examples:
+          - '2025-11-01'
+          format: date
+          type: string
+      - description: The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year).
+        example: '2025-12-01'
+        explode: false
+        in: query
+        name: end_date
+        schema:
+          description: The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year).
+          examples:
+          - '2025-12-01'
+          format: date
+          type: string
+      - description: Whether to break down credit usage on a daily or monthly basis.
+        example: daily
+        explode: false
+        in: query
+        name: granularity
+        required: true
+        schema:
+          default: daily
+          description: Whether to break down credit usage on a daily or monthly basis.
+          enum:
+          - daily
+          - monthly
+          examples:
+          - daily
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelopeCreditUsageReport'
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+            X-Request-ID:
+              schema:
+                type: string
+        '400':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationError'
+          description: Request does not contain a valid Authorization token
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: User not found
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Internal server error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys Get Free User Credit Usage
+      tags:
+      - Account Management
+      x-speakeasy-name-override: GetUserCreditsUsage
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ResponseEnvelopeOrganizationDetails:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/OrganizationDetails'
+      type: object
+    AuditLogEventsResponse:
+      additionalProperties: false
+      properties:
+        events:
+          description: The page of audit log events for the requested filters and pagination parameters.
+          items:
+            $ref: '#/components/schemas/AuditLogEvent'
+          type:
+          - array
+          - 'null'
+        pagination:
+          $ref: '#/components/schemas/PaginationInfo'
+          description: Pagination information for listing more events.
+        total_results:
+          format: int64
+          type: integer
+      required:
+      - events
+      - pagination
+      - total_results
+      type: object
+    OrganizationDetails:
+      additionalProperties: false
+      properties:
+        created_at:
+          description: The date and time the organization was created.
+          format: date-time
+          type: string
+        member_counts:
+          $ref: '#/components/schemas/MemberCounts'
+          description: The number of members in the organization, split by role.
+        name:
+          description: The name of the organization.
+          type: string
+        preferences:
+          $ref: '#/components/schemas/OrganizationPreferences'
+          description: The configured preferences of the organization.
+        uid:
+          description: The ID of a Censys organization.
+          format: uuid
+          type: string
+      required:
+      - name
+      - uid
+      type: object
+    MemberCounts:
+      additionalProperties: false
+      properties:
+        by_role:
+          description: The number of members users in the organization, split by role.
+          properties:
+            admin:
+              description: The number of users with the admin role.
+              format: int64
+              type: integer
+            api_access:
+              description: The number of users with the API access role.
+              format: int64
+              type: integer
+          type: object
+        total:
+          description: The total number of members users in the organization.
+          format: int64
+          type: integer
+      required:
+      - total
+      - by_role
+      type: object
+    ResponseEnvelopeAuditLogEventsResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/AuditLogEventsResponse'
+      type: object
+    ErrorDetail:
+      additionalProperties: false
+      properties:
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
+          type: string
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
+      type: object
+    ResponseEnvelopeCreditUsageReport:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/CreditUsageReport'
+      type: object
+    ResponseEnvelopeOrganizationCredits:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/OrganizationCredits'
+      type: object
+    CreditUsageReportPeriod:
+      additionalProperties: false
+      properties:
+        credits_added:
+          description: The total amount of credits added during the report period.
+          format: int64
+          type: integer
+        credits_consumed:
+          description: The total amount of credits consumed during the report period.
+          format: int64
+          type: integer
+        credits_expired:
+          description: The total amount of credits expired during the report period.
+          format: int64
+          type: integer
+        end_date:
+          description: The end date of the window for this report period.
+          format: date-time
+          type: string
+        start_date:
+          description: The start date of the window for this report period.
+          format: date-time
+          type: string
+        transaction_count:
+          description: The total number of transactions during the report period.
+          format: int64
+          type: integer
+      required:
+      - start_date
+      - end_date
+      - credits_consumed
+      - credits_added
+      - credits_expired
+      - transaction_count
+      type: object
+    OrganizationMembersList:
+      additionalProperties: false
+      properties:
+        members:
+          description: The list of members in the organization.
+          items:
+            $ref: '#/components/schemas/OrganizationMember'
+          type:
+          - array
+          - 'null'
+        pagination:
+          $ref: '#/components/schemas/PaginationInfo'
+          description: Pagination information for listing more members.
+      required:
+      - members
+      - pagination
+      type: object
+    ActorInfo:
+      additionalProperties: false
+      properties:
+        email:
+          description: The email of the entity that performed the action.
+          type: string
+        id:
+          description: The ID of the entity that performed the action. This will depend on the type of entity, as it could either be a Censys user ID or an ASM workspace ID.
+          type: string
+        type:
+          description: The type of entity that performed the action.
+          enum:
+          - unknown
+          - user
+          - system
+          - customer_support
+          - asm_workspace
+          type: string
+      required:
+      - type
+      type: object
+    OrganizationMember:
+      additionalProperties: false
+      properties:
+        created_at:
+          description: The date and time the user was created.
+          format: date-time
+          type: string
+        email:
+          description: The email of the user.
+          type: string
+        first_login_time:
+          description: The date and time the user first logged in.
+          format: date-time
+          type: string
+        first_name:
+          description: The first name of the user.
+          type: string
+        last_name:
+          description: The last name of the user.
+          type: string
+        latest_login_time:
+          description: The date and time the user last logged in.
+          format: date-time
+          type: string
+        roles:
+          description: The roles this member has in the organization.
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        uid:
+          description: The ID of a Censys user.
+          format: uuid
+          type: string
+      required:
+      - roles
+      - email
+      - first_name
+      - last_name
+      - uid
+      type: object
+    AuthenticationErrorDetail:
+      additionalProperties: false
+      properties:
+        code:
+          description: HTTP status code
+          examples:
+          - 401
+          format: int64
+          type: integer
+        message:
+          description: Human-readable message describing the error occurrence
+          examples:
+          - Access credentials are invalid
+          type: string
+        reason:
+          description: Human-readable explanation of the underlying cause of the error
+          examples:
+          - Access token is not active
+          type: string
+        request:
+          type: string
+        status:
+          description: HTTP status message associated with the error
+          examples:
+          - Unauthorized
+          type: string
+      type: object
+    ResponseEnvelopeOrganizationMembersList:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/OrganizationMembersList'
+      type: object
+    AuthenticationError:
+      additionalProperties: false
+      properties:
+        error:
+          $ref: '#/components/schemas/AuthenticationErrorDetail'
+          description: Detailed information about the authentication error
+      type: object
+    SourceUsageBreakdown:
+      additionalProperties: false
+      properties:
+        api:
+          description: The amount of credits consumed through the Platform API.
+          format: int64
+          type: integer
+        auto_replenishment:
+          description: The amount of credits consumed through auto-replenishment.
+          format: int64
+          type: integer
+        other:
+          description: The amount of credits consumed through other operations.
+          format: int64
+          type: integer
+        ui:
+          description: The amount of credits consumed through the Platform UI.
+          format: int64
+          type: integer
+      required:
+      - ui
+      - api
+      type: object
+    CreditUsageReport:
+      additionalProperties: false
+      properties:
+        credits_consumed_by_consumer:
+          description: The breakdown of credits consumed by consumer. This may not be present if the report is generated for a specific user.
+          type: string
+        credits_consumed_by_source:
+          $ref: '#/components/schemas/SourceUsageBreakdown'
+          description: The breakdown of credits consumed by source.
+        end_time:
+          description: The end time of the window for this report.
+          format: date-time
+          type: string
+        granularity:
+          default: daily
+          description: The granularity of the report.
+          enum:
+          - daily
+          - monthly
+          examples:
+          - daily
+          type: string
+        periods:
+          description: The periods of the report (i.e. time buckets).
+          items:
+            $ref: '#/components/schemas/CreditUsageReportPeriod'
+          type:
+          - array
+          - 'null'
+        start_time:
+          description: The start time of the window for this report.
+          format: date-time
+          type: string
+        total_added:
+          description: The total amount of credits added during the report period.
+          format: int64
+          type: integer
+        total_consumed:
+          description: The total amount of credits consumed during the report period.
+          format: int64
+          type: integer
+        total_expired:
+          description: The total amount of credits expired during the report period.
+          format: int64
+          type: integer
+        transaction_count:
+          description: The total number of transactions during the report period.
+          format: int64
+          type: integer
+      required:
+      - start_time
+      - end_time
+      - granularity
+      - total_consumed
+      - total_added
+      - total_expired
+      - transaction_count
+      - periods
+      - credits_consumed_by_source
+      type: object
+    PaginationInfo:
+      additionalProperties: false
+      properties:
+        next_page_token:
+          description: The token to use to retrieve the next page of results.
+          type: string
+        page_size:
+          description: The number of results requested per page.
+          format: int32
+          type: integer
+      required:
+      - page_size
+      type: object
+    AuditLogEvent:
+      additionalProperties: false
+      properties:
+        actor:
+          $ref: '#/components/schemas/ActorInfo'
+          description: Information about the entity that performed the action.
+        authentication_method:
+          description: The method used by the actor to authenticate before performing the action.
+          type: string
+        event_type:
+          description: The type of action that was audited.
+          enum:
+          - user_created
+          - user_login
+          - user_login_failed
+          - user_password_changed
+          - user_password_reset
+          - user_mfa_changed
+          - user_settings_changed
+          - user_enabled
+          - user_disabled
+          - invitation_created
+          - invitation_resent
+          - invitation_accepted
+          - invitation_deleted
+          - membership_created
+          - membership_updated
+          - membership_removed
+          - org_created
+          - org_updated
+          - org_deleted
+          - saml_config_created
+          - saml_config_updated
+          - saml_config_deleted
+          - saml_config_domain_verified
+          - pat_created
+          - pat_deleted
+          - global_data_search_executed
+          - global_data_lookup_executed
+          - global_data_aggregation_executed
+          - asm_seed_created
+          - asm_seed_deleted
+          - asm_exclude_created
+          - asm_exclude_deleted
+          - asm_risk_instance_severity_changed
+          - asm_risk_instance_accepted
+          - asm_risk_instance_unaccepted
+          - asm_risk_type_severity_changed
+          - asm_risk_type_enabled
+          - asm_risk_type_disabled
+          - asm_risk_type_default_enabled
+          - tag_created
+          - tag_updated
+          - tag_deleted
+          - tag_assigned
+          - tag_unassigned
+          - tag_bulk_operation_started
+          - tag_bulk_operation_completed
+          - tag_bulk_operation_cancelled
+          - comment_created
+          - comment_updated
+          - comment_deleted
+          type: string
+        metadata:
+          additionalProperties: {}
+          description: Event-specific metadata. Contents vary by event type.
+          type: object
+        source:
+          description: Where the audited action originated from.
+          type: string
+        source_ip:
+          description: The IP address of the source of the audited action.
+          type: string
+        subject:
+          $ref: '#/components/schemas/SubjectInfo'
+          description: Information about the resource that was affected by the audited action.
+        timestamp:
+          description: The timestamp of the audit log event.
+          format: date-time
+          type: string
+        user_agent:
+          description: The user agent of the source of the audited action.
+          type: string
+      required:
+      - timestamp
+      - event_type
+      - actor
+      - subject
+      type: object
+    ResponseEnvelopeUserCredits:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/UserCredits'
+      type: object
+    SubjectInfo:
+      additionalProperties: false
+      properties:
+        display_name:
+          description: A human-readable name for the subject resource, if available. The value and format depend on the subject type and may be omitted if not applicable.
+          type: string
+        id:
+          description: The unique identifier of the subject resource. The identifier format depends on the subject type (for example, a Censys user ID or ASM workspace ID). Not all events will have a subject ID.
+          type: string
+        type:
+          description: The type of resource that was affected by the audited action.
+          enum:
+          - organization
+          - user
+          - saml_config
+          - pat
+          - collection
+          - organization_membership
+          - organization_invitation
+          - asm_workspace
+          - asm_seed
+          - asm_exclude
+          - asm_risk_type
+          - asm_risk_instance
+          - global_data
+          type: string
+      required:
+      - type
+      type: object
+    UpdateMemberRoleInputBody:
+      additionalProperties: false
+      properties:
+        roles:
+          description: Array of role identifiers to assign to the user
+          items:
+            enum:
+            - admin
+            - api_access
+            type: string
+          minItems: 0
+          type:
+          - array
+          - 'null'
+      required:
+      - roles
+      type: object
+    ErrorModel:
+      additionalProperties: false
+      properties:
+        detail:
+          description: A human-readable explanation specific to this occurrence of the problem.
+          examples:
+          - Property foo is required but is missing.
+          type: string
+        errors:
+          description: Optional list of individual error details
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
+          type:
+          - array
+          - 'null'
+        instance:
+          description: A URI reference that identifies the specific occurrence of the problem.
+          examples:
+          - https://example.com/error-log/abc123
+          format: uri
+          type: string
+        status:
+          description: HTTP status code
+          examples:
+          - 400
+          format: int64
+          type: integer
+        title:
+          description: A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
+          examples:
+          - Bad Request
+          type: string
+        type:
+          default: about:blank
+          description: A URI reference to human-readable documentation for the error.
+          examples:
+          - https://example.com/errors/example
+          format: uri
+          type: string
+      type: object
+    CreditExpiration:
+      additionalProperties: false
+      properties:
+        balance:
+          description: The current balance of the credit expiration.
+          format: int64
+          type: integer
+        created_at:
+          description: The date and time the credit expiration was created.
+          format: date-time
+          type: string
+        expires_at:
+          description: The date and time the credit expiration will expire.
+          format: date-time
+          type: string
+        initial_balance:
+          description: The initial balance of the credit expiration (i.e. how much was purchased).
+          format: int64
+          type: integer
+      required:
+      - balance
+      - initial_balance
+      type: object
+    InviteMemberInputBody:
+      additionalProperties: false
+      properties:
+        email:
+          description: Email of the user
+          examples:
+          - user@example.com
+          format: email
+          type: string
+      required:
+      - email
+      type: object
+    AutoReplenishConfig:
+      additionalProperties: false
+      properties:
+        amount:
+          description: The amount of credits to replenish when auto-replenish is triggered.
+          format: int64
+          type: integer
+        enabled:
+          description: Whether the organization has auto-replenish enabled.
+          type: boolean
+        threshold:
+          description: The threshold at which the organization's credit balance will be auto-replenished.
+          format: int64
+          type: integer
+      required:
+      - enabled
+      type: object
+    OrganizationCredits:
+      additionalProperties: false
+      properties:
+        auto_replenish_config:
+          $ref: '#/components/schemas/AutoReplenishConfig'
+          description: The auto-replenish configuration for the organization.
+        balance:
+          description: The current credit balance for the organization.
+          format: int64
+          type: integer
+        credit_expirations:
+          description: The credit expirations for the organization.
+          items:
+            $ref: '#/components/schemas/CreditExpiration'
+          type:
+          - array
+          - 'null'
+        uid:
+          description: The ID of a Censys organization.
+          format: uuid
+          type: string
+      required:
+      - balance
+      - auto_replenish_config
+      - credit_expirations
+      - uid
+      type: object
+    OrganizationPreferences:
+      additionalProperties: false
+      properties:
+        ai_opt_in:
+          description: Whether the organization has opted into AI features.
+          type: boolean
+        ai_training:
+          description: Whether the organization has opted into AI training.
+          type: boolean
+        mfa_required:
+          description: Whether the organization has opted into multi-factor authentication.
+          type: boolean
+      type: object
+    UserCredits:
+      additionalProperties: false
+      properties:
+        balance:
+          description: The current credit balance for the user.
+          format: int64
+          type: integer
+        resets_at:
+          description: The date that the user's credits will be reset.
+          format: date-time
+          type: string
+      required:
+      - balance
+      type: object
+  securitySchemes:
+    PersonalAccessToken:
+      description: Your Censys personal access token.
+      scheme: bearer
+      type: http
+x-speakeasy-globals:
+  parameters:
+  - in: header
+    name: X-Organization-ID
+    schema:
+      type: string
+    x-speakeasy-globals-hidden: true

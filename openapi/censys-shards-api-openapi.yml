@@ -1,0 +1,244 @@
+openapi: 3.1.0
+info:
+  contact:
+    email: support@censys.io
+    name: Censys Support
+  description: '# Asset Graph API
+
+
+    The Asset Graph API provides comprehensive visibility into your Internet-facing assets. Use this API to build and manage attack surfaces by creating asset graphs, configuring seeds and exclusions, running discovery executions, and retrieving discovered assets and risk metadata.
+
+
+    ### Authentication
+
+
+    All requests must include a valid Censys personal access token (PAT) in the `Authorization` header:
+
+
+    ```
+
+    Authorization: Bearer <your-api-token>
+
+    ```
+
+
+    An `X-Organization-ID` header must also be present on every request. This identifies the Censys organization that owns the resources being accessed.
+
+
+    ```
+
+    X-Organization-ID: <your-organization-id>
+
+    ```
+
+
+    ### Core Concepts
+
+
+    - **Asset Graph**: The parent resource representing an attack surface. Each asset graph contains seeds, excluded assets, and executions.
+
+    - **Seeds**: Persistent starting points used to discover additional assets. Supported types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.
+
+    - **Excluded Assets**: Assets explicitly excluded from the graph. Excluded assets will not appear in execution results and will not be used to discover additional assets.
+
+    - **Executions**: A discovery process that uses the graph''s configured seeds and excluded assets to generate a complete snapshot of the attack surface. Censys periodically runs executions in the background, or they can be triggered on-demand.
+
+    - **Assets**: Internet-facing resources discovered during an execution, including hosts, domains, certificates, and web properties. Each asset includes discovery paths showing how it was found from your seeds.
+
+    - **Risks**: Vulnerabilities, exposures, misconfigurations, and threats identified on discovered assets.
+
+
+    ### Getting Started
+
+
+    1. **Create an asset graph** to represent your attack surface.
+
+    2. **Add seeds** — the known assets that Censys will use as starting points for discovery.
+
+    3. **Optionally add excluded assets** to omit specific assets from results.
+
+    4. **Create an execution** to trigger the discovery process, or wait for Censys to run one automatically.
+
+    5. **List assets** from a completed execution to view your discovered attack surface.
+
+    6. **Look up risk metadata** for any risk IDs found on your assets.
+
+    '
+  title: Asset Graph Account Management Shards API
+  version: 1.0.12
+servers:
+- description: Asset Graph API
+  url: https://graph.data.censys.io
+tags:
+- name: Shards
+paths:
+  /api/v1/asset-graphs/{graph_id}/executions/{execution_id}/shards:
+    get:
+      description: List shards for a completed graph execution. Each shard represents an approximately-equal partition of the execution's assets. Use the shard ID with the list assets endpoint to paginate within a single shard.
+      operationId: list-shards
+      parameters:
+      - description: Censys organization ID
+        in: header
+        name: X-Organization-ID
+        required: true
+        schema:
+          description: Censys organization ID
+          format: uuid
+          type: string
+      - description: Asset graph ID
+        in: path
+        name: graph_id
+        required: true
+        schema:
+          description: Asset graph ID
+          format: uuid
+          type: string
+      - description: Graph execution ID
+        in: path
+        name: execution_id
+        required: true
+        schema:
+          description: Graph execution ID
+          format: uuid
+          type: string
+      - description: Pagination token from a previous response
+        explode: false
+        in: query
+        name: page_token
+        schema:
+          description: Pagination token from a previous response
+          type: string
+      - description: Maximum number of results to return
+        explode: false
+        in: query
+        name: page_size
+        schema:
+          description: Maximum number of results to return
+          format: int32
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListShardsOutputBody'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      security:
+      - PersonalAccessToken: []
+      summary: Censys List Shards
+      tags:
+      - Shards
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ErrorDetail:
+      additionalProperties: false
+      properties:
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
+          type: string
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
+      type: object
+    ShardResponse:
+      additionalProperties: false
+      properties:
+        id:
+          description: Shard identifier
+          type: string
+      required:
+      - id
+      type: object
+    ErrorModel:
+      additionalProperties: false
+      properties:
+        $schema:
+          description: A URL to the JSON Schema for this object.
+          examples:
+          - https://graph.data.censys.io/schemas/ErrorModel.json
+          format: uri
+          readOnly: true
+          type: string
+        detail:
+          description: A human-readable explanation specific to this occurrence of the problem.
+          examples:
+          - Property foo is required but is missing.
+          type: string
+        errors:
+          description: Optional list of individual error details
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
+          type:
+          - array
+          - 'null'
+        instance:
+          description: A URI reference that identifies the specific occurrence of the problem.
+          examples:
+          - https://example.com/error-log/abc123
+          format: uri
+          type: string
+        status:
+          description: HTTP status code
+          examples:
+          - 400
+          format: int64
+          type: integer
+        title:
+          description: A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
+          examples:
+          - Bad Request
+          type: string
+        type:
+          default: about:blank
+          description: A URI reference to human-readable documentation for the error.
+          examples:
+          - https://example.com/errors/example
+          format: uri
+          type: string
+      type: object
+    ListShardsOutputBody:
+      additionalProperties: false
+      properties:
+        $schema:
+          description: A URL to the JSON Schema for this object.
+          examples:
+          - https://graph.data.censys.io/schemas/ListShardsOutputBody.json
+          format: uri
+          readOnly: true
+          type: string
+        next_page_token:
+          description: Token for the next page of results
+          type: string
+        shards:
+          description: List of shards
+          items:
+            $ref: '#/components/schemas/ShardResponse'
+          type:
+          - array
+          - 'null'
+      required:
+      - shards
+      type: object
+  securitySchemes:
+    PersonalAccessToken:
+      description: Your Censys personal access token.
+      scheme: bearer
+      type: http
+x-speakeasy-globals:
+  parameters:
+  - in: header
+    name: X-Organization-ID
+    schema:
+      type: string
+    x-speakeasy-globals-hidden: true
