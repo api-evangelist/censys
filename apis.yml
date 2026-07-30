@@ -10,6 +10,19 @@ description: >-
 url: https://search.censys.io/api
 humanURL: https://docs.censys.com
 baseURL: https://api.platform.censys.io
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://avatars.githubusercontent.com/u/9468155?s=200&v=4
 specificationVersion: '0.20'
 created: '2026-05-28'
@@ -29,79 +42,541 @@ tags:
   - Certificates
   - Asset Discovery
 apis:
-  - name: Censys Platform API
-    description: >-
-      The Censys Platform API is the unified next-generation interface to the Censys internet intelligence dataset. It
-      supersedes the legacy Censys Search v1/v2 APIs and Censys ASM API by exposing global asset lookups (hosts,
-      certificates, web properties), Collections, Threat Hunting (CensEye, fingerprints, threats), Adversary
-      Investigation (live discovery scans, certificate-to-host pivots), Account Management (organizations, credits,
-      audit logs), Supply Chain Intelligence, and Tags / Comments through a single Personal Access Token model and
-      Censys Query Language (CenQL).
-    humanURL: https://docs.censys.com/reference
-    baseURL: https://api.platform.censys.io
-    tags:
-      - Security
-      - Internet Intelligence
-      - Threat Hunting
-      - Attack Surface Management
-      - Certificates
-    properties:
-      - type: Documentation
-        url: https://docs.censys.com
-      - type: APIReference
-        url: https://docs.censys.com/reference
-      - type: OpenAPI
-        url: openapi/censys-platform-openapi.yml
-      - type: Postman
-        url: postman/censys-search.postman_collection.json
-      - type: Postman
-        url: postman/censys-asm.postman_collection.json
-        title: Censys ASM Postman Collection
-      - type: Authentication
-        url: https://accounts.censys.io/settings/personal-access-tokens
-        title: Personal Access Tokens
-      - type: GettingStarted
-        url: https://docs.censys.com/docs/platform-quickstart
-      - type: SDKs
-        url: https://pypi.org/project/censys-platform/
-        title: Python SDK (censys-platform)
-      - type: SDKs
-        url: https://github.com/censys/censys-sdk-typescript
-        title: TypeScript SDK
-      - type: SDKs
-        url: https://github.com/censys/censys-sdk-go
-        title: Go SDK
-      - type: SDKs
-        url: https://pypi.org/project/censys/
-        title: Python SDK Legacy (censys-python)
-      - type: ChangeLog
-        url: https://docs.censys.com/changelog
-      - type: JSONLD
-        url: json-ld/censys-platform-context.jsonld
-  - name: Censys Asset Graph API
-    description: >-
-      The Censys Asset Graph API powers attack-surface graph traversal. It lets customers define asset graphs from seed
-      assets (IPs, domains, certificates), execute graph build runs, page through the resulting nodes (assets) and edges
-      (relationships), manage excluded assets, and pull risk findings per asset_id. It is the dedicated
-      graph-construction layer that complements the Platform API's per-record host/cert/web lookups.
-    humanURL: https://docs.censys.com
-    baseURL: https://graph.data.censys.io
-    tags:
-      - Security
-      - Attack Surface Management
-      - Asset Graph
-      - Risk
-    properties:
-      - type: Documentation
-        url: https://docs.censys.com
-      - type: OpenAPI
-        url: openapi/censys-asset-graph-openapi.yml
-      - type: SDKs
-        url: https://github.com/censys/censys-asset-graph-sdk-go
-        title: Go SDK (Asset Graph)
-      - type: JSONLD
-        url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-account-management-api
+  name: Censys Account Management API
+  description: Endpoints related to the Account Management product
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Account Management
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-account-management-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-adversary-investigation-api
+  name: Censys Adversary Investigation API
+  description: Endpoints related to the Adversary Investigation product
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Adversary Investigation
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-adversary-investigation-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-asset-graphs-api
+  name: Censys Asset Graphs API
+  description: The Asset Graphs API from Censys — 2 operation(s) for asset graphs.
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Asset Graphs
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-asset-graphs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-assets-api
+  name: Censys Assets API
+  description: The Assets API from Censys — 2 operation(s) for assets.
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-assets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-collections-api
+  name: Censys Collections API
+  description: Endpoints related to the Collections product
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-collections-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-excluded-assets-api
+  name: Censys Excluded Assets API
+  description: The Excluded Assets API from Censys — 2 operation(s) for excluded assets.
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Excluded Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-excluded-assets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-global-data-api
+  name: Censys Global Data API
+  description: Endpoints related to the Global Data product
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Global Data
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-global-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-graph-executions-api
+  name: Censys Graph Executions API
+  description: The Graph Executions API from Censys — 2 operation(s) for graph executions.
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Graph Executions
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-graph-executions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-risks-api
+  name: Censys Risks API
+  description: The Risks API from Censys — 1 operation(s) for risks.
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Risks
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-risks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-seeds-api
+  name: Censys Seeds API
+  description: The Seeds API from Censys — 2 operation(s) for seeds.
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Seeds
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-seeds-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-shards-api
+  name: Censys Shards API
+  description: The Shards API from Censys — 1 operation(s) for shards.
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Shards
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-shards-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-supply-chain-intelligence-api
+  name: Censys Supply Chain Intelligence API
+  description: Endpoints related to the Supply Chain Intelligence product
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Supply Chain Intelligence
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-supply-chain-intelligence-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-tags-and-comments-api
+  name: Censys Tags and Comments API
+  description: Endpoints related to asset tagging and commenting
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Tags and Comments
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-tags-and-comments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
+- aid: censys:censys-threat-hunting-api
+  name: Censys Threat Hunting API
+  description: Endpoints related to the Adversary Investigation product
+  humanURL: https://docs.censys.com/reference
+  baseURL: https://api.platform.censys.io
+  tags:
+  - Threat Hunting
+  properties:
+  - type: OpenAPI
+    url: openapi/censys-threat-hunting-api-openapi.yml
+  - type: Documentation
+    url: https://docs.censys.com
+  - type: APIReference
+    url: https://docs.censys.com/reference
+  - type: Postman
+    url: postman/censys-search.postman_collection.json
+  - type: Postman
+    url: postman/censys-asm.postman_collection.json
+  - type: Authentication
+    url: https://accounts.censys.io/settings/personal-access-tokens
+  - type: GettingStarted
+    url: https://docs.censys.com/docs/platform-quickstart
+  - type: SDKs
+    url: https://pypi.org/project/censys-platform/
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-typescript
+  - type: SDKs
+    url: https://github.com/censys/censys-sdk-go
+  - type: SDKs
+    url: https://pypi.org/project/censys/
+  - type: ChangeLog
+    url: https://docs.censys.com/changelog
+  - type: JSONLD
+    url: json-ld/censys-platform-context.jsonld
+  - type: SDKs
+    url: https://github.com/censys/censys-asset-graph-sdk-go
+  - type: JSONLD
+    url: json-ld/censys-asset-graph-context.jsonld
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/censys/overview
   - type: AgenticAccess
     url: agentic-access/censys-agentic-access.yml
   - type: VulnerabilityDisclosure
