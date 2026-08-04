@@ -1,0 +1,40 @@
+{
+  "provider": "censys",
+  "sources": [
+    "censys-account-management-api-openapi.yml",
+    "censys-adversary-investigation-api-openapi.yml",
+    "censys-asset-graphs-api-openapi.yml",
+    "censys-assets-api-openapi.yml",
+    "censys-collections-api-openapi.yml",
+    "censys-excluded-assets-api-openapi.yml",
+    "censys-global-data-api-openapi.yml",
+    "censys-graph-executions-api-openapi.yml",
+    "censys-risks-api-openapi.yml",
+    "censys-seeds-api-openapi.yml",
+    "censys-shards-api-openapi.yml",
+    "censys-supply-chain-intelligence-api-openapi.yml",
+    "censys-tags-and-comments-api-openapi.yml",
+    "censys-threat-hunting-api-openapi.yml"
+  ],
+  "outputs": [
+    "censys-account-management-api-openapi.yml",
+    "censys-adversary-investigation-api-openapi.yml",
+    "censys-asset-graphs-api-openapi.yml",
+    "censys-assets-api-openapi.yml",
+    "censys-collections-api-openapi.yml",
+    "censys-excluded-assets-api-openapi.yml",
+    "censys-global-data-api-openapi.yml",
+    "censys-graph-executions-api-openapi.yml",
+    "censys-risks-api-openapi.yml",
+    "censys-seeds-api-openapi.yml",
+    "censys-shards-api-openapi.yml",
+    "censys-supply-chain-intelligence-api-openapi.yml",
+    "censys-tags-and-comments-api-openapi.yml",
+    "censys-threat-hunting-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

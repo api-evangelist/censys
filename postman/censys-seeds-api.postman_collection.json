@@ -1,0 +1,668 @@
+{
+  "info": {
+    "_postman_id": "849176f5-7363-4ac7-a755-c82048dd4c70",
+    "name": "Asset Graph Account Management Seeds API",
+    "description": "# Asset Graph API\n\nThe Asset Graph API provides comprehensive visibility into your Internet-facing assets. Use this API to build and manage attack surfaces by creating asset graphs, configuring seeds and exclusions, running discovery executions, and retrieving discovered assets and risk metadata.\n\n### Authentication\n\nAll requests must include a valid Censys personal access token (PAT) in the `Authorization` header:\n\n```\nAuthorization: Bearer <your-api-token>\n```\n\nAn `X-Organization-ID` header must also be present on every request. This identifies the Censys organization that owns the resources being accessed.\n\n```\nX-Organization-ID: <your-organization-id>\n```\n\n### Core Concepts\n\n- **Asset Graph**: The parent resource representing an attack surface. Each asset graph contains seeds, excluded assets, and executions.\n- **Seeds**: Persistent starting points used to discover additional assets. Supported types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.\n- **Excluded Assets**: Assets explicitly excluded from the graph. Excluded assets will not appear in execution results and will not be used to discover additional assets.\n- **Executions**: A discovery process that uses the graph's configured seeds and excluded assets to generate a complete snapshot of the attack surface. Censys periodically runs executions in the background, or they can be triggered on-demand.\n- **Assets**: Internet-facing resources discovered during an execution, including hosts, domains, certificates, and web properties. Each asset includes discovery paths showing how it was found from your seeds.\n- **Risks**: Vulnerabilities, exposures, misconfigurations, and threats identified on discovered assets.\n\n### Getting Started\n\n1. **Create an asset graph** to represent your attack surface.\n2. **Add seeds** \u2014 the known assets that Censys will use as starting points for discovery.\n3. **Optionally add excluded assets** to omit specific assets from results.\n4. **Create an execution** to trigger the discovery process, or wait for Censys to run one automatically.\n5. **List assets** from a completed execution to view your discovered attack surface.\n6. **Look up risk metadata** for any risk IDs found on your assets.\n\n\nContact Support:\n Name: Censys Support\n Email: support@censys.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:18:31.000Z",
+    "updatedAt": "2026-07-28T01:18:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-849176f5-7363-4ac7-a755-c82048dd4c70"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "asset-graphs",
+              "item": [
+                {
+                  "name": "{graph_id}",
+                  "item": [
+                    {
+                      "name": "seeds",
+                      "item": [
+                        {
+                          "name": "{seed_id}",
+                          "item": [
+                            {
+                              "name": "Censys Delete a Seed",
+                              "id": "415cb392-250e-4573-aa13-5355c1b599c7",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "(Required) Censys organization ID",
+                                    "key": "X-Organization-ID",
+                                    "value": "<uuid>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/asset-graphs/:graph_id/seeds/:seed_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "asset-graphs",
+                                    ":graph_id",
+                                    "seeds",
+                                    ":seed_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "de64e74d-5c16-4176-a490-0b08aadaa2b0",
+                                      "key": "graph_id",
+                                      "value": "<uuid>",
+                                      "description": "(Required) Asset graph ID"
+                                    },
+                                    {
+                                      "id": "3b0d3451-2663-410f-8e97-949ac079d464",
+                                      "key": "seed_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Seed identifier"
+                                    }
+                                  ]
+                                },
+                                "description": "Remove a seed from an asset graph. The removal takes effect during the next execution of the graph."
+                              },
+                              "response": [
+                                {
+                                  "id": "d5ab32c8-2e17-4a39-b198-64876649c0a6",
+                                  "name": "No Content",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "(Required) Censys organization ID",
+                                        "key": "X-Organization-ID",
+                                        "value": "<uuid>"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/asset-graphs/:graph_id/seeds/:seed_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "asset-graphs",
+                                        ":graph_id",
+                                        "seeds",
+                                        ":seed_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "graph_id"
+                                        },
+                                        {
+                                          "key": "seed_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:18:32.000Z",
+                                  "updatedAt": "2026-07-28T01:18:32.000Z",
+                                  "uid": "35240-d5ab32c8-2e17-4a39-b198-64876649c0a6"
+                                },
+                                {
+                                  "id": "daf356b7-68b7-4f2f-8b44-53e33aa9b4c3",
+                                  "name": "Error",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "(Required) Censys organization ID",
+                                        "key": "X-Organization-ID",
+                                        "value": "<uuid>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/asset-graphs/:graph_id/seeds/:seed_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "asset-graphs",
+                                        ":graph_id",
+                                        "seeds",
+                                        ":seed_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "graph_id"
+                                        },
+                                        {
+                                          "key": "seed_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"$schema\": \"<uri>\",\n  \"detail\": \"<string>\",\n  \"errors\": null,\n  \"instance\": \"<uri>\",\n  \"status\": \"<long>\",\n  \"title\": \"<string>\",\n  \"type\": \"about:blank\"\n}",
+                                  "createdAt": "2026-07-28T01:18:32.000Z",
+                                  "updatedAt": "2026-07-28T01:18:32.000Z",
+                                  "uid": "35240-daf356b7-68b7-4f2f-8b44-53e33aa9b4c3"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:18:32.000Z",
+                              "updatedAt": "2026-07-28T01:18:32.000Z",
+                              "uid": "35240-415cb392-250e-4573-aa13-5355c1b599c7"
+                            }
+                          ],
+                          "id": "cd50c7ef-dfde-4dcd-b370-3ae5851fbc03",
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-cd50c7ef-dfde-4dcd-b370-3ae5851fbc03"
+                        },
+                        {
+                          "name": "Censys List Seeds",
+                          "id": "18272b9d-5f87-4f42-8c8d-1d64d15a28b0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "(Required) Censys organization ID",
+                                "key": "X-Organization-ID",
+                                "value": "<uuid>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/asset-graphs/:graph_id/seeds?page_token=<string>&page_size=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "asset-graphs",
+                                ":graph_id",
+                                "seeds"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Pagination token from a previous response",
+                                  "key": "page_token",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of results to return",
+                                  "key": "page_size",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a7093bcc-119a-4ed7-bf3a-385bbef39396",
+                                  "key": "graph_id",
+                                  "value": "<uuid>",
+                                  "description": "(Required) Asset graph ID"
+                                }
+                              ]
+                            },
+                            "description": "List all seeds configured for an asset graph."
+                          },
+                          "response": [
+                            {
+                              "id": "f94b9482-0ce3-4346-94a3-717cb41b39fb",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "(Required) Censys organization ID",
+                                    "key": "X-Organization-ID",
+                                    "value": "<uuid>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/asset-graphs/:graph_id/seeds?page_token=<string>&page_size=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "asset-graphs",
+                                    ":graph_id",
+                                    "seeds"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Pagination token from a previous response",
+                                      "key": "page_token",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return",
+                                      "key": "page_size",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "graph_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"seeds\": null,\n  \"$schema\": \"<uri>\",\n  \"next_page_token\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:32.000Z",
+                              "updatedAt": "2026-07-28T01:18:32.000Z",
+                              "uid": "35240-f94b9482-0ce3-4346-94a3-717cb41b39fb"
+                            },
+                            {
+                              "id": "bedae130-1c7b-4929-9637-752b00783d7a",
+                              "name": "Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "(Required) Censys organization ID",
+                                    "key": "X-Organization-ID",
+                                    "value": "<uuid>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/asset-graphs/:graph_id/seeds?page_token=<string>&page_size=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "asset-graphs",
+                                    ":graph_id",
+                                    "seeds"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Pagination token from a previous response",
+                                      "key": "page_token",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return",
+                                      "key": "page_size",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "graph_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$schema\": \"<uri>\",\n  \"detail\": \"<string>\",\n  \"errors\": null,\n  \"instance\": \"<uri>\",\n  \"status\": \"<long>\",\n  \"title\": \"<string>\",\n  \"type\": \"about:blank\"\n}",
+                              "createdAt": "2026-07-28T01:18:32.000Z",
+                              "updatedAt": "2026-07-28T01:18:32.000Z",
+                              "uid": "35240-bedae130-1c7b-4929-9637-752b00783d7a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-18272b9d-5f87-4f42-8c8d-1d64d15a28b0"
+                        },
+                        {
+                          "name": "Censys Create a Seed",
+                          "id": "02d18407-2241-425d-9b01-cb6221d4135a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "(Required) Censys organization ID",
+                                "key": "X-Organization-ID",
+                                "value": "<uuid>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"$schema\": \"<uri>\",\n  \"autonomous_system\": \"<integer>\",\n  \"business_organization\": \"<string>\",\n  \"certificate\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"host\": \"<string>\",\n  \"id\": \"<string>\",\n  \"netblock\": \"<string>\",\n  \"registrant_email\": \"<string>\",\n  \"registrant_organization\": \"<string>\",\n  \"web_property\": {\n    \"hostname\": \"<string>\",\n    \"port\": \"<integer>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/asset-graphs/:graph_id/seeds",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "asset-graphs",
+                                ":graph_id",
+                                "seeds"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a33f5b43-273b-44d0-b3de-a3f1e90e510c",
+                                  "key": "graph_id",
+                                  "value": "<uuid>",
+                                  "description": "(Required) Asset graph ID"
+                                }
+                              ]
+                            },
+                            "description": "Add a seed to an asset graph. Seeds are persistent starting points used to discover additional assets. Supported seed types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.\n\nModifications to seeds take effect during the next execution of the graph."
+                          },
+                          "response": [
+                            {
+                              "id": "e5520ddf-e539-40aa-be81-b3029cfe25b2",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "(Required) Censys organization ID",
+                                    "key": "X-Organization-ID",
+                                    "value": "<uuid>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"$schema\": \"<uri>\",\n  \"autonomous_system\": \"<integer>\",\n  \"business_organization\": \"<string>\",\n  \"certificate\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"host\": \"<string>\",\n  \"id\": \"<string>\",\n  \"netblock\": \"<string>\",\n  \"registrant_email\": \"<string>\",\n  \"registrant_organization\": \"<string>\",\n  \"web_property\": {\n    \"hostname\": \"<string>\",\n    \"port\": \"<integer>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/asset-graphs/:graph_id/seeds",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "asset-graphs",
+                                    ":graph_id",
+                                    "seeds"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "graph_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"$schema\": \"<uri>\",\n  \"autonomous_system\": \"<integer>\",\n  \"business_organization\": \"<string>\",\n  \"certificate\": \"<string>\",\n  \"create_time\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"host\": \"<string>\",\n  \"netblock\": \"<string>\",\n  \"registrant_email\": \"<string>\",\n  \"registrant_organization\": \"<string>\",\n  \"web_property\": {\n    \"hostname\": \"<string>\",\n    \"port\": \"<integer>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:18:32.000Z",
+                              "updatedAt": "2026-07-28T01:18:32.000Z",
+                              "uid": "35240-e5520ddf-e539-40aa-be81-b3029cfe25b2"
+                            },
+                            {
+                              "id": "aea7e8dd-7c54-403a-a882-49cc731547e6",
+                              "name": "Error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "(Required) Censys organization ID",
+                                    "key": "X-Organization-ID",
+                                    "value": "<uuid>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"$schema\": \"<uri>\",\n  \"autonomous_system\": \"<integer>\",\n  \"business_organization\": \"<string>\",\n  \"certificate\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"host\": \"<string>\",\n  \"id\": \"<string>\",\n  \"netblock\": \"<string>\",\n  \"registrant_email\": \"<string>\",\n  \"registrant_organization\": \"<string>\",\n  \"web_property\": {\n    \"hostname\": \"<string>\",\n    \"port\": \"<integer>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/asset-graphs/:graph_id/seeds",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "asset-graphs",
+                                    ":graph_id",
+                                    "seeds"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "graph_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$schema\": \"<uri>\",\n  \"detail\": \"<string>\",\n  \"errors\": null,\n  \"instance\": \"<uri>\",\n  \"status\": \"<long>\",\n  \"title\": \"<string>\",\n  \"type\": \"about:blank\"\n}",
+                              "createdAt": "2026-07-28T01:18:32.000Z",
+                              "updatedAt": "2026-07-28T01:18:32.000Z",
+                              "uid": "35240-aea7e8dd-7c54-403a-a882-49cc731547e6"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-02d18407-2241-425d-9b01-cb6221d4135a"
+                        }
+                      ],
+                      "id": "82c9e5d9-93d4-419e-b8cf-2d7d3838d01a",
+                      "createdAt": "2026-07-28T01:18:32.000Z",
+                      "updatedAt": "2026-07-28T01:18:32.000Z",
+                      "uid": "35240-82c9e5d9-93d4-419e-b8cf-2d7d3838d01a"
+                    }
+                  ],
+                  "id": "1e5e9770-3a15-47bc-86d3-ab951eae9b43",
+                  "createdAt": "2026-07-28T01:18:32.000Z",
+                  "updatedAt": "2026-07-28T01:18:32.000Z",
+                  "uid": "35240-1e5e9770-3a15-47bc-86d3-ab951eae9b43"
+                }
+              ],
+              "id": "2f1de163-e68a-4164-af1b-aac4f0047575",
+              "createdAt": "2026-07-28T01:18:32.000Z",
+              "updatedAt": "2026-07-28T01:18:32.000Z",
+              "uid": "35240-2f1de163-e68a-4164-af1b-aac4f0047575"
+            }
+          ],
+          "id": "e8534c62-9d19-43ad-ae29-0211512def47",
+          "createdAt": "2026-07-28T01:18:32.000Z",
+          "updatedAt": "2026-07-28T01:18:32.000Z",
+          "uid": "35240-e8534c62-9d19-43ad-ae29-0211512def47"
+        }
+      ],
+      "id": "d07c2cc3-cf45-4d64-a74e-849cde44a606",
+      "createdAt": "2026-07-28T01:18:32.000Z",
+      "updatedAt": "2026-07-28T01:18:32.000Z",
+      "uid": "35240-d07c2cc3-cf45-4d64-a74e-849cde44a606"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://graph.data.censys.io"
+    }
+  ]
+}
