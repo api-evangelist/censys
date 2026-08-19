@@ -1,0 +1,212 @@
+{
+  "item": [
+    {
+      "id": "bd2035ed-bd41-4629-9ba1-00eca1f6568f",
+      "name": "Risks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "18131d09-8895-4341-9f9a-d9a2a6c4fed2",
+          "name": "Censys Get Static Risk Metadata",
+          "request": {
+            "name": "Censys Get Static Risk Metadata",
+            "description": {
+              "content": "Retrieve additional metadata for a risk, such as long-form descriptions and references. Risk IDs can be found on asset data in vulnerabilities, exposures, misconfigurations, and threats.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "risks",
+                ":risk_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "risk_id",
+                  "description": "(Required) A Censys risk ID (e.g. CENSYS-2025-1), threat ID (e.g. THREAT-1) or an external risk identifier (e.g. CVE-2025-00001)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Censys organization ID",
+                "key": "X-Organization-ID",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ac17bb18-a6ad-4c1a-a1ed-565b13282cbe",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "risks",
+                    ":risk_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "risk_id",
+                      "description": "(Required) A Censys risk ID (e.g. CENSYS-2025-1), threat ID (e.g. THREAT-1) or an external risk identifier (e.g. CVE-2025-00001)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"references\": [\n    {\n      \"link\": \"string\"\n    },\n    {\n      \"link\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"added_at\": \"2008-12-02T04:55:01.392Z\",\n  \"$schema\": \"https://graph.data.censys.io/schemas/RiskMetadata.json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d290e86-d8dc-44db-b45d-02ffc93dec8c",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "risks",
+                    ":risk_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "risk_id",
+                      "description": "(Required) A Censys risk ID (e.g. CENSYS-2025-1), threat ID (e.g. THREAT-1) or an external risk identifier (e.g. CVE-2025-00001)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"$schema\": \"https://graph.data.censys.io/schemas/ErrorModel.json\",\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://graph.data.censys.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "343bd17f-4547-49eb-b451-8f0180208208",
+    "name": "Asset Graph Account Management Risks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Asset Graph API\n\nThe Asset Graph API provides comprehensive visibility into your Internet-facing assets. Use this API to build and manage attack surfaces by creating asset graphs, configuring seeds and exclusions, running discovery executions, and retrieving discovered assets and risk metadata.\n\n### Authentication\n\nAll requests must include a valid Censys personal access token (PAT) in the `Authorization` header:\n\n```\nAuthorization: Bearer <your-api-token>\n```\n\nAn `X-Organization-ID` header must also be present on every request. This identifies the Censys organization that owns the resources being accessed.\n\n```\nX-Organization-ID: <your-organization-id>\n```\n\n### Core Concepts\n\n- **Asset Graph**: The parent resource representing an attack surface. Each asset graph contains seeds, excluded assets, and executions.\n- **Seeds**: Persistent starting points used to discover additional assets. Supported types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.\n- **Excluded Assets**: Assets explicitly excluded from the graph. Excluded assets will not appear in execution results and will not be used to discover additional assets.\n- **Executions**: A discovery process that uses the graph's configured seeds and excluded assets to generate a complete snapshot of the attack surface. Censys periodically runs executions in the background, or they can be triggered on-demand.\n- **Assets**: Internet-facing resources discovered during an execution, including hosts, domains, certificates, and web properties. Each asset includes discovery paths showing how it was found from your seeds.\n- **Risks**: Vulnerabilities, exposures, misconfigurations, and threats identified on discovered assets.\n\n### Getting Started\n\n1. **Create an asset graph** to represent your attack surface.\n2. **Add seeds** — the known assets that Censys will use as starting points for discovery.\n3. **Optionally add excluded assets** to omit specific assets from results.\n4. **Create an execution** to trigger the discovery process, or wait for Censys to run one automatically.\n5. **List assets** from a completed execution to view your discovered attack surface.\n6. **Look up risk metadata** for any risk IDs found on your assets.\n\n\nContact Support:\n Name: Censys Support\n Email: support@censys.io",
+      "type": "text/plain"
+    }
+  }
+}

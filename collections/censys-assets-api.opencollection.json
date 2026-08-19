@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Graph Account Management Assets API",
+    "version": "1.0.12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys List Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:graph_id/executions/:execution_id/assets",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "graph_id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              },
+              {
+                "name": "execution_id",
+                "value": "",
+                "type": "path",
+                "description": "Graph execution ID"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "risks",
+                "value": "",
+                "type": "query",
+                "description": "If true, only return assets with risks"
+              },
+              {
+                "name": "shard",
+                "value": "",
+                "type": "query",
+                "description": "Shard ID to filter assets by. When provided, full asset data is returned instead of the default partial view. Use the list shards endpoint to discover available shards."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List assets discovered in a graph execution. Each execution represents a complete snapshot of the attack surface.\n\nOnly partial asset data is returned when listing. Use the get asset endpoint to retrieve full asset data including discovery paths.\n\nWhen a shard is specified, full asset data is returned for all assets in that shard."
+        },
+        {
+          "info": {
+            "name": "Censys Get an Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:graph_id/executions/:execution_id/assets/:asset_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "graph_id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              },
+              {
+                "name": "execution_id",
+                "value": "",
+                "type": "path",
+                "description": "Graph execution ID"
+              },
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path",
+                "description": "Hex-encoded asset identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve full data for a single discovered asset, including discovery paths showing how it was found from your seeds."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

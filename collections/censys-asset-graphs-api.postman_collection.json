@@ -1,0 +1,754 @@
+{
+  "item": [
+    {
+      "id": "57774f4d-fae8-4789-b40b-324597efbf32",
+      "name": "Asset Graphs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "57f91ffd-895a-444e-b0fc-b614009fb42f",
+          "name": "Censys List Asset Graphs",
+          "request": {
+            "name": "Censys List Asset Graphs",
+            "description": {
+              "content": "List all asset graphs belonging to your Censys organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "asset-graphs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_token",
+                  "value": "<string>",
+                  "description": "Pagination token from a previous response"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Censys organization ID",
+                "key": "X-Organization-ID",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3c24b232-dd87-49e3-abee-81cc6f070626",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"asset_graphs\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"ACTIVE\",\n      \"create_time\": \"string\",\n      \"update_time\": \"string\",\n      \"$schema\": \"https://graph.data.censys.io/schemas/AssetGraph.json\",\n      \"active_execution\": {\n        \"id\": \"string\",\n        \"status\": \"string\",\n        \"create_time\": \"string\",\n        \"update_time\": \"string\",\n        \"$schema\": \"https://graph.data.censys.io/schemas/GraphExecution.json\",\n        \"stats\": {\n          \"total_hosts\": 9237,\n          \"discovered_hosts\": 3895,\n          \"hosts_with_risks\": 6455,\n          \"total_certificates\": 7486,\n          \"discovered_certificates\": 6288,\n          \"total_domains\": 1143,\n          \"discovered_domains\": 9175,\n          \"total_web_properties\": 8432,\n          \"discovered_web_properties\": 1962,\n          \"web_properties_with_risks\": 1037\n        }\n      },\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"DELETING\",\n      \"create_time\": \"string\",\n      \"update_time\": \"string\",\n      \"$schema\": \"https://graph.data.censys.io/schemas/AssetGraph.json\",\n      \"active_execution\": {\n        \"id\": \"string\",\n        \"status\": \"string\",\n        \"create_time\": \"string\",\n        \"update_time\": \"string\",\n        \"$schema\": \"https://graph.data.censys.io/schemas/GraphExecution.json\",\n        \"stats\": {\n          \"total_hosts\": 7354,\n          \"discovered_hosts\": 7052,\n          \"hosts_with_risks\": 9281,\n          \"total_certificates\": 5863,\n          \"discovered_certificates\": 7309,\n          \"total_domains\": 197,\n          \"discovered_domains\": 4771,\n          \"total_web_properties\": 379,\n          \"discovered_web_properties\": 2928,\n          \"web_properties_with_risks\": 8549\n        }\n      },\n      \"description\": \"string\"\n    }\n  ],\n  \"$schema\": \"https://graph.data.censys.io/schemas/ListAssetGraphsOutputBody.json\",\n  \"next_page_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76ffb609-345d-4702-8401-cfa5fdd3e89a",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"$schema\": \"https://graph.data.censys.io/schemas/ErrorModel.json\",\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40cb1754-9574-404f-ba89-e037c2f67287",
+          "name": "Censys Create an Asset Graph",
+          "request": {
+            "name": "Censys Create an Asset Graph",
+            "description": {
+              "content": "Create a new asset graph. An asset graph provides comprehensive visibility into your Internet-facing assets. It is the parent resource for seeds, excluded assets, and executions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "asset-graphs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Censys organization ID",
+                "key": "X-Organization-ID",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d15eed5-0539-4e2f-a503-8fdfb2756161",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"status\": \"DELETING\",\n  \"create_time\": \"string\",\n  \"update_time\": \"string\",\n  \"$schema\": \"https://graph.data.censys.io/schemas/AssetGraph.json\",\n  \"active_execution\": {\n    \"id\": \"string\",\n    \"status\": \"string\",\n    \"create_time\": \"string\",\n    \"update_time\": \"string\",\n    \"$schema\": \"https://graph.data.censys.io/schemas/GraphExecution.json\",\n    \"stats\": {\n      \"total_hosts\": 8853,\n      \"discovered_hosts\": 393,\n      \"hosts_with_risks\": 8264,\n      \"total_certificates\": 7348,\n      \"discovered_certificates\": 2828,\n      \"total_domains\": 1610,\n      \"discovered_domains\": 9475,\n      \"total_web_properties\": 9607,\n      \"discovered_web_properties\": 2839,\n      \"web_properties_with_risks\": 39\n    }\n  },\n  \"description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fec01aa0-9b0c-4df9-aee7-ded5c6ddf66b",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"$schema\": \"https://graph.data.censys.io/schemas/ErrorModel.json\",\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6de7d27e-16d8-4602-98fd-c8f3912d6e16",
+          "name": "Censys Delete an Asset Graph",
+          "request": {
+            "name": "Censys Delete an Asset Graph",
+            "description": {
+              "content": "Permanently delete an asset graph and all of its associated data, including seeds, excluded assets, and executions. Graph deletion is an asynchronous operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "asset-graphs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Asset graph ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Censys organization ID",
+                "key": "X-Organization-ID",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7f73847c-313d-4d17-ae21-2f32cda1b545",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Asset graph ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c815a2c-caed-4564-a1a4-6696ee584df9",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Asset graph ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"$schema\": \"https://graph.data.censys.io/schemas/ErrorModel.json\",\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed04c5c7-befe-417e-9f8b-fe1835727e96",
+          "name": "Censys Get an Asset Graph",
+          "request": {
+            "name": "Censys Get an Asset Graph",
+            "description": {
+              "content": "Retrieve an asset graph, including its active execution if one exists.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "asset-graphs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Asset graph ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Censys organization ID",
+                "key": "X-Organization-ID",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3a9232a5-abf3-42c7-a794-8294a2e45778",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Asset graph ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"status\": \"DELETING\",\n  \"create_time\": \"string\",\n  \"update_time\": \"string\",\n  \"$schema\": \"https://graph.data.censys.io/schemas/AssetGraph.json\",\n  \"active_execution\": {\n    \"id\": \"string\",\n    \"status\": \"string\",\n    \"create_time\": \"string\",\n    \"update_time\": \"string\",\n    \"$schema\": \"https://graph.data.censys.io/schemas/GraphExecution.json\",\n    \"stats\": {\n      \"total_hosts\": 8853,\n      \"discovered_hosts\": 393,\n      \"hosts_with_risks\": 8264,\n      \"total_certificates\": 7348,\n      \"discovered_certificates\": 2828,\n      \"total_domains\": 1610,\n      \"discovered_domains\": 9475,\n      \"total_web_properties\": 9607,\n      \"discovered_web_properties\": 2839,\n      \"web_properties_with_risks\": 39\n    }\n  },\n  \"description\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e91a09e7-9da9-4158-8260-1970b567c875",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Asset graph ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"$schema\": \"https://graph.data.censys.io/schemas/ErrorModel.json\",\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://graph.data.censys.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "46e99df3-63c9-4cac-8744-f59f0e4b106c",
+    "name": "Asset Graph Account Management Asset Graphs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Asset Graph API\n\nThe Asset Graph API provides comprehensive visibility into your Internet-facing assets. Use this API to build and manage attack surfaces by creating asset graphs, configuring seeds and exclusions, running discovery executions, and retrieving discovered assets and risk metadata.\n\n### Authentication\n\nAll requests must include a valid Censys personal access token (PAT) in the `Authorization` header:\n\n```\nAuthorization: Bearer <your-api-token>\n```\n\nAn `X-Organization-ID` header must also be present on every request. This identifies the Censys organization that owns the resources being accessed.\n\n```\nX-Organization-ID: <your-organization-id>\n```\n\n### Core Concepts\n\n- **Asset Graph**: The parent resource representing an attack surface. Each asset graph contains seeds, excluded assets, and executions.\n- **Seeds**: Persistent starting points used to discover additional assets. Supported types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.\n- **Excluded Assets**: Assets explicitly excluded from the graph. Excluded assets will not appear in execution results and will not be used to discover additional assets.\n- **Executions**: A discovery process that uses the graph's configured seeds and excluded assets to generate a complete snapshot of the attack surface. Censys periodically runs executions in the background, or they can be triggered on-demand.\n- **Assets**: Internet-facing resources discovered during an execution, including hosts, domains, certificates, and web properties. Each asset includes discovery paths showing how it was found from your seeds.\n- **Risks**: Vulnerabilities, exposures, misconfigurations, and threats identified on discovered assets.\n\n### Getting Started\n\n1. **Create an asset graph** to represent your attack surface.\n2. **Add seeds** — the known assets that Censys will use as starting points for discovery.\n3. **Optionally add excluded assets** to omit specific assets from results.\n4. **Create an execution** to trigger the discovery process, or wait for Censys to run one automatically.\n5. **List assets** from a completed execution to view your discovered attack surface.\n6. **Look up risk metadata** for any risk IDs found on your assets.\n\n\nContact Support:\n Name: Censys Support\n Email: support@censys.io",
+      "type": "text/plain"
+    }
+  }
+}

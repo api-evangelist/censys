@@ -1,0 +1,433 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Graph Account Management API",
+    "version": "1.0.12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys Get Organization Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/accounts/organizations/:organization_id",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "include_member_counts",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include how many members are in this organization, split by role."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve an organization's details, including the count of organization members broken down by role and organization settings such as AI training and MFA requirements.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys List Audit Log Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/accounts/organizations/:organization_id/audit-log-events",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "page_size",
+                "value": "1",
+                "type": "query",
+                "description": "Amount of events to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Page token for the requested page of audit log events."
+              },
+              {
+                "name": "start_time",
+                "value": "2026-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Only return events that occurred after this time. This value must be on or after 2026-01-01T00:00:00Z. If not provided, will default to the earliest possible date."
+              },
+              {
+                "name": "end_time",
+                "value": "2026-02-01T00:00:00Z",
+                "type": "query",
+                "description": "Only return events that occurred before this time. This value must not be in the future. If not provided, it defaults to the current time."
+              },
+              {
+                "name": "event_type",
+                "value": "",
+                "type": "query",
+                "description": "Only return events of this type. This field is deprecated and will be removed in a future version. Use event_types instead."
+              },
+              {
+                "name": "event_types",
+                "value": "user_login,pat_created",
+                "type": "query",
+                "description": "Only return events of these types."
+              },
+              {
+                "name": "exclude_event_types",
+                "value": "user_login,pat_created",
+                "type": "query",
+                "description": "Exclude events of these types."
+              },
+              {
+                "name": "user_email",
+                "value": "user@example.com",
+                "type": "query",
+                "description": "Only return events performed by this user."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order events by this field."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve audit log events for an organization. Use query parameters to filter events by time range, user, and event type.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get Organization Credit Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/accounts/organizations/:organization_id/credits",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve credit balance and expiration information for an organization. <br><br>Credits expire 12 months after they are acquired.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get Organization Credit Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/accounts/organizations/:organization_id/credits/usage",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "date",
+                "value": "2025-11-01",
+                "type": "query",
+                "description": "The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports)."
+              },
+              {
+                "name": "start_date",
+                "value": "2025-11-01",
+                "type": "query",
+                "description": "The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports)."
+              },
+              {
+                "name": "end_date",
+                "value": "2025-12-01",
+                "type": "query",
+                "description": "The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year)."
+              },
+              {
+                "name": "granularity",
+                "value": "daily",
+                "type": "query",
+                "description": "Whether to break down credit usage on a daily or monthly basis."
+              },
+              {
+                "name": "include_consumer_breakdown",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include a breakdown of individual users' consumption in the credit usage report."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve credit information for an organization over a specific date range. You must include a start date in your request.<br><br>Admins can obtain credit usage information for all users in their organization. Members may only retrieve usage information for their own account.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Invite User to Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/v3/accounts/organizations/:organization_id/invitations",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Invite a user to an organization. The user will receive an email to join the organization. This is equivalent to [adding a new member via the UI](https://docs.censys.com/docs/platform-org-management#invite-members).<br><br>Only users with the Admin role in the provided organization can perform this operation.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys List Organization Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/accounts/organizations/:organization_id/members",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of members to return per page"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token for retrieving the next page of results"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of an organization's members and their user details, including their user ID, email, name, creation time, and roles.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Update a Member's Roles in an Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.data.censys.io/v3/accounts/organizations/:organization_id/members/:user_id",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "user_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys user. You can obtain a user's ID by listing members of an organization."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the roles assigned to an organization member. This operation replaces a member's roles with the list provided in the request body. To remove all roles from a member, provide an empty list. To completely remove a member from an organization, use the [remove member endpoint](https://docs.censys.com/reference/v3-accountmanagement-remove-org-member).<br><br>Only users with the Admin role in the provided organization can perform this operation.<br><br>This endpoint does not cost any credits to"
+        },
+        {
+          "info": {
+            "name": "Censys Remove Member from Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.data.censys.io/v3/accounts/organizations/:organization_id/members/:user_id",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "user_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys user. You can obtain a user's ID by listing members of an organization."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Remove a user from an organization. This is equivalent to [removing a member via the UI](https://docs.censys.com/docs/platform-org-management#remove-members).<br><br>Only users with the Admin role in the provided organization can perform this operation.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get Organization Member Credit Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/accounts/organizations/:organization_id/members/:user_id/credits/usage",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys organization. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "user_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The ID of a Censys user. You can obtain a user's ID by listing members of an organization."
+              },
+              {
+                "name": "date",
+                "value": "2025-11-01",
+                "type": "query",
+                "description": "The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports)."
+              },
+              {
+                "name": "start_date",
+                "value": "2025-11-01",
+                "type": "query",
+                "description": "The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports)."
+              },
+              {
+                "name": "end_date",
+                "value": "2025-12-01",
+                "type": "query",
+                "description": "The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year)."
+              },
+              {
+                "name": "granularity",
+                "value": "daily",
+                "type": "query",
+                "description": "Whether to break down credit usage on a daily or monthly basis."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve credit consumption information for an organization member over a specific date range. You must include a start date in your request.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get Free User Credit Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/accounts/users/credits",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve your Free user account credit balance and refresh information. To retrieve the credit balance for a Starter or Enterprise account, use the [get organization credit balance endpoint](https://docs.censys.com/reference/v3-accountmanagement-org-credits).<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get Free User Credit Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/accounts/users/credits/usage",
+            "params": [
+              {
+                "name": "date",
+                "value": "2025-11-01",
+                "type": "query",
+                "description": "The date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-06). This field is deprecated and will be removed in a future version. Use start_date and end_date instead. The date must be on or after 2025-01-01 (the earliest date available for credit usage reports)."
+              },
+              {
+                "name": "start_date",
+                "value": "2025-11-01",
+                "type": "query",
+                "description": "The start date for the credit usage report in YYYY-MM-DD format (e.g., 2025-11-01). Must be on or after 2025-01-01 (the earliest date available for credit usage reports)."
+              },
+              {
+                "name": "end_date",
+                "value": "2025-12-01",
+                "type": "query",
+                "description": "The end date for the credit usage report in YYYY-MM-DD format (e.g., 2025-12-01). If omitted, will default to today's date. The date range (end_date - start_date) cannot exceed 365 days (1 year)."
+              },
+              {
+                "name": "granularity",
+                "value": "daily",
+                "type": "query",
+                "description": "Whether to break down credit usage on a daily or monthly basis."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve your Free user account credit consumption information over a specific date range. You must include a start date in your request.<br><br>This endpoint does not cost any credits to execute."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

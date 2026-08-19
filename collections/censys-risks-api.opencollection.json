@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Graph Account Management Risks API",
+    "version": "1.0.12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Risks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys Get Static Risk Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/api/v1/risks/:risk_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "risk_id",
+                "value": "",
+                "type": "path",
+                "description": "A Censys risk ID (e.g. CENSYS-2025-1), threat ID (e.g. THREAT-1) or an external risk identifier (e.g. CVE-2025-00001)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve additional metadata for a risk, such as long-form descriptions and references. Risk IDs can be found on asset data in vulnerabilities, exposures, misconfigurations, and threats."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

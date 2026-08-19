@@ -1,0 +1,362 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Graph Account Management Collections API",
+    "version": "1.0.12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys List Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/collections",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "page token for the requested page of collection results"
+              },
+              {
+                "name": "page_size",
+                "value": "1",
+                "type": "query",
+                "description": "amount of results to return per page"
+              },
+              {
+                "name": "collection_statuses",
+                "value": "populating,active",
+                "type": "query",
+                "description": "statuses of collection for results to be filtered on."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List all collections for an organization. Retrieved information includes collection ID, name, query, description, status, and asset count.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Create a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/v3/collections",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new collection.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/collections/:collection_uid",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "collection_uid",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The UID for the collection. Obtain the collection ID using the [list collections endpoint](https://docs.censys.com/reference/v3-collections-crud-list#/) or via the collection URL when using the web console."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve information about a collection. Retrieved information includes its name, query, description, status, and asset count.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Update a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://graph.data.censys.io/v3/collections/:collection_uid",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "collection_uid",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The UID for the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update a collection's name, description, and/or query.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Delete a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.data.censys.io/v3/collections/:collection_uid",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "collection_uid",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The UID for the collection. Obtain the collection ID using the [list collections endpoint](https://docs.censys.com/reference/v3-collections-crud-list#/) or via the collection URL when using the web console."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a collection.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get a Collection's Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/collections/:collection_uid/events",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "collection_uid",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The UID for the collection. Obtain the collection ID using the [list collections endpoint](https://docs.censys.com/reference/v3-collections-crud-list#/) or via the collection URL when using the web console."
+              },
+              {
+                "name": "page_size",
+                "value": "1",
+                "type": "query",
+                "description": "Amount of results to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Page token for the requested page of collection results."
+              },
+              {
+                "name": "change_types",
+                "value": "",
+                "type": "query",
+                "description": "Change types"
+              },
+              {
+                "name": "asset_change_types",
+                "value": "",
+                "type": "query",
+                "description": "Asset change types"
+              },
+              {
+                "name": "status_change_types",
+                "value": "",
+                "type": "query",
+                "description": "Status change types"
+              },
+              {
+                "name": "start_time",
+                "value": "2025-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start time of the host timeline"
+              },
+              {
+                "name": "end_time",
+                "value": "2025-01-02T00:00:00Z",
+                "type": "query",
+                "description": "End time of the host timeline"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the event history for a collection. This includes the addition or removal of assets as well as collection status changes.<br><br>This endpoint does not cost credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Aggregate Results for a Search Query Within a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/v3/collections/:collection_uid/search/aggregate",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "collection_uid",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "path",
+                "description": "The UID for the collection. Obtain the collection ID using the [list collections endpoint](https://docs.censys.com/reference/v3-collections-crud-list#/) or via the collection URL when using the web console."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Aggregate results for a Platform search query that targets a collection's assets. This functionality is equivalent to the [Report Builder](https://docs.censys.com/docs/platform-report-builder#/) in the Platform web UI."
+        },
+        {
+          "info": {
+            "name": "Censys Run a Search Query Within a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/v3/collections/:collection_uid/search/query",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "collection_uid",
+                "value": "",
+                "type": "path",
+                "description": "The UID for the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Run a search query across a collection's assets. Reference the [documentation on Censys Query Language](https://docs.censys.com/docs/censys-query-language#/) for information about query syntax. Host services that match your search criteria will be returned in a `matched_services` object."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

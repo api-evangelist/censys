@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Graph Account Management Seeds API",
+    "version": "1.0.12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Seeds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys List Seeds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:graph_id/seeds",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "graph_id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List all seeds configured for an asset graph."
+        },
+        {
+          "info": {
+            "name": "Censys Create a Seed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:graph_id/seeds",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "graph_id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a seed to an asset graph. Seeds are persistent starting points used to discover additional assets. Supported seed types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.\n\nModifications to seeds take effect during the next execution of the graph."
+        },
+        {
+          "info": {
+            "name": "Censys Delete a Seed",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:graph_id/seeds/:seed_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "graph_id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              },
+              {
+                "name": "seed_id",
+                "value": "",
+                "type": "path",
+                "description": "Seed identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Remove a seed from an asset graph. The removal takes effect during the next execution of the graph."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

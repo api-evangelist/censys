@@ -1,0 +1,589 @@
+{
+  "item": [
+    {
+      "id": "bf60b055-7f06-40b9-bfee-57b5f02913d2",
+      "name": "Excluded Assets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c0196144-fa0b-4824-94b0-54a630821492",
+          "name": "Censys List Excluded Assets",
+          "request": {
+            "name": "Censys List Excluded Assets",
+            "description": {
+              "content": "List all excluded assets configured for an asset graph.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "asset-graphs",
+                ":graph_id",
+                "excluded-assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_token",
+                  "value": "<string>",
+                  "description": "Pagination token from a previous response"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "graph_id",
+                  "description": "(Required) Asset graph ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Censys organization ID",
+                "key": "X-Organization-ID",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8dc8713-c2de-4ffe-90be-ef3ce4661d75",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs",
+                    ":graph_id",
+                    "excluded-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "graph_id",
+                      "description": "(Required) Asset graph ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"excluded_assets\": [\n    {\n      \"id\": \"string\",\n      \"$schema\": \"https://graph.data.censys.io/schemas/ExcludedAsset.json\",\n      \"autonomous_system\": 1506,\n      \"business_organization\": \"string\",\n      \"certificate\": \"string\",\n      \"create_time\": \"string\",\n      \"domain\": \"string\",\n      \"host\": \"string\",\n      \"netblock\": \"string\",\n      \"registrant_email\": \"string\",\n      \"registrant_organization\": \"string\",\n      \"web_property\": {\n        \"hostname\": \"string\",\n        \"port\": 5313\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"$schema\": \"https://graph.data.censys.io/schemas/ExcludedAsset.json\",\n      \"autonomous_system\": 7709,\n      \"business_organization\": \"string\",\n      \"certificate\": \"string\",\n      \"create_time\": \"string\",\n      \"domain\": \"string\",\n      \"host\": \"string\",\n      \"netblock\": \"string\",\n      \"registrant_email\": \"string\",\n      \"registrant_organization\": \"string\",\n      \"web_property\": {\n        \"hostname\": \"string\",\n        \"port\": 7367\n      }\n    }\n  ],\n  \"$schema\": \"https://graph.data.censys.io/schemas/ListExcludedAssetsOutputBody.json\",\n  \"next_page_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6208d13d-ac9d-4aec-b4c4-596faf6c327a",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs",
+                    ":graph_id",
+                    "excluded-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "graph_id",
+                      "description": "(Required) Asset graph ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"$schema\": \"https://graph.data.censys.io/schemas/ErrorModel.json\",\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b806d083-84df-4b78-8801-195c2054300f",
+          "name": "Censys Create an Excluded Asset",
+          "request": {
+            "name": "Censys Create an Excluded Asset",
+            "description": {
+              "content": "Exclude an asset from an asset graph. Excluded assets will not appear in the graph and will not be used to discover additional assets.\n\nModifications to excluded assets take effect during the next execution of the graph.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "asset-graphs",
+                ":graph_id",
+                "excluded-assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "graph_id",
+                  "description": "(Required) Asset graph ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Censys organization ID",
+                "key": "X-Organization-ID",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"autonomous_system\": \"<integer>\",\n  \"business_organization\": \"<string>\",\n  \"certificate\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"host\": \"<string>\",\n  \"id\": \"<string>\",\n  \"netblock\": \"<string>\",\n  \"registrant_email\": \"<string>\",\n  \"registrant_organization\": \"<string>\",\n  \"web_property\": {\n    \"hostname\": \"<string>\",\n    \"port\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6eaeaaec-20f2-48e2-ab7d-cb68c9401c43",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs",
+                    ":graph_id",
+                    "excluded-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "graph_id",
+                      "description": "(Required) Asset graph ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"autonomous_system\": \"<integer>\",\n  \"business_organization\": \"<string>\",\n  \"certificate\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"host\": \"<string>\",\n  \"id\": \"<string>\",\n  \"netblock\": \"<string>\",\n  \"registrant_email\": \"<string>\",\n  \"registrant_organization\": \"<string>\",\n  \"web_property\": {\n    \"hostname\": \"string\",\n    \"port\": 6389\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"$schema\": \"https://graph.data.censys.io/schemas/ExcludedAsset.json\",\n  \"autonomous_system\": 2307,\n  \"business_organization\": \"string\",\n  \"certificate\": \"string\",\n  \"create_time\": \"string\",\n  \"domain\": \"string\",\n  \"host\": \"string\",\n  \"netblock\": \"string\",\n  \"registrant_email\": \"string\",\n  \"registrant_organization\": \"string\",\n  \"web_property\": {\n    \"hostname\": \"string\",\n    \"port\": 9417\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a2e3b3a-3f33-40be-a833-3523dc490f2d",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs",
+                    ":graph_id",
+                    "excluded-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "graph_id",
+                      "description": "(Required) Asset graph ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"autonomous_system\": \"<integer>\",\n  \"business_organization\": \"<string>\",\n  \"certificate\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"host\": \"<string>\",\n  \"id\": \"<string>\",\n  \"netblock\": \"<string>\",\n  \"registrant_email\": \"<string>\",\n  \"registrant_organization\": \"<string>\",\n  \"web_property\": {\n    \"hostname\": \"string\",\n    \"port\": 6389\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"$schema\": \"https://graph.data.censys.io/schemas/ErrorModel.json\",\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6be93055-068c-4e0c-b5ad-2145f05c835b",
+          "name": "Censys Delete an Excluded Asset",
+          "request": {
+            "name": "Censys Delete an Excluded Asset",
+            "description": {
+              "content": "Remove an asset exclusion from an asset graph. The asset may reappear in future execution results.\n\nThe removal takes effect during the next execution of the graph.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "asset-graphs",
+                ":graph_id",
+                "excluded-assets",
+                ":excluded_asset_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "graph_id",
+                  "description": "(Required) Asset graph ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "excluded_asset_id",
+                  "description": "(Required) Excluded asset identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Censys organization ID",
+                "key": "X-Organization-ID",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d3b6f96-4d3e-4301-b4bf-7a118ce12477",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs",
+                    ":graph_id",
+                    "excluded-assets",
+                    ":excluded_asset_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "graph_id",
+                      "description": "(Required) Asset graph ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "excluded_asset_id",
+                      "description": "(Required) Excluded asset identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c554405-5e7b-4f50-a15e-61b9d84f471e",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "asset-graphs",
+                    ":graph_id",
+                    "excluded-assets",
+                    ":excluded_asset_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "graph_id",
+                      "description": "(Required) Asset graph ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "excluded_asset_id",
+                      "description": "(Required) Excluded asset identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Censys organization ID",
+                    "key": "X-Organization-ID",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"$schema\": \"https://graph.data.censys.io/schemas/ErrorModel.json\",\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://graph.data.censys.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6231dfd0-fea5-4712-915d-943f974b5b96",
+    "name": "Asset Graph Account Management Excluded Assets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Asset Graph API\n\nThe Asset Graph API provides comprehensive visibility into your Internet-facing assets. Use this API to build and manage attack surfaces by creating asset graphs, configuring seeds and exclusions, running discovery executions, and retrieving discovered assets and risk metadata.\n\n### Authentication\n\nAll requests must include a valid Censys personal access token (PAT) in the `Authorization` header:\n\n```\nAuthorization: Bearer <your-api-token>\n```\n\nAn `X-Organization-ID` header must also be present on every request. This identifies the Censys organization that owns the resources being accessed.\n\n```\nX-Organization-ID: <your-organization-id>\n```\n\n### Core Concepts\n\n- **Asset Graph**: The parent resource representing an attack surface. Each asset graph contains seeds, excluded assets, and executions.\n- **Seeds**: Persistent starting points used to discover additional assets. Supported types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.\n- **Excluded Assets**: Assets explicitly excluded from the graph. Excluded assets will not appear in execution results and will not be used to discover additional assets.\n- **Executions**: A discovery process that uses the graph's configured seeds and excluded assets to generate a complete snapshot of the attack surface. Censys periodically runs executions in the background, or they can be triggered on-demand.\n- **Assets**: Internet-facing resources discovered during an execution, including hosts, domains, certificates, and web properties. Each asset includes discovery paths showing how it was found from your seeds.\n- **Risks**: Vulnerabilities, exposures, misconfigurations, and threats identified on discovered assets.\n\n### Getting Started\n\n1. **Create an asset graph** to represent your attack surface.\n2. **Add seeds** — the known assets that Censys will use as starting points for discovery.\n3. **Optionally add excluded assets** to omit specific assets from results.\n4. **Create an execution** to trigger the discovery process, or wait for Censys to run one automatically.\n5. **List assets** from a completed execution to view your discovered attack surface.\n6. **Look up risk metadata** for any risk IDs found on your assets.\n\n\nContact Support:\n Name: Censys Support\n Email: support@censys.io",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Graph Account Management Excluded Assets API",
+    "version": "1.0.12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Excluded Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys List Excluded Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:graph_id/excluded-assets",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "graph_id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              }
+            ]
+          },
+          "docs": "List all excluded assets configured for an asset graph."
+        },
+        {
+          "info": {
+            "name": "Censys Create an Excluded Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:graph_id/excluded-assets",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "graph_id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Exclude an asset from an asset graph. Excluded assets will not appear in the graph and will not be used to discover additional assets.\n\nModifications to excluded assets take effect during the next execution of the graph."
+        },
+        {
+          "info": {
+            "name": "Censys Delete an Excluded Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:graph_id/excluded-assets/:excluded_asset_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "graph_id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              },
+              {
+                "name": "excluded_asset_id",
+                "value": "",
+                "type": "path",
+                "description": "Excluded asset identifier"
+              }
+            ]
+          },
+          "docs": "Remove an asset exclusion from an asset graph. The asset may reappear in future execution results.\n\nThe removal takes effect during the next execution of the graph."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

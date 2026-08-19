@@ -1,0 +1,560 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Graph Account Management Tags and Comments API",
+    "version": "1.0.12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags and Comments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys List Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/comments",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of comments to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response to retrieve the next page of results."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort order. Supported values: create_time_asc, create_time_desc."
+              },
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter comments by asset identifier (host IP, certificate fingerprint, or web property hostname:port)."
+              },
+              {
+                "name": "created_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter comments by the user ID of the user who created the comment."
+              },
+              {
+                "name": "created_before",
+                "value": "",
+                "type": "query",
+                "description": "Filter comments created before this RFC3339 timestamp."
+              },
+              {
+                "name": "created_after",
+                "value": "",
+                "type": "query",
+                "description": "Filter comments created after this RFC3339 timestamp."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of comments in your organization. Use query parameters to filter by asset, creator, or creation time.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Create a Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/v3/comments",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a comment on an asset in your organization.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Update a Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://graph.data.censys.io/v3/comments/:comment_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "comment_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the comment to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the body of an existing comment. Only the comment's creator can update it.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Delete a Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.data.censys.io/v3/comments/:comment_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "comment_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the comment to delete."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a comment. Only the comment's creator or an organization admin can delete a comment. This action is permanent and cannot be undone.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys List Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/tags",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of tags to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response to retrieve the next page of results."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort order. Supported values: name_asc, name_desc, created_at_asc, created_at_desc, updated_at_asc, updated_at_desc."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags by name (exact match)."
+              },
+              {
+                "name": "created_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags by the user ID of the user who created the tag."
+              },
+              {
+                "name": "privacy",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags by privacy setting."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of tags in your organization. Private tags created by other users are not included in the results unless your account is an organization admin.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Create a Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/v3/tags",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new tag in your organization. Tags can be used to label and organize assets.<br><br>Specify a privacy setting to control visibility: `private` tags are only visible to you and organization admins, while `shared` tags are visible and manageable by all organization members.<br><br>Tag names must be unique within your organization.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Get a Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/tags/:tag_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "tag_id",
+                "value": "123e4567-e89b-12d3-a456-426614174000",
+                "type": "path",
+                "description": "The ID or name of the tag to retrieve."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a tag by its ID or name. Tag names are unique within an organization and can be used interchangeably with the tag ID in the path parameter.<br><br>Only tags that are visible to the caller are returned: private tags created by other users are not accessible unless your account is an organization admin.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Update a Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://graph.data.censys.io/v3/tags/:tag_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the tag to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update an existing tag in your organization. Only the fields provided in the request body will be updated; omitted fields are left unchanged.<br><br>Only the tag's creator or an organization admin can update a `private` tag. Tags with the `shared` setting can be updated by any organization member.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Delete a Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.data.censys.io/v3/tags/:tag_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the tag to delete."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a tag and all of its assignments from your organization. This action is permanent and cannot be undone.<br><br>Only the tag's creator or an organization admin can delete a `private` tag. Tags that are `shared` can be deleted by any organization member.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys List Tag Assignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/tags/:tag_id/assignments",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the tag whose assignments to list."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of assignments to return per page."
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response to retrieve the next page of results."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort order. Supported values: create_time_asc, create_time_desc."
+              },
+              {
+                "name": "asset_id",
+                "value": "8.8.8.8",
+                "type": "query",
+                "description": "The identifier of the asset (host IP, certificate SHA-256 fingerprint, or web property hostname:port)."
+              },
+              {
+                "name": "created_before",
+                "value": "",
+                "type": "query",
+                "description": "RFC3339 timestamp. Only return assignments created before this time."
+              },
+              {
+                "name": "created_after",
+                "value": "",
+                "type": "query",
+                "description": "RFC3339 timestamp. Only return assignments created after this time."
+              },
+              {
+                "name": "created_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the user ID of the user who created the assignment."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a paginated list of assignments for a tag in your organization. Use query parameters to filter results by asset, created_by, or creation time. Only assignments for tags visible to your account are returned.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Create a Tag Assignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/v3/tags/:tag_id/assignments",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the tag to assign."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Assign a tag to an asset. Tag assignments are only visible to members of your organization, depending on the tag's privacy settings. You must have access to the tag to assign it to an asset.<br><br>This endpoint does not cost any credits to execute."
+        },
+        {
+          "info": {
+            "name": "Censys Delete a Tag Assignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.data.censys.io/v3/tags/:tag_id/assignments/:assignment_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the tag."
+              },
+              {
+                "name": "assignment_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the assignment to delete."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Remove a tag assignment from an asset. This action is permanent and cannot be undone. Removing an assignment only detaches the tag from the specified asset; the tag itself is not deleted. Only the tag's creator or an organization admin can delete an assignment for a `private` tag. Assignments for `shared` tags can be deleted by any organization member.<br><br>This endpoint does not cost any credits to execute."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

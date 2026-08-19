@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Graph Account Management Asset Graphs API",
+    "version": "1.0.12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Asset Graphs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys List Asset Graphs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List all asset graphs belonging to your Censys organization."
+        },
+        {
+          "info": {
+            "name": "Censys Create an Asset Graph",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new asset graph. An asset graph provides comprehensive visibility into your Internet-facing assets. It is the parent resource for seeds, excluded assets, and executions."
+        },
+        {
+          "info": {
+            "name": "Censys Get an Asset Graph",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve an asset graph, including its active execution if one exists."
+        },
+        {
+          "info": {
+            "name": "Censys Delete an Asset Graph",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Permanently delete an asset graph and all of its associated data, including seeds, excluded assets, and executions. Graph deletion is an asynchronous operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

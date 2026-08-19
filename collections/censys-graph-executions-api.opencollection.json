@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Graph Account Management Graph Executions API",
+    "version": "1.0.12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Graph Executions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys List Graph Executions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:graph_id/executions",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "graph_id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List all executions for an asset graph. Results are sorted by descending update time."
+        },
+        {
+          "info": {
+            "name": "Censys Create a Graph Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:graph_id/executions",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "graph_id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Start a new on-demand execution for an asset graph. An execution triggers the discovery process using the graph's configured seeds and excluded assets. Creating an execution will preempt and cancel any currently running execution. Executions may take up to several hours to complete.\n\nCensys also periodically runs executions in the background. Older executions are removed automatically."
+        },
+        {
+          "info": {
+            "name": "Censys Get a Graph Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:graph_id/executions/:execution_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "graph_id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              },
+              {
+                "name": "execution_id",
+                "value": "",
+                "type": "path",
+                "description": "Graph execution ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve an execution, including its current status and discovery statistics."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

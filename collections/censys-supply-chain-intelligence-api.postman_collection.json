@@ -1,0 +1,2048 @@
+{
+  "item": [
+    {
+      "id": "00463c97-fe84-4353-8874-679b4828530a",
+      "name": "Supply Chain Intelligence",
+      "description": {
+        "content": "Endpoints related to the Supply Chain Intelligence product",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "df5e2004-7a20-48ed-891a-5473375db909",
+          "name": "Censys List Supply Chains",
+          "request": {
+            "name": "Censys List Supply Chains",
+            "description": {
+              "content": "Returns a paginated list of supply chain IDs for the organization.<br><br>This endpoint does not cost credits to execute.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "supplychains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<uuid>",
+                  "description": "(Required) The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "100",
+                  "description": "Maximum number of supply chains to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_token",
+                  "value": "<string>",
+                  "description": "Pagination token from a previous response to retrieve the next page of results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                "key": "X-Organization-ID",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6405311c-cd30-4a40-a103-cbb4b737c66f",
+              "name": "Supply chains listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "X-Request-ID",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"supply_chain_ids\": [\n      \"string\",\n      \"string\"\n    ],\n    \"next_page_token\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d3b50c7-5609-4524-b96d-42c3b0234bd8",
+              "name": "Invalid arguments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f4ee8d1-5000-4fc5-a29d-20ce57bace8c",
+              "name": "Request does not contain a valid Authorization token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"Access credentials are invalid\",\n    \"reason\": \"Access token is not active\",\n    \"request\": \"string\",\n    \"status\": \"Unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01326bd8-fed7-467f-88d7-ba7c9127af55",
+              "name": "User does not have permission to access this data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57a9d771-0074-4248-885a-8964a22a6230",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fa089b3-0b16-4978-8455-cfcc10c44bdd",
+              "name": "Invalid inputs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "952a73ef-b308-4d09-a80d-85faa9c4e6dc",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6df475e8-0e41-49b2-8c88-fa24fdd2540e",
+          "name": "Censys Search Suppliers",
+          "request": {
+            "name": "Censys Search Suppliers",
+            "description": {
+              "content": "Search for suppliers by display name keywords. Results are capped and not paginated.<br><br>This endpoint does not cost credits to execute.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "supplychains",
+                "suppliers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<uuid>",
+                  "description": "(Required) The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+                },
+                {
+                  "disabled": false,
+                  "key": "keywords",
+                  "value": "<string>",
+                  "description": "Search keywords matched against supplier display names."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                "key": "X-Organization-ID",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ab5c69be-9615-4370-b0ba-7bde2901b1d2",
+              "name": "Suppliers found successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "Anthropic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "X-Request-ID",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"suppliers\": [\n      {\n        \"id\": \"11111111-2222-3333-4444-555555555555\",\n        \"display_name\": \"string\",\n        \"legal_name\": \"string\",\n        \"description\": \"string\",\n        \"city\": \"string\",\n        \"region\": \"string\",\n        \"country\": \"string\",\n        \"continent\": \"string\",\n        \"status\": \"string\"\n      },\n      {\n        \"id\": \"11111111-2222-3333-4444-555555555555\",\n        \"display_name\": \"string\",\n        \"legal_name\": \"string\",\n        \"description\": \"string\",\n        \"city\": \"string\",\n        \"region\": \"string\",\n        \"country\": \"string\",\n        \"continent\": \"string\",\n        \"status\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57b31685-4cb6-4ce2-94f1-93f5bdfa3cbb",
+              "name": "Invalid arguments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "Anthropic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4168b1d-0fd9-4a66-b56e-873b61a2ab41",
+              "name": "Request does not contain a valid Authorization token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "Anthropic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"Access credentials are invalid\",\n    \"reason\": \"Access token is not active\",\n    \"request\": \"string\",\n    \"status\": \"Unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a443fee5-6c95-4c2b-924f-51e687dcc9ef",
+              "name": "User does not have permission to access this data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "Anthropic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6241839-0695-47e4-aeab-386eaffdb8e6",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "Anthropic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5bc2bbf7-fa84-47bf-84f8-21ef2499929c",
+              "name": "Invalid inputs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "Anthropic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81bd6897-3754-4fea-9583-091655e80833",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "Anthropic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eba1767e-c8e5-4166-b09a-803442b559c9",
+          "name": "Censys Adds Supplier to Supply Chain",
+          "request": {
+            "name": "Censys Adds Supplier to Supply Chain",
+            "description": {
+              "content": "Add a list of suppliers to the specific supply chain.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "supplychains",
+                "suppliers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<uuid>",
+                  "description": "(Required) The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                "key": "X-Organization-ID",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"supply_chain_id\": \"<uuid>\",\n  \"supplier_ids\": [\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eeab2ca6-16df-4085-be35-0ef35bd7c7fb",
+              "name": "Suppliers Added To supply chain successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"supply_chain_id\": \"11111111-2222-3333-4444-555555555555\",\n  \"supplier_ids\": [\n    \"11111111-2222-3333-4444-555555555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "X-Request-ID",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c9a69c14-3d71-4242-81c6-d11c36f320d3",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"supply_chain_id\": \"11111111-2222-3333-4444-555555555555\",\n  \"supplier_ids\": [\n    \"11111111-2222-3333-4444-555555555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4167a2ce-f174-4754-abd0-34424f95f6c9",
+              "name": "Request does not contain a valid Authorization token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"supply_chain_id\": \"11111111-2222-3333-4444-555555555555\",\n  \"supplier_ids\": [\n    \"11111111-2222-3333-4444-555555555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"Access credentials are invalid\",\n    \"reason\": \"Access token is not active\",\n    \"request\": \"string\",\n    \"status\": \"Unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0ee62da-2e0b-483b-a533-a630d890010a",
+              "name": "User does not have permission to access this data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"supply_chain_id\": \"11111111-2222-3333-4444-555555555555\",\n  \"supplier_ids\": [\n    \"11111111-2222-3333-4444-555555555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3814f21-5694-40ab-a1e1-165dd5c228a1",
+              "name": "Supplier/supply chain not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"supply_chain_id\": \"11111111-2222-3333-4444-555555555555\",\n  \"supplier_ids\": [\n    \"11111111-2222-3333-4444-555555555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "000bf3f1-8780-442e-91b0-549bb1b20763",
+              "name": "Invalid Inputs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"supply_chain_id\": \"11111111-2222-3333-4444-555555555555\",\n  \"supplier_ids\": [\n    \"11111111-2222-3333-4444-555555555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e80c8966-786c-49b2-8f1b-a53d1e2a1207",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"supply_chain_id\": \"11111111-2222-3333-4444-555555555555\",\n  \"supplier_ids\": [\n    \"11111111-2222-3333-4444-555555555555\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "828d82b0-41bf-4254-b62d-306881a6105f",
+          "name": "Censys Remove a Supplier from a Supply Chain",
+          "request": {
+            "name": "Censys Remove a Supplier from a Supply Chain",
+            "description": {
+              "content": "Remove a supplier from the specified supply chain.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "supplychains",
+                "suppliers",
+                ":supplier_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<uuid>",
+                  "description": "(Required) The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+                },
+                {
+                  "disabled": false,
+                  "key": "supply_chain_id",
+                  "value": "<uuid>",
+                  "description": "(Required) The ID of a Censys supply chain."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "supplier_id",
+                  "description": "(Required) The ID of a Censys supplier to remove from the given supply chain."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                "key": "X-Organization-ID",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/problem+json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9932a35d-aa70-42d7-a6c4-e680424ce2f6",
+              "name": "Supplier removed from supply chain successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers",
+                    ":supplier_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "supply_chain_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "supplier_id",
+                      "description": "(Required) The ID of a Censys supplier to remove from the given supply chain."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "X-Request-ID",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "077d781f-90ce-4062-86e0-998c4c89aed1",
+              "name": "Supplier or supply chain not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers",
+                    ":supplier_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "supply_chain_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "supplier_id",
+                      "description": "(Required) The ID of a Censys supplier to remove from the given supply chain."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1397a1a4-5e4d-4937-832f-2cc4143105e9",
+              "name": "Request does not contain a valid Authorization token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers",
+                    ":supplier_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "supply_chain_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "supplier_id",
+                      "description": "(Required) The ID of a Censys supplier to remove from the given supply chain."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"Access credentials are invalid\",\n    \"reason\": \"Access token is not active\",\n    \"request\": \"string\",\n    \"status\": \"Unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d00638f-ecb5-4b54-96c1-cc8416945ca2",
+              "name": "User does not have permission to access this data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers",
+                    ":supplier_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "supply_chain_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "supplier_id",
+                      "description": "(Required) The ID of a Censys supplier to remove from the given supply chain."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84fb5022-1e0b-43e5-a6e3-81ba8f730fa8",
+              "name": "Invalid inputs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers",
+                    ":supplier_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "supply_chain_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "supplier_id",
+                      "description": "(Required) The ID of a Censys supplier to remove from the given supply chain."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecca1d73-4967-433b-b813-70779760c615",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplychains",
+                    "suppliers",
+                    ":supplier_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    },
+                    {
+                      "key": "supply_chain_id",
+                      "value": "11111111-2222-3333-4444-555555555555"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "supplier_id",
+                      "description": "(Required) The ID of a Censys supplier to remove from the given supply chain."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information. Note: The header parameter is supported for atypical use cases; we recommend always providing this field via the query parameter.",
+                    "key": "X-Organization-ID",
+                    "value": "11111111-2222-3333-4444-555555555555"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Property foo is required but is missing.\",\n  \"errors\": [\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"location\": \"string\",\n      \"message\": \"string\",\n      \"value\": {}\n    }\n  ],\n  \"instance\": \"https://example.com/error-log/abc123\",\n  \"status\": 400,\n  \"title\": \"Bad Request\",\n  \"type\": \"https://example.com/errors/example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://graph.data.censys.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a96517c5-ebf9-4b59-a552-1dfada8eab9c",
+    "name": "Asset Graph Account Management Supply Chain Intelligence API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Asset Graph API\n\nThe Asset Graph API provides comprehensive visibility into your Internet-facing assets. Use this API to build and manage attack surfaces by creating asset graphs, configuring seeds and exclusions, running discovery executions, and retrieving discovered assets and risk metadata.\n\n### Authentication\n\nAll requests must include a valid Censys personal access token (PAT) in the `Authorization` header:\n\n```\nAuthorization: Bearer <your-api-token>\n```\n\nAn `X-Organization-ID` header must also be present on every request. This identifies the Censys organization that owns the resources being accessed.\n\n```\nX-Organization-ID: <your-organization-id>\n```\n\n### Core Concepts\n\n- **Asset Graph**: The parent resource representing an attack surface. Each asset graph contains seeds, excluded assets, and executions.\n- **Seeds**: Persistent starting points used to discover additional assets. Supported types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.\n- **Excluded Assets**: Assets explicitly excluded from the graph. Excluded assets will not appear in execution results and will not be used to discover additional assets.\n- **Executions**: A discovery process that uses the graph's configured seeds and excluded assets to generate a complete snapshot of the attack surface. Censys periodically runs executions in the background, or they can be triggered on-demand.\n- **Assets**: Internet-facing resources discovered during an execution, including hosts, domains, certificates, and web properties. Each asset includes discovery paths showing how it was found from your seeds.\n- **Risks**: Vulnerabilities, exposures, misconfigurations, and threats identified on discovered assets.\n\n### Getting Started\n\n1. **Create an asset graph** to represent your attack surface.\n2. **Add seeds** — the known assets that Censys will use as starting points for discovery.\n3. **Optionally add excluded assets** to omit specific assets from results.\n4. **Create an execution** to trigger the discovery process, or wait for Censys to run one automatically.\n5. **List assets** from a completed execution to view your discovered attack surface.\n6. **Look up risk metadata** for any risk IDs found on your assets.\n\n\nContact Support:\n Name: Censys Support\n Email: support@censys.io",
+      "type": "text/plain"
+    }
+  }
+}

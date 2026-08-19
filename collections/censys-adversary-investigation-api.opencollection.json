@@ -1,0 +1,637 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Graph Account Management Adversary Investigation API",
+    "version": "1.0.12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Adversary Investigation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys CensEye: Create a Pivot Analysis Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/v3/threat-hunting/censeye/jobs",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create an asynchronous CensEye pivot analysis job for a host, web property, or certificate. The job extracts [default pivot fields](https://docs.censys.com/docs/platform-threat-hunting-use-censeye-to-build-detections#default-pivot-fields) from the target asset and counts matching documents for each field-value pair. Poll the job status endpoint to track progress, then retrieve results when complete.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation mo"
+        },
+        {
+          "info": {
+            "name": "Censys CensEye: Get Job Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/threat-hunting/censeye/jobs/:job_id",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the CensEye job."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the current status of a CensEye pivot analysis job. Use this to poll for completion before fetching results.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation module."
+        },
+        {
+          "info": {
+            "name": "Censys CensEye: Get Job Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/threat-hunting/censeye/jobs/:job_id/results",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the CensEye job."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the results of a completed CensEye pivot analysis job. Each result contains a count and the field-value pairs that were analyzed. Results may be empty if the job is still running.<br><br>Results are paginated. Use the `next_page_token` from the response to fetch subsequent pages.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation module."
+        },
+        {
+          "info": {
+            "name": "Censys Get Host History for a Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/threat-hunting/certificate/:certificate_id/observations/hosts",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "certificate_id",
+                "value": "55af8a301eb51abdaf7c31bec951638fe5a99d5d92117eca2be493026613fa46",
+                "type": "path",
+                "description": "SHA-256 hash of the certificate"
+              },
+              {
+                "name": "start_time",
+                "value": "2023-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Only show ranges ending at or after this time (ISO 8601)"
+              },
+              {
+                "name": "end_time",
+                "value": "2023-12-31T23:59:59Z",
+                "type": "query",
+                "description": "Only show ranges starting at or before this time (ISO 8601)"
+              },
+              {
+                "name": "port",
+                "value": "443",
+                "type": "query",
+                "description": "The port to filter by"
+              },
+              {
+                "name": "protocol",
+                "value": "TCP",
+                "type": "query",
+                "description": "The transport protocol to filter by"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response to retrieve next page of results"
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page. Maximum 100, defaults to 100 if not specified"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the historical observations of hosts associated with a certificate. This is useful for threat hunting, detection engineering, and timeline generation. Certificate history is also visible to Adversary Investigation users in the Platform UI on the [certificate timeline](https://docs.censys.com/docs/platform-threat-hunting-use-cert-history-to-build-better-detections#/).<br><br>You can define a specific time frame of interest. If you do not specify a time frame, this endpoint will search th"
+        },
+        {
+          "info": {
+            "name": "Censys Get Endpoint Observation History for a Host",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/threat-hunting/host/:ip/observations/endpoints",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "port",
+                "value": "443",
+                "type": "query",
+                "description": "Filter by port number"
+              },
+              {
+                "name": "observation_value",
+                "value": "",
+                "type": "query",
+                "description": "Filter by observation value for the selected observation_type"
+              },
+              {
+                "name": "ip",
+                "value": "8.8.8.8",
+                "type": "path",
+                "description": "The IP address of a host."
+              },
+              {
+                "name": "observation_type",
+                "value": "",
+                "type": "query",
+                "description": "Endpoint observation type to query."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order observations by these fields. Multiple values can be provided (e.g., ['port DESC', 'observation_value ASC'])."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve historical endpoint-level hash observations for a host. This action returns time frames during which Censys observed host service endpoint body, favicon, and banner hash values. You must provide an `observation_type` and can optionally filter by a specific value using the `observation_value` parameter. You may also filter by port number.<br><br>To use this endpoint, your organization must have access to the Adversary Investigation module."
+        },
+        {
+          "info": {
+            "name": "Censys Get Fingerprint Observation History for a Host",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/threat-hunting/host/:ip/observations/fingerprints",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "port",
+                "value": "443",
+                "type": "query",
+                "description": "Filter by port number"
+              },
+              {
+                "name": "transport_protocol",
+                "value": "tcp",
+                "type": "query",
+                "description": "Filter by transport protocol when supported by the selected observation_type"
+              },
+              {
+                "name": "observation_value",
+                "value": "",
+                "type": "query",
+                "description": "Filter by observation value for the selected observation_type"
+              },
+              {
+                "name": "ip",
+                "value": "8.8.8.8",
+                "type": "path",
+                "description": "The IP address of a host."
+              },
+              {
+                "name": "observation_type",
+                "value": "",
+                "type": "query",
+                "description": "Fingerprint observation type to query."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order observations by these fields. Multiple values can be provided (e.g., ['port DESC', 'observation_value ASC']). transport_protocol ordering is only supported for observation types whose timelines expose that field; see the endpoint description for details."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve fingerprint observations for a host. You must provide an observation_type, and can optionally filter by port and observation_value. You may also filter or sort by transport_protocol when supported by the selected observation_type. The shared order_by schema includes transport_protocol for the fingerprint family, but requests for observation types whose timelines do not expose transport_protocol will be rejected if they attempt to sort by it.<br><br>Capability matrix:<br>- jarm_fingerpri"
+        },
+        {
+          "info": {
+            "name": "Censys Get Threat History for a Host",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/threat-hunting/host/:ip/observations/threats",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "port",
+                "value": "443",
+                "type": "query",
+                "description": "Filter by port number"
+              },
+              {
+                "name": "protocol",
+                "value": "HTTP",
+                "type": "query",
+                "description": "Filter by application protocol"
+              },
+              {
+                "name": "threat_name",
+                "value": "Acunetix",
+                "type": "query",
+                "description": "Filter by threat name"
+              },
+              {
+                "name": "transport_protocol",
+                "value": "tcp",
+                "type": "query",
+                "description": "Filter by transport protocol"
+              },
+              {
+                "name": "ip",
+                "value": "8.8.8.8",
+                "type": "path",
+                "description": "The IP address of a host."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order observations by these fields. Multiple values can be provided to sort by multiple fields (e.g., ['port DESC', 'protocol ASC'])."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve historical threat observations for a host. This endpoint returns time ranges during which threats were detected on the host.<br><br>You can define a specific time frame of interest. If you do not specify a time frame, this endpoint will search the historical dataset that is available to your account.<br><br>You can filter by port number, protocol, threat name, and transport protocol.<br><br>This endpoint is available to organizations that have access to the Adversary Investigation modul"
+        },
+        {
+          "info": {
+            "name": "Censys Live Discovery: Initiate a New Scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/v3/threat-hunting/scans/discovery",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Initiate a scan to look for a currently unobserved service at a specific IP and port (`ip:port`) or hostname and port (`hostname:port`). This is equivalent to the [Live Discovery](https://docs.censys.com/docs/platform-threat-hunting-use-live-scan-and-rescan-to-validate-infrastructure#/) feature available in the UI, but you can also target web properties in addition to hosts.<br><br>The scan may take several minutes to complete. The response will contain a scan ID that you can use to [monitor the"
+        },
+        {
+          "info": {
+            "name": "Censys List Active Threats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/threat-hunting/threats",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "query",
+                "value": "*",
+                "type": "query",
+                "description": "Optional CenQL filter to constrain threats list"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a list of active threats observed by Censys by aggregating threat IDs across hosts and web properties. Threats are active if their fingerprint has been identified on hosts or web properties by Censys scans. This information is also available on the [Explore Threats page in the Platform web UI](https://platform.censys.io/threats).<br><br>This endpoint is available to organizations that have access to the Adversary Investigation module."
+        },
+        {
+          "info": {
+            "name": "Censys CensEye: Retrieve Value Counts to Discover Pivots",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.data.censys.io/v3/threat-hunting/value-counts",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get counts of web assets for specific field-value pairs and combinations of field-value pairs. This is similar to the [CensEye functionality](https://docs.censys.com/docs/platform-threat-hunting-use-censeye-to-build-detections#/) available in the Platform web UI, but it allows you to define specific fields of interest rather than the [default fields](https://docs.censys.com/docs/platform-threat-hunting-use-censeye-to-build-detections#default-pivot-fields) leveraged by the tool in the UI.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Censys Get Threat History for a Web Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/v3/threat-hunting/web/:webproperty_id/observations/threats",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": "11111111-2222-3333-4444-555555555555"
+              }
+            ],
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "11111111-2222-3333-4444-555555555555",
+                "type": "query",
+                "description": "The ID of a Censys organization to associate the request with. See the [Getting Started docs](https://docs.censys.com/reference/get-started#step-3-find-and-use-your-organization-id-optional) for more information."
+              },
+              {
+                "name": "start_time",
+                "value": "2024-01-01T00:00:00Z",
+                "type": "query",
+                "description": "Start of date range (RFC3339 format, e.g., 2024-01-01T00:00:00Z). If not specified, defaults to the maximum query window back from the end time."
+              },
+              {
+                "name": "end_time",
+                "value": "2024-01-31T23:59:59Z",
+                "type": "query",
+                "description": "End of date range (RFC3339 format, e.g., 2024-01-31T23:59:59Z). If not specified, defaults to now. Cannot be in the future."
+              },
+              {
+                "name": "page_size",
+                "value": "50",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from previous response"
+              },
+              {
+                "name": "threat_name",
+                "value": "Acunetix",
+                "type": "query",
+                "description": "Filter by threat name"
+              },
+              {
+                "name": "webproperty_id",
+                "value": "platform.censys.io:80",
+                "type": "path",
+                "description": "A web property identifier in hostname:port format."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order observations by these fields. Multiple values can be provided to sort by multiple fields (e.g., ['threat_name DESC'])."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve historical threat observations for a web property. This endpoint returns time ranges during which threats were detected on the host.<br><br>You can define a specific time frame of interest. If you do not specify a time frame, this endpoint will search the historical dataset that is available to your account.<br><br>You can filter by threat name.<br><br>This endpoint is available to organizations that have access to the Adversary Investigation module."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Graph Account Management Shards API",
+    "version": "1.0.12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Censys List Shards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.data.censys.io/api/v1/asset-graphs/:graph_id/executions/:execution_id/shards",
+            "headers": [
+              {
+                "name": "X-Organization-ID",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "graph_id",
+                "value": "",
+                "type": "path",
+                "description": "Asset graph ID"
+              },
+              {
+                "name": "execution_id",
+                "value": "",
+                "type": "path",
+                "description": "Graph execution ID"
+              },
+              {
+                "name": "page_token",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token from a previous response"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List shards for a completed graph execution. Each shard represents an approximately-equal partition of the execution's assets. Use the shard ID with the list assets endpoint to paginate within a single shard."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
