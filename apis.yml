@@ -36,6 +36,16 @@ tags:
   - Internet Intelligence
   - Attack Surface Management
   - Threat Hunting
+  - cyber-threat-intelligence
+  - OSINT
+  - Internet Scanning
+  - Certificates
+  - Asset Discovery
+tags_raw:
+  - Security
+  - Internet Intelligence
+  - Attack Surface Management
+  - Threat Hunting
   - Cyber Threat Intelligence
   - OSINT
   - Internet Scanning
@@ -200,6 +210,8 @@ apis:
   humanURL: https://docs.censys.com/reference
   baseURL: https://api.platform.censys.io
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
