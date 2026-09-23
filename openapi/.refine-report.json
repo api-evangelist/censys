@@ -1,33 +1,21 @@
 {
   "provider": "censys",
   "sources": [
-    "censys-account-management-api-openapi.yml",
-    "censys-adversary-investigation-api-openapi.yml",
-    "censys-asset-graphs-api-openapi.yml",
-    "censys-assets-api-openapi.yml",
-    "censys-collections-api-openapi.yml",
-    "censys-excluded-assets-api-openapi.yml",
-    "censys-global-data-api-openapi.yml",
-    "censys-graph-executions-api-openapi.yml",
-    "censys-risks-api-openapi.yml",
-    "censys-seeds-api-openapi.yml",
-    "censys-shards-api-openapi.yml",
-    "censys-supply-chain-intelligence-api-openapi.yml",
-    "censys-tags-and-comments-api-openapi.yml",
-    "censys-threat-hunting-api-openapi.yml"
+    "_original/censys-asset-graph-openapi.yml",
+    "_original/censys-platform-openapi.yml"
   ],
   "outputs": [
-    "censys-account-management-api-openapi.yml",
-    "censys-adversary-investigation-api-openapi.yml",
     "censys-asset-graphs-api-openapi.yml",
     "censys-assets-api-openapi.yml",
-    "censys-collections-api-openapi.yml",
     "censys-excluded-assets-api-openapi.yml",
-    "censys-global-data-api-openapi.yml",
     "censys-graph-executions-api-openapi.yml",
     "censys-risks-api-openapi.yml",
     "censys-seeds-api-openapi.yml",
     "censys-shards-api-openapi.yml",
+    "censys-account-management-api-openapi.yml",
+    "censys-adversary-investigation-api-openapi.yml",
+    "censys-collections-api-openapi.yml",
+    "censys-global-data-api-openapi.yml",
     "censys-supply-chain-intelligence-api-openapi.yml",
     "censys-tags-and-comments-api-openapi.yml",
     "censys-threat-hunting-api-openapi.yml"
@@ -35,6 +23,33 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "censys-asset-graph-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "censys-asset-graph-openapi.yml: declared missing tag: Asset Graphs",
+    "censys-asset-graph-openapi.yml: declared missing tag: Assets",
+    "censys-asset-graph-openapi.yml: declared missing tag: Excluded Assets",
+    "censys-asset-graph-openapi.yml: declared missing tag: Graph Executions",
+    "censys-asset-graph-openapi.yml: declared missing tag: Risks",
+    "censys-asset-graph-openapi.yml: declared missing tag: Seeds",
+    "censys-asset-graph-openapi.yml: declared missing tag: Shards",
+    "censys-platform-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "censys-account-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-adversary-investigation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-asset-graphs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-collections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-excluded-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-global-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-graph-executions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-risks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-seeds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-shards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-supply-chain-intelligence-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-tags-and-comments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "censys-threat-hunting-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

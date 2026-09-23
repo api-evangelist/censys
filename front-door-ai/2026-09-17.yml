@@ -1,0 +1,26 @@
+# Front Door AI Index — censys — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: censys
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: censys.com
+  final_host: censys.com
+  ownership: own
+  owner: censys
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 5
+  host_score: 5
+  density: 2.73
+  words: 1829
+  tiers:
+    agentic: 0
+    core: 5
+    model: 0
+  ambiguous: 25
+  top_terms:
+    intelligence: 25
+    AI: 5

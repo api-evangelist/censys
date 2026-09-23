@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   contact:
     email: support@censys.io
@@ -6,65 +6,8 @@ info:
   description: '# Asset Graph API
 
 
-    The Asset Graph API provides comprehensive visibility into your Internet-facing assets. Use this API to build and manage attack surfaces by creating asset graphs, configuring seeds and exclusions, running discovery executions, and retrieving discovered assets and risk metadata.
-
-
-    ### Authentication
-
-
-    All requests must include a valid Censys personal access token (PAT) in the `Authorization` header:
-
-
-    ```
-
-    Authorization: Bearer <your-api-token>
-
-    ```
-
-
-    An `X-Organization-ID` header must also be present on every request. This identifies the Censys organization that owns the resources being accessed.
-
-
-    ```
-
-    X-Organization-ID: <your-organization-id>
-
-    ```
-
-
-    ### Core Concepts
-
-
-    - **Asset Graph**: The parent resource representing an attack surface. Each asset graph contains seeds, excluded assets, and executions.
-
-    - **Seeds**: Persistent starting points used to discover additional assets. Supported types include IP addresses, domains, CIDRs, ASNs, certificates, and web properties.
-
-    - **Excluded Assets**: Assets explicitly excluded from the graph. Excluded assets will not appear in execution results and will not be used to discover additional assets.
-
-    - **Executions**: A discovery process that uses the graph''s configured seeds and excluded assets to generate a complete snapshot of the attack surface. Censys periodically runs executions in the background, or they can be triggered on-demand.
-
-    - **Assets**: Internet-facing resources discovered during an execution, including hosts, domains, certificates, and web properties. Each asset includes discovery paths showing how it was found from your seeds.
-
-    - **Risks**: Vulnerabilities, exposures, misconfigurations, and threats identified on discovered assets.
-
-
-    ### Getting Started
-
-
-    1. **Create an asset graph** to represent your attack surface.
-
-    2. **Add seeds** — the known assets that Censys will use as starting points for discovery.
-
-    3. **Optionally add excluded assets** to omit specific assets from results.
-
-    4. **Create an execution** to trigger the discovery process, or wait for Censys to run one automatically.
-
-    5. **List assets** from a completed execution to view your discovered attack surface.
-
-    6. **Look up risk metadata** for any risk IDs found on your assets.
-
-    '
-  title: Asset Graph Account Management Seeds API
+    The Asset Graph API provides comprehensive visibility into your Internet-facing assets.'
+  title: Asset Graph Seeds API
   version: 1.0.12
 servers:
 - description: Asset Graph API
@@ -226,29 +169,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ListSeedsOutputBody:
-      additionalProperties: false
-      properties:
-        $schema:
-          description: A URL to the JSON Schema for this object.
-          examples:
-          - https://graph.data.censys.io/schemas/ListSeedsOutputBody.json
-          format: uri
-          readOnly: true
-          type: string
-        next_page_token:
-          description: Token for the next page of results
-          type: string
-        seeds:
-          description: List of seeds
-          items:
-            $ref: '#/components/schemas/Seed'
-          type:
-          - array
-          - 'null'
-      required:
-      - seeds
-      type: object
     AssetRef:
       additionalProperties: false
       properties:
@@ -291,6 +211,89 @@ components:
         web_property:
           $ref: '#/components/schemas/WebPropertyIdentifier'
           description: Web property (hostname and port)
+      type: object
+    Seed:
+      additionalProperties: false
+      properties:
+        $schema:
+          description: A URL to the JSON Schema for this object.
+          examples:
+          - https://graph.data.censys.io/schemas/Seed.json
+          format: uri
+          readOnly: true
+          type: string
+        autonomous_system:
+          description: Autonomous system number (ASN)
+          format: int32
+          minimum: 0
+          type: integer
+        business_organization:
+          description: Organization name
+          type: string
+        certificate:
+          description: SHA-256 fingerprint of a certificate (hex-encoded)
+          type: string
+        create_time:
+          description: RFC3339 creation timestamp
+          type: string
+        domain:
+          description: Domain name
+          type: string
+        host:
+          description: IP address of a host
+          type: string
+        id:
+          description: Unique identifier for the seed
+          type: string
+        netblock:
+          description: CIDR notation (e.g. 192.168.0.0/24)
+          type: string
+        registrant_email:
+          description: Registrant email address
+          type: string
+        registrant_organization:
+          description: Registrant organization name
+          type: string
+        web_property:
+          $ref: '#/components/schemas/WebPropertyIdentifier'
+          description: Web property (hostname and port)
+      required:
+      - id
+      type: object
+    ErrorDetail:
+      additionalProperties: false
+      properties:
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
+          type: string
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
+      type: object
+    ListSeedsOutputBody:
+      additionalProperties: false
+      properties:
+        $schema:
+          description: A URL to the JSON Schema for this object.
+          examples:
+          - https://graph.data.censys.io/schemas/ListSeedsOutputBody.json
+          format: uri
+          readOnly: true
+          type: string
+        next_page_token:
+          description: Token for the next page of results
+          type: string
+        seeds:
+          description: List of seeds
+          items:
+            $ref: '#/components/schemas/Seed'
+          type:
+          - array
+          - 'null'
+      required:
+      - seeds
       type: object
     ErrorModel:
       additionalProperties: false
@@ -353,66 +356,6 @@ components:
       required:
       - hostname
       - port
-      type: object
-    Seed:
-      additionalProperties: false
-      properties:
-        $schema:
-          description: A URL to the JSON Schema for this object.
-          examples:
-          - https://graph.data.censys.io/schemas/Seed.json
-          format: uri
-          readOnly: true
-          type: string
-        autonomous_system:
-          description: Autonomous system number (ASN)
-          format: int32
-          minimum: 0
-          type: integer
-        business_organization:
-          description: Organization name
-          type: string
-        certificate:
-          description: SHA-256 fingerprint of a certificate (hex-encoded)
-          type: string
-        create_time:
-          description: RFC3339 creation timestamp
-          type: string
-        domain:
-          description: Domain name
-          type: string
-        host:
-          description: IP address of a host
-          type: string
-        id:
-          description: Unique identifier for the seed
-          type: string
-        netblock:
-          description: CIDR notation (e.g. 192.168.0.0/24)
-          type: string
-        registrant_email:
-          description: Registrant email address
-          type: string
-        registrant_organization:
-          description: Registrant organization name
-          type: string
-        web_property:
-          $ref: '#/components/schemas/WebPropertyIdentifier'
-          description: Web property (hostname and port)
-      required:
-      - id
-      type: object
-    ErrorDetail:
-      additionalProperties: false
-      properties:
-        location:
-          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
-          type: string
-        message:
-          description: Error message text
-          type: string
-        value:
-          description: The value at the given location
       type: object
   securitySchemes:
     PersonalAccessToken:
