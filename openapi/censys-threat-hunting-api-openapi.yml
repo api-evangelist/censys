@@ -1775,6 +1775,173 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    TrackedScan_ScanTarget_HostPort:
+      additionalProperties: false
+      properties:
+        ip:
+          type: string
+        port:
+          format: int32
+          minimum: 0
+          type: integer
+      type: object
+    FieldValuePair:
+      additionalProperties: false
+      properties:
+        field:
+          description: The field to match
+          examples:
+          - host.services.port
+          type: string
+        value:
+          description: The value to match
+          examples:
+          - '80'
+          type: string
+      required:
+      - field
+      - value
+      type: object
+    CreateCenseyeJobInputBody:
+      additionalProperties: false
+      properties:
+        target:
+          $ref: '#/components/schemas/CenseyeTarget'
+          description: The asset to analyze. Exactly one of host_id, webproperty_id, or certificate_id must be set.
+      required:
+      - target
+      type: object
+    ResponseEnvelopeTrackedScan:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/TrackedScan'
+      type: object
+    WebOrigin:
+      additionalProperties: false
+      properties:
+        hostname:
+          type: string
+        port:
+          format: int32
+          minimum: 0
+          type: integer
+      type: object
+    CenseyeResult:
+      additionalProperties: false
+      properties:
+        count:
+          description: Number of matching documents for this field-value combination.
+          format: double
+          type: number
+        field_value_pairs:
+          description: The field-value pairs that were counted.
+          items:
+            $ref: '#/components/schemas/FieldValuePair'
+          type:
+          - array
+          - 'null'
+      required:
+      - count
+      - field_value_pairs
+      type: object
+    AuthenticationError:
+      additionalProperties: false
+      properties:
+        error:
+          $ref: '#/components/schemas/AuthenticationErrorDetail'
+          description: Detailed information about the authentication error
+      type: object
+    ThreatsOnHostResponse:
+      additionalProperties: false
+      properties:
+        NextPageToken:
+          type: string
+        Ranges:
+          items:
+            $ref: '#/components/schemas/ThreatOnHostRange'
+          type:
+          - array
+          - 'null'
+      required:
+      - Ranges
+      - NextPageToken
+      type: object
+    ResponseEnvelopeThreatsOnWebResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/ThreatsOnWebResponse'
+      type: object
+    TrackedScan_ScanTarget_HostnamePort:
+      additionalProperties: false
+      properties:
+        hostname:
+          type: string
+        port:
+          format: int32
+          minimum: 0
+          type: integer
+      type: object
+    ThreatOnWebRange:
+      additionalProperties: false
+      properties:
+        end_time:
+          description: When the threat was last observed
+          format: date-time
+          type: string
+        start_time:
+          description: When the threat was first observed
+          format: date-time
+          type: string
+        threat_name:
+          description: Name of the detected threat
+          type: string
+      required:
+      - threat_name
+      - start_time
+      - end_time
+      type: object
+    CountCondition:
+      additionalProperties: false
+      properties:
+        field_value_pairs:
+          description: Field-value pairs to count matches for. Must target fields from the same nested object and may contain at most 5 pairs per group.
+          items:
+            $ref: '#/components/schemas/FieldValuePair'
+          type:
+          - array
+          - 'null'
+      required:
+      - field_value_pairs
+      type: object
+    ErrorDetail:
+      additionalProperties: false
+      properties:
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
+          type: string
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
+      type: object
+    ResponseEnvelopeThreatsListResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/ThreatsListResponse'
+      type: object
+    ThreatReference:
+      additionalProperties: false
+      properties:
+        link:
+          description: URL reference link for the threat.
+          type: string
+      required:
+      - link
+      type: object
     HostObservationRange:
       additionalProperties: false
       properties:
@@ -1805,322 +1972,6 @@ components:
       - start_time
       - end_time
       type: object
-    TrackedScan_ScanTarget_HostPort:
-      additionalProperties: false
-      properties:
-        ip:
-          type: string
-        port:
-          format: int32
-          minimum: 0
-          type: integer
-      type: object
-    ThreatOnWebRange:
-      additionalProperties: false
-      properties:
-        end_time:
-          description: When the threat was last observed
-          format: date-time
-          type: string
-        start_time:
-          description: When the threat was first observed
-          format: date-time
-          type: string
-        threat_name:
-          description: Name of the detected threat
-          type: string
-      required:
-      - threat_name
-      - start_time
-      - end_time
-      type: object
-    ThreatsListResponse:
-      additionalProperties: false
-      properties:
-        threats:
-          description: List of active threats observed on the platform.
-          items:
-            $ref: '#/components/schemas/ThreatListItem'
-          type:
-          - array
-          - 'null'
-      required:
-      - threats
-      type: object
-    CenseyeTarget:
-      additionalProperties: false
-      properties:
-        certificate_id:
-          description: SHA-256 fingerprint of the certificate to analyze.
-          examples:
-          - 3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf
-          type: string
-        host_id:
-          description: IP address of the host to analyze.
-          examples:
-          - 8.8.8.8
-          type: string
-        webproperty_id:
-          description: Web property identifier (hostname:port) to analyze.
-          examples:
-          - example.com:443
-          type: string
-      type: object
-    ThreatReference:
-      additionalProperties: false
-      properties:
-        link:
-          description: URL reference link for the threat.
-          type: string
-      required:
-      - link
-      type: object
-    AuthenticationErrorDetail:
-      additionalProperties: false
-      properties:
-        code:
-          description: HTTP status code
-          examples:
-          - 401
-          format: int64
-          type: integer
-        message:
-          description: Human-readable message describing the error occurrence
-          examples:
-          - Access credentials are invalid
-          type: string
-        reason:
-          description: Human-readable explanation of the underlying cause of the error
-          examples:
-          - Access token is not active
-          type: string
-        request:
-          type: string
-        status:
-          description: HTTP status message associated with the error
-          examples:
-          - Unauthorized
-          type: string
-      type: object
-    CenseyeJobsListResponse:
-      additionalProperties: false
-      properties:
-        jobs:
-          description: List of CensEye jobs.
-          items:
-            $ref: '#/components/schemas/CenseyeJob'
-          type:
-          - array
-          - 'null'
-        next_page_token:
-          description: Token to retrieve the next page of jobs.
-          type: string
-      required:
-      - jobs
-      type: object
-    AuthenticationError:
-      additionalProperties: false
-      properties:
-        error:
-          $ref: '#/components/schemas/AuthenticationErrorDetail'
-          description: Detailed information about the authentication error
-      type: object
-    HashObservationOnHostRange:
-      additionalProperties: false
-      properties:
-        end_time:
-          description: When the observation was last seen
-          format: date-time
-          type: string
-        ip:
-          description: IP address of the host
-          type: string
-        observation_type:
-          description: Observation type selected in the request
-          type: string
-        observation_value:
-          description: Observed value for the selected observation type
-          type: string
-        port:
-          description: Port number
-          type: string
-        start_time:
-          description: When the observation was first seen
-          format: date-time
-          type: string
-        transport_protocol:
-          description: Transport protocol when present for the selected timeline
-          type: string
-      required:
-      - ip
-      - port
-      - observation_type
-      - observation_value
-      - start_time
-      - end_time
-      type: object
-    WebOrigin:
-      additionalProperties: false
-      properties:
-        hostname:
-          type: string
-        port:
-          format: int32
-          minimum: 0
-          type: integer
-      type: object
-    ResponseEnvelopeHostObservationResponse:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/HostObservationResponse'
-      type: object
-    CenseyeResult:
-      additionalProperties: false
-      properties:
-        count:
-          description: Number of matching documents for this field-value combination.
-          format: double
-          type: number
-        field_value_pairs:
-          description: The field-value pairs that were counted.
-          items:
-            $ref: '#/components/schemas/FieldValuePair'
-          type:
-          - array
-          - 'null'
-      required:
-      - count
-      - field_value_pairs
-      type: object
-    CountCondition:
-      additionalProperties: false
-      properties:
-        field_value_pairs:
-          description: Field-value pairs to count matches for. Must target fields from the same nested object and may contain at most 5 pairs per group.
-          items:
-            $ref: '#/components/schemas/FieldValuePair'
-          type:
-          - array
-          - 'null'
-      required:
-      - field_value_pairs
-      type: object
-    FieldValuePair:
-      additionalProperties: false
-      properties:
-        field:
-          description: The field to match
-          examples:
-          - host.services.port
-          type: string
-        value:
-          description: The value to match
-          examples:
-          - '80'
-          type: string
-      required:
-      - field
-      - value
-      type: object
-    ResponseEnvelopeThreatsOnHostResponse:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/ThreatsOnHostResponse'
-      type: object
-    ResponseEnvelopeThreatsOnWebResponse:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/ThreatsOnWebResponse'
-      type: object
-    ScansDiscoveryInputBody:
-      additionalProperties: false
-      properties:
-        target:
-          oneOf:
-          - description: Discovery scan against IP:PORT
-            properties:
-              host_port:
-                additionalProperties: false
-                properties:
-                  ip:
-                    description: IP address to scan
-                    examples:
-                    - 8.8.8.8
-                    type: string
-                  port:
-                    description: Port number to scan
-                    examples:
-                    - 443
-                    format: int32
-                    maximum: 65535
-                    minimum: 1
-                    type: integer
-                required:
-                - ip
-                - port
-                type: object
-            required:
-            - host_port
-            type: object
-          - description: Discovery scan against hostname:PORT
-            properties:
-              hostname_port:
-                additionalProperties: false
-                properties:
-                  hostname:
-                    description: Hostname to scan
-                    examples:
-                    - censys.io
-                    type: string
-                  port:
-                    description: Port number to scan
-                    examples:
-                    - 443
-                    format: int32
-                    maximum: 65535
-                    minimum: 1
-                    type: integer
-                required:
-                - hostname
-                - port
-                type: object
-            required:
-            - hostname_port
-            type: object
-          type: object
-      required:
-      - target
-      type: object
-    ErrorDetail:
-      additionalProperties: false
-      properties:
-        location:
-          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
-          type: string
-        message:
-          description: Error message text
-          type: string
-        value:
-          description: The value at the given location
-      type: object
-    CreateCenseyeJobInputBody:
-      additionalProperties: false
-      properties:
-        target:
-          $ref: '#/components/schemas/CenseyeTarget'
-          description: The asset to analyze. Exactly one of host_id, webproperty_id, or certificate_id must be set.
-      required:
-      - target
-      type: object
-    ResponseEnvelopeHashObservationsOnHostResponse:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/HashObservationsOnHostResponse'
-      type: object
     ServiceId:
       additionalProperties: false
       properties:
@@ -2141,22 +1992,6 @@ components:
           - quic
           type: string
       type: object
-    SearchValueCountsInputBody:
-      additionalProperties: false
-      properties:
-        and_count_conditions:
-          description: Groups of field-value pairs to count matches for. Each group may contain up to 5 field-value pairs.
-          items:
-            $ref: '#/components/schemas/CountCondition'
-          type:
-          - array
-          - 'null'
-        query:
-          description: CenQL query string to filter documents
-          type: string
-      required:
-      - and_count_conditions
-      type: object
     HostObservationResponse:
       additionalProperties: false
       properties:
@@ -2175,65 +2010,63 @@ components:
       - ranges
       - total_results
       type: object
-    ResponseEnvelopeTrackedScan:
+    ErrorModel:
       additionalProperties: false
       properties:
-        result:
-          $ref: '#/components/schemas/TrackedScan'
-      type: object
-    TrackedScan_ScanTarget_HostnamePort:
-      additionalProperties: false
-      properties:
-        hostname:
+        detail:
+          description: A human-readable explanation specific to this occurrence of the problem.
+          examples:
+          - Property foo is required but is missing.
           type: string
-        port:
-          format: int32
-          minimum: 0
-          type: integer
-      type: object
-    ResponseEnvelopeValueCountsResponse:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/ValueCountsResponse'
-      type: object
-    ResponseEnvelopeThreatsListResponse:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/ThreatsListResponse'
-      type: object
-    ThreatsOnHostResponse:
-      additionalProperties: false
-      properties:
-        NextPageToken:
-          type: string
-        Ranges:
+        errors:
+          description: Optional list of individual error details
           items:
-            $ref: '#/components/schemas/ThreatOnHostRange'
+            $ref: '#/components/schemas/ErrorDetail'
           type:
           - array
           - 'null'
-      required:
-      - Ranges
-      - NextPageToken
-      type: object
-    TrackedScan_Task:
-      additionalProperties: false
-      properties:
-        description:
+        instance:
+          description: A URI reference that identifies the specific occurrence of the problem.
+          examples:
+          - https://example.com/error-log/abc123
+          format: uri
           type: string
         status:
-          enum:
-          - ''
-          - scanning
-          - scanned
-          - rejected
-          - timed_out
-          - completed
-          - ignored
+          description: HTTP status code
+          examples:
+          - 400
+          format: int64
+          type: integer
+        title:
+          description: A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
+          examples:
+          - Bad Request
           type: string
-        update_time:
+        type:
+          default: about:blank
+          description: A URI reference to human-readable documentation for the error.
+          examples:
+          - https://example.com/errors/example
+          format: uri
+          type: string
+      type: object
+    CenseyeTarget:
+      additionalProperties: false
+      properties:
+        certificate_id:
+          description: SHA-256 fingerprint of the certificate to analyze.
+          examples:
+          - 3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf
+          type: string
+        host_id:
+          description: IP address of the host to analyze.
+          examples:
+          - 8.8.8.8
+          type: string
+        webproperty_id:
+          description: Web property identifier (hostname:port) to analyze.
+          examples:
+          - example.com:443
           type: string
       type: object
     ThreatOnHostRange:
@@ -2271,18 +2104,67 @@ components:
       - start_time
       - end_time
       type: object
-    ValueCountsResponse:
+    HashObservationOnHostRange:
       additionalProperties: false
       properties:
-        and_count_results:
+        end_time:
+          description: When the observation was last seen
+          format: date-time
+          type: string
+        ip:
+          description: IP address of the host
+          type: string
+        observation_type:
+          description: Observation type selected in the request
+          type: string
+        observation_value:
+          description: Observed value for the selected observation type
+          type: string
+        port:
+          description: Port number
+          type: string
+        start_time:
+          description: When the observation was first seen
+          format: date-time
+          type: string
+        transport_protocol:
+          description: Transport protocol when present for the selected timeline
+          type: string
+      required:
+      - ip
+      - port
+      - observation_type
+      - observation_value
+      - start_time
+      - end_time
+      type: object
+    SearchValueCountsInputBody:
+      additionalProperties: false
+      properties:
+        and_count_conditions:
+          description: Groups of field-value pairs to count matches for. Each group may contain up to 5 field-value pairs.
           items:
-            format: double
-            type: number
+            $ref: '#/components/schemas/CountCondition'
           type:
           - array
           - 'null'
+        query:
+          description: CenQL query string to filter documents
+          type: string
       required:
-      - and_count_results
+      - and_count_conditions
+      type: object
+    ResponseEnvelopeThreatsOnHostResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/ThreatsOnHostResponse'
+      type: object
+    ResponseEnvelopeCenseyeJobsListResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/CenseyeJobsListResponse'
       type: object
     CenseyeJob:
       additionalProperties: false
@@ -2377,23 +2259,83 @@ components:
       - host_count
       - web_count
       type: object
-    TrackedScan:
+    ResponseEnvelopeCenseyeJob:
       additionalProperties: false
       properties:
-        completed:
-          type: boolean
-        create_time:
-          type: string
-        target:
-          $ref: '#/components/schemas/TrackedScan_ScanTarget'
-        tasks:
+        result:
+          $ref: '#/components/schemas/CenseyeJob'
+      type: object
+    ValueCountsResponse:
+      additionalProperties: false
+      properties:
+        and_count_results:
           items:
-            $ref: '#/components/schemas/TrackedScan_Task'
+            format: double
+            type: number
           type:
           - array
           - 'null'
-        tracked_scan_id:
+      required:
+      - and_count_results
+      type: object
+    CenseyeJobsListResponse:
+      additionalProperties: false
+      properties:
+        jobs:
+          description: List of CensEye jobs.
+          items:
+            $ref: '#/components/schemas/CenseyeJob'
+          type:
+          - array
+          - 'null'
+        next_page_token:
+          description: Token to retrieve the next page of jobs.
           type: string
+      required:
+      - jobs
+      type: object
+    ResponseEnvelopeCenseyeResultsResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/CenseyeResultsResponse'
+      type: object
+    ResponseEnvelopeHostObservationResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/HostObservationResponse'
+      type: object
+    TrackedScan_Task:
+      additionalProperties: false
+      properties:
+        description:
+          type: string
+        status:
+          enum:
+          - ''
+          - scanning
+          - scanned
+          - rejected
+          - timed_out
+          - completed
+          - ignored
+          type: string
+        update_time:
+          type: string
+      type: object
+    ThreatsListResponse:
+      additionalProperties: false
+      properties:
+        threats:
+          description: List of active threats observed on the platform.
+          items:
+            $ref: '#/components/schemas/ThreatListItem'
+          type:
+          - array
+          - 'null'
+      required:
+      - threats
       type: object
     TrackedScan_ScanTarget:
       additionalProperties: false
@@ -2406,6 +2348,86 @@ components:
           $ref: '#/components/schemas/ServiceId'
         web_origin:
           $ref: '#/components/schemas/WebOrigin'
+      type: object
+    ThreatsOnWebResponse:
+      additionalProperties: false
+      properties:
+        NextPageToken:
+          type: string
+        Ranges:
+          items:
+            $ref: '#/components/schemas/ThreatOnWebRange'
+          type:
+          - array
+          - 'null'
+      required:
+      - Ranges
+      - NextPageToken
+      type: object
+    ResponseEnvelopeValueCountsResponse:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/ValueCountsResponse'
+      type: object
+    ScansDiscoveryInputBody:
+      additionalProperties: false
+      properties:
+        target:
+          oneOf:
+          - description: Discovery scan against IP:PORT
+            properties:
+              host_port:
+                additionalProperties: false
+                properties:
+                  ip:
+                    description: IP address to scan
+                    examples:
+                    - 8.8.8.8
+                    type: string
+                  port:
+                    description: Port number to scan
+                    examples:
+                    - 443
+                    format: int32
+                    maximum: 65535
+                    minimum: 1
+                    type: integer
+                required:
+                - ip
+                - port
+                type: object
+            required:
+            - host_port
+            type: object
+          - description: Discovery scan against hostname:PORT
+            properties:
+              hostname_port:
+                additionalProperties: false
+                properties:
+                  hostname:
+                    description: Hostname to scan
+                    examples:
+                    - censys.io
+                    type: string
+                  port:
+                    description: Port number to scan
+                    examples:
+                    - 443
+                    format: int32
+                    maximum: 65535
+                    minimum: 1
+                    type: integer
+                required:
+                - hostname
+                - port
+                type: object
+            required:
+            - hostname_port
+            type: object
+          type: object
+      required:
+      - target
       type: object
     HashObservationsOnHostResponse:
       additionalProperties: false
@@ -2424,72 +2446,56 @@ components:
       - ranges
       - next_page_token
       type: object
-    ResponseEnvelopeCenseyeResultsResponse:
+    ResponseEnvelopeHashObservationsOnHostResponse:
       additionalProperties: false
       properties:
         result:
-          $ref: '#/components/schemas/CenseyeResultsResponse'
+          $ref: '#/components/schemas/HashObservationsOnHostResponse'
       type: object
-    ResponseEnvelopeCenseyeJobsListResponse:
+    AuthenticationErrorDetail:
       additionalProperties: false
       properties:
-        result:
-          $ref: '#/components/schemas/CenseyeJobsListResponse'
-      type: object
-    ErrorModel:
-      additionalProperties: false
-      properties:
-        detail:
-          description: A human-readable explanation specific to this occurrence of the problem.
-          examples:
-          - Property foo is required but is missing.
-          type: string
-        errors:
-          description: Optional list of individual error details
-          items:
-            $ref: '#/components/schemas/ErrorDetail'
-          type:
-          - array
-          - 'null'
-        instance:
-          description: A URI reference that identifies the specific occurrence of the problem.
-          examples:
-          - https://example.com/error-log/abc123
-          format: uri
-          type: string
-        status:
+        code:
           description: HTTP status code
           examples:
-          - 400
+          - 401
           format: int64
           type: integer
-        title:
-          description: A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
+        message:
+          description: Human-readable message describing the error occurrence
           examples:
-          - Bad Request
+          - Access credentials are invalid
           type: string
-        type:
-          default: about:blank
-          description: A URI reference to human-readable documentation for the error.
+        reason:
+          description: Human-readable explanation of the underlying cause of the error
           examples:
-          - https://example.com/errors/example
-          format: uri
+          - Access token is not active
+          type: string
+        request:
+          type: string
+        status:
+          description: HTTP status message associated with the error
+          examples:
+          - Unauthorized
           type: string
       type: object
-    ThreatsOnWebResponse:
+    TrackedScan:
       additionalProperties: false
       properties:
-        NextPageToken:
+        completed:
+          type: boolean
+        create_time:
           type: string
-        Ranges:
+        target:
+          $ref: '#/components/schemas/TrackedScan_ScanTarget'
+        tasks:
           items:
-            $ref: '#/components/schemas/ThreatOnWebRange'
+            $ref: '#/components/schemas/TrackedScan_Task'
           type:
           - array
           - 'null'
-      required:
-      - Ranges
-      - NextPageToken
+        tracked_scan_id:
+          type: string
       type: object
     CenseyeResultsResponse:
       additionalProperties: false
@@ -2506,12 +2512,6 @@ components:
           - 'null'
       required:
       - results
-      type: object
-    ResponseEnvelopeCenseyeJob:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/CenseyeJob'
       type: object
   securitySchemes:
     PersonalAccessToken:

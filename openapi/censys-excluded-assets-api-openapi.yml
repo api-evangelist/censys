@@ -166,48 +166,28 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    AssetRef:
+    ListExcludedAssetsOutputBody:
       additionalProperties: false
       properties:
         $schema:
           description: A URL to the JSON Schema for this object.
           examples:
-          - https://graph.data.censys.io/schemas/AssetRef.json
+          - https://graph.data.censys.io/schemas/ListExcludedAssetsOutputBody.json
           format: uri
           readOnly: true
           type: string
-        autonomous_system:
-          description: Autonomous system number (ASN)
-          format: int32
-          minimum: 0
-          type: integer
-        business_organization:
-          description: Organization name
+        excluded_assets:
+          description: List of excluded assets
+          items:
+            $ref: '#/components/schemas/ExcludedAsset'
+          type:
+          - array
+          - 'null'
+        next_page_token:
+          description: Token for the next page of results
           type: string
-        certificate:
-          description: SHA-256 fingerprint of a certificate (hex-encoded)
-          type: string
-        domain:
-          description: Domain name
-          type: string
-        host:
-          description: IP address of a host
-          type: string
-        id:
-          description: Asset id, matching the id returned by the get-asset endpoint. Populated on responses; ignored on input.
-          type: string
-        netblock:
-          description: CIDR notation (e.g. 192.168.0.0/24)
-          type: string
-        registrant_email:
-          description: Registrant email address
-          type: string
-        registrant_organization:
-          description: Registrant organization name
-          type: string
-        web_property:
-          $ref: '#/components/schemas/WebPropertyIdentifier'
-          description: Web property (hostname and port)
+      required:
+      - excluded_assets
       type: object
     ExcludedAsset:
       additionalProperties: false
@@ -257,41 +237,6 @@ components:
       required:
       - id
       type: object
-    ListExcludedAssetsOutputBody:
-      additionalProperties: false
-      properties:
-        $schema:
-          description: A URL to the JSON Schema for this object.
-          examples:
-          - https://graph.data.censys.io/schemas/ListExcludedAssetsOutputBody.json
-          format: uri
-          readOnly: true
-          type: string
-        excluded_assets:
-          description: List of excluded assets
-          items:
-            $ref: '#/components/schemas/ExcludedAsset'
-          type:
-          - array
-          - 'null'
-        next_page_token:
-          description: Token for the next page of results
-          type: string
-      required:
-      - excluded_assets
-      type: object
-    ErrorDetail:
-      additionalProperties: false
-      properties:
-        location:
-          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
-          type: string
-        message:
-          description: Error message text
-          type: string
-        value:
-          description: The value at the given location
-      type: object
     ErrorModel:
       additionalProperties: false
       properties:
@@ -339,6 +284,49 @@ components:
           format: uri
           type: string
       type: object
+    AssetRef:
+      additionalProperties: false
+      properties:
+        $schema:
+          description: A URL to the JSON Schema for this object.
+          examples:
+          - https://graph.data.censys.io/schemas/AssetRef.json
+          format: uri
+          readOnly: true
+          type: string
+        autonomous_system:
+          description: Autonomous system number (ASN)
+          format: int32
+          minimum: 0
+          type: integer
+        business_organization:
+          description: Organization name
+          type: string
+        certificate:
+          description: SHA-256 fingerprint of a certificate (hex-encoded)
+          type: string
+        domain:
+          description: Domain name
+          type: string
+        host:
+          description: IP address of a host
+          type: string
+        id:
+          description: Asset id, matching the id returned by the get-asset endpoint. Populated on responses; ignored on input.
+          type: string
+        netblock:
+          description: CIDR notation (e.g. 192.168.0.0/24)
+          type: string
+        registrant_email:
+          description: Registrant email address
+          type: string
+        registrant_organization:
+          description: Registrant organization name
+          type: string
+        web_property:
+          $ref: '#/components/schemas/WebPropertyIdentifier'
+          description: Web property (hostname and port)
+      type: object
     WebPropertyIdentifier:
       additionalProperties: false
       properties:
@@ -353,6 +341,18 @@ components:
       required:
       - hostname
       - port
+      type: object
+    ErrorDetail:
+      additionalProperties: false
+      properties:
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
+          type: string
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
       type: object
   securitySchemes:
     PersonalAccessToken:
