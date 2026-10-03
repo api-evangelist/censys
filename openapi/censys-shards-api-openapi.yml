@@ -82,28 +82,14 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ListShardsOutputBody:
+    ShardResponse:
       additionalProperties: false
       properties:
-        $schema:
-          description: A URL to the JSON Schema for this object.
-          examples:
-          - https://graph.data.censys.io/schemas/ListShardsOutputBody.json
-          format: uri
-          readOnly: true
+        id:
+          description: Shard identifier
           type: string
-        next_page_token:
-          description: Token for the next page of results
-          type: string
-        shards:
-          description: List of shards
-          items:
-            $ref: '#/components/schemas/ShardResponse'
-          type:
-          - array
-          - 'null'
       required:
-      - shards
+      - id
       type: object
     ErrorDetail:
       additionalProperties: false
@@ -164,14 +150,28 @@ components:
           format: uri
           type: string
       type: object
-    ShardResponse:
+    ListShardsOutputBody:
       additionalProperties: false
       properties:
-        id:
-          description: Shard identifier
+        $schema:
+          description: A URL to the JSON Schema for this object.
+          examples:
+          - https://graph.data.censys.io/schemas/ListShardsOutputBody.json
+          format: uri
+          readOnly: true
           type: string
+        next_page_token:
+          description: Token for the next page of results
+          type: string
+        shards:
+          description: List of shards
+          items:
+            $ref: '#/components/schemas/ShardResponse'
+          type:
+          - array
+          - 'null'
       required:
-      - id
+      - shards
       type: object
   securitySchemes:
     PersonalAccessToken:

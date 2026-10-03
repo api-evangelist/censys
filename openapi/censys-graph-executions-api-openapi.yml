@@ -191,36 +191,17 @@ components:
       required:
       - executions
       type: object
-    GraphExecution:
+    ErrorDetail:
       additionalProperties: false
       properties:
-        $schema:
-          description: A URL to the JSON Schema for this object.
-          examples:
-          - https://graph.data.censys.io/schemas/GraphExecution.json
-          format: uri
-          readOnly: true
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
           type: string
-        create_time:
-          description: RFC3339 creation timestamp
+        message:
+          description: Error message text
           type: string
-        id:
-          description: Unique identifier for the execution
-          type: string
-        stats:
-          $ref: '#/components/schemas/ExecutionStats'
-          description: Execution statistics
-        status:
-          description: Execution status
-          type: string
-        update_time:
-          description: RFC3339 last-update timestamp
-          type: string
-      required:
-      - id
-      - status
-      - create_time
-      - update_time
+        value:
+          description: The value at the given location
       type: object
     ErrorModel:
       additionalProperties: false
@@ -268,6 +249,37 @@ components:
           - https://example.com/errors/example
           format: uri
           type: string
+      type: object
+    GraphExecution:
+      additionalProperties: false
+      properties:
+        $schema:
+          description: A URL to the JSON Schema for this object.
+          examples:
+          - https://graph.data.censys.io/schemas/GraphExecution.json
+          format: uri
+          readOnly: true
+          type: string
+        create_time:
+          description: RFC3339 creation timestamp
+          type: string
+        id:
+          description: Unique identifier for the execution
+          type: string
+        stats:
+          $ref: '#/components/schemas/ExecutionStats'
+          description: Execution statistics
+        status:
+          description: Execution status
+          type: string
+        update_time:
+          description: RFC3339 last-update timestamp
+          type: string
+      required:
+      - id
+      - status
+      - create_time
+      - update_time
       type: object
     ExecutionStats:
       additionalProperties: false
@@ -323,18 +335,6 @@ components:
       - total_web_properties
       - discovered_web_properties
       - web_properties_with_risks
-      type: object
-    ErrorDetail:
-      additionalProperties: false
-      properties:
-        location:
-          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
-          type: string
-        message:
-          description: Error message text
-          type: string
-        value:
-          description: The value at the given location
       type: object
   securitySchemes:
     PersonalAccessToken:
