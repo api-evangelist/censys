@@ -1296,11 +1296,99 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ResponseEnvelopeUserCredits:
+    ResponseEnvelopeAuditLogEventsResponse:
       additionalProperties: false
       properties:
         result:
-          $ref: '#/components/schemas/UserCredits'
+          $ref: '#/components/schemas/AuditLogEventsResponse'
+      type: object
+    OrganizationPreferences:
+      additionalProperties: false
+      properties:
+        ai_opt_in:
+          description: Whether the organization has opted into AI features.
+          type: boolean
+        ai_training:
+          description: Whether the organization has opted into AI training.
+          type: boolean
+        mfa_required:
+          description: Whether the organization has opted into multi-factor authentication.
+          type: boolean
+      type: object
+    ActorInfo:
+      additionalProperties: false
+      properties:
+        email:
+          description: The email of the entity that performed the action.
+          type: string
+        id:
+          description: The ID of the entity that performed the action. This will depend on the type of entity, as it could either be a Censys user ID or an ASM workspace ID.
+          type: string
+        type:
+          description: The type of entity that performed the action.
+          enum:
+          - unknown
+          - user
+          - system
+          - customer_support
+          - asm_workspace
+          type: string
+      required:
+      - type
+      type: object
+    ErrorModel:
+      additionalProperties: false
+      properties:
+        detail:
+          description: A human-readable explanation specific to this occurrence of the problem.
+          examples:
+          - Property foo is required but is missing.
+          type: string
+        errors:
+          description: Optional list of individual error details
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
+          type:
+          - array
+          - 'null'
+        instance:
+          description: A URI reference that identifies the specific occurrence of the problem.
+          examples:
+          - https://example.com/error-log/abc123
+          format: uri
+          type: string
+        status:
+          description: HTTP status code
+          examples:
+          - 400
+          format: int64
+          type: integer
+        title:
+          description: A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
+          examples:
+          - Bad Request
+          type: string
+        type:
+          default: about:blank
+          description: A URI reference to human-readable documentation for the error.
+          examples:
+          - https://example.com/errors/example
+          format: uri
+          type: string
+      type: object
+    UserCredits:
+      additionalProperties: false
+      properties:
+        balance:
+          description: The current credit balance for the user.
+          format: int64
+          type: integer
+        resets_at:
+          description: The date that the user's credits will be reset.
+          format: date-time
+          type: string
+      required:
+      - balance
       type: object
     OrganizationCredits:
       additionalProperties: false
@@ -1327,93 +1415,6 @@ components:
       - balance
       - auto_replenish_config
       - credit_expirations
-      - uid
-      type: object
-    AutoReplenishConfig:
-      additionalProperties: false
-      properties:
-        amount:
-          description: The amount of credits to replenish when auto-replenish is triggered.
-          format: int64
-          type: integer
-        enabled:
-          description: Whether the organization has auto-replenish enabled.
-          type: boolean
-        threshold:
-          description: The threshold at which the organization's credit balance will be auto-replenished.
-          format: int64
-          type: integer
-      required:
-      - enabled
-      type: object
-    SourceUsageBreakdown:
-      additionalProperties: false
-      properties:
-        api:
-          description: The amount of credits consumed through the Platform API.
-          format: int64
-          type: integer
-        auto_replenishment:
-          description: The amount of credits consumed through auto-replenishment.
-          format: int64
-          type: integer
-        other:
-          description: The amount of credits consumed through other operations.
-          format: int64
-          type: integer
-        ui:
-          description: The amount of credits consumed through the Platform UI.
-          format: int64
-          type: integer
-      required:
-      - ui
-      - api
-      type: object
-    OrganizationMembersList:
-      additionalProperties: false
-      properties:
-        members:
-          description: The list of members in the organization.
-          items:
-            $ref: '#/components/schemas/OrganizationMember'
-          type:
-          - array
-          - 'null'
-        pagination:
-          $ref: '#/components/schemas/PaginationInfo'
-          description: Pagination information for listing more members.
-      required:
-      - members
-      - pagination
-      type: object
-    ResponseEnvelopeOrganizationCredits:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/OrganizationCredits'
-      type: object
-    OrganizationDetails:
-      additionalProperties: false
-      properties:
-        created_at:
-          description: The date and time the organization was created.
-          format: date-time
-          type: string
-        member_counts:
-          $ref: '#/components/schemas/MemberCounts'
-          description: The number of members in the organization, split by role.
-        name:
-          description: The name of the organization.
-          type: string
-        preferences:
-          $ref: '#/components/schemas/OrganizationPreferences'
-          description: The configured preferences of the organization.
-        uid:
-          description: The ID of a Censys organization.
-          format: uuid
-          type: string
-      required:
-      - name
       - uid
       type: object
     CreditUsageReportPeriod:
@@ -1450,6 +1451,80 @@ components:
       - credits_added
       - credits_expired
       - transaction_count
+      type: object
+    ResponseEnvelopeOrganizationDetails:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/OrganizationDetails'
+      type: object
+    ResponseEnvelopeOrganizationCredits:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/OrganizationCredits'
+      type: object
+    InviteMemberInputBody:
+      additionalProperties: false
+      properties:
+        email:
+          description: Email of the user
+          examples:
+          - user@example.com
+          format: email
+          type: string
+      required:
+      - email
+      type: object
+    AuthenticationErrorDetail:
+      additionalProperties: false
+      properties:
+        code:
+          description: HTTP status code
+          examples:
+          - 401
+          format: int64
+          type: integer
+        message:
+          description: Human-readable message describing the error occurrence
+          examples:
+          - Access credentials are invalid
+          type: string
+        reason:
+          description: Human-readable explanation of the underlying cause of the error
+          examples:
+          - Access token is not active
+          type: string
+        request:
+          type: string
+        status:
+          description: HTTP status message associated with the error
+          examples:
+          - Unauthorized
+          type: string
+      type: object
+    ResponseEnvelopeUserCredits:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/UserCredits'
+      type: object
+    UpdateMemberRoleInputBody:
+      additionalProperties: false
+      properties:
+        roles:
+          description: Array of role identifiers to assign to the user
+          items:
+            enum:
+            - admin
+            - api_access
+            type: string
+          minItems: 0
+          type:
+          - array
+          - 'null'
+      required:
+      - roles
       type: object
     CreditUsageReport:
       additionalProperties: false
@@ -1511,6 +1586,53 @@ components:
       - periods
       - credits_consumed_by_source
       type: object
+    ResponseEnvelopeOrganizationMembersList:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/OrganizationMembersList'
+      type: object
+    OrganizationMembersList:
+      additionalProperties: false
+      properties:
+        members:
+          description: The list of members in the organization.
+          items:
+            $ref: '#/components/schemas/OrganizationMember'
+          type:
+          - array
+          - 'null'
+        pagination:
+          $ref: '#/components/schemas/PaginationInfo'
+          description: Pagination information for listing more members.
+      required:
+      - members
+      - pagination
+      type: object
+    OrganizationDetails:
+      additionalProperties: false
+      properties:
+        created_at:
+          description: The date and time the organization was created.
+          format: date-time
+          type: string
+        member_counts:
+          $ref: '#/components/schemas/MemberCounts'
+          description: The number of members in the organization, split by role.
+        name:
+          description: The name of the organization.
+          type: string
+        preferences:
+          $ref: '#/components/schemas/OrganizationPreferences'
+          description: The configured preferences of the organization.
+        uid:
+          description: The ID of a Censys organization.
+          format: uuid
+          type: string
+      required:
+      - name
+      - uid
+      type: object
     PaginationInfo:
       additionalProperties: false
       properties:
@@ -1524,71 +1646,53 @@ components:
       required:
       - page_size
       type: object
-    ResponseEnvelopeAuditLogEventsResponse:
+    OrganizationMember:
       additionalProperties: false
       properties:
-        result:
-          $ref: '#/components/schemas/AuditLogEventsResponse'
-      type: object
-    InviteMemberInputBody:
-      additionalProperties: false
-      properties:
+        created_at:
+          description: The date and time the user was created.
+          format: date-time
+          type: string
         email:
-          description: Email of the user
-          examples:
-          - user@example.com
-          format: email
+          description: The email of the user.
           type: string
-      required:
-      - email
-      type: object
-    AuthenticationErrorDetail:
-      additionalProperties: false
-      properties:
-        code:
-          description: HTTP status code
-          examples:
-          - 401
-          format: int64
-          type: integer
-        message:
-          description: Human-readable message describing the error occurrence
-          examples:
-          - Access credentials are invalid
+        first_login_time:
+          description: The date and time the user first logged in.
+          format: date-time
           type: string
-        reason:
-          description: Human-readable explanation of the underlying cause of the error
-          examples:
-          - Access token is not active
+        first_name:
+          description: The first name of the user.
           type: string
-        request:
+        last_name:
+          description: The last name of the user.
           type: string
-        status:
-          description: HTTP status message associated with the error
-          examples:
-          - Unauthorized
+        latest_login_time:
+          description: The date and time the user last logged in.
+          format: date-time
           type: string
-      type: object
-    AuditLogEventsResponse:
-      additionalProperties: false
-      properties:
-        events:
-          description: The page of audit log events for the requested filters and pagination parameters.
+        roles:
+          description: The roles this member has in the organization.
           items:
-            $ref: '#/components/schemas/AuditLogEvent'
+            type: string
           type:
           - array
           - 'null'
-        pagination:
-          $ref: '#/components/schemas/PaginationInfo'
-          description: Pagination information for listing more events.
-        total_results:
-          format: int64
-          type: integer
+        uid:
+          description: The ID of a Censys user.
+          format: uuid
+          type: string
       required:
-      - events
-      - pagination
-      - total_results
+      - roles
+      - email
+      - first_name
+      - last_name
+      - uid
+      type: object
+    ResponseEnvelopeCreditUsageReport:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/CreditUsageReport'
       type: object
     AuthenticationError:
       additionalProperties: false
@@ -1596,56 +1700,6 @@ components:
         error:
           $ref: '#/components/schemas/AuthenticationErrorDetail'
           description: Detailed information about the authentication error
-      type: object
-    CreditExpiration:
-      additionalProperties: false
-      properties:
-        balance:
-          description: The current balance of the credit expiration.
-          format: int64
-          type: integer
-        created_at:
-          description: The date and time the credit expiration was created.
-          format: date-time
-          type: string
-        expires_at:
-          description: The date and time the credit expiration will expire.
-          format: date-time
-          type: string
-        initial_balance:
-          description: The initial balance of the credit expiration (i.e. how much was purchased).
-          format: int64
-          type: integer
-      required:
-      - balance
-      - initial_balance
-      type: object
-    OrganizationPreferences:
-      additionalProperties: false
-      properties:
-        ai_opt_in:
-          description: Whether the organization has opted into AI features.
-          type: boolean
-        ai_training:
-          description: Whether the organization has opted into AI training.
-          type: boolean
-        mfa_required:
-          description: Whether the organization has opted into multi-factor authentication.
-          type: boolean
-      type: object
-    UserCredits:
-      additionalProperties: false
-      properties:
-        balance:
-          description: The current credit balance for the user.
-          format: int64
-          type: integer
-        resets_at:
-          description: The date that the user's credits will be reset.
-          format: date-time
-          type: string
-      required:
-      - balance
       type: object
     SubjectInfo:
       additionalProperties: false
@@ -1675,6 +1729,29 @@ components:
           type: string
       required:
       - type
+      type: object
+    CreditExpiration:
+      additionalProperties: false
+      properties:
+        balance:
+          description: The current balance of the credit expiration.
+          format: int64
+          type: integer
+        created_at:
+          description: The date and time the credit expiration was created.
+          format: date-time
+          type: string
+        expires_at:
+          description: The date and time the credit expiration will expire.
+          format: date-time
+          type: string
+        initial_balance:
+          description: The initial balance of the credit expiration (i.e. how much was purchased).
+          format: int64
+          type: integer
+      required:
+      - balance
+      - initial_balance
       type: object
     AuditLogEvent:
       additionalProperties: false
@@ -1777,38 +1854,43 @@ components:
         value:
           description: The value at the given location
       type: object
-    ResponseEnvelopeCreditUsageReport:
+    AutoReplenishConfig:
       additionalProperties: false
       properties:
-        result:
-          $ref: '#/components/schemas/CreditUsageReport'
-      type: object
-    ActorInfo:
-      additionalProperties: false
-      properties:
-        email:
-          description: The email of the entity that performed the action.
-          type: string
-        id:
-          description: The ID of the entity that performed the action. This will depend on the type of entity, as it could either be a Censys user ID or an ASM workspace ID.
-          type: string
-        type:
-          description: The type of entity that performed the action.
-          enum:
-          - unknown
-          - user
-          - system
-          - customer_support
-          - asm_workspace
-          type: string
+        amount:
+          description: The amount of credits to replenish when auto-replenish is triggered.
+          format: int64
+          type: integer
+        enabled:
+          description: Whether the organization has auto-replenish enabled.
+          type: boolean
+        threshold:
+          description: The threshold at which the organization's credit balance will be auto-replenished.
+          format: int64
+          type: integer
       required:
-      - type
+      - enabled
       type: object
-    ResponseEnvelopeOrganizationDetails:
+    AuditLogEventsResponse:
       additionalProperties: false
       properties:
-        result:
-          $ref: '#/components/schemas/OrganizationDetails'
+        events:
+          description: The page of audit log events for the requested filters and pagination parameters.
+          items:
+            $ref: '#/components/schemas/AuditLogEvent'
+          type:
+          - array
+          - 'null'
+        pagination:
+          $ref: '#/components/schemas/PaginationInfo'
+          description: Pagination information for listing more events.
+        total_results:
+          format: int64
+          type: integer
+      required:
+      - events
+      - pagination
+      - total_results
       type: object
     MemberCounts:
       additionalProperties: false
@@ -1833,110 +1915,28 @@ components:
       - total
       - by_role
       type: object
-    UpdateMemberRoleInputBody:
+    SourceUsageBreakdown:
       additionalProperties: false
       properties:
-        roles:
-          description: Array of role identifiers to assign to the user
-          items:
-            enum:
-            - admin
-            - api_access
-            type: string
-          minItems: 0
-          type:
-          - array
-          - 'null'
-      required:
-      - roles
-      type: object
-    ErrorModel:
-      additionalProperties: false
-      properties:
-        detail:
-          description: A human-readable explanation specific to this occurrence of the problem.
-          examples:
-          - Property foo is required but is missing.
-          type: string
-        errors:
-          description: Optional list of individual error details
-          items:
-            $ref: '#/components/schemas/ErrorDetail'
-          type:
-          - array
-          - 'null'
-        instance:
-          description: A URI reference that identifies the specific occurrence of the problem.
-          examples:
-          - https://example.com/error-log/abc123
-          format: uri
-          type: string
-        status:
-          description: HTTP status code
-          examples:
-          - 400
+        api:
+          description: The amount of credits consumed through the Platform API.
           format: int64
           type: integer
-        title:
-          description: A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
-          examples:
-          - Bad Request
-          type: string
-        type:
-          default: about:blank
-          description: A URI reference to human-readable documentation for the error.
-          examples:
-          - https://example.com/errors/example
-          format: uri
-          type: string
-      type: object
-    OrganizationMember:
-      additionalProperties: false
-      properties:
-        created_at:
-          description: The date and time the user was created.
-          format: date-time
-          type: string
-        email:
-          description: The email of the user.
-          type: string
-        first_login_time:
-          description: The date and time the user first logged in.
-          format: date-time
-          type: string
-        first_name:
-          description: The first name of the user.
-          type: string
-        last_name:
-          description: The last name of the user.
-          type: string
-        latest_login_time:
-          description: The date and time the user last logged in.
-          format: date-time
-          type: string
-        roles:
-          description: The roles this member has in the organization.
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-        uid:
-          description: The ID of a Censys user.
-          format: uuid
-          type: string
+        auto_replenishment:
+          description: The amount of credits consumed through auto-replenishment.
+          format: int64
+          type: integer
+        other:
+          description: The amount of credits consumed through other operations.
+          format: int64
+          type: integer
+        ui:
+          description: The amount of credits consumed through the Platform UI.
+          format: int64
+          type: integer
       required:
-      - roles
-      - email
-      - first_name
-      - last_name
-      - uid
-      type: object
-    ResponseEnvelopeOrganizationMembersList:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/OrganizationMembersList'
+      - ui
+      - api
       type: object
   securitySchemes:
     PersonalAccessToken:

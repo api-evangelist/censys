@@ -1303,350 +1303,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CommentsList:
-      additionalProperties: false
-      properties:
-        comments:
-          description: The list of comments.
-          items:
-            $ref: '#/components/schemas/Comment'
-          type:
-          - array
-          - 'null'
-        next_page_token:
-          description: Token to retrieve the next page of results. Omitted when there are no more results.
-          type: string
-        total_size:
-          description: Total number of comments matching the filters.
-          format: int64
-          type: integer
-      required:
-      - comments
-      - total_size
-      type: object
-    TagAssignment:
-      additionalProperties: false
-      properties:
-        asset_id:
-          description: The identifier of the tagged asset (host IP, certificate SHA-256 fingerprint, or web property domain/IP:port).
-          type: string
-        asset_type:
-          description: The inferred type of the asset.
-          enum:
-          - host
-          - certificate
-          - web_property
-          - unknown
-          type: string
-        created_at:
-          description: RFC3339 timestamp when the assignment was created.
-          format: date-time
-          type: string
-        created_by:
-          description: The user ID of the user who created the assignment.
-          format: uuid
-          type: string
-        id:
-          description: The unique ID of the assignment.
-          format: uuid
-          type: string
-        platform_ref:
-          description: A direct URL to the asset in the Censys platform.
-          type: string
-        tag_id:
-          description: The ID of the tag.
-          format: uuid
-          type: string
-      required:
-      - id
-      - tag_id
-      - asset_id
-      - asset_type
-      - platform_ref
-      - created_at
-      - created_by
-      type: object
-    ResponseEnvelopeCommentsList:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/CommentsList'
-      type: object
-    ResponseEnvelopeTagAssignment:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/TagAssignment'
-      type: object
-    CreateTagAssignmentInputBody:
-      additionalProperties: false
-      properties:
-        asset_id:
-          description: The identifier of the asset (host IP, certificate SHA-256 fingerprint, or web property hostname:port).
-          examples:
-          - 8.8.8.8
-          - 3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf
-          - platform.censys.io:443
-          type: string
-      required:
-      - asset_id
-      type: object
-    CreateCommentInputBody:
-      additionalProperties: false
-      properties:
-        asset_id:
-          description: The identifier of the asset (host IP, certificate SHA-256 fingerprint, or web property hostname:port).
-          examples:
-          - 8.8.8.8
-          - 3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf
-          - platform.censys.io:443
-          type: string
-        body:
-          description: The comment body text.
-          maxLength: 10000
-          minLength: 1
-          type: string
-      required:
-      - asset_id
-      - body
-      type: object
-    CreateTagInputBody:
-      additionalProperties: false
-      properties:
-        description:
-          description: A human-readable description of the tag.
-          maxLength: 1000
-          type: string
-        name:
-          description: The display name of the tag. Must be unique within the organization.
-          maxLength: 255
-          minLength: 1
-          type: string
-        privacy:
-          description: Tag visibility and management settings. `private` tags are only visible to and editable by organization admins. `shared` tags are visible to and editable by all organization members.
-          enum:
-          - private
-          - shared
-          type: string
-      required:
-      - name
-      - privacy
-      type: object
-    TagsList:
-      additionalProperties: false
-      properties:
-        next_page_token:
-          description: Token to retrieve the next page of results. Omitted when there are no more results.
-          type: string
-        tags:
-          description: The list of tags.
-          items:
-            $ref: '#/components/schemas/Tag'
-          type:
-          - array
-          - 'null'
-        total_size:
-          description: Total number of tags visible to the caller in this organization.
-          format: int64
-          type: integer
-      required:
-      - tags
-      - total_size
-      type: object
-    Tag:
-      additionalProperties: false
-      properties:
-        created_at:
-          description: RFC3339 timestamp when the tag was created.
-          format: date-time
-          type: string
-        created_by:
-          description: The user ID of the user who created the tag.
-          format: uuid
-          type: string
-        description:
-          description: A human-readable description of the tag.
-          type: string
-        id:
-          description: The unique ID of the tag.
-          format: uuid
-          type: string
-        name:
-          description: The display name of the tag.
-          type: string
-        privacy:
-          description: Tag visibility and management settings. `private` tags are only visible to and editable by organization admins. `shared` tags are visible to and editable by all organization members.
-          enum:
-          - private
-          - shared
-          type: string
-        updated_at:
-          description: RFC3339 timestamp when the tag was last updated.
-          format: date-time
-          type: string
-      required:
-      - id
-      - name
-      - privacy
-      - created_at
-      - updated_at
-      - created_by
-      type: object
-    ResponseEnvelopeTagsList:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/TagsList'
-      type: object
-    AuthenticationErrorDetail:
-      additionalProperties: false
-      properties:
-        code:
-          description: HTTP status code
-          examples:
-          - 401
-          format: int64
-          type: integer
-        message:
-          description: Human-readable message describing the error occurrence
-          examples:
-          - Access credentials are invalid
-          type: string
-        reason:
-          description: Human-readable explanation of the underlying cause of the error
-          examples:
-          - Access token is not active
-          type: string
-        request:
-          type: string
-        status:
-          description: HTTP status message associated with the error
-          examples:
-          - Unauthorized
-          type: string
-      type: object
-    AuthenticationError:
-      additionalProperties: false
-      properties:
-        error:
-          $ref: '#/components/schemas/AuthenticationErrorDetail'
-          description: Detailed information about the authentication error
-      type: object
-    TagAssignmentsList:
-      additionalProperties: false
-      properties:
-        assignments:
-          description: The list of tag assignments.
-          items:
-            $ref: '#/components/schemas/TagAssignment'
-          type:
-          - array
-          - 'null'
-        next_page_token:
-          description: Token to retrieve the next page of results. Omitted when there are no more results.
-          type: string
-        total_size:
-          description: Total number of assignments matching the filters.
-          format: int64
-          type: integer
-      required:
-      - assignments
-      - total_size
-      type: object
-    ResponseEnvelopeComment:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/Comment'
-      type: object
-    UpdateCommentInputBody:
-      additionalProperties: false
-      properties:
-        body:
-          description: The updated comment body text.
-          maxLength: 10000
-          minLength: 1
-          type: string
-      required:
-      - body
-      type: object
-    UpdateTagInputBody:
-      additionalProperties: false
-      properties:
-        description:
-          description: New description.
-          maxLength: 1000
-          type: string
-        name:
-          description: New display name. Must be unique within the organization.
-          maxLength: 255
-          minLength: 1
-          type: string
-        privacy:
-          description: Tag visibility and management settings. `private` tags are only visible to and editable by organization admins. `shared` tags are visible to and editable by all organization members.
-          enum:
-          - private
-          - shared
-          type: string
-      type: object
-    ErrorDetail:
-      additionalProperties: false
-      properties:
-        location:
-          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
-          type: string
-        message:
-          description: Error message text
-          type: string
-        value:
-          description: The value at the given location
-      type: object
-    ResponseEnvelopeTagAssignmentsList:
-      additionalProperties: false
-      properties:
-        result:
-          $ref: '#/components/schemas/TagAssignmentsList'
-      type: object
-    ErrorModel:
-      additionalProperties: false
-      properties:
-        detail:
-          description: A human-readable explanation specific to this occurrence of the problem.
-          examples:
-          - Property foo is required but is missing.
-          type: string
-        errors:
-          description: Optional list of individual error details
-          items:
-            $ref: '#/components/schemas/ErrorDetail'
-          type:
-          - array
-          - 'null'
-        instance:
-          description: A URI reference that identifies the specific occurrence of the problem.
-          examples:
-          - https://example.com/error-log/abc123
-          format: uri
-          type: string
-        status:
-          description: HTTP status code
-          examples:
-          - 400
-          format: int64
-          type: integer
-        title:
-          description: A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
-          examples:
-          - Bad Request
-          type: string
-        type:
-          default: about:blank
-          description: A URI reference to human-readable documentation for the error.
-          examples:
-          - https://example.com/errors/example
-          format: uri
-          type: string
-      type: object
     Comment:
       additionalProperties: false
       properties:
@@ -1693,11 +1349,355 @@ components:
       - updated_at
       - created_by
       type: object
+    CreateCommentInputBody:
+      additionalProperties: false
+      properties:
+        asset_id:
+          description: The identifier of the asset (host IP, certificate SHA-256 fingerprint, or web property hostname:port).
+          examples:
+          - 8.8.8.8
+          - 3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf
+          - platform.censys.io:443
+          type: string
+        body:
+          description: The comment body text.
+          maxLength: 10000
+          minLength: 1
+          type: string
+      required:
+      - asset_id
+      - body
+      type: object
+    ErrorModel:
+      additionalProperties: false
+      properties:
+        detail:
+          description: A human-readable explanation specific to this occurrence of the problem.
+          examples:
+          - Property foo is required but is missing.
+          type: string
+        errors:
+          description: Optional list of individual error details
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
+          type:
+          - array
+          - 'null'
+        instance:
+          description: A URI reference that identifies the specific occurrence of the problem.
+          examples:
+          - https://example.com/error-log/abc123
+          format: uri
+          type: string
+        status:
+          description: HTTP status code
+          examples:
+          - 400
+          format: int64
+          type: integer
+        title:
+          description: A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
+          examples:
+          - Bad Request
+          type: string
+        type:
+          default: about:blank
+          description: A URI reference to human-readable documentation for the error.
+          examples:
+          - https://example.com/errors/example
+          format: uri
+          type: string
+      type: object
+    ResponseEnvelopeTagAssignment:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/TagAssignment'
+      type: object
+    CreateTagInputBody:
+      additionalProperties: false
+      properties:
+        description:
+          description: A human-readable description of the tag.
+          maxLength: 1000
+          type: string
+        name:
+          description: The display name of the tag. Must be unique within the organization.
+          maxLength: 255
+          minLength: 1
+          type: string
+        privacy:
+          description: Tag visibility and management settings. `private` tags are only visible to and editable by organization admins. `shared` tags are visible to and editable by all organization members.
+          enum:
+          - private
+          - shared
+          type: string
+      required:
+      - name
+      - privacy
+      type: object
+    TagAssignmentsList:
+      additionalProperties: false
+      properties:
+        assignments:
+          description: The list of tag assignments.
+          items:
+            $ref: '#/components/schemas/TagAssignment'
+          type:
+          - array
+          - 'null'
+        next_page_token:
+          description: Token to retrieve the next page of results. Omitted when there are no more results.
+          type: string
+        total_size:
+          description: Total number of assignments matching the filters.
+          format: int64
+          type: integer
+      required:
+      - assignments
+      - total_size
+      type: object
+    AuthenticationErrorDetail:
+      additionalProperties: false
+      properties:
+        code:
+          description: HTTP status code
+          examples:
+          - 401
+          format: int64
+          type: integer
+        message:
+          description: Human-readable message describing the error occurrence
+          examples:
+          - Access credentials are invalid
+          type: string
+        reason:
+          description: Human-readable explanation of the underlying cause of the error
+          examples:
+          - Access token is not active
+          type: string
+        request:
+          type: string
+        status:
+          description: HTTP status message associated with the error
+          examples:
+          - Unauthorized
+          type: string
+      type: object
     ResponseEnvelopeTag:
       additionalProperties: false
       properties:
         result:
           $ref: '#/components/schemas/Tag'
+      type: object
+    ResponseEnvelopeTagsList:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/TagsList'
+      type: object
+    CreateTagAssignmentInputBody:
+      additionalProperties: false
+      properties:
+        asset_id:
+          description: The identifier of the asset (host IP, certificate SHA-256 fingerprint, or web property hostname:port).
+          examples:
+          - 8.8.8.8
+          - 3daf2843a77b6f4e6af43cd9b6f6746053b8c928e056e8a724808db8905a94cf
+          - platform.censys.io:443
+          type: string
+      required:
+      - asset_id
+      type: object
+    UpdateTagInputBody:
+      additionalProperties: false
+      properties:
+        description:
+          description: New description.
+          maxLength: 1000
+          type: string
+        name:
+          description: New display name. Must be unique within the organization.
+          maxLength: 255
+          minLength: 1
+          type: string
+        privacy:
+          description: Tag visibility and management settings. `private` tags are only visible to and editable by organization admins. `shared` tags are visible to and editable by all organization members.
+          enum:
+          - private
+          - shared
+          type: string
+      type: object
+    Tag:
+      additionalProperties: false
+      properties:
+        created_at:
+          description: RFC3339 timestamp when the tag was created.
+          format: date-time
+          type: string
+        created_by:
+          description: The user ID of the user who created the tag.
+          format: uuid
+          type: string
+        description:
+          description: A human-readable description of the tag.
+          type: string
+        id:
+          description: The unique ID of the tag.
+          format: uuid
+          type: string
+        name:
+          description: The display name of the tag.
+          type: string
+        privacy:
+          description: Tag visibility and management settings. `private` tags are only visible to and editable by organization admins. `shared` tags are visible to and editable by all organization members.
+          enum:
+          - private
+          - shared
+          type: string
+        updated_at:
+          description: RFC3339 timestamp when the tag was last updated.
+          format: date-time
+          type: string
+      required:
+      - id
+      - name
+      - privacy
+      - created_at
+      - updated_at
+      - created_by
+      type: object
+    CommentsList:
+      additionalProperties: false
+      properties:
+        comments:
+          description: The list of comments.
+          items:
+            $ref: '#/components/schemas/Comment'
+          type:
+          - array
+          - 'null'
+        next_page_token:
+          description: Token to retrieve the next page of results. Omitted when there are no more results.
+          type: string
+        total_size:
+          description: Total number of comments matching the filters.
+          format: int64
+          type: integer
+      required:
+      - comments
+      - total_size
+      type: object
+    AuthenticationError:
+      additionalProperties: false
+      properties:
+        error:
+          $ref: '#/components/schemas/AuthenticationErrorDetail'
+          description: Detailed information about the authentication error
+      type: object
+    UpdateCommentInputBody:
+      additionalProperties: false
+      properties:
+        body:
+          description: The updated comment body text.
+          maxLength: 10000
+          minLength: 1
+          type: string
+      required:
+      - body
+      type: object
+    ResponseEnvelopeCommentsList:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/CommentsList'
+      type: object
+    ResponseEnvelopeTagAssignmentsList:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/TagAssignmentsList'
+      type: object
+    TagAssignment:
+      additionalProperties: false
+      properties:
+        asset_id:
+          description: The identifier of the tagged asset (host IP, certificate SHA-256 fingerprint, or web property domain/IP:port).
+          type: string
+        asset_type:
+          description: The inferred type of the asset.
+          enum:
+          - host
+          - certificate
+          - web_property
+          - unknown
+          type: string
+        created_at:
+          description: RFC3339 timestamp when the assignment was created.
+          format: date-time
+          type: string
+        created_by:
+          description: The user ID of the user who created the assignment.
+          format: uuid
+          type: string
+        id:
+          description: The unique ID of the assignment.
+          format: uuid
+          type: string
+        platform_ref:
+          description: A direct URL to the asset in the Censys platform.
+          type: string
+        tag_id:
+          description: The ID of the tag.
+          format: uuid
+          type: string
+      required:
+      - id
+      - tag_id
+      - asset_id
+      - asset_type
+      - platform_ref
+      - created_at
+      - created_by
+      type: object
+    ErrorDetail:
+      additionalProperties: false
+      properties:
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
+          type: string
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
+      type: object
+    ResponseEnvelopeComment:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/Comment'
+      type: object
+    TagsList:
+      additionalProperties: false
+      properties:
+        next_page_token:
+          description: Token to retrieve the next page of results. Omitted when there are no more results.
+          type: string
+        tags:
+          description: The list of tags.
+          items:
+            $ref: '#/components/schemas/Tag'
+          type:
+          - array
+          - 'null'
+        total_size:
+          description: Total number of tags visible to the caller in this organization.
+          format: int64
+          type: integer
+      required:
+      - tags
+      - total_size
       type: object
   securitySchemes:
     PersonalAccessToken:

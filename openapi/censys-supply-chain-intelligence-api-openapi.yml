@@ -416,65 +416,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorDetail:
-      additionalProperties: false
-      properties:
-        location:
-          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
-          type: string
-        message:
-          description: Error message text
-          type: string
-        value:
-          description: The value at the given location
-      type: object
-    AuthenticationErrorDetail:
-      additionalProperties: false
-      properties:
-        code:
-          description: HTTP status code
-          examples:
-          - 401
-          format: int64
-          type: integer
-        message:
-          description: Human-readable message describing the error occurrence
-          examples:
-          - Access credentials are invalid
-          type: string
-        reason:
-          description: Human-readable explanation of the underlying cause of the error
-          examples:
-          - Access token is not active
-          type: string
-        request:
-          type: string
-        status:
-          description: HTTP status message associated with the error
-          examples:
-          - Unauthorized
-          type: string
-      type: object
-    AuthenticationError:
-      additionalProperties: false
-      properties:
-        error:
-          $ref: '#/components/schemas/AuthenticationErrorDetail'
-          description: Detailed information about the authentication error
-      type: object
-    SupplyChainSearchSuppliersPayload:
-      additionalProperties: false
-      properties:
-        suppliers:
-          description: Suppliers matching the search keywords.
-          items:
-            $ref: '#/components/schemas/SupplyChainSupplier'
-          type:
-          - array
-          - 'null'
-      required:
-      - suppliers
-      type: object
     SupplyChainAddSuppliersBody:
       additionalProperties: false
       properties:
@@ -498,6 +439,19 @@ components:
       required:
       - supply_chain_id
       - supplier_ids
+      type: object
+    SupplyChainSearchSuppliersPayload:
+      additionalProperties: false
+      properties:
+        suppliers:
+          description: Suppliers matching the search keywords.
+          items:
+            $ref: '#/components/schemas/SupplyChainSupplier'
+          type:
+          - array
+          - 'null'
+      required:
+      - suppliers
       type: object
     SupplyChainSupplier:
       additionalProperties: false
@@ -543,21 +497,17 @@ components:
       - continent
       - status
       type: object
-    SupplyChainsListPayload:
+    ErrorDetail:
       additionalProperties: false
       properties:
-        next_page_token:
-          description: Pagination token for the next page of results, if any.
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
           type: string
-        supply_chain_ids:
-          description: Supply chain IDs for the organization.
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-      required:
-      - supply_chain_ids
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
       type: object
     ErrorModel:
       additionalProperties: false
@@ -599,17 +549,67 @@ components:
           format: uri
           type: string
       type: object
-    ResponseEnvelopeSupplyChainsListPayload:
+    AuthenticationErrorDetail:
       additionalProperties: false
       properties:
-        result:
-          $ref: '#/components/schemas/SupplyChainsListPayload'
+        code:
+          description: HTTP status code
+          examples:
+          - 401
+          format: int64
+          type: integer
+        message:
+          description: Human-readable message describing the error occurrence
+          examples:
+          - Access credentials are invalid
+          type: string
+        reason:
+          description: Human-readable explanation of the underlying cause of the error
+          examples:
+          - Access token is not active
+          type: string
+        request:
+          type: string
+        status:
+          description: HTTP status message associated with the error
+          examples:
+          - Unauthorized
+          type: string
+      type: object
+    AuthenticationError:
+      additionalProperties: false
+      properties:
+        error:
+          $ref: '#/components/schemas/AuthenticationErrorDetail'
+          description: Detailed information about the authentication error
+      type: object
+    SupplyChainsListPayload:
+      additionalProperties: false
+      properties:
+        next_page_token:
+          description: Pagination token for the next page of results, if any.
+          type: string
+        supply_chain_ids:
+          description: Supply chain IDs for the organization.
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      required:
+      - supply_chain_ids
       type: object
     ResponseEnvelopeSupplyChainSearchSuppliersPayload:
       additionalProperties: false
       properties:
         result:
           $ref: '#/components/schemas/SupplyChainSearchSuppliersPayload'
+      type: object
+    ResponseEnvelopeSupplyChainsListPayload:
+      additionalProperties: false
+      properties:
+        result:
+          $ref: '#/components/schemas/SupplyChainsListPayload'
       type: object
   securitySchemes:
     PersonalAccessToken:

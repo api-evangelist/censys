@@ -166,33 +166,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorDetail:
-      additionalProperties: false
-      properties:
-        location:
-          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
-          type: string
-        message:
-          description: Error message text
-          type: string
-        value:
-          description: The value at the given location
-      type: object
-    WebPropertyIdentifier:
-      additionalProperties: false
-      properties:
-        hostname:
-          description: Hostname of the web property
-          type: string
-        port:
-          description: Port of the web property
-          format: int32
-          minimum: 0
-          type: integer
-      required:
-      - hostname
-      - port
-      type: object
     ListExcludedAssetsOutputBody:
       additionalProperties: false
       properties:
@@ -263,6 +236,18 @@ components:
           description: Web property (hostname and port)
       required:
       - id
+      type: object
+    ErrorDetail:
+      additionalProperties: false
+      properties:
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
+          type: string
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
       type: object
     ErrorModel:
       additionalProperties: false
@@ -353,6 +338,21 @@ components:
         web_property:
           $ref: '#/components/schemas/WebPropertyIdentifier'
           description: Web property (hostname and port)
+      type: object
+    WebPropertyIdentifier:
+      additionalProperties: false
+      properties:
+        hostname:
+          description: Hostname of the web property
+          type: string
+        port:
+          description: Port of the web property
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - hostname
+      - port
       type: object
   securitySchemes:
     PersonalAccessToken:
