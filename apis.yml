@@ -415,7 +415,7 @@ apis:
   humanURL: https://docs.censys.com/reference
   baseURL: https://api.platform.censys.io
   tags:
-  - Seed
+  - Seeds
   tags_raw:
   - Seeds
   properties:
@@ -602,6 +602,9 @@ apis:
   - type: JSONLD
     url: json-ld/censys-asset-graph-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/censys-capability-edges.yml
+    name: Censys Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/censys/overview
   - type: AgenticAccess
