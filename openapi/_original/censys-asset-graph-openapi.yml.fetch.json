@@ -1,0 +1,12 @@
+{
+ "url": "https://graph.data.censys.io/openapi.json",
+ "requested_url": "https://graph.data.censys.io/openapi.json",
+ "status": 200,
+ "content_type": "application/vnd.oai.openapi+json",
+ "bytes": 257751,
+ "sha256": "0ec7aee33cc31c9db7f00425763d08d85e7aeb06d3e9203b328556792f3708fa",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
