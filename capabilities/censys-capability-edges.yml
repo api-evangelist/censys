@@ -1,0 +1,58 @@
+slug: censys
+provider: Censys
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Adversary Investigation
+  spec_file: censys-adversary-investigation-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.9
+  evidence: '"Endpoints related to the Adversary Investigation product"; "Censys List Active Threats";
+    "Censys Get Threat History for a Host"; "Censys Live Discovery: Initiate a New Scan"; schema ThreatListItem'
+  reason: Threat hunting, threat history per host/web property, pivot analysis and live scanning are plainly
+    threat detection and investigation operations, the core of SOC threat detection & response.
+- tag: Threat Hunting
+  spec_file: censys-threat-hunting-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.88
+  evidence: '''Endpoints related to the Adversary Investigation product''; ''Censys List Active Threats'';
+    ''Censys Get Threat History for a Host''; ''CensEye: Create a Pivot Analysis Job'''
+  reason: Operations support adversary investigation, threat listing and host threat history — security
+    threat detection and investigation work, mapping to Threat Detection & Response Management. Slight
+    ambiguity only as to whether it is detection versus broader security analytics.
+- tag: Asset Graphs
+  spec_file: censys-asset-graphs-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: '"The Asset Graph API provides comprehensive visibility into your Internet-facing assets.";
+    "Censys Create an Asset Graph"; schema GraphExecution'
+  reason: Creates and manages graphs that discover and inventory an organisation's internet-facing attack
+    surface — a cybersecurity capability. Evidence does not clearly name a single sub-capability (attack-surface
+    discovery sits between vulnerability management and security architecture), so only the L1 is asserted.
+- tag: Global Data
+  spec_file: censys-global-data-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: '"Endpoints related to the Global Data product"; "Censys Get a Host"; "Censys Get Service
+    History for a Host"; "Censys Retrieve Multiple Certificates in PEM Format"'
+  reason: Serves the global internet intelligence dataset (hosts, services, certificates, web properties)
+    used for security research and exposure analysis; it is a cybersecurity data capability. The data
+    could feed detection or vulnerability workflows, so no single L2 is asserted.
