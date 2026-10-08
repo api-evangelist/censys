@@ -204,3 +204,52 @@ plans:
       - name: On-demand scanning (live discovery)
       - name: All Security Operations features
       - name: Adversary investigation tooling
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - period
+  - request
+  plans:
+  - name: Free Community
+    access: freemium
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    - request
+    periods:
+    - month
+  - name: Individual
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    - period
+    periods:
+    - month
+    - per-use
+  - name: Security Operations
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    - period
+    periods:
+    - per-use
+    - year
+  - name: Threat Hunting
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    - period
+    - request
+    periods:
+    - month
+    - year
