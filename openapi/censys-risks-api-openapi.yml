@@ -91,6 +91,14 @@ components:
       - name
       - added_at
       type: object
+    Reference:
+      additionalProperties: false
+      properties:
+        link:
+          type: string
+      required:
+      - link
+      type: object
     ErrorModel:
       additionalProperties: false
       properties:
@@ -149,14 +157,6 @@ components:
           type: string
         value:
           description: The value at the given location
-      type: object
-    Reference:
-      additionalProperties: false
-      properties:
-        link:
-          type: string
-      required:
-      - link
       type: object
   securitySchemes:
     PersonalAccessToken:
