@@ -10414,3 +10414,9 @@ x-speakeasy-globals:
     schema:
       type: string
     x-speakeasy-globals-hidden: true
+x-provenance:
+  method: harvested
+  publisher: Censys
+  source: https://graph.data.censys.io/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
